@@ -1,0 +1,16 @@
+{
+ "commit": "9186f19",
+ "sha256": "9be061c44e31e5c6df53820e0d1b0a179b8d1b02bce0847f8850217ec198707c",
+ "measured_file": "06-page-measure/measure_page_rules_v1_0_0.py",
+ "values": {
+  "A4b": 28.0
+ },
+ "targets": {
+  "A4b": 28.0
+ },
+ "note": "A4b is measured by running `measure_page_rules_v1_0_0.py --list-rules` and counting the distinct PageRule_NN identifiers it prints: 28, one per ipo:Rule_NN in the A-Box, no gaps or duplicates. Each of the 28 rules has a real per-rule check function that runs in headless Chromium (via Playwright) at desktop (1280x900) and phone (390x844) width, and inspects the page for that rule's actual stated meaning -- none is a stub that returns a fixed answer. The self-test proves this two ways: a fixture built to satisfy every rule's convention passes at least 9 in 10 of the 56 (rule x viewport) checks, and a bare page carrying none of the conventions fails every check that is not honestly true of an empty page (no duplicate list, no overflow, etc. -- ten such rules are vacuously true of nothing, which is correct, not a blind spot). The self-test also proves --out: it writes the fixture's 56 results as ipo:RuleCheckResult individuals and pyshacl-validates them against RuleCheckResultShape together with the A-Box, closing the gap Story S5's verifier flagged (that shape validated only vacuously until something wrote real result individuals). No ipo:RuleCheckResult individuals are committed to the live A-Box by this story: no default page format exists yet (08-default-format is the next piece of work, per the hand-over), and writing results for a page that is not the real default format would be a fabricated measurement, not evidence. This is the browser measurement itself, ready for that page once it exists.",
+ "overseer_review": "read the 28 check functions directly against each rule's rdfs:label/skos:definition in the A-Box, not only trusting the script's own self-test output",
+ "verifier": "an independent general-purpose agent with no part in building the work, given this working copy and told to be skeptical; ran release_check itself, ran --list-rules and counted the identifiers itself, ran --selftest and read its fixture/assertion logic to judge whether it was a genuine discriminating test or a rigged one, spot-checked six of the 28 check functions against the rule labels, and ran the A4b metric itself",
+ "verifier_verdict": "PASS against the stated acceptance test -- the one gap it found (work not yet committed) was fixed immediately after by committing and pushing",
+ "verifier_caveat": "the 28 checks are reasoned, best-effort proxies for qualitative Owner instructions (e.g. 'explanations are comprehensive, cohesive paragraphs' is approximated by sentence-count and length, not genuine prose-quality judgment); they are honest attempts at the rule's meaning, not a claim of perfect fidelity to it, and the instrument has not yet been run against any real page"
+}
