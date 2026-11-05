@@ -457,6 +457,19 @@ pcl:Finding3_BuildBeforeStart_S1_S2 a backlog:RetrospectiveFinding ;
     backlog:relatesToWorkItem pcl:Story3_S1,
         pcl:Story3_S2 .
 
+pcl:Finding3_IneffectiveMaintenanceMetrics_S3_S4_S14_S15 a backlog:RetrospectiveFinding ;
+    rdfs:label "Taking the first bracketing reading for the lineage's broad maintenance metrics (Conf, Contained, X1-X6, A9) exposes drift against stories closed before any such reading existed"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-05T12:05:00+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "Disclosed here, not interpreted or fixed. Recording that the pattern was seen and considered is what this shape requires; deciding whether to narrow metricMovableBy to the objectives each story actually pursues, or to leave the broad linkage and expect this kind of drift on every future first-reading, is the Owner's or the framework's call, not this session's to make unasked."^^xsd:string ;
+    backlog:hasRootCause "Obj3_Conf, Obj3_Contained, Obj3_X1 through Obj3_X6 and Obj3_A9 all hold backlog:metricMovableBy links to every story of this lineage, S3, S4 and S14 included, as a blanket default recorded when the register was built -- not because each of those stories specifically targeted these broad maintenance/exclusion-tracking metrics. No observation of any of these objectives existed at or after any of those stories' own finishedAt until Story S15's finish recorded one (needed to satisfy CorrectiveActionMeasuredOnCloseShape for Story S15 itself, which shares the same metricMovableBy links). That one new reading is now the nearest 'after' observation for S3, S4 and S14 too, and for at least one of these Hold-direction objectives it differs from the reading that was nearest their own start -- which is what IneffectiveCorrectiveAttemptAdvisoryShape/CorrectiveActionMeasuredOnCloseShape detect. This is a structural consequence of the blanket metricMovableBy linkage finally being checked for the first time, not a defect introduced by Story S15's own work, and not a claim that any of these four stories failed at something they were trying to do."^^xsd:string ;
+    backlog:relatesToWorkItem pcl:Story3_S14,
+        pcl:Story3_S15,
+        pcl:Story3_S3,
+        pcl:Story3_S4 .
+
 pcl:Gap_PageConditions_Suspension a backlog:BlueprintGap ;
     rdfs:label "No coverage: life-cycle stage Suspension"@en ;
     backlog:gapForEntity pcl:DomainEntity_PageConditions ;
@@ -5615,26 +5628,6 @@ pcl:Mission a backlog:Mission ;
     rdfs:comment "DRAFT by an assistant session; the Owner accepted the recommendation of 2026-11-02 (the gap analysis, section E); not owner-worded (Lineage Operating Discipline: session-drafted)."^^xsd:string,
         "Replaced on 2026-11-04 by Mission 2: it was not set properly (it left out the default page format and treated the course page as the page to prove). Kept as the record of what was believed." .
 
-pcl:Story3_S15 a backlog:Story ;
-    rdfs:label "Build the one browser measurement in IPage that reads a page against every rule"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S15 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S15"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:InProgress ;
-    backlog:hasTitle "Build the one browser measurement in IPage that reads a page against every rule"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A4b ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D12 ;
-    backlog:startedAt "2026-11-05T11:24:15+00:00"^^xsd:dateTime .
-
 pcl:Story3_S5 a backlog:Story ;
     rdfs:label "Make each rule a shape a page can be checked against"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
@@ -5654,6 +5647,26 @@ pcl:Story3_S5 a backlog:Story ;
     backlog:responsible pcl:Run3_Build01 ;
     backlog:satisfiesDeliverable pcl:Del3_D5 ;
     backlog:startedAt "2026-11-05T09:54:11+00:00"^^xsd:dateTime .
+
+pcl:Story3_S15 a backlog:Story ;
+    rdfs:label "Build the one browser measurement in IPage that reads a page against every rule"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S15 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S15"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:InProgress ;
+    backlog:hasTitle "Build the one browser measurement in IPage that reads a page against every rule"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A4b ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D12 ;
+    backlog:startedAt "2026-11-05T11:24:15+00:00"^^xsd:dateTime .
 
 pcl:Story3_S12 a backlog:Story ;
     rdfs:label "Release each change through the one release path and measure again from a fresh clone"@en ;
@@ -5681,34 +5694,6 @@ pcl:Story3_S12 a backlog:Story ;
         pcl:Obj3_X6 ;
     backlog:responsible pcl:Run3_Build01 ;
     backlog:satisfiesDeliverable pcl:Del3_W1 .
-
-pcl:Story3_S3 a backlog:Story ;
-    rdfs:label "Record each quality of a good page and tie it to the parts it applies to"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:approvedBy pcl:Run3_Approver_S3 ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:finishedAt "2026-11-04T14:18:17+00:00"^^xsd:dateTime ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S3 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasEvidence pcl:Ev3_Done_S3 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S3"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "Record each quality of a good page and tie it to the parts it applies to"@en ;
-    backlog:integrityLevel 2 ;
-    backlog:lastAuditedAt "2026-11-04T14:18:17+00:00"^^xsd:dateTime ;
-    backlog:memberOfContainer pcl:Backlog,
-        pcl:Rel3_S3 ;
-    backlog:notYetScoreable true ;
-    backlog:overseenBy pcl:Run3_Oversight_S3 ;
-    backlog:pursuesObjective pcl:Obj3_A2 ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D3 ;
-    backlog:startedAt "2026-11-04T10:18:51+00:00"^^xsd:dateTime ;
-    backlog:verifiedBy pcl:Run3_Verifier_S3 .
 
 pcl:Mission_R2 a backlog:Mission ;
     rdfs:label "Mission 2: one ontology of interactive pages that carries the Owner's page rules"@en ;
@@ -5778,6 +5763,63 @@ pcl:Story3_S2 a backlog:Story ;
     backlog:startedAt "2026-11-04T10:03:51+00:00"^^xsd:dateTime ;
     backlog:verifiedBy pcl:Run3_Verifier .
 
+pcl:Story3_S3 a backlog:Story ;
+    rdfs:label "Record each quality of a good page and tie it to the parts it applies to"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:approvedBy pcl:Run3_Approver_S3 ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:finishedAt "2026-11-04T14:18:17+00:00"^^xsd:dateTime ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S3 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasEvidence pcl:Ev3_Done_S3 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S3"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "Record each quality of a good page and tie it to the parts it applies to"@en ;
+    backlog:integrityLevel 2 ;
+    backlog:lastAuditedAt "2026-11-04T14:18:17+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:Rel3_S3 ;
+    backlog:notYetScoreable true ;
+    backlog:overseenBy pcl:Run3_Oversight_S3 ;
+    backlog:pursuesObjective pcl:Obj3_A2 ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D3 ;
+    backlog:startedAt "2026-11-04T10:18:51+00:00"^^xsd:dateTime ;
+    backlog:verifiedBy pcl:Run3_Verifier_S3 .
+
+pcl:Story3_S1 a backlog:Story ;
+    rdfs:label "Move the page-part classes into one stand-alone ontology"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:approvedBy pcl:Run3_Approver ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:finishedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S1 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasEvidence pcl:Ev3_Done_S1 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S1"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "Move the page-part classes into one stand-alone ontology"@en ;
+    backlog:integrityLevel 2 ;
+    backlog:lastAuditedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:Rel3_S1_S2 ;
+    backlog:notYetScoreable true ;
+    backlog:overseenBy pcl:Run3_Oversight ;
+    backlog:pursuesObjective pcl:Obj3_A1a,
+        pcl:Obj3_A1c ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D1 ;
+    backlog:startedAt "2026-11-04T10:03:42+00:00"^^xsd:dateTime ;
+    backlog:verifiedBy pcl:Run3_Verifier .
+
 pcl:Story3_S14 a backlog:Story ;
     rdfs:label "Move the page ontology and Lineage 3 into the IPage repository"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
@@ -5834,35 +5876,6 @@ pcl:Story3_S4 a backlog:Story ;
     backlog:satisfiesDeliverable pcl:Del3_D4 ;
     backlog:startedAt "2026-11-05T06:11:19+00:00"^^xsd:dateTime ;
     backlog:verifiedBy pcl:Run3_Verifier_S4 .
-
-pcl:Story3_S1 a backlog:Story ;
-    rdfs:label "Move the page-part classes into one stand-alone ontology"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:approvedBy pcl:Run3_Approver ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:finishedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S1 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasEvidence pcl:Ev3_Done_S1 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S1"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "Move the page-part classes into one stand-alone ontology"@en ;
-    backlog:integrityLevel 2 ;
-    backlog:lastAuditedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime ;
-    backlog:memberOfContainer pcl:Backlog,
-        pcl:Rel3_S1_S2 ;
-    backlog:notYetScoreable true ;
-    backlog:overseenBy pcl:Run3_Oversight ;
-    backlog:pursuesObjective pcl:Obj3_A1a,
-        pcl:Obj3_A1c ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D1 ;
-    backlog:startedAt "2026-11-04T10:03:42+00:00"^^xsd:dateTime ;
-    backlog:verifiedBy pcl:Run3_Verifier .
 
 pcl:Scope a backlog:ScopeStatement ;
     rdfs:label "Scope: the page conditions of RDODI"@en ;
