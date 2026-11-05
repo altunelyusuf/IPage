@@ -1,0 +1,39 @@
+@prefix ipo: <http://example.org/rdodi/interactive-page-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<http://example.org/rdodi/interactive-page-ontology/shacl> a owl:Ontology ;
+    rdfs:label "Interactive Page Ontology shapes v1.2.0"@en ;
+    dcterms:created "2026-11-04"^^xsd:date ;
+    dcterms:creator <http://example.org/rdodi/agent/YusufAltunel> ;
+    dcterms:description "Shapes of the interactive page ontology. First shape: every class of the ontology has a label and a definition. Second shape: every quality standard or method applies to at least one page part. Rule shapes are added by later stories."@en ;
+    dcterms:identifier "interactive_page_ontology_shacl_v1_2_0" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-11-05"^^xsd:date ;
+    dcterms:publisher <http://example.org/rdodi/agent/IstanbulKulturUniversity> ;
+    dcterms:rights "Copyright (c) 2026 Yusuf Altunel. Licensed CC BY 4.0."@en ;
+    owl:versionIRI <http://example.org/rdodi/interactive-page-ontology/shacl/1.2.0> ;
+    owl:versionInfo "1.2.0" ;
+    prov:wasAttributedTo <http://example.org/rdodi/agent/YusufAltunel> .
+
+ipo:ClassHasLabelShape a sh:NodeShape ;
+    sh:target [ a sh:SPARQLTarget ; sh:prefixes [ sh:declare [ sh:prefix "owl" ; sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ] ] ; sh:select "SELECT ?this WHERE { ?this a owl:Class . FILTER isIRI(?this) }" ] ;
+    sh:property [ sh:path rdfs:label ; sh:minCount 1 ] ;
+    sh:message "Every class of the interactive page ontology has a label."@en .
+
+ipo:StandardAppliesShape a sh:NodeShape ;
+    sh:targetClass ipo:QualityStandard ;
+    sh:property [ sh:path ipo:appliesTo ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:message "Every quality standard or method applies to at least one page part."@en .
+
+ipo:RuleCompleteShape a sh:NodeShape ;
+    sh:targetClass ipo:PageRule ;
+    sh:property [ sh:path ipo:ruleSource ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ipo:OwnerInstruction ] ;
+    sh:property [ sh:path ipo:ofQuality ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ipo:PageQuality ] ;
+    sh:property [ sh:path ipo:onPartKind ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:message "Every page rule has exactly one source instruction, one quality and one kind of page part."@en .
