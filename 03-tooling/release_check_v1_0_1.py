@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""release_check_v1_0_0.py - the gate every IPage release passes before it is committed and pushed.
+"""release_check_v1_0_1.py - the gate every IPage release passes before it is committed and pushed.
 
-  python3 03-tooling/release_check_v1_0_0.py                   run every check; exit 0 only if all pass
-  python3 03-tooling/release_check_v1_0_0.py --write-manifest  rewrite MANIFEST_SHA256.txt, then run every check
+  python3 03-tooling/release_check_v1_0_1.py                   run every check; exit 0 only if all pass
+  python3 03-tooling/release_check_v1_0_1.py --write-manifest  rewrite MANIFEST_SHA256.txt, then run every check
 
 Checks, in order:
   1. one live version: each file name stem in 01-ontologies, 02-shacl-safeguards, 03-tooling, 05-lineage and 06-page-measure has one version
      (a changed file gets a new versioned name and the old one leaves; OE BP-D7);
   2. the ontology conforms to its shapes (pyshacl, T-Box as the ontology graph);
-  3. the measurement scripts pass their self-tests;
+  3. the measurement scripts pass their self-tests (05-lineage and 06-page-measure alike);
   4. Lineage 3's register conforms to the backlog framework's shapes, and the lineage holds clean under them;
   5. every recorded verification in the register reproduces (evidence audit), and every closed stage still holds what it closed on (digest audit);
   6. VERSION.txt names a version that has its changelog;
@@ -57,9 +57,10 @@ def main(write):
     r = subprocess.run([sys.executable, "-m", "pyshacl", "-s", sh, "-e", tb, ab], capture_output=True, text=True)
     check("the ontology conforms to its shapes", "Conforms: True" in r.stdout)
     # 3
-    for s in sorted(glob.glob(os.path.join(ROOT, "05-lineage", "measure_*_v*.py"))):
-        r = subprocess.run([sys.executable, s, "--selftest"], capture_output=True, text=True)
-        check("self-test of " + os.path.basename(s), r.returncode == 0)
+    for d in ("05-lineage", "06-page-measure"):
+        for s in sorted(glob.glob(os.path.join(ROOT, d, "measure_*_v*.py"))):
+            r = subprocess.run([sys.executable, s, "--selftest"], capture_output=True, text=True)
+            check("self-test of " + os.path.basename(s), r.returncode == 0)
     # 4
     reg = newest("05-lineage/interactive_page_lineage_abox_v*.ttl"); fw = brsf()
     if not fw: check("the register conforms (backlog framework found)", False, "no backlog-roadmap-framework clone; set BRSF_ROOT")
