@@ -8,15 +8,14 @@ This is the mission of Lineage 3, decided by the Owner on 2026-11-04. On 2026-11
 
 | Folder | Holds |
 |---|---|
-| `01-ontologies` | the T-Box (255 classes under one root, sorted into ten kinds of page part, plus the governance vocabulary for rule-check results) and the A-Box: ten quality standards and methods tied to the page parts they govern, eleven page qualities, and the Owner's 28 page rules, each with its source instruction, its quality and its kind of page part |
+| `01-ontologies` | the T-Box (257 classes under one root, sorted into ten kinds of page part, plus the governance vocabulary for rule-check results, plus the default page format class) and the A-Box: ten quality standards and methods tied to the page parts they govern, eleven page qualities, the Owner's 28 page rules each with its source instruction, its quality and its kind of page part, and the one default page format individual |
 | `02-shacl-safeguards` | the shapes: every class is labelled, every standard applies to a page part, every rule has one source, one quality and one kind of part, every rule has a shape to check a page against, and every rule-check result names its rule, its viewport and its evidence |
 | `03-tooling` | the release check every release passes |
 | `04-documentation` | the changelogs and the session start guide |
 | `05-lineage` | Lineage 3's register and its tools: the step script that records starts and finishes, the check that attests a story, the measurement scripts, the evidence and digest audits, and the extraction that carried the register here |
 | `06-page-measure` | the one browser measurement: reads a page against every one of the Owner's 28 rules at desktop and phone width |
 | `07-handover-inbox` | hand-overs to the session that works here (`pending`, then `accepted`) |
-
-The default page format (`08-default-format`) is the next piece of work.
+| `08-default-format` | the one default page format every new course page starts from unless its profile names its own, built from the ontology and measured to pass every one of the 28 rules |
 
 ## Where it came from
 

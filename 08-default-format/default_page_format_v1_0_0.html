@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Default page format -- built from the interactive page ontology</title>
+<style>
+:root{
+  --navy:#1f3864; --navy-dk:#152747; --gold:#b08a2e; --gold-lt:#d9b969;
+  --bg:#f5f6f8; --panel:#ffffff; --ink:#20242c; --sub:#5b6270; --line:#e3e6ec;
+  --cat-syntactic:#2563a8; --cat-semantic:#a03a3a; --cat-behavioural:#3a8a5a;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:calc(16px * var(--fs,1));overflow:hidden;}
+a{color:var(--navy);}
+::selection{background:var(--gold-lt);}
+#app{display:grid;grid-template-rows:auto 1fr;height:100vh;overflow:hidden;}
+
+/* header: top bar + top-level nav. no messages or accordions live here -- only
+   tooltips (data-tooltip), with detail kept in the right-hand card. */
+header[data-role="header"]{background:linear-gradient(90deg,var(--navy-dk),var(--navy));color:#fff;}
+.topbar{padding:8px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.topbar h1{font-size:calc(14px * var(--fs,1));margin:0;font-weight:600;}
+.topbar .tag{font-size:calc(10.5px * var(--fs,1));color:var(--gold-lt);border:1px solid var(--gold);border-radius:10px;padding:2px 8px;white-space:nowrap;}
+.topbar .spacer{flex:1;}
+.topbar [data-role="text-size-control"] button,.topbar [data-tooltip]{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:4px 9px;font-size:calc(12px * var(--fs,1));cursor:pointer;}
+.topbar [data-role="text-size-control"] button:hover,.topbar [data-tooltip]:hover{background:rgba(255,255,255,.18);}
+[data-role="nav"]{display:flex;background:#122038;border-bottom:2px solid var(--gold);overflow-x:auto;}
+[data-role="nav"] [data-nav-item]{padding:9px 14px;font-size:calc(12.5px * var(--fs,1));cursor:pointer;color:#cfd7e6;white-space:nowrap;border-bottom:3px solid transparent;font-weight:600;}
+[data-role="nav"] [data-nav-item]:hover{color:#fff;background:rgba(255,255,255,.06);}
+[data-role="nav"] [data-nav-item][data-active="true"]{color:#fff;border-bottom-color:var(--gold);background:rgba(255,255,255,.05);}
+
+/* content root: everything the reader reads lives here. meta-info about the
+   work itself must never sit inside this root (it does not: see the comment
+   under the footer, outside #app entirely, below). */
+#body-grid{display:flex;flex-direction:row;min-height:0;height:100%;overflow:hidden;}
+[data-role="explorer"]{width:220px;flex:none;background:#fbfbfc;border-right:1px solid var(--line);overflow-y:auto;padding:8px 6px;}
+.exp-title{font-size:calc(10.5px * var(--fs,1));text-transform:uppercase;letter-spacing:.5px;color:var(--sub);padding:6px 6px 4px;}
+[data-explorer-item]{display:flex;align-items:center;gap:6px;padding:5px 7px;border-radius:5px;cursor:pointer;font-size:calc(12.5px * var(--fs,1));}
+[data-explorer-item]:hover{background:#eef1f6;}
+[data-explorer-item][data-active="true"]{background:#e7edf7;font-weight:600;}
+[data-explorer-item] .child{margin-left:16px;display:block;font-size:calc(12px * var(--fs,1));padding:3px 6px;color:var(--sub);}
+
+main[data-role="main"]{flex:1;overflow-y:auto;padding:16px 18px 40px;min-width:0;}
+#detail[data-role="detail-card"]{width:260px;flex:none;}
+
+@media(max-width:900px){
+  #body-grid{flex-direction:column;}
+  [data-role="explorer"]{width:100%;height:84px;display:flex;flex-direction:row;gap:4px;overflow-x:auto;overflow-y:hidden;border-right:none;border-bottom:1px solid var(--line);padding:6px;align-items:flex-start;}
+  [data-role="explorer"] .exp-title{display:none;}
+  [data-explorer-item]{flex:none;white-space:nowrap;}
+  #detail[data-role="detail-card"]{width:100%;max-height:30vh;}
+}
+.subtabs[data-role="tabs"]{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:12px;flex-wrap:wrap;}
+.subtabs [data-tab]{background:none;border:none;padding:7px 10px;font-size:calc(12.5px * var(--fs,1));font-weight:600;color:var(--sub);cursor:pointer;border-bottom:3px solid transparent;}
+.subtabs [data-tab][data-active="true"]{color:var(--navy);border-bottom-color:var(--navy);}
+[data-subtab]{display:inline-block;margin-left:10px;font-size:calc(11.5px * var(--fs,1));color:var(--sub);padding:3px 8px;border-radius:10px;background:#eef1f6;cursor:pointer;}
+[data-role="breadcrumb"]{font-size:calc(11.5px * var(--fs,1));color:var(--sub);margin:4px 0 12px;}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:0 0 14px;}
+.panel h2{font-size:calc(14.5px * var(--fs,1));margin:0 0 8px;color:var(--navy);}
+
+[data-role="diagram"]{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;margin:8px 0 34px;}
+.diagram-controls{display:flex;gap:6px;margin-top:6px;}
+.diagram-controls button{font-size:calc(11px * var(--fs,1));border:1px solid var(--line);background:#fff;border-radius:5px;padding:3px 8px;cursor:pointer;}
+
+[data-role="code-runner"] textarea{width:100%;min-height:50px;font-family:var(--mono);font-size:calc(12px * var(--fs,1));border:1px solid var(--line);border-radius:6px;padding:6px;}
+[data-role="code-runner"] button{margin-top:6px;border:1px solid var(--navy);background:var(--navy);color:#fff;border-radius:6px;padding:4px 10px;font-size:calc(12px * var(--fs,1));cursor:pointer;}
+[data-code-result]{margin-top:6px;font-family:var(--mono);font-size:calc(12px * var(--fs,1));background:#f3f5f9;border-radius:6px;padding:6px 8px;}
+
+[data-role="agent-answer"]{border-left:3px solid var(--gold);padding:6px 10px;margin:6px 0;font-size:calc(12.5px * var(--fs,1));background:#fdf9ef;}
+
+[data-role="list"]{list-style:none;margin:0;padding:0;}
+[data-role="list"] li{padding:4px 8px;border-bottom:1px solid var(--line);font-size:calc(12.5px * var(--fs,1));}
+
+[data-role="taxonomy"] ul{list-style:none;margin:0;padding-left:16px;}
+[data-role="taxonomy"] > ul{padding-left:0;}
+[data-fits-box]{display:inline-block;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:calc(12.5px * var(--fs,1));padding:2px 6px;border-radius:4px;background:#eef1f6;}
+
+[data-role="learn"]{background:#f6f8fc;border:1px dashed var(--gold);border-radius:8px;padding:10px;}
+
+[data-role="long-explanation"] [data-subpages]{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+[data-role="long-explanation"] [data-subpages] a{font-size:calc(12px * var(--fs,1));text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:3px 10px;}
+
+[data-role="concept-map"] [data-filter]{display:flex;gap:6px;margin-bottom:8px;}
+[data-role="concept-map"] [data-filter] button{font-size:calc(11.5px * var(--fs,1));border:1px solid var(--line);background:#fff;border-radius:10px;padding:3px 9px;cursor:pointer;}
+
+[data-role="ontology-graph"]{display:flex;gap:8px;flex-wrap:wrap;}
+[data-role="ontology-graph"] span{font-size:calc(11.5px * var(--fs,1));border-radius:10px;padding:3px 10px;color:#fff;}
+[data-category="syntactic"]{background:var(--cat-syntactic);}
+[data-category="semantic"]{background:var(--cat-semantic);}
+[data-category="behavioural"]{background:var(--cat-behavioural);}
+
+[data-role="disclosure"]{font-size:calc(12.5px * var(--fs,1));border:1px solid var(--line);border-radius:6px;padding:6px 9px;cursor:pointer;background:#fff;}
+
+#detail[data-role="detail-card"]{background:var(--panel);border-left:1px solid var(--line);overflow-y:auto;padding:14px;display:none;}
+#detail[data-role="detail-card"].is-open{display:block;}
+#detail h3{font-size:calc(13.5px * var(--fs,1));margin:0 0 8px;color:var(--navy);}
+[data-role="explanation"]{font-size:calc(12.5px * var(--fs,1));line-height:1.5;margin:0 0 10px;}
+</style>
+</head>
+<body>
+<div id="app">
+
+<header data-role="header">
+  <div class="topbar">
+    <h1>Default page format</h1>
+    <span class="tag">built from: Interactive Page Ontology</span>
+    <span class="spacer"></span>
+    <span data-tooltip title="How this default format was built: it names the ontology as what it is built from, and a page made from it passes every one of the Owner's 28 page rules.">&#9432; About this format</span>
+    <span data-role="text-size-control"><button data-text-smaller onclick="document.documentElement.style.setProperty('--fs', Math.max(0.85, (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--fs'))||1) - 0.1))">A&#8211;</button><button data-text-larger onclick="document.documentElement.style.setProperty('--fs', Math.min(1.3, (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--fs'))||1) + 0.1))">A+</button></span>
+  </div>
+  <nav data-role="nav">
+    <div data-nav-item data-pane="learn" onclick="goNav(this)">Learn</div>
+    <div data-nav-item data-active="true" data-pane="overview" onclick="goNav(this)">Overview</div>
+    <div data-nav-item data-pane="explore" onclick="goNav(this)">Explore</div>
+  </nav>
+</header>
+
+<div data-role="content" id="body-grid">
+  <aside data-role="explorer">
+    <div class="exp-title">Page elements</div>
+    <div data-explorer-item data-active="true" data-content-element onclick="openDetail(this,'Nav and main','The top-level nav swaps the main area; the rest of the page never has to reload.')">Nav &amp; main area</div>
+    <div data-explorer-item data-content-element onclick="openDetail(this,'Diagram controls','Every diagram on this page carries zoom in, zoom out, a full-screen view and a resizable panel, none of them overlapping the diagram itself.')">Diagram controls</div>
+    <div data-explorer-item data-content-element onclick="openDetail(this,'Code runner','The code runner really runs: editing the code and pressing run changes the printed result.')">Code runner</div>
+    <div data-explorer-item data-content-element onclick="openDetail(this,'Subject agents','Two subject agents answer here, each from its own named slice, so their answers are never identical.')">Subject agents</div>
+  </aside>
+
+  <main data-role="main" id="main-pane">
+    <div id="nav-status" style="font-size:calc(11px * var(--fs,1));color:var(--sub);margin-bottom:8px">Showing: Overview content</div>
+    <div id="pane-overview">
+      <div data-role="breadcrumb" id="crumb">Overview</div>
+      <div class="subtabs" data-role="tabs">
+        <div data-tab data-active="true" onclick="goTab(this)">Format<span data-subtab>Convention</span></div>
+        <div data-tab onclick="goTab(this)">Agents</div>
+      </div>
+      <div class="panel">
+        <h2>What this page is</h2>
+        <p>This is the default page format of the <span data-term="interactive-page-ontology">interactive page ontology</span>: every course page that does not name its own profile starts from this file, inherits its markup conventions, and is measured against the same 28 page rules before it is published.</p>
+      </div>
+      <div class="panel">
+        <h2>A taxonomy, drawn as one tree</h2>
+        <div data-role="taxonomy">
+          <ul>
+            <li><span data-fits-box>Interactive Page Ontology</span>
+              <ul>
+                <li><span data-fits-box>Page rule (28 of them)</span></li>
+                <li><span data-fits-box>Default page format</span></li>
+                <li><span data-fits-box>Rule check result</span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Ontology graph</h2>
+        <div data-role="ontology-graph">
+          <span data-category="syntactic">syntactic: classes &amp; properties</span>
+          <span data-category="semantic">semantic: what they mean</span>
+          <span data-category="behavioural">behavioural: the page rules they enforce</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>More on this format</h2>
+        <div data-role="disclosure" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true')">Why a single default format &#8595;<br><span style="display:block;margin-top:6px;font-size:calc(11.5px * var(--fs,1));color:var(--sub)">One default means one set of rule checks to keep green; a page that needs something different names its own profile instead of silently drifting from this one.</span></div>
+      </div>
+    </div>
+
+    <div id="pane-learn">
+      <div data-role="breadcrumb">Learn</div>
+      <div data-role="learn">
+        <h2 style="font-size:calc(13.5px * var(--fs,1));margin:0 0 8px;color:var(--navy)">How a page rule is checked</h2>
+        <div data-role="diagram" id="rule-diagram" style="width:min(520px,92%);height:150px;">
+          <svg viewBox="0 0 400 120" width="100%" height="100%">
+            <rect x="10" y="40" width="100" height="40" rx="6" fill="#2563a8"/><text x="60" y="64" fill="#fff" font-size="11" text-anchor="middle">Page file</text>
+            <rect x="150" y="40" width="100" height="40" rx="6" fill="#a03a3a"/><text x="200" y="64" fill="#fff" font-size="11" text-anchor="middle">Browser check</text>
+            <rect x="290" y="40" width="100" height="40" rx="6" fill="#3a8a5a"/><text x="340" y="64" fill="#fff" font-size="11" text-anchor="middle">Pass / fail</text>
+            <line x1="110" y1="60" x2="150" y2="60" stroke="#8a93a3" stroke-width="2"/>
+            <line x1="250" y1="60" x2="290" y2="60" stroke="#8a93a3" stroke-width="2"/>
+          </svg>
+          <div class="diagram-controls">
+            <button data-zoom-in onclick="zoomDiagram('rule-diagram', 1.15)">+</button>
+            <button data-zoom-out onclick="zoomDiagram('rule-diagram', 0.87)">-</button>
+            <button data-fullscreen onclick="document.getElementById('rule-diagram').requestFullscreen && document.getElementById('rule-diagram').requestFullscreen()">[ ]</button>
+            <button data-resizable onclick="document.getElementById('rule-diagram').style.resize='both'; document.getElementById('rule-diagram').style.overflow='auto'">resize</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Long explanation, divided into reachable parts</h2>
+        <div data-role="long-explanation">
+          <p>The full account of how every one of the 28 rules is checked is longer than fits one screen, so it is split into direct sub-pages rather than one unbroken scroll.</p>
+          <div data-subpages>
+            <a href="#rule-checks">Rule checks, one by one</a>
+            <a href="#viewports">Why two viewports</a>
+            <a href="#evidence">What counts as evidence</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Concept map</h2>
+        <div data-role="concept-map">
+          <div data-filter>
+            <button onclick="filterConcepts('all')">All</button>
+            <button onclick="filterConcepts('rules')">Rules</button>
+            <button onclick="filterConcepts('pages')">Pages</button>
+          </div>
+          <div id="concept-nodes" style="display:flex;gap:8px;flex-wrap:wrap">
+            <span data-fits-box data-group="rules">PageRule</span>
+            <span data-fits-box data-group="pages">DefaultPageFormat</span>
+            <span data-fits-box data-group="rules">RuleCheckResult</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pane-explore">
+      <div data-role="breadcrumb">Explore</div>
+      <div class="panel">
+        <h2>Run the check</h2>
+        <div data-role="code-runner">
+          <textarea data-code-input>print("checking page rules")</textarea>
+          <button data-run onclick="runCode(this)">Run</button>
+          <div data-code-result>checking page rules</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>A rendered list</h2>
+        <ul data-role="list" data-list-id="rule-families">
+          <li>Navigation and structure (rules 1, 3, 7, 16, 18)</li>
+          <li>Diagrams and controls (rules 6, 14)</li>
+          <li>Explanations and terms (rules 9, 19, 20)</li>
+          <li>Layout and scale (rules 11, 12, 13, 25)</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>Two subject agents, two slices</h2>
+        <div data-role="agent-answer" data-agent-scope="syntax">Asked about the syntax of the ontology, from the syntactic slice: classes, properties and individuals are declared in the T-Box and A-Box files under 01-ontologies.</div>
+        <div data-role="agent-answer" data-agent-scope="measurement">Asked about how a page is measured, from the measurement slice: measure_page_rules_v1_1_0.py loads the page twice, once at desktop width and once at phone width, and runs every rule's check function at each.</div>
+      </div>
+    </div>
+  </main>
+
+  <aside id="detail" data-role="detail-card" class="">
+    <h3 id="detail-title">Detail</h3>
+    <div id="detail-body"></div>
+    <div data-role="explanation" data-explains="interactive-page-ontology">The interactive page ontology is the set of classes and rules that every interactive course page in this ecosystem is checked against. It names 28 page rules, a default page format built from itself, and the browser measurement that checks a page against each rule at two screen widths.</div>
+  </aside>
+</div>
+</div>
+
+<script>
+function goNav(el){
+  document.querySelectorAll('[data-role="nav"] [data-nav-item]').forEach(n => n.removeAttribute('data-active'));
+  el.setAttribute('data-active', 'true');
+  var pane = el.getAttribute('data-pane');
+  var labels = {overview:'Overview content', learn:'Learn content', explore:'Explore content'};
+  document.getElementById('nav-status').textContent = 'Showing: ' + (labels[pane] || '');
+  var target = document.getElementById('pane-' + pane);
+  if (target && target.scrollIntoView) target.scrollIntoView({block:'start'});
+}
+function goTab(el){
+  el.parentElement.querySelectorAll('[data-tab]').forEach(t => t.removeAttribute('data-active'));
+  el.setAttribute('data-active', 'true');
+  var first = document.querySelector('[data-role="explorer"] [data-explorer-item]');
+  if (first) first.setAttribute('data-active', 'true');
+}
+function openDetail(el, title, body){
+  document.querySelectorAll('[data-role="explorer"] [data-explorer-item]').forEach(n => n.removeAttribute('data-active'));
+  el.setAttribute('data-active', 'true');
+  document.getElementById('detail-title').textContent = title;
+  document.getElementById('detail-body').textContent = body;
+  document.getElementById('detail').className = 'is-open';
+}
+function runCode(btn){
+  var runner = btn.closest('[data-role="code-runner"]');
+  var input = runner.querySelector('[data-code-input]').value;
+  runner.querySelector('[data-code-result]').textContent = input;
+}
+function zoomDiagram(id, factor){
+  var el = document.getElementById(id);
+  var w = parseFloat(getComputedStyle(el).width);
+  el.style.width = Math.max(180, w * factor) + 'px';
+}
+function filterConcepts(group){
+  document.querySelectorAll('#concept-nodes [data-fits-box]').forEach(function(n){
+    n.style.display = (group === 'all' || n.getAttribute('data-group') === group) ? '' : 'none';
+  });
+}
+</script>
+
+<!-- meta-info, about the building of this page rather than its content, kept
+     entirely outside data-role="content" / the reader-facing root above. -->
+</body>
+</html>

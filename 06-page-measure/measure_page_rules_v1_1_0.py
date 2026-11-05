@@ -1,22 +1,32 @@
 #!/usr/bin/env python3
-"""measure_page_rules_v1_0_0.py - the one browser measurement: reads a page against every one
+"""measure_page_rules_v1_1_0.py - the one browser measurement: reads a page against every one
 of the Owner's 28 page rules (ipo:Rule_01 .. ipo:Rule_28), at desktop and phone width.
 
-  python3 06-page-measure/measure_page_rules_v1_0_0.py --list-rules
+v1.1.0 (2026-11-05): objective A7b (measure_page_ontology_v2_1_0.py's m_default_pages_passing)
+invokes this instrument with the page path as a bare positional argument and reads its exit
+code as the pass/fail verdict. v1.0.0 only recognised --page (always exiting 0) and had no
+notion of an overall verdict at all -- fixed here, with no change to any rule's check.
+
+  python3 06-page-measure/measure_page_rules_v1_1_0.py --list-rules
       Lists the 28 rules this instrument checks, one per line:
       "PageRule_NN  ipo:Rule_NN  <label>". Objective A4b counts the distinct PageRule
       identifiers in this output; it reads 28 only when every rule in the ontology has
       a check function here.
 
-  python3 06-page-measure/measure_page_rules_v1_0_0.py --page <file-or-url> [--out FILE.ttl]
+  python3 06-page-measure/measure_page_rules_v1_1_0.py <file-or-url> [--out FILE.ttl]
+  python3 06-page-measure/measure_page_rules_v1_1_0.py --page <file-or-url> [--out FILE.ttl]
       Loads the page in headless Chromium at desktop width (1280x900) and phone width
       (390x844), runs every rule's check at each width, and prints one line per
       (rule, viewport) pair: PASS/FAIL, the rule, the viewport, and the evidence read
       from the page. With --out, also writes the 56 ipo:RuleCheckResult individuals
       (28 rules x 2 viewports) as Turtle, each with ipo:checksRule, ipo:passed,
       ipo:atViewport and ipo:evidenceNote (RuleCheckResultShape, 02-shacl-safeguards).
+      The page may be named with --page or as a bare positional argument; either way
+      the process exits 0 only if every one of the 56 (rule, viewport) checks passed,
+      and 1 if any failed -- this is what a caller such as m_default_pages_passing()
+      reads as the page's pass/fail verdict.
 
-  python3 06-page-measure/measure_page_rules_v1_0_0.py --selftest
+  python3 06-page-measure/measure_page_rules_v1_1_0.py --selftest
       Exits 0 only if: the rule list reads exactly 28 distinct identifiers, every one
       of them is backed by a check function, and a small fixture page built to satisfy
       every rule's convention passes every rule at both viewports, while an empty page
@@ -541,8 +551,15 @@ if __name__ == "__main__":
         sys.exit(0 if selftest() else 1)
     if "--list-rules" in a:
         list_rules(); sys.exit(0)
+    page_path = None
     if "--page" in a:
-        p = a[a.index("--page") + 1]
+        page_path = a[a.index("--page") + 1]
+    else:
+        positional = [x for i, x in enumerate(a[1:], start=1) if not x.startswith("--") and a[i - 1] != "--out"]
+        if positional:
+            page_path = positional[0]
+    if page_path:
         out = a[a.index("--out") + 1] if "--out" in a else None
-        measure(p, out); sys.exit(0)
+        results = measure(page_path, out)
+        sys.exit(0 if all(r[3] for r in results) else 1)
     print(__doc__); sys.exit(1)
