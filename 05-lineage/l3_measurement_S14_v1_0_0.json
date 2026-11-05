@@ -1,0 +1,35 @@
+{
+ "commit": "61950a16dd1f3551bdd883ebe90112fa0b7e145e",
+ "sha256": "1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636",
+ "measured_file": "01-ontologies/interactive_page_ontology_abox_v1_2_0.ttl",
+ "values": {
+  "A2": 10.0,
+  "Conf": 0.0,
+  "Contained": 0.0,
+  "X1": 0.0,
+  "X2": 6.0,
+  "X3": 1.0,
+  "X4": 0.0,
+  "X5": 0.0,
+  "X6": 0.0,
+  "A9": 0.0,
+  "A3a": 28.0,
+  "A3b": 28.0,
+  "A11": 4.0
+ },
+ "targets": {
+  "A2": 10.0,
+  "Conf": 0.0,
+  "Contained": 0.0,
+  "X1": 0.0,
+  "X2": 6.0,
+  "X3": 1.0,
+  "X4": 0.0,
+  "X5": 0.0,
+  "X6": 0.0,
+  "A9": 0.0,
+  "A3a": 28.0,
+  "A3b": 28.0,
+  "A11": 4.0
+ }
+}

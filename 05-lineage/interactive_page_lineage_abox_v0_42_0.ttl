@@ -1,6 +1,5 @@
 @prefix agsys: <http://example.org/agentic-systems#> .
 @prefix backlog: <http://example.org/backlog#> .
-@prefix core: <http://example.org/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pcl: <http://example.org/rdodi/page-conditions-lineage#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -131,6 +130,12 @@ pcl:Config3_Verifier a agsys:AgentConfiguration ;
     agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
     agsys:recordedAt "2026-11-04T12:26:25+00:00"^^xsd:dateTime .
 
+pcl:Config3_Verifier_S14 a agsys:AgentConfiguration ;
+    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_S14_brief,
+        pcl:CfgItem3_Verifier_S14_model ;
+    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    agsys:recordedAt "2026-11-05T09:20:40+00:00"^^xsd:dateTime .
+
 pcl:Config3_Verifier_S3 a agsys:AgentConfiguration ;
     agsys:hasConfigurationItem pcl:CfgItem3_Verifier_S3_brief,
         pcl:CfgItem3_Verifier_S3_model ;
@@ -212,6 +217,13 @@ pcl:Ev3_S4_Start a backlog:TransitionEvent ;
     backlog:transitionedByExecutor pcl:Run3_Build01 ;
     backlog:transitionedItem pcl:Story3_S4 ;
     backlog:viaTransition backlog:T_Start .
+
+pcl:Ev3_Story_S14_Complete a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S14 ;
+    backlog:viaTransition backlog:T_Complete .
 
 pcl:Ev3_Story_S1_Complete a backlog:TransitionEvent ;
     backlog:transitionedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime ;
@@ -311,6 +323,13 @@ pcl:Ev3_T_S4_Start a backlog:TransitionEvent ;
     backlog:transitionedItem pcl:T3_S4_Build ;
     backlog:viaTransition backlog:T_Start .
 
+pcl:Ev3_Task_S14_Complete a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:T3_S14_Build ;
+    backlog:viaTransition backlog:T_Complete .
+
 pcl:Ev3_Task_S1_Complete a backlog:TransitionEvent ;
     backlog:transitionedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime ;
     backlog:transitionedBy backlog:Builder ;
@@ -379,6 +398,12 @@ pcl:H3_S1 a backlog:TestHarness ;
     backlog:harnessFor pcl:Story3_S1 ;
     backlog:hasHarnessEvidence pcl:Ev3_Done_S1 ;
     backlog:hasRationale "One criterion, one check: l3_check on A1a,A1c attests AC3_S1."^^xsd:string .
+
+pcl:H3_S14 a backlog:TestHarness ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:harnessFor pcl:Story3_S14 ;
+    backlog:hasHarnessEvidence pcl:Ev3_Done_S14 ;
+    backlog:hasRationale "One criterion, one check: l3_check on A11 attests AC3_S14."^^xsd:string .
 
 pcl:H3_S2 a backlog:TestHarness ;
     backlog:belongsToLineage pcl:Lineage03 ;
@@ -635,6 +660,13 @@ pcl:Obs3_Contained a backlog:MetricObservation ;
     backlog:observedAt "2026-11-04T08:32:23+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_Contained .
 
+pcl:Obs3_Done_A11 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric A11 on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string ;
+    backlog:hasObservedValue 4.0 ;
+    backlog:observationFor pcl:Obj3_A11 ;
+    backlog:observedAt "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A11 .
+
 pcl:Obs3_Done_A1a a backlog:MetricObservation ;
     backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric A1a on commit d6aa9133939e64222a7afc68b47929ef9f96c7fa (file SHA-256 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f)."^^xsd:string ;
     backlog:hasObservedValue 250.0 ;
@@ -657,123 +689,147 @@ pcl:Obs3_Done_A1c a backlog:MetricObservation ;
     backlog:observesMetric pcl:Metric3_A1c .
 
 pcl:Obs3_Done_A2 a backlog:MetricObservation ;
-    backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric A2 on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string ;
+    backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric A2 on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric A2 on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string ;
     backlog:hasObservedValue 10.0 ;
     backlog:observationFor pcl:Obj3_A2 ;
-    backlog:observedAt "2026-11-04T14:18:17+00:00"^^xsd:dateTime ;
+    backlog:observedAt "2026-11-04T14:18:17+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_A2 .
 
 pcl:Obs3_Done_A3a a backlog:MetricObservation ;
-    backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric A3a on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string ;
+    backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric A3a on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric A3a on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string ;
     backlog:hasObservedValue 28.0 ;
     backlog:observationFor pcl:Obj3_A3a ;
-    backlog:observedAt "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+    backlog:observedAt "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_A3a .
 
 pcl:Obs3_Done_A3b a backlog:MetricObservation ;
-    backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric A3b on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string ;
+    backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric A3b on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric A3b on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string ;
     backlog:hasObservedValue 28.0 ;
     backlog:observationFor pcl:Obj3_A3b ;
-    backlog:observedAt "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+    backlog:observedAt "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_A3b .
 
 pcl:Obs3_Done_A9 a backlog:MetricObservation ;
     backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric A9 on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric A9 on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric A9 on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric A9 on commit d6aa9133939e64222a7afc68b47929ef9f96c7fa (file SHA-256 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f)."^^xsd:string ;
     backlog:hasObservedValue 0.0 ;
     backlog:observationFor pcl:Obj3_A9 ;
     backlog:observedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime,
         "2026-11-04T14:18:17+00:00"^^xsd:dateTime,
-        "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+        "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_A9 .
 
 pcl:Obs3_Done_Conf a backlog:MetricObservation ;
     backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric Conf on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric Conf on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric Conf on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric Conf on commit d6aa9133939e64222a7afc68b47929ef9f96c7fa (file SHA-256 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f)."^^xsd:string ;
     backlog:hasObservedValue 0.0 ;
     backlog:observationFor pcl:Obj3_Conf ;
     backlog:observedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime,
         "2026-11-04T14:18:17+00:00"^^xsd:dateTime,
-        "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+        "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_Conf .
 
 pcl:Obs3_Done_Contained a backlog:MetricObservation ;
     backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric Contained on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric Contained on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric Contained on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric Contained on commit d6aa9133939e64222a7afc68b47929ef9f96c7fa (file SHA-256 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f)."^^xsd:string ;
     backlog:hasObservedValue 0.0 ;
     backlog:observationFor pcl:Obj3_Contained ;
     backlog:observedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime,
         "2026-11-04T14:18:17+00:00"^^xsd:dateTime,
-        "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+        "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_Contained .
 
 pcl:Obs3_Done_X1 a backlog:MetricObservation ;
     backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric X1 on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X1 on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric X1 on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X1 on commit d6aa9133939e64222a7afc68b47929ef9f96c7fa (file SHA-256 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f)."^^xsd:string ;
     backlog:hasObservedValue 0.0 ;
     backlog:observationFor pcl:Obj3_X1 ;
     backlog:observedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime,
         "2026-11-04T14:18:17+00:00"^^xsd:dateTime,
-        "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+        "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_X1 .
 
 pcl:Obs3_Done_X2 a backlog:MetricObservation ;
     backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric X2 on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X2 on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric X2 on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X2 on commit d6aa9133939e64222a7afc68b47929ef9f96c7fa (file SHA-256 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f)."^^xsd:string ;
     backlog:hasObservedValue 6.0 ;
     backlog:observationFor pcl:Obj3_X2 ;
     backlog:observedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime,
         "2026-11-04T14:18:17+00:00"^^xsd:dateTime,
-        "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+        "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_X2 .
 
 pcl:Obs3_Done_X3 a backlog:MetricObservation ;
     backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric X3 on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X3 on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric X3 on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X3 on commit d6aa9133939e64222a7afc68b47929ef9f96c7fa (file SHA-256 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f)."^^xsd:string ;
     backlog:hasObservedValue 1.0 ;
     backlog:observationFor pcl:Obj3_X3 ;
     backlog:observedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime,
         "2026-11-04T14:18:17+00:00"^^xsd:dateTime,
-        "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+        "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_X3 .
 
 pcl:Obs3_Done_X4 a backlog:MetricObservation ;
     backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric X4 on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X4 on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric X4 on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X4 on commit d6aa9133939e64222a7afc68b47929ef9f96c7fa (file SHA-256 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f)."^^xsd:string ;
     backlog:hasObservedValue 0.0 ;
     backlog:observationFor pcl:Obj3_X4 ;
     backlog:observedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime,
         "2026-11-04T14:18:17+00:00"^^xsd:dateTime,
-        "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+        "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_X4 .
 
 pcl:Obs3_Done_X5 a backlog:MetricObservation ;
     backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric X5 on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X5 on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric X5 on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X5 on commit d6aa9133939e64222a7afc68b47929ef9f96c7fa (file SHA-256 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f)."^^xsd:string ;
     backlog:hasObservedValue 0.0 ;
     backlog:observationFor pcl:Obj3_X5 ;
     backlog:observedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime,
         "2026-11-04T14:18:17+00:00"^^xsd:dateTime,
-        "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+        "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_X5 .
 
 pcl:Obs3_Done_X6 a backlog:MetricObservation ;
     backlog:hasObservationMethod "Measured by measure_page_ontology_v1_0_0.py --metric X6 on commit 37febbe158987b18934a5518b48e97b026aeb095 (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X6 on commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b (file SHA-256 674886cce27b611b8b01a7353e59fcad947fa7aad6defeca65ee1ca0aa9997c3)."^^xsd:string,
+        "Measured by measure_page_ontology_v1_0_0.py --metric X6 on commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e (file SHA-256 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636)."^^xsd:string,
         "Measured by measure_page_ontology_v1_0_0.py --metric X6 on commit d6aa9133939e64222a7afc68b47929ef9f96c7fa (file SHA-256 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f)."^^xsd:string ;
     backlog:hasObservedValue 0.0 ;
     backlog:observationFor pcl:Obj3_X6 ;
     backlog:observedAt "2026-11-04T13:33:40+00:00"^^xsd:dateTime,
         "2026-11-04T14:18:17+00:00"^^xsd:dateTime,
-        "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+        "2026-11-05T06:19:16+00:00"^^xsd:dateTime,
+        "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_X6 .
 
 pcl:Obs3_Mission a backlog:MetricObservation ;
@@ -1215,9 +1271,6 @@ pcl:AC3_S12 a backlog:AcceptanceCriterion ;
 
 pcl:AC3_S13 a backlog:AcceptanceCriterion ;
     backlog:hasGherkinText "Given the work is complete, When the hand-over is written, Then it states what is complete, what is open and how to check it, and it sits in the inbox of the session that takes over."^^xsd:string .
-
-pcl:AC3_S14 a backlog:AcceptanceCriterion ;
-    backlog:hasGherkinText "Given the IPage repository, When the work is moved, Then the page ontology, Lineage 3's register and its tools sit in IPage and pass their checks from a fresh clone, and the monorepo copy of the package says it moved to IPage."^^xsd:string .
 
 pcl:AC3_S15 a backlog:AcceptanceCriterion ;
     backlog:hasGherkinText "Given the recorded rules and their shapes, When a page is measured in a browser at desktop and phone width, Then the measurement lists every rule as measured with its figure, and a page known to break a rule fails it."^^xsd:string .
@@ -1669,6 +1722,14 @@ pcl:CP_X7 a backlog:ObjectiveCheckpoint ;
     backlog:datePredictedBy pcl:Fc_pcl_X7 ;
     backlog:expectedValue 0.0 .
 
+pcl:CfgItem3_Verifier_S14_brief a agsys:ConfigurationItem ;
+    agsys:hasItemKind "brief"^^xsd:string ;
+    agsys:hasItemValue "sha256 b51391bce417ffef1034141b8ddeb7e0158101a431b3ee9575798bf209a1f741"^^xsd:string .
+
+pcl:CfgItem3_Verifier_S14_model a agsys:ConfigurationItem ;
+    agsys:hasItemKind "model"^^xsd:string ;
+    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+
 pcl:CfgItem3_Verifier_S3_brief a agsys:ConfigurationItem ;
     agsys:hasItemKind "brief"^^xsd:string ;
     agsys:hasItemValue "sha256 6ff8587c462c11ff73abb845e16f9fb0acba816bdef764e0dfdf5430fba7430c"^^xsd:string .
@@ -1832,6 +1893,17 @@ pcl:Ev3_DoneT_S1 a backlog:Evidence,
     backlog:hasTestSpec "rdodi-ecosystem/28-interactive-html-surface/17-page-conditions-lineage/l3_check_v1_0_0.py"^^xsd:string ;
     backlog:hasVerificationMethod "python3 rdodi-ecosystem/28-interactive-html-surface/17-page-conditions-lineage/l3_check_v1_0_0.py rdodi-ecosystem/28-interactive-html-surface/17-page-conditions-lineage/l3_measurement_S1S2_v1_0_0.json A1a,A1c 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f exited 0" ;
     backlog:verifiedAt "2026-11-04T16:33:41"^^xsd:dateTime ;
+    backlog:verifiedByTool "backlog_evidence_bridge_v1_0_0.py"^^xsd:string .
+
+pcl:Ev3_DoneT_S14 a backlog:Evidence,
+        backlog:TestEvidence ;
+    rdfs:label "Test that the task of S14 produced what was planned: A11"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:evidenceVerified true ;
+    backlog:hasTestId "A11"^^xsd:string ;
+    backlog:hasTestSpec "05-lineage/l3_check_v1_0_0.py"^^xsd:string ;
+    backlog:hasVerificationMethod "python3 05-lineage/l3_check_v1_0_0.py 05-lineage/l3_measurement_S14_v1_0_0.json A11 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636 exited 0" ;
+    backlog:verifiedAt "2026-11-05T12:32:34"^^xsd:dateTime ;
     backlog:verifiedByTool "backlog_evidence_bridge_v1_0_0.py"^^xsd:string .
 
 pcl:Ev3_DoneT_S2 a backlog:Evidence,
@@ -2488,6 +2560,13 @@ pcl:Grant3_Verifier a agsys:AccessGrant ;
     agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
     agsys:viaRoute pcl:AccessRoute_Git .
 
+pcl:Grant3_Verifier_S14 a agsys:AccessGrant ;
+    agsys:grantMode "read-only"^^xsd:string ;
+    agsys:grantedAt "2026-11-05T09:20:40+00:00"^^xsd:dateTime ;
+    agsys:grantedBy pcl:Run3_Build01 ;
+    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    agsys:viaRoute pcl:AccessRoute_Git .
+
 pcl:Grant3_Verifier_S3 a agsys:AccessGrant ;
     agsys:grantMode "read-only"^^xsd:string ;
     agsys:grantedAt "2026-11-04T14:14:59+00:00"^^xsd:dateTime ;
@@ -2626,73 +2705,70 @@ pcl:Maintainer3_IPage a backlog:LineageMaintainer ;
     rdfs:label "The IPage project: the repository github.com/altunelyusuf/IPage and the session that works in it"@en ;
     backlog:maintainerKind backlog:Mk_Project .
 
-pcl:Metric3_A10 a core:Metric ;
+pcl:Metric3_A10 a <http://example.org/core#Metric> ;
     rdfs:label "Count of hand-over files about the page ontology in an inbox or hand-over folder"@en .
 
-pcl:Metric3_A11 a core:Metric ;
-    rdfs:label "Count of the four conditions of the home in IPage that hold (ontology, register, tools in IPage; monorepo copy pointing to IPage)"@en .
-
-pcl:Metric3_A3c a core:Metric ;
+pcl:Metric3_A3c a <http://example.org/core#Metric> ;
     rdfs:label "Count of shapes in the stand-alone shapes file that check one recorded rule"@en .
 
-pcl:Metric3_A4a a core:Metric ;
+pcl:Metric3_A4a a <http://example.org/core#Metric> ;
     rdfs:label "Count of recorded rules carried by a live Stage 4 gate row of the newest procedure"@en .
 
-pcl:Metric3_A4b a core:Metric ;
+pcl:Metric3_A4b a <http://example.org/core#Metric> ;
     rdfs:label "Count of recorded rules the gate instrument lists as measured"@en .
 
-pcl:Metric3_A5 a core:Metric ;
+pcl:Metric3_A5 a <http://example.org/core#Metric> ;
     rdfs:label "Count of the nine shipped pages that scroll sideways at 375 px, raise a script error, hold a dialog element or offer no text-size control"@en .
 
-pcl:Metric3_A6a a core:Metric ;
+pcl:Metric3_A6a a <http://example.org/core#Metric> ;
     rdfs:label "Count of the three profiles with a generated run that have neither a link to a page nor a recorded statement that none exists"@en .
 
-pcl:Metric3_A6b a core:Metric ;
+pcl:Metric3_A6b a <http://example.org/core#Metric> ;
     rdfs:label "Count of shapes in the package's shapes file that state what a profile requires of its page"@en .
 
-pcl:Metric3_A7a a core:Metric ;
+pcl:Metric3_A7a a <http://example.org/core#Metric> ;
     rdfs:label "Count of default page formats recorded in the stand-alone ontology"@en .
 
-pcl:Metric3_A7b a core:Metric ;
+pcl:Metric3_A7b a <http://example.org/core#Metric> ;
     rdfs:label "Count of pages built from the default format that pass every gate"@en .
 
-pcl:Metric3_A8a a core:Metric ;
+pcl:Metric3_A8a a <http://example.org/core#Metric> ;
     rdfs:label "Count of chapter pages built in this package from the default format and the pinned course page that pass every gate"@en .
 
-pcl:Metric3_A8b a core:Metric ;
+pcl:Metric3_A8b a <http://example.org/core#Metric> ;
     rdfs:label "Count of chapter pages built here on which the browser test shows edited code changes the shown result"@en .
 
-pcl:Metric3_Mission a core:Metric ;
+pcl:Metric3_Mission a <http://example.org/core#Metric> ;
     rdfs:label "Count of default page formats that name the stand-alone ontology as what they are built from"@en .
 
-pcl:Metric_Conf a core:Metric ;
+pcl:Metric_Conf a <http://example.org/core#Metric> ;
     rdfs:label "Count of sh:Violation results of the framework validator for Lineage 2"@en .
 
-pcl:Metric_Contained a core:Metric ;
+pcl:Metric_Contained a <http://example.org/core#Metric> ;
     rdfs:label "Count of stories with no satisfied deliverable or no pursued objective"@en .
 
-pcl:Metric_ScopeSat a core:Metric ;
+pcl:Metric_ScopeSat a <http://example.org/core#Metric> ;
     rdfs:label "Count of scope deliverables all of whose satisfying stories are Done"@en .
 
-pcl:Metric_X1 a core:Metric ;
+pcl:Metric_X1 a <http://example.org/core#Metric> ;
     rdfs:label "Count of html files named for the Roadmap-Report or Whitepaper profile"@en .
 
-pcl:Metric_X2 a core:Metric ;
+pcl:Metric_X2 a <http://example.org/core#Metric> ;
     rdfs:label "Count of html files named for the Technical-Report profile"@en .
 
-pcl:Metric_X3 a core:Metric ;
+pcl:Metric_X3 a <http://example.org/core#Metric> ;
     rdfs:label "Count of files outside rdodi-ecosystem changed by the releases of this lineage"@en .
 
-pcl:Metric_X4 a core:Metric ;
+pcl:Metric_X4 a <http://example.org/core#Metric> ;
     rdfs:label "Count of pinned commit and SHA-256 values of the page-selection register that differ from the Mission release"@en .
 
-pcl:Metric_X5 a core:Metric ;
+pcl:Metric_X5 a <http://example.org/core#Metric> ;
     rdfs:label "Count of differences of the default page-selection rule from the Mission release"@en .
 
-pcl:Metric_X6 a core:Metric ;
+pcl:Metric_X6 a <http://example.org/core#Metric> ;
     rdfs:label "Count of claims in this lineage's evidence that a page was measured on a physical device or offline"@en .
 
-pcl:Metric_X7 a core:Metric ;
+pcl:Metric_X7 a <http://example.org/core#Metric> ;
     rdfs:label "Count of files of the raw corpus shell changed since the Mission release"@en .
 
 pcl:Out3_Goal a backlog:StageOutput ;
@@ -2761,6 +2837,10 @@ pcl:Plan3_Verifier a agsys:VerificationPlan ;
     agsys:hasPlanDigest "a3693b76e71e2473d8f02371c5594af89fd15c5596bb5d715cbd8e72c92ba6e7"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
+pcl:Plan3_Verifier_S14 a agsys:VerificationPlan ;
+    agsys:hasPlanDigest "b51391bce417ffef1034141b8ddeb7e0158101a431b3ee9575798bf209a1f741"^^xsd:string ;
+    rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
+
 pcl:Plan3_Verifier_S3 a agsys:VerificationPlan ;
     agsys:hasPlanDigest "6ff8587c462c11ff73abb845e16f9fb0acba816bdef764e0dfdf5430fba7430c"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
@@ -2768,6 +2848,20 @@ pcl:Plan3_Verifier_S3 a agsys:VerificationPlan ;
 pcl:Plan3_Verifier_S4 a agsys:VerificationPlan ;
     agsys:hasPlanDigest "3e3861808a2d574e9860b3bc9259f2a782036ca37f69e4f6f5b386c1d9d51198"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
+
+pcl:Rel3_S14 a backlog:DeploymentUnit ;
+    rdfs:label "Release IPage v1.3.1 carrying S14"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:decidedBy backlog:Builder ;
+    backlog:deploysFrom pcl:It3_S14 ;
+    backlog:deploysItem pcl:Story3_S14 ;
+    backlog:hasDeploymentDate "2026-11-05T09:18:30+00:00"^^xsd:dateTime ;
+    backlog:hasIdentifier "RDPO-REL-S14"^^xsd:string ;
+    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e."^^xsd:string ;
+    backlog:hasSelectionBasis backlog:Sel_Committed ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "The stand-alone ontology, published as IPage v1.3.1"@en ;
+    backlog:memberOfContainer pcl:Backlog .
 
 pcl:Rel3_S3 a backlog:DeploymentUnit ;
     rdfs:label "Release interactive-page-ontology v1.1.2 carrying S3"@en ;
@@ -2798,6 +2892,9 @@ pcl:Rel3_S4 a backlog:DeploymentUnit ;
     backlog:memberOfContainer pcl:Backlog .
 
 pcl:Session3_Verifier a prov:Agent ;
+    rdfs:label "an independent verifying agent (a fresh agent that did not do the work)"@en .
+
+pcl:Session3_Verifier_S14 a prov:Agent ;
     rdfs:label "an independent verifying agent (a fresh agent that did not do the work)"@en .
 
 pcl:Session3_Verifier_S3 a prov:Agent ;
@@ -2883,6 +2980,10 @@ pcl:AC3_Epic_E4 a backlog:AcceptanceCriterion ;
 pcl:AC3_S1 a backlog:AcceptanceCriterion ;
     backlog:hasGherkinText "Given the page-part classes in the ecosystem file, When the stand-alone ontology is built, Then every class stands in it, linked to at least one other, and the ecosystem file refers to it."^^xsd:string ;
     backlog:satisfiedByArtifact "the stand-alone ontology files of the package interactive-page-ontology, published in interactive-page-ontology-v1.0.1 (commit d6aa913393)"^^xsd:string .
+
+pcl:AC3_S14 a backlog:AcceptanceCriterion ;
+    backlog:hasGherkinText "Given the IPage repository, When the work is moved, Then the page ontology, Lineage 3's register and its tools sit in IPage and pass their checks from a fresh clone, and the monorepo copy of the package says it moved to IPage."^^xsd:string ;
+    backlog:satisfiedByArtifact "the stand-alone ontology files of the package interactive-page-ontology, published in IPage-v1.3.1 (commit 61950a16dd)"^^xsd:string .
 
 pcl:AC3_S2 a backlog:AcceptanceCriterion ;
     backlog:hasGherkinText "Given the stand-alone ontology, When it is read, Then every page part except the root has a parent kind and a reader can browse from a kind to its parts."^^xsd:string ;
@@ -3096,6 +3197,18 @@ pcl:Ev3_Done_S1 a backlog:Evidence,
     backlog:hasTestSpec "rdodi-ecosystem/28-interactive-html-surface/17-page-conditions-lineage/l3_check_v1_0_0.py"^^xsd:string ;
     backlog:hasVerificationMethod "python3 rdodi-ecosystem/28-interactive-html-surface/17-page-conditions-lineage/l3_check_v1_0_0.py rdodi-ecosystem/28-interactive-html-surface/17-page-conditions-lineage/l3_measurement_S1S2_v1_0_0.json A1a,A1c 14c4ec582375792c1c87f9d9d03f740d1f522153a4dfc30fee22965adf9afa3f exited 0" ;
     backlog:verifiedAt "2026-11-04T16:33:41"^^xsd:dateTime ;
+    backlog:verifiedByTool "backlog_evidence_bridge_v1_0_0.py"^^xsd:string .
+
+pcl:Ev3_Done_S14 a backlog:Evidence,
+        backlog:TestEvidence ;
+    rdfs:label "Test of S14: A11 measured on file SHA-256 1184c1ee7104"@en ;
+    backlog:attestsCriterion pcl:AC3_S14 ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:evidenceVerified true ;
+    backlog:hasTestId "A11"^^xsd:string ;
+    backlog:hasTestSpec "05-lineage/l3_check_v1_0_0.py"^^xsd:string ;
+    backlog:hasVerificationMethod "python3 05-lineage/l3_check_v1_0_0.py 05-lineage/l3_measurement_S14_v1_0_0.json A11 1184c1ee71044c2987ac65f193b728bca4650c3764e9b91abc22439f36eea636 exited 0" ;
+    backlog:verifiedAt "2026-11-05T12:32:34"^^xsd:dateTime ;
     backlog:verifiedByTool "backlog_evidence_bridge_v1_0_0.py"^^xsd:string .
 
 pcl:Ev3_Done_S2 a backlog:Evidence,
@@ -3327,73 +3440,76 @@ pcl:Goal_Scope a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
 
-pcl:Metric3_A1a a core:Metric ;
+pcl:Metric3_A11 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the four conditions of the home in IPage that hold (ontology, register, tools in IPage; monorepo copy pointing to IPage)"@en .
+
+pcl:Metric3_A1a a <http://example.org/core#Metric> ;
     rdfs:label "Count of page-part classes in the newest stand-alone page-ontology file"@en .
 
-pcl:Metric3_A1b a core:Metric ;
+pcl:Metric3_A1b a <http://example.org/core#Metric> ;
     rdfs:label "Count of page-part classes with no parent class among the page parts (target 1: the one root)"@en .
 
-pcl:Metric3_A1c a core:Metric ;
+pcl:Metric3_A1c a <http://example.org/core#Metric> ;
     rdfs:label "Count of page-part classes linked to no other page-part class"@en .
 
-pcl:Metric3_A2 a core:Metric ;
+pcl:Metric3_A2 a <http://example.org/core#Metric> ;
     rdfs:label "Count of the ten recorded standards and methods that carry an applies-to link to page parts"@en .
 
-pcl:Metric3_A3a a core:Metric ;
+pcl:Metric3_A3a a <http://example.org/core#Metric> ;
     rdfs:label "Count of the Owner's page rules recorded as rules in the stand-alone ontology (28 counted by the session on 2026-11-04)"@en .
 
-pcl:Metric3_A3b a core:Metric ;
+pcl:Metric3_A3b a <http://example.org/core#Metric> ;
     rdfs:label "Count of recorded rules that name the Owner's words as source, one quality and one kind of page part"@en .
 
-pcl:Metric3_A9 a core:Metric ;
+pcl:Metric3_A9 a <http://example.org/core#Metric> ;
     rdfs:label "Count of commits to the package since the Scope release that the release path did not make"@en .
 
-pcl:Metric3_Conf a core:Metric ;
+pcl:Metric3_Conf a <http://example.org/core#Metric> ;
     rdfs:label "Count of sh:Violation results of the framework validator for Lineage 3"@en .
 
-pcl:Metric3_Contained a core:Metric ;
+pcl:Metric3_Contained a <http://example.org/core#Metric> ;
     rdfs:label "Count of stories of this lineage that satisfy no scope deliverable"@en .
 
-pcl:Metric3_X1 a core:Metric ;
+pcl:Metric3_X1 a <http://example.org/core#Metric> ;
     rdfs:label "Count of files outside rdodi-ecosystem changed by the releases of this lineage since the Scope release"@en .
 
-pcl:Metric3_X2 a core:Metric ;
+pcl:Metric3_X2 a <http://example.org/core#Metric> ;
     rdfs:label "Count of page-ontology classes whose label names a chapter, exam, lecture, Bitcoin, Python or syllabus (6 today; it must not grow)"@en .
 
-pcl:Metric3_X3 a core:Metric ;
+pcl:Metric3_X3 a <http://example.org/core#Metric> ;
     rdfs:label "Count of page-ontology definitions long enough to be a copy of a standard's text (1 today; it must not grow)"@en .
 
-pcl:Metric3_X4 a core:Metric ;
+pcl:Metric3_X4 a <http://example.org/core#Metric> ;
     rdfs:label "Count of pinned commit and SHA-256 values of the page-selection register that differ from the Scope release"@en .
 
-pcl:Metric3_X5 a core:Metric ;
+pcl:Metric3_X5 a <http://example.org/core#Metric> ;
     rdfs:label "Count of html files named for the Roadmap-Report, Whitepaper or Technical-Report profile"@en .
 
-pcl:Metric3_X6 a core:Metric ;
+pcl:Metric3_X6 a <http://example.org/core#Metric> ;
     rdfs:label "Count of claims in this lineage's evidence that a page was measured on a physical device or offline"@en .
 
-pcl:Metric_G1 a core:Metric ;
+pcl:Metric_G1 a <http://example.org/core#Metric> ;
     rdfs:label "Count of the Owner's seven page conditions carried by a live Stage 4 gate row of the newest procedure"@en .
 
-pcl:Metric_G2 a core:Metric ;
+pcl:Metric_G2 a <http://example.org/core#Metric> ;
     rdfs:label "Count of the seven page conditions carried by a page-condition shape in the package's shapes file"@en .
 
-pcl:Metric_G3 a core:Metric ;
+pcl:Metric_G3 a <http://example.org/core#Metric> ;
     rdfs:label "Count of the seven page conditions the gate instrument lists as measured"@en .
 
-pcl:Metric_K1 a core:Metric ;
+pcl:Metric_K1 a <http://example.org/core#Metric> ;
     rdfs:label "Count of chapter pages built in this package from the pinned course page that pass every gate"@en .
 
-pcl:Metric_K2 a core:Metric ;
+pcl:Metric_K2 a <http://example.org/core#Metric> ;
     rdfs:label "Count of chapter pages built here on which the browser test shows edited code changes the shown result"@en .
 
-pcl:Metric_P1 a core:Metric ;
+pcl:Metric_P1 a <http://example.org/core#Metric> ;
     rdfs:label "Count of the nine shipped pages that scroll sideways at 375 px, raise a script error, hold a dialog element or offer no text-size control"@en .
 
-pcl:Metric_R1 a core:Metric ;
+pcl:Metric_R1 a <http://example.org/core#Metric> ;
     rdfs:label "Count of the three profiles with a generated run that have neither a link to a page nor a recorded statement that none exists"@en .
 
-pcl:Metric_R2 a core:Metric ;
+pcl:Metric_R2 a <http://example.org/core#Metric> ;
     rdfs:label "Count of shapes in the package's shapes file that state what a profile requires of its page"@en .
 
 pcl:Rel3_S1_S2 a backlog:DeploymentUnit ;
@@ -3411,6 +3527,13 @@ pcl:Rel3_S1_S2 a backlog:DeploymentUnit ;
     backlog:hasTitle "The stand-alone ontology, published as interactive-page-ontology v1.0.1"@en ;
     backlog:memberOfContainer pcl:Backlog .
 
+pcl:Run3_Approver_S14 a backlog:ExecutorInstance,
+        backlog:Executor_SingleAgent ;
+    rdfs:label "An independent agent run that reviewed the work and approved it"@en ;
+    backlog:instanceOf pcl:Exec_Approver_L3 ;
+    backlog:instantiatedAt "2026-11-05T09:23:11+00:00"^^xsd:dateTime ;
+    backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run aa741ecf9d3d971bd"^^xsd:string .
+
 pcl:Run3_Approver_S3 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that reviewed the work and approved it"@en ;
@@ -3425,6 +3548,13 @@ pcl:Run3_Approver_S4 a backlog:ExecutorInstance,
     backlog:instantiatedAt "2026-11-05T06:18:40+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a25b517cfe88e5c54"^^xsd:string .
 
+pcl:Run3_Oversight_S14 a backlog:ExecutorInstance,
+        backlog:Executor_SingleAgent ;
+    rdfs:label "An independent agent run that oversaw the work and sent it back once"@en ;
+    backlog:instanceOf pcl:Exec_Oversight_L3 ;
+    backlog:instantiatedAt "2026-11-05T09:18:45+00:00"^^xsd:dateTime ;
+    backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run aa223d6fe302a9972"^^xsd:string .
+
 pcl:Run3_Oversight_S3 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that oversaw the work and sent it back once"@en ;
@@ -3438,6 +3568,18 @@ pcl:Run3_Oversight_S4 a backlog:ExecutorInstance,
     backlog:instanceOf pcl:Exec_Oversight_L3 ;
     backlog:instantiatedAt "2026-11-05T06:12:00+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a0c3c8577e05a47ca"^^xsd:string .
+
+pcl:Run3_Verifier_S14 a backlog:ExecutorInstance,
+        backlog:Executor_SingleAgent ;
+    rdfs:label "An independent agent run that re-ran the acceptance check in a fresh clone"@en ;
+    agsys:executedBy pcl:Session3_Verifier_S14 ;
+    agsys:followsPlan pcl:Plan3_Verifier_S14 ;
+    agsys:placeUnchanged false ;
+    agsys:startedInWay pcl:StartWay_Request ;
+    agsys:startedUnderGrant pcl:Grant3_Verifier_S14 ;
+    backlog:instanceOf pcl:Exec_Verifier_L3 ;
+    backlog:instantiatedAt "2026-11-05T09:21:13+00:00"^^xsd:dateTime ;
+    backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a7c3d0f7d4b0eced2"^^xsd:string .
 
 pcl:Run3_Verifier_S3 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
@@ -3462,9 +3604,6 @@ pcl:Run3_Verifier_S4 a backlog:ExecutorInstance,
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-05T06:16:40+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run abb7a36c25a69947b"^^xsd:string .
-
-pcl:AccessRoute_Git a agsys:AccessRoute ;
-    rdfs:label "A fresh clone of the published repository"@en .
 
 pcl:Area3_A11 a backlog:ScopeArea ;
     rdfs:label "The home of the work: the IPage repository"@en ;
@@ -3630,12 +3769,6 @@ pcl:Del_D7 a backlog:ScopeDeliverable ;
     backlog:derivesFromMissionClause "shows the adopted course page working here, with one chapter page built in this package that passes the gates"^^xsd:string ;
     backlog:hasProductScopeKind backlog:Kind_NonFunctional ;
     backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Exec_Approver_L3 a backlog:Executor_SingleAgent ;
-    rdfs:label "The approving agent: a reviewer that accepts the work only if it finds no clear defect"@en .
-
-pcl:Exec_Oversight_L3 a backlog:Executor_SingleAgent ;
-    rdfs:label "The overseeing agent: a reviewer that did not do the work and may send it back"@en .
 
 pcl:Goal3_A1 a backlog:Goal ;
     rdfs:label "The page parts stand as one connected ontology, sorted into kinds"@en ;
@@ -4112,8 +4245,8 @@ pcl:S9 a backlog:Story ;
     backlog:responsible pcl:Run_Build01 ;
     backlog:satisfiesDeliverable pcl:Del_W1 .
 
-pcl:StartWay_Request a agsys:StartWay ;
-    rdfs:label "On the builder's request"@en .
+pcl:AccessRoute_Git a agsys:AccessRoute ;
+    rdfs:label "A fresh clone of the published repository"@en .
 
 pcl:Area3_A10 a backlog:ScopeArea ;
     rdfs:label "The hand-over to a new session"@en ;
@@ -4178,23 +4311,11 @@ pcl:Del_W1 a backlog:ScopeDeliverable ;
     backlog:derivesFromMissionClause "makes the Owner's page conditions gates that every Stage 4 page must pass"^^xsd:string ;
     backlog:hasScopeLayer backlog:Layer_Work .
 
-pcl:Obj3_A11 a backlog:Objective ;
-    rdfs:label "The page work at home in IPage"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A11 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A11 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_ipage_home_v1_0_0.py --ipage <a fresh clone of github.com/altunelyusuf/IPage>"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-05 against an empty IPage clone; the target is the four conditions of the deliverable, not a wish. The counting is checked by the script's self-test, which also shows the figure can fall."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of the four conditions of the home in IPage that hold (ontology, register, tools in IPage; monorepo copy pointing to IPage)"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 4.0 ;
-    backlog:metricMovableBy pcl:Story3_S14 ;
-    rdfs:comment "Read in the IPage repository with 05-lineage/measure_ipage_home_v1_1_0.py (the IPage clone defaults to the repository the script sits in); the query above names the monorepo version the objective was written with. Noted 2026-11-05 after an independent overseer's review."@en ;
-    prov:wasDerivedFrom pcl:SC3_Move .
+pcl:Exec_Approver_L3 a backlog:Executor_SingleAgent ;
+    rdfs:label "The approving agent: a reviewer that accepts the work only if it finds no clear defect"@en .
+
+pcl:Exec_Oversight_L3 a backlog:Executor_SingleAgent ;
+    rdfs:label "The overseeing agent: a reviewer that did not do the work and may send it back"@en .
 
 pcl:Obj3_A1a a backlog:Objective ;
     rdfs:label "Page-part classes living in the stand-alone ontology"@en ;
@@ -4309,18 +4430,8 @@ pcl:SC3_Move a backlog:ScopeChange ;
     backlog:fulfillsRequest pcl:CR3_Move ;
     backlog:hasScopeChangeRationale "Admits the move to IPage and the browser measurement as IPage's own work; paid for by the out-scoping declaration recorded beside it (PSD3_OutRDODI), which removes the work that changes RDODI's files."^^xsd:string .
 
-pcl:T3_S14_Build a backlog:ExecutionTask ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-T-S14-BUILD"^^xsd:string ;
-    backlog:hasState backlog:InProgress ;
-    backlog:hasTaskType backlog:Task_Implementation ;
-    backlog:hasTitle "Build the work of S14"@en ;
-    backlog:memberOfContainer pcl:It3_S14 ;
-    backlog:pursuesObjective pcl:Obj3_A11 ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:startedAt "2026-11-05T07:52:32+00:00"^^xsd:dateTime .
+pcl:StartWay_Request a agsys:StartWay ;
+    rdfs:label "On the builder's request"@en .
 
 pcl:Area3_A1 a backlog:ScopeArea ;
     rdfs:label "The kinds of page parts (the ontology itself)"@en ;
@@ -4371,15 +4482,6 @@ pcl:Area_A4 a backlog:ScopeArea ;
     backlog:belongsToLineage pcl:Lineage02 ;
     backlog:hasScopeLayer backlog:Layer_Product .
 
-pcl:It3_S14 a backlog:Iteration ;
-    rdfs:label "Iteration: S14"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasIdentifier "RDPO-IT-S14"^^xsd:string ;
-    backlog:hasState backlog:InProgress ;
-    backlog:hasTitle "Work on S14"@en ;
-    backlog:iterationStart "2026-11-05T07:52:23+00:00"^^xsd:dateTime ;
-    backlog:memberOfContainer pcl:Backlog .
-
 pcl:It3_S3 a backlog:Iteration ;
     rdfs:label "Iteration: S3"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
@@ -4403,6 +4505,24 @@ pcl:It3_S4 a backlog:Iteration ;
     backlog:iterationEnd "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
     backlog:iterationStart "2026-11-05T06:11:13+00:00"^^xsd:dateTime ;
     backlog:memberOfContainer pcl:Backlog .
+
+pcl:Obj3_A11 a backlog:Objective ;
+    rdfs:label "The page work at home in IPage"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A11 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A11 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_ipage_home_v1_0_0.py --ipage <a fresh clone of github.com/altunelyusuf/IPage>"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-05 against an empty IPage clone; the target is the four conditions of the deliverable, not a wish. The counting is checked by the script's self-test, which also shows the figure can fall."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the four conditions of the home in IPage that hold (ontology, register, tools in IPage; monorepo copy pointing to IPage)"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 4.0 ;
+    backlog:metricMovableBy pcl:Story3_S14 ;
+    rdfs:comment "Read in the IPage repository with 05-lineage/measure_ipage_home_v1_1_0.py (the IPage clone defaults to the repository the script sits in); the query above names the monorepo version the objective was written with. Noted 2026-11-05 after an independent overseer's review."@en ;
+    prov:wasDerivedFrom pcl:SC3_Move .
 
 pcl:Obj3_A1b a backlog:Objective ;
     rdfs:label "Page-part classes with no parent kind"@en ;
@@ -4652,6 +4772,26 @@ pcl:Obj_X7 a backlog:Objective ;
         pcl:S7,
         pcl:S8 .
 
+pcl:T3_S14_Build a backlog:ExecutionTask ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:approvedBy pcl:Run3_Approver_S14 ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:finishedAt "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
+    backlog:hasEvidence pcl:Ev3_DoneT_S14 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-T-S14-BUILD"^^xsd:string ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTaskType backlog:Task_Implementation ;
+    backlog:hasTitle "Build the work of S14"@en ;
+    backlog:integrityLevel 2 ;
+    backlog:lastAuditedAt "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:It3_S14 ;
+    backlog:overseenBy pcl:Run3_Oversight_S14 ;
+    backlog:pursuesObjective pcl:Obj3_A11 ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:startedAt "2026-11-05T07:52:32+00:00"^^xsd:dateTime ;
+    backlog:verifiedBy pcl:Run3_Verifier_S14 .
+
 pcl:T3_S1_Build a backlog:ExecutionTask ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
     backlog:approvedBy pcl:Run3_Approver ;
@@ -4732,8 +4872,17 @@ pcl:T3_S4_Build a backlog:ExecutionTask ;
     backlog:startedAt "2026-11-05T06:11:22+00:00"^^xsd:dateTime ;
     backlog:verifiedBy pcl:Run3_Verifier_S4 .
 
-pcl:Exec_Verifier_L3 a backlog:Executor_SingleAgent ;
-    rdfs:label "The verifying agent: an agent that did not do the work and judges it against the evidence"@en .
+pcl:It3_S14 a backlog:Iteration ;
+    rdfs:label "Iteration: S14"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasDurationSource "iterationStart of this iteration to the finishedAt recorded by l3_steps finish."^^xsd:string ;
+    backlog:hasIdentifier "RDPO-IT-S14"^^xsd:string ;
+    backlog:hasObservedDuration "PT1H40M11S"^^xsd:string ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "Work on S14"@en ;
+    backlog:iterationEnd "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
+    backlog:iterationStart "2026-11-05T07:52:23+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog .
 
 pcl:Obj_Conf a backlog:Objective ;
     rdfs:label "Framework validator violations on Lineage 2"@en ;
@@ -4893,6 +5042,9 @@ pcl:Obj_P1 a backlog:Objective ;
 pcl:DomainEntity_PageConditions a backlog:DomainEntity ;
     rdfs:label "RDODI page conditions"@en ;
     skos:definition "The first-class thing this lineage is about: the Owner's conditions for interactive pages, made gates that every Stage 4 page must pass."^^xsd:string .
+
+pcl:Exec_Verifier_L3 a backlog:Executor_SingleAgent ;
+    rdfs:label "The verifying agent: an agent that did not do the work and judges it against the evidence"@en .
 
 pcl:It3_S1_S2 a backlog:Iteration ;
     rdfs:label "Iteration: S1, S2"@en ;
@@ -5292,26 +5444,6 @@ pcl:Story3_S12 a backlog:Story ;
     backlog:responsible pcl:Run3_Build01 ;
     backlog:satisfiesDeliverable pcl:Del3_W1 .
 
-pcl:Story3_S14 a backlog:Story ;
-    rdfs:label "Move the page ontology and Lineage 3 into the IPage repository"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S14 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S14"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:InProgress ;
-    backlog:hasTitle "Move the page ontology and Lineage 3 into the IPage repository"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A11 ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_W3 ;
-    backlog:startedAt "2026-11-05T07:52:29+00:00"^^xsd:dateTime .
-
 pcl:Story3_S3 a backlog:Story ;
     rdfs:label "Record each quality of a good page and tie it to the parts it applies to"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
@@ -5407,6 +5539,34 @@ pcl:Story3_S2 a backlog:Story ;
     backlog:satisfiesDeliverable pcl:Del3_D2 ;
     backlog:startedAt "2026-11-04T10:03:51+00:00"^^xsd:dateTime ;
     backlog:verifiedBy pcl:Run3_Verifier .
+
+pcl:Story3_S14 a backlog:Story ;
+    rdfs:label "Move the page ontology and Lineage 3 into the IPage repository"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:approvedBy pcl:Run3_Approver_S14 ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:finishedAt "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S14 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasEvidence pcl:Ev3_Done_S14 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S14"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "Move the page ontology and Lineage 3 into the IPage repository"@en ;
+    backlog:integrityLevel 2 ;
+    backlog:lastAuditedAt "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:Rel3_S14 ;
+    backlog:notYetScoreable true ;
+    backlog:overseenBy pcl:Run3_Oversight_S14 ;
+    backlog:pursuesObjective pcl:Obj3_A11 ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_W3 ;
+    backlog:startedAt "2026-11-05T07:52:29+00:00"^^xsd:dateTime ;
+    backlog:verifiedBy pcl:Run3_Verifier_S14 .
 
 pcl:Story3_S4 a backlog:Story ;
     rdfs:label "Collect the Owner's page rules and record each with its quality, kind of part and source"@en ;

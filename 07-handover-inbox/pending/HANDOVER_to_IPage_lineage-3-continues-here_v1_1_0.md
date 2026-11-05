@@ -14,7 +14,7 @@ Date: 2026-11-05. From the session that ran Lineage 3 until the move.
 | The page parts sorted into a tree of kinds | Ten kinds under one root, and no class without a parent other than the root | `--metric A1b` reads 1 |
 | Quality standards tied to page parts | Ten standards and methods (WCAG 2.2 AA, Nielsen, Shneiderman, cognitive load theory, axe-core, pa11y, WAVE, WAI-ARIA, Inclusive Components, ISO/IEC 25010), each tied to the page parts it governs | `--metric A2` reads 10 |
 | The Owner's 28 page rules | Each rule is recorded once, with the Owner's words as source, one of eleven page qualities and one kind of page part; a shape checks that each has exactly one of each | `--metric A3a` and `--metric A3b` read 28 |
-| The move here | The ontology, the register (v0.41.0) and the tools are in this repository | `measure_ipage_home_v1_1_0.py` reads 4 once the move is released and recorded |
+| The move here | The ontology, the register (v0.42.0) and the tools are in this repository | `measure_ipage_home_v1_1_0.py` reads 4 once the move is released and recorded |
 
 Each finished piece passed an independent overseer, a verifier working from a fresh clone, and a separate approver. Their records are in the register.
 
