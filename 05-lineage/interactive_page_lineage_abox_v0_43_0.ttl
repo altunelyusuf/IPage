@@ -1,5 +1,5 @@
-@prefix agsys: <http://example.org/agentic-systems#> .
 @prefix backlog: <http://example.org/backlog#> .
+@prefix ns1: <http://example.org/agentic-systems#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pcl: <http://example.org/rdodi/page-conditions-lineage#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -84,6 +84,14 @@ pcl:Chk3_S4 a backlog:ReadinessCheck ;
         pcl:K3_S4_Input ;
     backlog:readinessCheckedAt "2026-11-05T06:11:16+00:00"^^xsd:dateTime .
 
+pcl:Chk3_S5 a backlog:ReadinessCheck ;
+    rdfs:label "Readiness of S5"@en ;
+    backlog:checksReadinessOf pcl:Story3_S5 ;
+    backlog:hasReadinessCriterion pcl:K3_S5_AC,
+        pcl:K3_S5_Dep,
+        pcl:K3_S5_Input ;
+    backlog:readinessCheckedAt "2026-11-05T09:54:08+00:00"^^xsd:dateTime .
+
 pcl:Chk3_T_S1 a backlog:ReadinessCheck ;
     rdfs:label "Readiness of the task of S1"@en ;
     backlog:checksReadinessOf pcl:T3_S1_Build ;
@@ -124,29 +132,37 @@ pcl:Chk3_T_S4 a backlog:ReadinessCheck ;
         pcl:K3_T_S4_Input ;
     backlog:readinessCheckedAt "2026-11-05T06:11:20+00:00"^^xsd:dateTime .
 
-pcl:Config3_Verifier a agsys:AgentConfiguration ;
-    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_brief,
+pcl:Chk3_T_S5 a backlog:ReadinessCheck ;
+    rdfs:label "Readiness of the task of S5"@en ;
+    backlog:checksReadinessOf pcl:T3_S5_Build ;
+    backlog:hasReadinessCriterion pcl:K3_T_S5_AC,
+        pcl:K3_T_S5_Dep,
+        pcl:K3_T_S5_Input ;
+    backlog:readinessCheckedAt "2026-11-05T09:54:12+00:00"^^xsd:dateTime .
+
+pcl:Config3_Verifier a ns1:AgentConfiguration ;
+    ns1:hasConfigurationItem pcl:CfgItem3_Verifier_brief,
         pcl:CfgItem3_Verifier_model ;
-    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
-    agsys:recordedAt "2026-11-04T12:26:25+00:00"^^xsd:dateTime .
+    ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    ns1:recordedAt "2026-11-04T12:26:25+00:00"^^xsd:dateTime .
 
-pcl:Config3_Verifier_S14 a agsys:AgentConfiguration ;
-    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_S14_brief,
+pcl:Config3_Verifier_S14 a ns1:AgentConfiguration ;
+    ns1:hasConfigurationItem pcl:CfgItem3_Verifier_S14_brief,
         pcl:CfgItem3_Verifier_S14_model ;
-    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
-    agsys:recordedAt "2026-11-05T09:20:40+00:00"^^xsd:dateTime .
+    ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    ns1:recordedAt "2026-11-05T09:20:40+00:00"^^xsd:dateTime .
 
-pcl:Config3_Verifier_S3 a agsys:AgentConfiguration ;
-    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_S3_brief,
+pcl:Config3_Verifier_S3 a ns1:AgentConfiguration ;
+    ns1:hasConfigurationItem pcl:CfgItem3_Verifier_S3_brief,
         pcl:CfgItem3_Verifier_S3_model ;
-    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
-    agsys:recordedAt "2026-11-04T14:14:59+00:00"^^xsd:dateTime .
+    ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    ns1:recordedAt "2026-11-04T14:14:59+00:00"^^xsd:dateTime .
 
-pcl:Config3_Verifier_S4 a agsys:AgentConfiguration ;
-    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_S4_brief,
+pcl:Config3_Verifier_S4 a ns1:AgentConfiguration ;
+    ns1:hasConfigurationItem pcl:CfgItem3_Verifier_S4_brief,
         pcl:CfgItem3_Verifier_S4_model ;
-    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
-    agsys:recordedAt "2026-11-05T06:16:24+00:00"^^xsd:dateTime .
+    ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    ns1:recordedAt "2026-11-05T06:16:24+00:00"^^xsd:dateTime .
 
 pcl:Ev3_S14_Refine a backlog:TransitionEvent ;
     backlog:transitionedAt "2026-11-05T07:52:27+00:00"^^xsd:dateTime ;
@@ -216,6 +232,20 @@ pcl:Ev3_S4_Start a backlog:TransitionEvent ;
     backlog:transitionedBy backlog:Builder ;
     backlog:transitionedByExecutor pcl:Run3_Build01 ;
     backlog:transitionedItem pcl:Story3_S4 ;
+    backlog:viaTransition backlog:T_Start .
+
+pcl:Ev3_S5_Refine a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-05T09:54:09+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S5 ;
+    backlog:viaTransition backlog:T_Refine .
+
+pcl:Ev3_S5_Start a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-05T09:54:11+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S5 ;
     backlog:viaTransition backlog:T_Start .
 
 pcl:Ev3_Story_S14_Complete a backlog:TransitionEvent ;
@@ -321,6 +351,20 @@ pcl:Ev3_T_S4_Start a backlog:TransitionEvent ;
     backlog:transitionedBy backlog:Builder ;
     backlog:transitionedByExecutor pcl:Run3_Build01 ;
     backlog:transitionedItem pcl:T3_S4_Build ;
+    backlog:viaTransition backlog:T_Start .
+
+pcl:Ev3_T_S5_Refine a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-05T09:54:13+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:T3_S5_Build ;
+    backlog:viaTransition backlog:T_Refine .
+
+pcl:Ev3_T_S5_Start a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-05T09:54:15+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:T3_S5_Build ;
     backlog:viaTransition backlog:T_Start .
 
 pcl:Ev3_Task_S14_Complete a backlog:TransitionEvent ;
@@ -1059,6 +1103,15 @@ pcl:PB3_S4 a backlog:PlanBaseline ;
     backlog:isCurrentBaseline true ;
     rdfs:comment "A forecast only: 13 points at the planning pace of 1.63 points per hour, times a buffer of 1.5. Not a target."@en .
 
+pcl:PB3_S5 a backlog:PlanBaseline ;
+    rdfs:label "Base plan of the iteration"@en ;
+    backlog:baselineFor pcl:It3_S5 ;
+    backlog:baselinedAt "2026-11-05T09:54:16+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineEnd "2026-11-05T17:15:49+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineStart "2026-11-05T09:54:06+00:00"^^xsd:dateTime ;
+    backlog:isCurrentBaseline true ;
+    rdfs:comment "A forecast only: 8 points at the planning pace of 1.63 points per hour, times a buffer of 1.5. Not a target."@en .
+
 pcl:PSD3_OutRDODI a backlog:PartialScopeDeclaration ;
     rdfs:label "Out-scoped to RDODI's agenda: the work that changes RDODI's own files"@en ;
     backlog:decidedBy backlog:Owner ;
@@ -1114,6 +1167,15 @@ pcl:Plan3_S4 a backlog:PlanningEvent ;
     backlog:plannedInto pcl:It3_S4 ;
     backlog:plansItem pcl:Story3_S4 ;
     backlog:producesTask pcl:T3_S4_Build .
+
+pcl:Plan3_S5 a backlog:PlanningEvent ;
+    rdfs:label "S5 planned into its iteration"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:plannedAt "2026-11-05T09:54:10+00:00"^^xsd:dateTime ;
+    backlog:plannedBy backlog:Builder ;
+    backlog:plannedInto pcl:It3_S5 ;
+    backlog:plansItem pcl:Story3_S5 ;
+    backlog:producesTask pcl:T3_S5_Build .
 
 pcl:Profile a backlog:AdoptionProfile ;
     rdfs:label "RDODI page conditions - adoption profile"@en ;
@@ -1179,6 +1241,16 @@ pcl:Refine3_S4 a backlog:RefinementEvent ;
     backlog:refinedAt "2026-11-05T06:11:14+00:00"^^xsd:dateTime ;
     backlog:refinedBy backlog:Builder ;
     backlog:refines pcl:Story3_S4 .
+
+pcl:Refine3_S5 a backlog:RefinementEvent ;
+    backlog:addressesConcern backlog:Concern_Interface_UI ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:groomsForIteration pcl:It3_S5 ;
+    backlog:hasRefinementOutcome "Groomed: the acceptance criterion reads as a check the measurement script makes; the work is to files and records; no decision of the Owner is waited on."^^xsd:string ;
+    backlog:hasWorkKind backlog:WorkKind_Preparation ;
+    backlog:refinedAt "2026-11-05T09:54:07+00:00"^^xsd:dateTime ;
+    backlog:refinedBy backlog:Builder ;
+    backlog:refines pcl:Story3_S5 .
 
 pcl:ScopeChange_CourseNotDefault a backlog:ScopeChange ;
     rdfs:label "The course page becomes one profile's page"@en ;
@@ -1722,37 +1794,37 @@ pcl:CP_X7 a backlog:ObjectiveCheckpoint ;
     backlog:datePredictedBy pcl:Fc_pcl_X7 ;
     backlog:expectedValue 0.0 .
 
-pcl:CfgItem3_Verifier_S14_brief a agsys:ConfigurationItem ;
-    agsys:hasItemKind "brief"^^xsd:string ;
-    agsys:hasItemValue "sha256 b51391bce417ffef1034141b8ddeb7e0158101a431b3ee9575798bf209a1f741"^^xsd:string .
+pcl:CfgItem3_Verifier_S14_brief a ns1:ConfigurationItem ;
+    ns1:hasItemKind "brief"^^xsd:string ;
+    ns1:hasItemValue "sha256 b51391bce417ffef1034141b8ddeb7e0158101a431b3ee9575798bf209a1f741"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S14_model a agsys:ConfigurationItem ;
-    agsys:hasItemKind "model"^^xsd:string ;
-    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+pcl:CfgItem3_Verifier_S14_model a ns1:ConfigurationItem ;
+    ns1:hasItemKind "model"^^xsd:string ;
+    ns1:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S3_brief a agsys:ConfigurationItem ;
-    agsys:hasItemKind "brief"^^xsd:string ;
-    agsys:hasItemValue "sha256 6ff8587c462c11ff73abb845e16f9fb0acba816bdef764e0dfdf5430fba7430c"^^xsd:string .
+pcl:CfgItem3_Verifier_S3_brief a ns1:ConfigurationItem ;
+    ns1:hasItemKind "brief"^^xsd:string ;
+    ns1:hasItemValue "sha256 6ff8587c462c11ff73abb845e16f9fb0acba816bdef764e0dfdf5430fba7430c"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S3_model a agsys:ConfigurationItem ;
-    agsys:hasItemKind "model"^^xsd:string ;
-    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+pcl:CfgItem3_Verifier_S3_model a ns1:ConfigurationItem ;
+    ns1:hasItemKind "model"^^xsd:string ;
+    ns1:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S4_brief a agsys:ConfigurationItem ;
-    agsys:hasItemKind "brief"^^xsd:string ;
-    agsys:hasItemValue "sha256 3e3861808a2d574e9860b3bc9259f2a782036ca37f69e4f6f5b386c1d9d51198"^^xsd:string .
+pcl:CfgItem3_Verifier_S4_brief a ns1:ConfigurationItem ;
+    ns1:hasItemKind "brief"^^xsd:string ;
+    ns1:hasItemValue "sha256 3e3861808a2d574e9860b3bc9259f2a782036ca37f69e4f6f5b386c1d9d51198"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S4_model a agsys:ConfigurationItem ;
-    agsys:hasItemKind "model"^^xsd:string ;
-    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+pcl:CfgItem3_Verifier_S4_model a ns1:ConfigurationItem ;
+    ns1:hasItemKind "model"^^xsd:string ;
+    ns1:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
 
-pcl:CfgItem3_Verifier_brief a agsys:ConfigurationItem ;
-    agsys:hasItemKind "brief"^^xsd:string ;
-    agsys:hasItemValue "sha256 a3693b76e71e2473d8f02371c5594af89fd15c5596bb5d715cbd8e72c92ba6e7"^^xsd:string .
+pcl:CfgItem3_Verifier_brief a ns1:ConfigurationItem ;
+    ns1:hasItemKind "brief"^^xsd:string ;
+    ns1:hasItemValue "sha256 a3693b76e71e2473d8f02371c5594af89fd15c5596bb5d715cbd8e72c92ba6e7"^^xsd:string .
 
-pcl:CfgItem3_Verifier_model a agsys:ConfigurationItem ;
-    agsys:hasItemKind "model"^^xsd:string ;
-    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+pcl:CfgItem3_Verifier_model a ns1:ConfigurationItem ;
+    ns1:hasItemKind "model"^^xsd:string ;
+    ns1:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
 
 pcl:Commit01 a backlog:Commitment ;
     backlog:commitsToGoal pcl:Goal_Scope .
@@ -2553,33 +2625,33 @@ pcl:Goal_X7 a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Exclusion ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
 
-pcl:Grant3_Verifier a agsys:AccessGrant ;
-    agsys:grantMode "read-only"^^xsd:string ;
-    agsys:grantedAt "2026-11-04T12:26:25+00:00"^^xsd:dateTime ;
-    agsys:grantedBy pcl:Run3_Build01 ;
-    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
-    agsys:viaRoute pcl:AccessRoute_Git .
+pcl:Grant3_Verifier a ns1:AccessGrant ;
+    ns1:grantMode "read-only"^^xsd:string ;
+    ns1:grantedAt "2026-11-04T12:26:25+00:00"^^xsd:dateTime ;
+    ns1:grantedBy pcl:Run3_Build01 ;
+    ns1:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    ns1:viaRoute pcl:AccessRoute_Git .
 
-pcl:Grant3_Verifier_S14 a agsys:AccessGrant ;
-    agsys:grantMode "read-only"^^xsd:string ;
-    agsys:grantedAt "2026-11-05T09:20:40+00:00"^^xsd:dateTime ;
-    agsys:grantedBy pcl:Run3_Build01 ;
-    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
-    agsys:viaRoute pcl:AccessRoute_Git .
+pcl:Grant3_Verifier_S14 a ns1:AccessGrant ;
+    ns1:grantMode "read-only"^^xsd:string ;
+    ns1:grantedAt "2026-11-05T09:20:40+00:00"^^xsd:dateTime ;
+    ns1:grantedBy pcl:Run3_Build01 ;
+    ns1:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    ns1:viaRoute pcl:AccessRoute_Git .
 
-pcl:Grant3_Verifier_S3 a agsys:AccessGrant ;
-    agsys:grantMode "read-only"^^xsd:string ;
-    agsys:grantedAt "2026-11-04T14:14:59+00:00"^^xsd:dateTime ;
-    agsys:grantedBy pcl:Run3_Build01 ;
-    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
-    agsys:viaRoute pcl:AccessRoute_Git .
+pcl:Grant3_Verifier_S3 a ns1:AccessGrant ;
+    ns1:grantMode "read-only"^^xsd:string ;
+    ns1:grantedAt "2026-11-04T14:14:59+00:00"^^xsd:dateTime ;
+    ns1:grantedBy pcl:Run3_Build01 ;
+    ns1:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    ns1:viaRoute pcl:AccessRoute_Git .
 
-pcl:Grant3_Verifier_S4 a agsys:AccessGrant ;
-    agsys:grantMode "read-only"^^xsd:string ;
-    agsys:grantedAt "2026-11-05T06:16:24+00:00"^^xsd:dateTime ;
-    agsys:grantedBy pcl:Run3_Build01 ;
-    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
-    agsys:viaRoute pcl:AccessRoute_Git .
+pcl:Grant3_Verifier_S4 a ns1:AccessGrant ;
+    ns1:grantMode "read-only"^^xsd:string ;
+    ns1:grantedAt "2026-11-05T06:16:24+00:00"^^xsd:dateTime ;
+    ns1:grantedBy pcl:Run3_Build01 ;
+    ns1:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    ns1:viaRoute pcl:AccessRoute_Git .
 
 pcl:K3_S14_AC a backlog:ReadinessCriterion ;
     rdfs:label "The acceptance criterion reads as a check the measurement script makes"@en ;
@@ -2641,6 +2713,18 @@ pcl:K3_S4_Input a backlog:ReadinessCriterion ;
     rdfs:label "No decision of the Owner is waited on"@en ;
     backlog:criterionMet true .
 
+pcl:K3_S5_AC a backlog:ReadinessCriterion ;
+    rdfs:label "The acceptance criterion reads as a check the measurement script makes"@en ;
+    backlog:criterionMet true .
+
+pcl:K3_S5_Dep a backlog:ReadinessCriterion ;
+    rdfs:label "Nothing it depends on is open"@en ;
+    backlog:criterionMet true .
+
+pcl:K3_S5_Input a backlog:ReadinessCriterion ;
+    rdfs:label "No decision of the Owner is waited on"@en ;
+    backlog:criterionMet true .
+
 pcl:K3_T_S14_AC a backlog:ReadinessCriterion ;
     rdfs:label "The task builds what the acceptance criterion checks"@en ;
     backlog:criterionMet true .
@@ -2698,6 +2782,18 @@ pcl:K3_T_S4_Dep a backlog:ReadinessCriterion ;
     backlog:criterionMet true .
 
 pcl:K3_T_S4_Input a backlog:ReadinessCriterion ;
+    rdfs:label "No decision of the Owner is waited on"@en ;
+    backlog:criterionMet true .
+
+pcl:K3_T_S5_AC a backlog:ReadinessCriterion ;
+    rdfs:label "The task builds what the acceptance criterion checks"@en ;
+    backlog:criterionMet true .
+
+pcl:K3_T_S5_Dep a backlog:ReadinessCriterion ;
+    rdfs:label "Nothing it depends on is open"@en ;
+    backlog:criterionMet true .
+
+pcl:K3_T_S5_Input a backlog:ReadinessCriterion ;
     rdfs:label "No decision of the Owner is waited on"@en ;
     backlog:criterionMet true .
 
@@ -2833,20 +2929,20 @@ pcl:Out_Scope a backlog:StageOutput ;
     backlog:hasStateDigest "bf1d0452a0342a2e599cf6ccced285ad72530d7d7e8c561f7cd6bc85be6b6389"^^xsd:string ;
     backlog:outputOfStage backlog:Stage_Scope .
 
-pcl:Plan3_Verifier a agsys:VerificationPlan ;
-    agsys:hasPlanDigest "a3693b76e71e2473d8f02371c5594af89fd15c5596bb5d715cbd8e72c92ba6e7"^^xsd:string ;
+pcl:Plan3_Verifier a ns1:VerificationPlan ;
+    ns1:hasPlanDigest "a3693b76e71e2473d8f02371c5594af89fd15c5596bb5d715cbd8e72c92ba6e7"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
-pcl:Plan3_Verifier_S14 a agsys:VerificationPlan ;
-    agsys:hasPlanDigest "b51391bce417ffef1034141b8ddeb7e0158101a431b3ee9575798bf209a1f741"^^xsd:string ;
+pcl:Plan3_Verifier_S14 a ns1:VerificationPlan ;
+    ns1:hasPlanDigest "b51391bce417ffef1034141b8ddeb7e0158101a431b3ee9575798bf209a1f741"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
-pcl:Plan3_Verifier_S3 a agsys:VerificationPlan ;
-    agsys:hasPlanDigest "6ff8587c462c11ff73abb845e16f9fb0acba816bdef764e0dfdf5430fba7430c"^^xsd:string ;
+pcl:Plan3_Verifier_S3 a ns1:VerificationPlan ;
+    ns1:hasPlanDigest "6ff8587c462c11ff73abb845e16f9fb0acba816bdef764e0dfdf5430fba7430c"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
-pcl:Plan3_Verifier_S4 a agsys:VerificationPlan ;
-    agsys:hasPlanDigest "3e3861808a2d574e9860b3bc9259f2a782036ca37f69e4f6f5b386c1d9d51198"^^xsd:string ;
+pcl:Plan3_Verifier_S4 a ns1:VerificationPlan ;
+    ns1:hasPlanDigest "3e3861808a2d574e9860b3bc9259f2a782036ca37f69e4f6f5b386c1d9d51198"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
 pcl:Rel3_S14 a backlog:DeploymentUnit ;
@@ -3572,11 +3668,11 @@ pcl:Run3_Oversight_S4 a backlog:ExecutorInstance,
 pcl:Run3_Verifier_S14 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that re-ran the acceptance check in a fresh clone"@en ;
-    agsys:executedBy pcl:Session3_Verifier_S14 ;
-    agsys:followsPlan pcl:Plan3_Verifier_S14 ;
-    agsys:placeUnchanged false ;
-    agsys:startedInWay pcl:StartWay_Request ;
-    agsys:startedUnderGrant pcl:Grant3_Verifier_S14 ;
+    ns1:executedBy pcl:Session3_Verifier_S14 ;
+    ns1:followsPlan pcl:Plan3_Verifier_S14 ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier_S14 ;
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-05T09:21:13+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a7c3d0f7d4b0eced2"^^xsd:string .
@@ -3584,11 +3680,11 @@ pcl:Run3_Verifier_S14 a backlog:ExecutorInstance,
 pcl:Run3_Verifier_S3 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that re-ran the acceptance check in a fresh clone"@en ;
-    agsys:executedBy pcl:Session3_Verifier_S3 ;
-    agsys:followsPlan pcl:Plan3_Verifier_S3 ;
-    agsys:placeUnchanged false ;
-    agsys:startedInWay pcl:StartWay_Request ;
-    agsys:startedUnderGrant pcl:Grant3_Verifier_S3 ;
+    ns1:executedBy pcl:Session3_Verifier_S3 ;
+    ns1:followsPlan pcl:Plan3_Verifier_S3 ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier_S3 ;
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-04T14:15:30+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run afea60d8c118c52c2"^^xsd:string .
@@ -3596,11 +3692,11 @@ pcl:Run3_Verifier_S3 a backlog:ExecutorInstance,
 pcl:Run3_Verifier_S4 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that re-ran the acceptance check in a fresh clone"@en ;
-    agsys:executedBy pcl:Session3_Verifier_S4 ;
-    agsys:followsPlan pcl:Plan3_Verifier_S4 ;
-    agsys:placeUnchanged false ;
-    agsys:startedInWay pcl:StartWay_Request ;
-    agsys:startedUnderGrant pcl:Grant3_Verifier_S4 ;
+    ns1:executedBy pcl:Session3_Verifier_S4 ;
+    ns1:followsPlan pcl:Plan3_Verifier_S4 ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier_S4 ;
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-05T06:16:40+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run abb7a36c25a69947b"^^xsd:string .
@@ -3815,22 +3911,6 @@ pcl:Obj3_A10 a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 1.0 ;
     backlog:metricMovableBy pcl:Story3_S13 .
-
-pcl:Obj3_A3c a backlog:Objective ;
-    rdfs:label "Rules that are also shapes"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A3 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A3c ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A3c"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of shapes in the stand-alone shapes file that check one recorded rule"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 28.0 ;
-    backlog:metricMovableBy pcl:Story3_S5 .
 
 pcl:Obj3_A4a a backlog:Objective ;
     rdfs:label "Rules that are Stage 4 gates"@en ;
@@ -4245,7 +4325,7 @@ pcl:S9 a backlog:Story ;
     backlog:responsible pcl:Run_Build01 ;
     backlog:satisfiesDeliverable pcl:Del_W1 .
 
-pcl:AccessRoute_Git a agsys:AccessRoute ;
+pcl:AccessRoute_Git a ns1:AccessRoute ;
     rdfs:label "A fresh clone of the published repository"@en .
 
 pcl:Area3_A10 a backlog:ScopeArea ;
@@ -4317,6 +4397,15 @@ pcl:Exec_Approver_L3 a backlog:Executor_SingleAgent ;
 pcl:Exec_Oversight_L3 a backlog:Executor_SingleAgent ;
     rdfs:label "The overseeing agent: a reviewer that did not do the work and may send it back"@en .
 
+pcl:It3_S5 a backlog:Iteration ;
+    rdfs:label "Iteration: S5"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasIdentifier "RDPO-IT-S5"^^xsd:string ;
+    backlog:hasState backlog:InProgress ;
+    backlog:hasTitle "Work on S5"@en ;
+    backlog:iterationStart "2026-11-05T09:54:06+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog .
+
 pcl:Obj3_A1a a backlog:Objective ;
     rdfs:label "Page-part classes living in the stand-alone ontology"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
@@ -4348,6 +4437,22 @@ pcl:Obj3_A3a a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 28.0 ;
     backlog:metricMovableBy pcl:Story3_S4 .
+
+pcl:Obj3_A3c a backlog:Objective ;
+    rdfs:label "Rules that are also shapes"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A3 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A3c ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A3c"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of shapes in the stand-alone shapes file that check one recorded rule"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 28.0 ;
+    backlog:metricMovableBy pcl:Story3_S5 .
 
 pcl:Obj3_A4b a backlog:Objective ;
     rdfs:label "Rules the browser measurement covers"@en ;
@@ -4413,11 +4518,11 @@ pcl:Run3_Oversight a backlog:ExecutorInstance,
 pcl:Run3_Verifier a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that re-ran the acceptance checks in a fresh clone"@en ;
-    agsys:executedBy pcl:Session3_Verifier ;
-    agsys:followsPlan pcl:Plan3_Verifier ;
-    agsys:placeUnchanged false ;
-    agsys:startedInWay pcl:StartWay_Request ;
-    agsys:startedUnderGrant pcl:Grant3_Verifier ;
+    ns1:executedBy pcl:Session3_Verifier ;
+    ns1:followsPlan pcl:Plan3_Verifier ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier ;
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-04T12:27:00+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a119b93563b0d6b86"^^xsd:string .
@@ -4430,8 +4535,21 @@ pcl:SC3_Move a backlog:ScopeChange ;
     backlog:fulfillsRequest pcl:CR3_Move ;
     backlog:hasScopeChangeRationale "Admits the move to IPage and the browser measurement as IPage's own work; paid for by the out-scoping declaration recorded beside it (PSD3_OutRDODI), which removes the work that changes RDODI's files."^^xsd:string .
 
-pcl:StartWay_Request a agsys:StartWay ;
+pcl:StartWay_Request a ns1:StartWay ;
     rdfs:label "On the builder's request"@en .
+
+pcl:T3_S5_Build a backlog:ExecutionTask ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-T-S5-BUILD"^^xsd:string ;
+    backlog:hasState backlog:InProgress ;
+    backlog:hasTaskType backlog:Task_Implementation ;
+    backlog:hasTitle "Build the work of S5"@en ;
+    backlog:memberOfContainer pcl:It3_S5 ;
+    backlog:pursuesObjective pcl:Obj3_A3c ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:startedAt "2026-11-05T09:54:15+00:00"^^xsd:dateTime .
 
 pcl:Area3_A1 a backlog:ScopeArea ;
     rdfs:label "The kinds of page parts (the ontology itself)"@en ;
@@ -5119,25 +5237,6 @@ pcl:Story3_S15 a backlog:Story ;
     backlog:responsible pcl:Run3_Build01 ;
     backlog:satisfiesDeliverable pcl:Del3_D12 .
 
-pcl:Story3_S5 a backlog:Story ;
-    rdfs:label "Make each rule a shape a page can be checked against"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S5 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S5"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Make each rule a shape a page can be checked against"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A3c ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D5 .
-
 pcl:Run_Build01 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "The run of the Claude Code session that wrote this backlog"@en ;
@@ -5416,6 +5515,26 @@ pcl:Mission a backlog:Mission ;
     backlog:outcomeRationale "Replaced on the Owner's decision of 2026-11-04: the mission was not set properly. See the closure report." ;
     rdfs:comment "DRAFT by an assistant session; the Owner accepted the recommendation of 2026-11-02 (the gap analysis, section E); not owner-worded (Lineage Operating Discipline: session-drafted)."^^xsd:string,
         "Replaced on 2026-11-04 by Mission 2: it was not set properly (it left out the default page format and treated the course page as the page to prove). Kept as the record of what was believed." .
+
+pcl:Story3_S5 a backlog:Story ;
+    rdfs:label "Make each rule a shape a page can be checked against"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S5 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S5"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:InProgress ;
+    backlog:hasTitle "Make each rule a shape a page can be checked against"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A3c ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D5 ;
+    backlog:startedAt "2026-11-05T09:54:11+00:00"^^xsd:dateTime .
 
 pcl:Story3_S12 a backlog:Story ;
     rdfs:label "Release each change through the one release path and measure again from a fresh clone"@en ;

@@ -1,0 +1,272 @@
+@prefix ipo: <http://example.org/rdodi/interactive-page-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<http://example.org/rdodi/interactive-page-ontology/shacl> a owl:Ontology ;
+    rdfs:label "Interactive Page Ontology shapes v1.3.0"@en ;
+    dcterms:created "2026-11-04"^^xsd:date ;
+    dcterms:creator <http://example.org/rdodi/agent/YusufAltunel> ;
+    dcterms:description "Shapes of the interactive page ontology. First shape: every class of the ontology has a label and a definition. Second shape: every quality standard or method applies to at least one page part. Third shape: every page rule has exactly one source, one quality and one kind of part. Story 5 (A3c) adds one shape per recorded page rule (ipo:RuleCheck_01 .. ipo:RuleCheck_28): each names its rule with ipo:forRule and requires, of a rule check result that checks that rule, that it is marked passed."@en ;
+    dcterms:identifier "interactive_page_ontology_shacl_v1_3_0" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-11-05"^^xsd:date ;
+    dcterms:publisher <http://example.org/rdodi/agent/IstanbulKulturUniversity> ;
+    dcterms:rights "Copyright (c) 2026 Yusuf Altunel. Licensed CC BY 4.0."@en ;
+    owl:versionIRI <http://example.org/rdodi/interactive-page-ontology/shacl/1.3.0> ;
+    owl:versionInfo "1.3.0" ;
+    owl:priorVersion <http://example.org/rdodi/interactive-page-ontology/shacl/1.2.0> ;
+    prov:wasAttributedTo <http://example.org/rdodi/agent/YusufAltunel> .
+
+ipo:ClassHasLabelShape a sh:NodeShape ;
+    sh:target [ a sh:SPARQLTarget ; sh:prefixes [ sh:declare [ sh:prefix "owl" ; sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ] ] ; sh:select "SELECT ?this WHERE { ?this a owl:Class . FILTER isIRI(?this) }" ] ;
+    sh:property [ sh:path rdfs:label ; sh:minCount 1 ] ;
+    sh:message "Every class of the interactive page ontology has a label."@en .
+
+ipo:StandardAppliesShape a sh:NodeShape ;
+    sh:targetClass ipo:QualityStandard ;
+    sh:property [ sh:path ipo:appliesTo ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:message "Every quality standard or method applies to at least one page part."@en .
+
+ipo:RuleCompleteShape a sh:NodeShape ;
+    sh:targetClass ipo:PageRule ;
+    sh:property [ sh:path ipo:ruleSource ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ipo:OwnerInstruction ] ;
+    sh:property [ sh:path ipo:ofQuality ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ipo:PageQuality ] ;
+    sh:property [ sh:path ipo:onPartKind ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:message "Every page rule has exactly one source instruction, one quality and one kind of page part."@en .
+
+ipo:RuleCheckResultShape a sh:NodeShape ;
+    sh:targetClass ipo:RuleCheckResult ;
+    sh:property [ sh:path ipo:checksRule ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ipo:PageRule ] ;
+    sh:property [ sh:path ipo:passed ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path ipo:atViewport ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ipo:evidenceNote ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:message "Every rule check result names the one rule it read, whether the page passed, the viewport it was read at, and the evidence read from the page."@en .
+
+ipo:RuleCheck_01 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_01 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_01 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 01 -- Menu clicks change the main area first -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_02 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_02 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_02 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 02 -- The right-hand detail card appears only when a detail is explicitly requested -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_03 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_03 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_03 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 03 -- Tab menus are always sub-menus of the selected top-level item, never mixed with it -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_04 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_04 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_04 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 04 -- Code on the page really runs: edited code changes the result -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_05 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_05 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_05 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 05 -- Subject agents answer from their own slice of the ontology and corpus, not with generic identical answers -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_06 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_06 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_06 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 06 -- Every diagram has zoom in and out, a full-screen view and a resizable panel -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_07 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_07 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_07 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 07 -- The top-level menu stays uncrowded -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_08 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_08 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_08 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 08 -- No list is shown twice on one screen -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_09 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_09 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_09 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 09 -- Static explanations live in their own sub-tabs or in the detail card -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_10 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_10 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_10 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 10 -- A taxonomy is drawn as one connected tree with labels that fit their boxes -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_11 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_11 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_11 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 11 -- The page adapts to any device and screen, from a phone to a large screen, and scales as the window is resized -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_12 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_12 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_12 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 12 -- Default text is not small -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_13 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_13 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_13 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 13 -- The reader can adjust the text size -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_14 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_14 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_14 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 14 -- Zoom controls never cover the diagram -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_15 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_15 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_15 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 15 -- Touching a content element shows its options first, preferably in the right-hand card -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_16 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_16 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_16 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 16 -- There is no third level of sub-tabs; a breadcrumb is used instead -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_17 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_17 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_17 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 17 -- Choosing a low-level item in the left explorer opens that single item, not its siblings -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_18 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_18 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_18 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 18 -- The tabs and the left hierarchical explorer always stay synchronized -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_19 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_19 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_19 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 19 -- Every term and tool used on the page is explained -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_20 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_20 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_20 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 20 -- Explanations are comprehensive, cohesive paragraphs of full sentences -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_21 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_21 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_21 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 21 -- Learn sections carry visualizations and interactions, not rich text alone -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_22 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_22 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_22 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 22 -- Long explanations are divided into sub-pages with direct access to each -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_23 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_23 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_23 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 23 -- The concept map is readable and offers filtering -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_24 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_24 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_24 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 24 -- The ontology graph shows its syntactic, semantic and behavioural categorizations -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_25 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_25 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_25 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 25 -- Content and visualizations fit the display without scrolling -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_26 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_26 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_26 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 26 -- Meta information about the work itself is guidance only and is never shown as content -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_27 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_27 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_27 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 27 -- The top of the screen is never spent cheaply: tooltips replace messages and accordions, with details in the right-hand card -- must be read passed=true at this viewport."@en .
+
+ipo:RuleCheck_28 a sh:NodeShape ;
+    ipo:forRule ipo:Rule_28 ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes [ sh:declare [ sh:prefix "ipo" ; sh:namespace "http://example.org/rdodi/interactive-page-ontology#"^^xsd:anyURI ] ] ;
+        sh:select "SELECT ?this WHERE { ?this ipo:checksRule ipo:Rule_28 }" ] ;
+    sh:property [ sh:path ipo:passed ; sh:hasValue true ] ;
+    sh:message "Rule 28 -- Visualizations and interactions are merged with the content, and nothing sits behind a click a reader would only find by chance -- must be read passed=true at this viewport."@en .

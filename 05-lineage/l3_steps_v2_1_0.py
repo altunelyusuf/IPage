@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""l3_steps_v2_0_0.py - the recorded steps of Lineage 3's work stories, one command per step. Each writes the NEXT register version, never edits or deletes the previous one (OE BP-D7),
+"""l3_steps_v2_1_0.py - the recorded steps of Lineage 3's work stories, one command per step. Each writes the NEXT register version, never edits or deletes the previous one (OE BP-D7),
 and refuses unless every earlier statement is still there except exactly those the step may change.
 
-  l3_steps_v2_0_0.py start S1 S2 ...    the named stories move to InProgress, stamped from the clock; with the disclosure that the first build of S1 and S2 preceded this record.
+  l3_steps_v2_1_0.py start S1 S2 ...    the named stories move to InProgress, stamped from the clock; with the disclosure that the first build of S1 and S2 preceded this record.
+
+v2.1.0 (2026-11-05): STORY_KEYS was missing S5 (it pursues A3c, like every other story this tool finishes) -- a gap found while finishing S5, not a change of what any story means.
 """
 import os, re, sys, glob, argparse, datetime
 from rdflib import Graph, Namespace, Literal, RDF, RDFS, XSD
@@ -82,7 +84,7 @@ def start(a):
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
 BRSF = os.environ.get("BRSF_ROOT") or next((d for d in (os.path.join(ROOT, "..", "backlog-roadmap-framework"), os.path.join(ROOT, "..", "ontologies", "backlog-roadmap-framework"), "/tmp/brsf") if os.path.isdir(os.path.join(d, "03-tooling"))), "")
 SPEC = "05-lineage/l3_check_v1_0_0.py"
-STORY_KEYS = {"S1": ["A1a", "A1c"], "S2": ["A1b"], "S3": ["A2"], "S4": ["A3a", "A3b"], "S14": ["A11"], "S15": ["A4b"]}
+STORY_KEYS = {"S1": ["A1a", "A1c"], "S2": ["A1b"], "S3": ["A2"], "S4": ["A3a", "A3b"], "S5": ["A3c"], "S14": ["A11"], "S15": ["A4b"]}
 vkey = lambda p: [int(x) for x in re.findall(r"_v(\d+)_(\d+)_(\d+)\.", p)[0]]
 def bridge(path, meas, commit, ids):
     import subprocess
