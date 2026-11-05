@@ -19,11 +19,11 @@ The browser measurement (`06-page-measure`) and the default page format (`08-def
 
 ## Where it came from
 
-Versions 1.0.0 to 1.2.1 of the ontology were published in the Ontologies monorepo as the package `interactive-page-ontology`. That copy is frozen and points here. Lineage 3's register up to version 0.39.0 is in RDODI's register (`rdodi-ecosystem/28-interactive-html-surface/13-overview-lineage-register`), which keeps the whole history. Version 0.40.0 here carries every statement of Lineage 3 unchanged, and the lineage writes only here from now on.
+Versions 1.0.0 to 1.2.1 of the ontology were published in the Ontologies monorepo as the package `interactive-page-ontology`. That copy is frozen and points here. Lineage 3's register up to version 0.39.0 is in RDODI's register (`rdodi-ecosystem/28-interactive-html-surface/13-overview-lineage-register`), which keeps the whole history. Version 0.40.0 here carried every statement of Lineage 3 unchanged, and the lineage writes only here from now on.
 
 ## Starting a session
 
-Read `04-documentation/SESSION_START_v1_0_0.md`.
+Read `04-documentation/SESSION_START_v1_0_1.md`.
 
 ## Licences
 

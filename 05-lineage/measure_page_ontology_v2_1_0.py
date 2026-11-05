@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-"""Re-runnable measurements for Lineage 3 (one ontology of interactive pages), v2.0.0, kept in the IPage repository.
-   python3 measure_page_ontology_v2_0_0.py --metric KEY [--register FILE] [--monorepo ONTOLOGIES_CLONE]   prints one integer
-   python3 measure_page_ontology_v2_0_0.py --all [--register FILE] [--monorepo ONTOLOGIES_CLONE]          prints KEY value for every metric
-   python3 measure_page_ontology_v2_0_0.py --selftest                                                     the counting rules on fixtures with a known answer
+"""Re-runnable measurements for Lineage 3 (one ontology of interactive pages), v2.1.0, kept in the IPage repository.
+   python3 measure_page_ontology_v2_1_0.py --metric KEY [--register FILE] [--monorepo ONTOLOGIES_CLONE]   prints one integer
+   python3 measure_page_ontology_v2_1_0.py --all [--register FILE] [--monorepo ONTOLOGIES_CLONE]          prints KEY value for every metric
+   python3 measure_page_ontology_v2_1_0.py --selftest                                                     the counting rules on fixtures with a known answer
 v2.0.0 (2026-11-05, the move to IPage): the ontology figures are read from this repository; the figures about RDODI's own surface (the exclusions,
 the out-scoped page work) are read from a clone of the Ontologies monorepo with its history (not shallow: some figures read git history), given by
 --monorepo or ONTOLOGIES_ROOT, or found as a sibling folder named ontologies or Ontologies. A figure that needs the monorepo reads -1 without it.
 The browser measurement and the default page format are looked for in this repository (06-page-measure, 08-default-format).
+v2.1.0 (2026-11-05, after an independent overseer's send-back): X1 ('other repositories are read, never changed') is read for the whole life of the
+lineage. Before the move it counts, as before, the files outside rdodi-ecosystem that the lineage's rdodi-ecosystem releases changed. From the move
+(MOVE_COMMIT, the last change the move made in the monorepo) the lineage's home is this repository, so X1 adds every file in the monorepo's former Lineage 3
+places (17-page-conditions-lineage, the frozen package interactive-page-ontology) changed after the move: the lineage writes nothing more there.
 Every figure is read from files, the register or a browser, never typed."""
 import os, re, sys, glob, subprocess, importlib.util
 from rdflib import Graph, RDF, RDFS, OWL, Namespace, URIRef
@@ -21,6 +25,7 @@ OLD = os.path.join(SURF, "17-page-conditions-lineage") if MONO else ""
 BRSF = os.environ.get("BRSF_ROOT") or next((d for d in (os.path.join(REPO, "..", "backlog-roadmap-framework"), os.path.join(MONO, "backlog-roadmap-framework") if MONO else "", "/tmp/brsf") if d and os.path.isdir(os.path.join(d, "03-tooling"))), "")
 vkey = lambda p: [int(x) for x in re.findall(r"_v(\d+)_(\d+)_(\d+)\.", p)[-1]]
 newest = lambda pat: sorted(glob.glob(pat), key=vkey)[-1]
+MOVE_COMMIT = "1a3589c6"   # interactive-page-ontology 1.2.2: the last change the move made in the monorepo (the frozen copy pointing to IPage)
 BASE_COMMIT = "a897c8f4"   # the release that closed this lineage's Scope stage (1.243.0)
 IPO = "http://example.org/rdodi/interactive-page-ontology#"; SH = Namespace("http://www.w3.org/ns/shacl#"); P = "http://example.org/rdodi/page-conditions-lineage#"
 def _old():
@@ -112,6 +117,10 @@ def m_validator(register):
     if not v or not register: return -1
     out = subprocess.run([sys.executable, sorted(v, key=vkey)[-1], "--validate-lineage", "Lineage03", register], capture_output=True, text=True).stdout
     return 0 if "holds clean" in out else len(re.findall(r"\[Violation\]", out)) or 1
+def m_outside_changes_after_move():
+    if not MONO: return -1
+    out = subprocess.run(["git", "-C", MONO, "diff", "--name-only", MOVE_COMMIT, "HEAD", "--", "rdodi-ecosystem/28-interactive-html-surface/17-page-conditions-lineage", "interactive-page-ontology"], capture_output=True, text=True)
+    return -1 if out.returncode else len([l for l in out.stdout.splitlines() if l.strip()])
 def m_home():
     s = importlib.util.spec_from_file_location("home", newest(f"{HERE}/measure_ipage_home_v*.py")); m = importlib.util.module_from_spec(s); s.loader.exec_module(m)
     return m.measure(REPO, MONO) if MONO else -1
@@ -122,7 +131,7 @@ def metrics(register):
     return {"A1a": m_standalone_classes, "A1b": m_rootless, "A1c": m_unlinked, "A2": m_standards_tied, "A3a": m_rules_recorded, "A3b": m_rules_tied, "A3c": m_rule_shapes,
             "A4a": m_gate_rows, "A4b": m_rules_measured, "A5": M("m_pages_failing"), "A6a": M("m_run_profiles_without_page"), "A6b": M("m_profile_page_shapes"), "A7a": m_default_formats, "A7b": m_default_pages_passing,
             "A8a": M("m_chapter_pages_passing"), "A8b": M("m_edited_code_changes_result"), "A9": m_release_path_bypass, "A10": m_handovers, "Contained": lambda: m_contained(register),
-            "X1": M("m_outside_changes"), "X2": m_course_classes, "X3": m_long_definitions, "X4": M("m_pin_changes"), "X5": M("m_html_named", r"road.?map.?report|white.?paper|technical.?report"), "X6": M("m_device_claims"),
+            "X1": lambda: (lambda a, b: -1 if -1 in (a, b) else a + b)(M("m_outside_changes")(), m_outside_changes_after_move()), "X2": m_course_classes, "X3": m_long_definitions, "X4": M("m_pin_changes"), "X5": M("m_html_named", r"road.?map.?report|white.?paper|technical.?report"), "X6": M("m_device_claims"),
             "Mission": m_default_formats_traced, "Conf": lambda: m_validator(register), "A11": m_home}
 def selftest():
     g = Graph(); N = lambda x: URIRef(IPO + x)

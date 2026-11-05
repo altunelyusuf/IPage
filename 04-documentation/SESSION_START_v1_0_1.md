@@ -45,7 +45,7 @@ Release with this sequence:
 1. Run `python3 03-tooling/release_check_v1_0_0.py --write-manifest` until it passes.
 2. Raise `VERSION.txt` and write `04-documentation/CHANGELOG_v<version>.md`.
 3. Commit with the subject `IPage v<version>`.
-4. Push, then tag `IPage-v<version>`.
+4. Push, then tag `IPage-v<version>`. Where the environment cannot push tags, the commit subject and SHA identify the release; say so in the finish record.
 5. Verify from a fresh clone.
 
 ## 5. Communication with the Owner

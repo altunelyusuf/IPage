@@ -1201,8 +1201,8 @@ pcl:Session03_Move a backlog:RegisterSession ;
 <http://example.org/rdodi/page-conditions-lineage/register> a owl:Ontology ;
     rdfs:comment "BRSF register of Lineage 3 (one ontology of interactive pages), kept in the IPage repository from 2026-11-05. Its first version here is every statement of Lineage 3 in the RDODI register rdodi_overview_page_lineage_abox_v0_39_0.ttl, published by the Ontologies monorepo commit d3c1c30028cc48830c2b391c9be8e89dd15765cb, copied unchanged; that register keeps the whole history, and the evidence recorded there is re-run against the monorepo. From here the lineage writes only to this file."@en ;
     owl:imports <http://example.org/backlog> ;
-    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.40.0> ;
-    owl:versionInfo "0.40.0" .
+    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.41.0> ;
+    owl:versionInfo "0.41.0" .
 
 pcl:AC3_S10 a backlog:AcceptanceCriterion ;
     backlog:hasGherkinText "Given the pinned course page and the default format, When one chapter page is built here, Then the course page is registered as that profile's page and every gate passes on it."^^xsd:string .
@@ -3931,7 +3931,8 @@ pcl:Obj3_X1 a backlog:Objective ;
         pcl:Story3_S6,
         pcl:Story3_S7,
         pcl:Story3_S8,
-        pcl:Story3_S9 .
+        pcl:Story3_S9 ;
+    rdfs:comment "From the move to IPage (2026-11-05) the figure is read by 05-lineage/measure_page_ontology_v2_1_0.py in IPage: the monorepo figure as before, plus every file the lineage changed in its former monorepo places (17-page-conditions-lineage, the frozen package interactive-page-ontology) after the last change the move made there (commit 1a3589c6). Releases of IPage change nothing outside IPage. Noted after an independent overseer's review."@en .
 
 pcl:Obj3_X2 a backlog:Objective ;
     rdfs:label "Page-ontology classes that name a course subject"@en ;
@@ -4192,6 +4193,7 @@ pcl:Obj3_A11 a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 4.0 ;
     backlog:metricMovableBy pcl:Story3_S14 ;
+    rdfs:comment "Read in the IPage repository with 05-lineage/measure_ipage_home_v1_1_0.py (the IPage clone defaults to the repository the script sits in); the query above names the monorepo version the objective was written with. Noted 2026-11-05 after an independent overseer's review."@en ;
     prov:wasDerivedFrom pcl:SC3_Move .
 
 pcl:Obj3_A1a a backlog:Objective ;
