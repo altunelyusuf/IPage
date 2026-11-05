@@ -60,6 +60,14 @@ pcl:Chk3_S14 a backlog:ReadinessCheck ;
         pcl:K3_S14_Input ;
     backlog:readinessCheckedAt "2026-11-05T07:52:25+00:00"^^xsd:dateTime .
 
+pcl:Chk3_S15 a backlog:ReadinessCheck ;
+    rdfs:label "Readiness of S15"@en ;
+    backlog:checksReadinessOf pcl:Story3_S15 ;
+    backlog:hasReadinessCriterion pcl:K3_S15_AC,
+        pcl:K3_S15_Dep,
+        pcl:K3_S15_Input ;
+    backlog:readinessCheckedAt "2026-11-05T11:24:11+00:00"^^xsd:dateTime .
+
 pcl:Chk3_S2 a backlog:ReadinessCheck ;
     rdfs:label "Readiness of S2"@en ;
     backlog:checksReadinessOf pcl:Story3_S2 ;
@@ -107,6 +115,14 @@ pcl:Chk3_T_S14 a backlog:ReadinessCheck ;
         pcl:K3_T_S14_Dep,
         pcl:K3_T_S14_Input ;
     backlog:readinessCheckedAt "2026-11-05T07:52:30+00:00"^^xsd:dateTime .
+
+pcl:Chk3_T_S15 a backlog:ReadinessCheck ;
+    rdfs:label "Readiness of the task of S15"@en ;
+    backlog:checksReadinessOf pcl:T3_S15_Build ;
+    backlog:hasReadinessCriterion pcl:K3_T_S15_AC,
+        pcl:K3_T_S15_Dep,
+        pcl:K3_T_S15_Input ;
+    backlog:readinessCheckedAt "2026-11-05T11:24:16+00:00"^^xsd:dateTime .
 
 pcl:Chk3_T_S2 a backlog:ReadinessCheck ;
     rdfs:label "Readiness of the task of S2"@en ;
@@ -176,6 +192,20 @@ pcl:Ev3_S14_Start a backlog:TransitionEvent ;
     backlog:transitionedBy backlog:Builder ;
     backlog:transitionedByExecutor pcl:Run3_Build01 ;
     backlog:transitionedItem pcl:Story3_S14 ;
+    backlog:viaTransition backlog:T_Start .
+
+pcl:Ev3_S15_Refine a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-05T11:24:13+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S15 ;
+    backlog:viaTransition backlog:T_Refine .
+
+pcl:Ev3_S15_Start a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-05T11:24:15+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S15 ;
     backlog:viaTransition backlog:T_Start .
 
 pcl:Ev3_S1_Refine a backlog:TransitionEvent ;
@@ -295,6 +325,20 @@ pcl:Ev3_T_S14_Start a backlog:TransitionEvent ;
     backlog:transitionedBy backlog:Builder ;
     backlog:transitionedByExecutor pcl:Run3_Build01 ;
     backlog:transitionedItem pcl:T3_S14_Build ;
+    backlog:viaTransition backlog:T_Start .
+
+pcl:Ev3_T_S15_Refine a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-05T11:24:17+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:T3_S15_Build ;
+    backlog:viaTransition backlog:T_Refine .
+
+pcl:Ev3_T_S15_Start a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-05T11:24:18+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:T3_S15_Build ;
     backlog:viaTransition backlog:T_Start .
 
 pcl:Ev3_T_S1_Refine a backlog:TransitionEvent ;
@@ -1076,6 +1120,15 @@ pcl:PB3_S14 a backlog:PlanBaseline ;
     backlog:isCurrentBaseline true ;
     rdfs:comment "A forecast only: 8 points at the planning pace of 1.63 points per hour, times a buffer of 1.5. Not a target."@en .
 
+pcl:PB3_S15 a backlog:PlanBaseline ;
+    rdfs:label "Base plan of the iteration"@en ;
+    backlog:baselineFor pcl:It3_S15 ;
+    backlog:baselinedAt "2026-11-05T11:24:19+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineEnd "2026-11-05T23:21:56+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineStart "2026-11-05T11:24:09+00:00"^^xsd:dateTime ;
+    backlog:isCurrentBaseline true ;
+    rdfs:comment "A forecast only: 13 points at the planning pace of 1.63 points per hour, times a buffer of 1.5. Not a target."@en .
+
 pcl:PB3_S1_S2 a backlog:PlanBaseline ;
     rdfs:label "Base plan of the iteration"@en ;
     backlog:baselineFor pcl:It3_S1_S2 ;
@@ -1140,6 +1193,15 @@ pcl:Plan3_S14 a backlog:PlanningEvent ;
     backlog:plannedInto pcl:It3_S14 ;
     backlog:plansItem pcl:Story3_S14 ;
     backlog:producesTask pcl:T3_S14_Build .
+
+pcl:Plan3_S15 a backlog:PlanningEvent ;
+    rdfs:label "S15 planned into its iteration"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:plannedAt "2026-11-05T11:24:14+00:00"^^xsd:dateTime ;
+    backlog:plannedBy backlog:Builder ;
+    backlog:plannedInto pcl:It3_S15 ;
+    backlog:plansItem pcl:Story3_S15 ;
+    backlog:producesTask pcl:T3_S15_Build .
 
 pcl:Plan3_S2 a backlog:PlanningEvent ;
     rdfs:label "S2 planned into its iteration"@en ;
@@ -1211,6 +1273,16 @@ pcl:Refine3_S14 a backlog:RefinementEvent ;
     backlog:refinedAt "2026-11-05T07:52:24+00:00"^^xsd:dateTime ;
     backlog:refinedBy backlog:Builder ;
     backlog:refines pcl:Story3_S14 .
+
+pcl:Refine3_S15 a backlog:RefinementEvent ;
+    backlog:addressesConcern backlog:Concern_Interface_UI ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:groomsForIteration pcl:It3_S15 ;
+    backlog:hasRefinementOutcome "Groomed: the acceptance criterion reads as a check the measurement script makes; the work is to files and records; no decision of the Owner is waited on."^^xsd:string ;
+    backlog:hasWorkKind backlog:WorkKind_Preparation ;
+    backlog:refinedAt "2026-11-05T11:24:10+00:00"^^xsd:dateTime ;
+    backlog:refinedBy backlog:Builder ;
+    backlog:refines pcl:Story3_S15 .
 
 pcl:Refine3_S2 a backlog:RefinementEvent ;
     backlog:addressesConcern backlog:Concern_Interface_UI ;
@@ -2665,6 +2737,18 @@ pcl:K3_S14_Input a backlog:ReadinessCriterion ;
     rdfs:label "No decision of the Owner is waited on"@en ;
     backlog:criterionMet true .
 
+pcl:K3_S15_AC a backlog:ReadinessCriterion ;
+    rdfs:label "The acceptance criterion reads as a check the measurement script makes"@en ;
+    backlog:criterionMet true .
+
+pcl:K3_S15_Dep a backlog:ReadinessCriterion ;
+    rdfs:label "Nothing it depends on is open"@en ;
+    backlog:criterionMet true .
+
+pcl:K3_S15_Input a backlog:ReadinessCriterion ;
+    rdfs:label "No decision of the Owner is waited on"@en ;
+    backlog:criterionMet true .
+
 pcl:K3_S1_AC a backlog:ReadinessCriterion ;
     rdfs:label "The acceptance criterion reads as a check the measurement script makes"@en ;
     backlog:criterionMet true .
@@ -2734,6 +2818,18 @@ pcl:K3_T_S14_Dep a backlog:ReadinessCriterion ;
     backlog:criterionMet true .
 
 pcl:K3_T_S14_Input a backlog:ReadinessCriterion ;
+    rdfs:label "No decision of the Owner is waited on"@en ;
+    backlog:criterionMet true .
+
+pcl:K3_T_S15_AC a backlog:ReadinessCriterion ;
+    rdfs:label "The task builds what the acceptance criterion checks"@en ;
+    backlog:criterionMet true .
+
+pcl:K3_T_S15_Dep a backlog:ReadinessCriterion ;
+    rdfs:label "Nothing it depends on is open"@en ;
+    backlog:criterionMet true .
+
+pcl:K3_T_S15_Input a backlog:ReadinessCriterion ;
     rdfs:label "No decision of the Owner is waited on"@en ;
     backlog:criterionMet true .
 
@@ -4397,6 +4493,15 @@ pcl:Exec_Approver_L3 a backlog:Executor_SingleAgent ;
 pcl:Exec_Oversight_L3 a backlog:Executor_SingleAgent ;
     rdfs:label "The overseeing agent: a reviewer that did not do the work and may send it back"@en .
 
+pcl:It3_S15 a backlog:Iteration ;
+    rdfs:label "Iteration: S15"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasIdentifier "RDPO-IT-S15"^^xsd:string ;
+    backlog:hasState backlog:InProgress ;
+    backlog:hasTitle "Work on S15"@en ;
+    backlog:iterationStart "2026-11-05T11:24:09+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog .
+
 pcl:It3_S5 a backlog:Iteration ;
     rdfs:label "Iteration: S5"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
@@ -4453,23 +4558,6 @@ pcl:Obj3_A3c a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 28.0 ;
     backlog:metricMovableBy pcl:Story3_S5 .
-
-pcl:Obj3_A4b a backlog:Objective ;
-    rdfs:label "Rules the browser measurement covers"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A4 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A4b ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A4b"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of recorded rules the gate instrument lists as measured"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 28.0 ;
-    backlog:metricMovableBy pcl:Story3_S15,
-        pcl:Story3_S6 .
 
 pcl:Obj3_A9 a backlog:Objective ;
     rdfs:label "Changes that skipped the release path"@en ;
@@ -4537,6 +4625,19 @@ pcl:SC3_Move a backlog:ScopeChange ;
 
 pcl:StartWay_Request a ns1:StartWay ;
     rdfs:label "On the builder's request"@en .
+
+pcl:T3_S15_Build a backlog:ExecutionTask ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-T-S15-BUILD"^^xsd:string ;
+    backlog:hasState backlog:InProgress ;
+    backlog:hasTaskType backlog:Task_Implementation ;
+    backlog:hasTitle "Build the work of S15"@en ;
+    backlog:memberOfContainer pcl:It3_S15 ;
+    backlog:pursuesObjective pcl:Obj3_A4b ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:startedAt "2026-11-05T11:24:18+00:00"^^xsd:dateTime .
 
 pcl:T3_S5_Build a backlog:ExecutionTask ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
@@ -4705,6 +4806,23 @@ pcl:Obj3_A3b a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 28.0 ;
     backlog:metricMovableBy pcl:Story3_S4 .
+
+pcl:Obj3_A4b a backlog:Objective ;
+    rdfs:label "Rules the browser measurement covers"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A4 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A4b ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A4b"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of recorded rules the gate instrument lists as measured"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 28.0 ;
+    backlog:metricMovableBy pcl:Story3_S15,
+        pcl:Story3_S6 .
 
 pcl:Obj_Contained a backlog:Objective ;
     rdfs:label "Work items that serve no deliverable or objective"@en ;
@@ -5218,25 +5336,6 @@ pcl:Story3_S13 a backlog:Story ;
     backlog:responsible pcl:Run3_Build01 ;
     backlog:satisfiesDeliverable pcl:Del3_W2 .
 
-pcl:Story3_S15 a backlog:Story ;
-    rdfs:label "Build the one browser measurement in IPage that reads a page against every rule"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S15 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S15"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Build the one browser measurement in IPage that reads a page against every rule"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A4b ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D12 .
-
 pcl:Run_Build01 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "The run of the Claude Code session that wrote this backlog"@en ;
@@ -5515,6 +5614,26 @@ pcl:Mission a backlog:Mission ;
     backlog:outcomeRationale "Replaced on the Owner's decision of 2026-11-04: the mission was not set properly. See the closure report." ;
     rdfs:comment "DRAFT by an assistant session; the Owner accepted the recommendation of 2026-11-02 (the gap analysis, section E); not owner-worded (Lineage Operating Discipline: session-drafted)."^^xsd:string,
         "Replaced on 2026-11-04 by Mission 2: it was not set properly (it left out the default page format and treated the course page as the page to prove). Kept as the record of what was believed." .
+
+pcl:Story3_S15 a backlog:Story ;
+    rdfs:label "Build the one browser measurement in IPage that reads a page against every rule"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S15 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S15"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:InProgress ;
+    backlog:hasTitle "Build the one browser measurement in IPage that reads a page against every rule"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A4b ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D12 ;
+    backlog:startedAt "2026-11-05T11:24:15+00:00"^^xsd:dateTime .
 
 pcl:Story3_S5 a backlog:Story ;
     rdfs:label "Make each rule a shape a page can be checked against"@en ;
