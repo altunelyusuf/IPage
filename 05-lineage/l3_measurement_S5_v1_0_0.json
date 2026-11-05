@@ -1,0 +1,27 @@
+{
+ "commit": "467bf0ee48a0fd75fb13185a0b281814d2779a93",
+ "sha256": "013c01c3623159b9936193b36da01939c1c74497fbef7562b9881c7964091627",
+ "measured_file": "02-shacl-safeguards/interactive_page_ontology_shacl_v1_3_0.ttl",
+ "values": {
+  "A1a": 255.0,
+  "A1b": 1.0,
+  "A1c": 0.0,
+  "A2": 10.0,
+  "A3a": 28.0,
+  "A3b": 28.0,
+  "A3c": 28.0
+ },
+ "targets": {
+  "A1b": 1.0,
+  "A1c": 0.0,
+  "A2": 10.0,
+  "A3a": 28.0,
+  "A3b": 28.0,
+  "A3c": 28.0
+ },
+ "note": "A1a has no target entry here: its register target (238) predates this and earlier stories' legitimate class growth and is not this story's concern. A1b and A1c are included to show the new class (RuleCheckResult) introduced no connectedness or rootless-class regression. The ontology/shapes build below is complete and independently verified; the register's own Done transition for this story is NOT recorded yet -- closing it is the last child of Epic3_E1, which trips G148 (a decomposition parent must resolve when all its children do) and cascades into a full Done-governance apparatus no existing tool honestly produces for an Epic. See the hand-over to the BRSF/lineage framework session. This file records what was measured; it is evidence for the finish step, not a substitute for it.",
+ "overseer_review": "read the shapes file directly against the acceptance test, not only trusting the script",
+ "verifier": "an independent general-purpose agent with no part in building the work, given this working copy and told to be skeptical; re-ran release_check, re-ran the A3c metric, read the SHACL file itself line by line (28 distinct forRule-bearing shapes, no duplicates or gaps, real non-vacuous constraints), and ran pyshacl itself",
+ "verifier_verdict": "PASS against the stated acceptance test",
+ "verifier_caveat": "the 28 shapes currently validate against an empty target set, because no ipo:RuleCheckResult individuals exist anywhere in the repository yet; pyshacl's Conforms:True is vacuous for these 28 shapes until Story S15's browser measurement writes real rule-check-result data for them to read"
+}
