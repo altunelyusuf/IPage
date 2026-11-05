@@ -503,6 +503,28 @@ def selftest():
     vacuous_on_bare_page = {"Rule_08", "Rule_09", "Rule_11", "Rule_12", "Rule_16", "Rule_19", "Rule_22", "Rule_25", "Rule_26", "Rule_28"}
     wrongly_passed = [(local, vp) for local, _, vp, passed, _ in fail_results if passed and local not in vacuous_on_bare_page]
     ok += [("every other rule fails on a page carrying none of its convention", not wrongly_passed)]
+    # --out must write individuals that genuinely conform to RuleCheckResultShape, not merely
+    # parse. This is the one not run against a live page yet (no default page format exists),
+    # so it is proven here, against the fixture, rather than left to be found out later.
+    with tempfile.TemporaryDirectory() as d:
+        out_file = os.path.join(d, "results.ttl")
+        write_results_ttl(pass_results, out_file)
+        try:
+            import rdflib
+            g = rdflib.Graph(); g.parse(out_file, format="turtle")
+            n_results = len(set(g.subjects(rdflib.RDF.type, rdflib.URIRef(IPO + "RuleCheckResult"))))
+            ok += [("--out writes one RuleCheckResult individual per (rule, viewport) pair", n_results == len(pass_results))]
+            shacl = newest("02-shacl-safeguards/interactive_page_ontology_shacl_v*.ttl")
+            tbox = newest("01-ontologies/interactive_page_ontology_tbox_v*.ttl")
+            abox = newest("01-ontologies/interactive_page_ontology_abox_v*.ttl")
+            import subprocess
+            # the A-Box is included as data too, alongside the written results: ipo:checksRule's
+            # sh:class constraint needs ipo:Rule_NN's own rdf:type ipo:PageRule to check against,
+            # and only the A-Box states that.
+            r = subprocess.run([sys.executable, "-m", "pyshacl", "-s", shacl, "-e", tbox, abox, out_file], capture_output=True, text=True)
+            ok += [("every individual --out writes conforms to RuleCheckResultShape", "Conforms: True" in r.stdout)]
+        except Exception as e:
+            ok += [(f"--out output could not be read back: {e}", False)]
     for n, v in ok:
         print(("PASS " if v else "FAIL ") + n)
     return all(v for _, v in ok)
