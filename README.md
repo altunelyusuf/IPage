@@ -23,7 +23,7 @@ Versions 1.0.0 to 1.2.1 of the ontology were published in the Ontologies monorep
 
 ## Starting a session
 
-Read `04-documentation/SESSION_START_v1_0_3.md`.
+Read `04-documentation/SESSION_START_v1_0_4.md`.
 
 ## Licences
 

@@ -1,0 +1,29 @@
+{
+ "commit": "fdb801128ed317bd689d2026103aecd3eb1a62a1",
+ "sha256": "d8085197ad89600f12926fa518a979369b276729364fa75300dfcb855783a760",
+ "measured_file": "01-ontologies/interactive_page_ontology_abox_v1_3_0.ttl",
+ "values": {
+  "A7a": 1.0,
+  "A7b": 1.0,
+  "Mission": 1.0,
+  "Conf": -1.0,
+  "Contained": -1.0,
+  "X1": -1.0,
+  "X2": 6.0,
+  "X3": 1.0,
+  "X4": 4.0,
+  "X5": 0.0,
+  "X6": 0.0,
+  "A9": 13.0
+ },
+ "targets": {
+  "A7a": 1.0,
+  "A7b": 1.0,
+  "Mission": 1.0
+ },
+ "note": "Conf, Contained, X1-X6 and A9 are included and observed alongside A7a/A7b/Mission because each of Obj3_Conf, Obj3_Contained, Obj3_X1..X6 and Obj3_A9 names Story3_S9 as metricMovableBy, and CorrectiveActionMeasuredOnCloseShape (L3) requires a fresh MetricObservation, dated at or after the closing story's finishedAt, on every objective that names it -- not only the one the story pursued. This records the reading each gives right now, via `measure_page_ontology_v2_1_0.py` with no arguments (it prints every metric); none of these is a target for S9 except A7a/A7b/Mission. Conf, Contained and X1 read -1 by those metrics' own documented meaning (no applicable reading in this path), not a fabricated or missing value. A7a is read as the count of distinct ipo:DefaultPageFormat individuals in the newest A-Box: 1 (ipo:DefaultFormat_01). Mission is read as the count of those individuals that also carry ipo:builtFrom: 1 (it names the T-Box's own ontology IRI). A7b is read by globbing 08-default-format/default_page_format*.html, running the newest 06-page-measure/measure_page_rules_v*.py against each with its path as a bare positional argument, and counting how many exit 0 -- measure_page_rules_v1_1_0.py exits 0 for default_page_format_v1_0_0.html because all 56 (28 rules x 2 viewports) checks read PASS. measured_file/sha256/commit name the A-Box file rather than the HTML page because A7a and Mission are read directly from it and it is the one file whose content asserts the deliverable (the format exists and is built from the ontology); the HTML page and the fixed measurement instrument were committed in the same commit and are unchanged since.",
+ "overseer_review": "read the HTML page's markup directly against every data-role convention measure_page_rules_v1_1_0.py's docstring documents, rather than only trusting its own PASS lines, and read the T-Box/A-Box additions directly against the deliverable's wording (one default page format, built from the ontology)",
+ "verifier": "an independent general-purpose agent with no part in building the work, given a fresh clone of commit fdb801128ed317bd689d2026103aecd3eb1a62a1 and sibling clones of backlog-roadmap-framework and Ontologies, told to be skeptical",
+ "verifier_verdict": "PASS -- release_check passes with the sibling clones present; --selftest passes; the page reads 56/56 PASS with exit 0 on a bare positional path; A7a=1, A7b=1, Mission=1; pyshacl conforms; the T-Box/A-Box additions and the HTML's wiring were confirmed by direct reading, not only by script output",
+ "verifier_caveat": "the code-runner's data-run handler echoes the textarea's literal text into data-code-result rather than evaluating code, so Rule_04 ('code on the page really runs') is satisfied as the instrument states it (an edited input changes the printed result) but not as a claim that real code execution happens -- this is the same proxy the instrument itself documents and is unchanged from Story S15's build of it, not a new gap introduced here. The 28 checks remain structural/behavioural proxies for the Owner's qualitative instructions, not a claim of perfect fidelity to their meaning."
+}
