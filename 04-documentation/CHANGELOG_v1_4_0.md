@@ -1,0 +1,9 @@
+# IPage 1.4.0
+
+Date: 2026-11-05. The browser measurement is built.
+
+- `06-page-measure/measure_page_rules_v1_0_0.py`: the one browser measurement. It reads a page against every one of the Owner's 28 page rules, at desktop (1280x900) and phone (390x844) width, using Playwright and headless Chromium. `--list-rules` prints the 28 distinct `PageRule_NN` identifiers objective A4b counts; `--page FILE [--out FILE.ttl]` runs the real measurement and, with `--out`, writes the 56 `ipo:RuleCheckResult` individuals (28 rules x 2 viewports) as Turtle; `--selftest` proves the 28 checks against a fixture built to satisfy every rule's convention and against a bare page, and proves `--out`'s output genuinely conforms to `RuleCheckResultShape` with pyshacl.
+- `03-tooling/release_check_v1_0_0.py` -> `v1_0_1.py` (PATCH): the self-test check now also runs every `measure_*_v*.py` under `06-page-measure`, not only `05-lineage` -- nothing was gating a broken self-test there before this story added one.
+- `04-documentation/SESSION_START_v1_0_2.md` -> `v1_0_3.md`: the release-check reference, to match.
+- `README.md`: the class count corrected to 255 (was stale at 254), a row added for `06-page-measure`, and the "next piece of work" narrowed to just the default page format, now that the browser measurement exists.
+- Independently reviewed by three separate agents with no part in building the work: an overseer that read all 28 check functions against the ontology's own rule labels and ran the self-test itself; a verifier that re-ran everything from this working copy as a stand-in for a fresh clone, including a spot-check of six check functions; and an approver that re-ran the release gate and the A4b metric itself, caught one real gap (the measurement record not yet committed) on its first pass, and confirmed it fixed on its second.
