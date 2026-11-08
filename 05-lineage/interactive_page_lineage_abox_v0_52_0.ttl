@@ -172,6 +172,69 @@ pcl:Chk3_T_S9 a backlog:ReadinessCheck ;
         pcl:K3_T_S9_Input ;
     backlog:readinessCheckedAt "2026-11-05T12:34:26+00:00"^^xsd:dateTime .
 
+pcl:Closure_L3 a backlog:ClosureReport ;
+    rdfs:label "Closure report of Lineage 3: concluded on the Owner's ruling, its open work carried forward"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:citesAssessment pcl:AsIs_L3 ;
+    backlog:citesFinding pcl:Finding3_BuildBeforeStart_S1_S2,
+        pcl:Finding3_Close_1,
+        pcl:Finding3_Close_2,
+        pcl:Finding3_Close_3,
+        pcl:Finding3_Close_4,
+        pcl:Finding3_Close_5,
+        pcl:Finding3_Close_6,
+        pcl:Finding3_Close_7,
+        pcl:Finding3_Close_8,
+        pcl:Finding3_IneffectiveMaintenanceMetrics_S3_S4_S14_S15 ;
+    backlog:closesForMission pcl:Mission_R2 ;
+    backlog:hasClosureMark backlog:Cm_Cancelled ;
+    backlog:hasClosureSummary "Lineage 3 set out to build one stand-alone ontology of interactive pages that carries the Owner's page rules, so that RDODI can build and check its default page format. It delivered the ontology (256 page-part classes in one tree of kinds, none standing alone), the qualities and their standards, the 28 rules each with its source, quality and kind of part, one browser measurement that reads a page against every rule at desktop and phone width, the default page format built from the ontology and passing all 56 checks, and the move of the work into the IPage repository. It did not deliver rules as shapes that actually refuse a page (built, but inert in the project's own checks and not naming the rule), rules as Stage 4 gates, the check of the pages already shipped, a page for every profile, the course page as one profile's page, a measured release path, or the hand-over. On the Owner's ruling IP-R1 of 2026-11-08, IPage adopts the framework's Governance and Delivery lineages: Lineage 3 is concluded and its open work carried forward to narrow lineages, the repair of the rule shapes first."^^xsd:string ;
+    backlog:reportGeneratedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
+    backlog:reportsCancelledItem pcl:Epic3_E1,
+        pcl:Epic3_E2,
+        pcl:Epic3_E3,
+        pcl:Epic3_E4,
+        pcl:It3_S5,
+        pcl:Story3_S10,
+        pcl:Story3_S11,
+        pcl:Story3_S12,
+        pcl:Story3_S13,
+        pcl:Story3_S5,
+        pcl:Story3_S6,
+        pcl:Story3_S7,
+        pcl:Story3_S8,
+        pcl:T3_S5_Build ;
+    backlog:reportsOnObjective pcl:Obj3_A10,
+        pcl:Obj3_A11,
+        pcl:Obj3_A1a,
+        pcl:Obj3_A1b,
+        pcl:Obj3_A1c,
+        pcl:Obj3_A2,
+        pcl:Obj3_A3a,
+        pcl:Obj3_A3b,
+        pcl:Obj3_A3c,
+        pcl:Obj3_A4a,
+        pcl:Obj3_A4b,
+        pcl:Obj3_A5,
+        pcl:Obj3_A6a,
+        pcl:Obj3_A6b,
+        pcl:Obj3_A7a,
+        pcl:Obj3_A7b,
+        pcl:Obj3_A8a,
+        pcl:Obj3_A8b,
+        pcl:Obj3_A9,
+        pcl:Obj3_Conf,
+        pcl:Obj3_Contained,
+        pcl:Obj3_Mission,
+        pcl:Obj3_X1,
+        pcl:Obj3_X2,
+        pcl:Obj3_X3,
+        pcl:Obj3_X4,
+        pcl:Obj3_X5,
+        pcl:Obj3_X6 ;
+    backlog:statesBestPractice "Prove every shape on a planted breaking case through the exact command the gate runs; a shape that conforms on every input has not been shown to work."^^xsd:string,
+        "Read every guard again at closure with every input it needs (the register, the full history); a figure of -1 is a missing input, not a reading."^^xsd:string .
+
 pcl:Config3_Verifier a ns1:AgentConfiguration ;
     ns1:hasConfigurationItem pcl:CfgItem3_Verifier_brief,
         pcl:CfgItem3_Verifier_model ;
@@ -207,6 +270,11 @@ pcl:Config3_Verifier_S9 a ns1:AgentConfiguration ;
         pcl:CfgItem3_Verifier_S9_model ;
     ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
     ns1:recordedAt "2026-11-05T12:40:00+00:00"^^xsd:dateTime .
+
+pcl:Dissolve3_It3_S5 a backlog:ContainerDissolution ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:dissolutionRationale "Not finished in this lineage. Its 28 shapes were built (commit 467bf0e), but the three independent reviews of 2026-11-08 found that they never refuse a page in the project's own checks (they select their targets by SPARQL, which the validator applies only in its advanced mode, never switched on here) and that a refused page's report does not name the rule. Lineage 3 is concluded on the Owner's ruling IP-R1; the repair is carried forward, first in order, to a narrow Delivery lineage. Dissolved on the Owner's ruling IP-R1."^^xsd:string ;
+    backlog:dissolvesContainer pcl:It3_S5 .
 
 pcl:Ev3_Epic3_E1_Withdraw a backlog:TransitionEvent ;
     backlog:transitionedAt "2026-11-08T08:48:05+00:00"^^xsd:dateTime ;
@@ -376,6 +444,13 @@ pcl:Ev3_Story3_S13_Withdraw a backlog:TransitionEvent ;
     backlog:transitionedItem pcl:Story3_S13 ;
     backlog:viaTransition backlog:T_WithdrawProposed .
 
+pcl:Ev3_Story3_S5_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:53:38+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S5 ;
+    backlog:viaTransition backlog:T_WithdrawInProgress .
+
 pcl:Ev3_Story3_S6_Withdraw a backlog:TransitionEvent ;
     backlog:transitionedAt "2026-11-08T08:48:10+00:00"^^xsd:dateTime ;
     backlog:transitionedBy backlog:Builder ;
@@ -445,6 +520,13 @@ pcl:Ev3_Story_S9_Complete a backlog:TransitionEvent ;
     backlog:transitionedByExecutor pcl:Run3_Build01 ;
     backlog:transitionedItem pcl:Story3_S9 ;
     backlog:viaTransition backlog:T_Complete .
+
+pcl:Ev3_T3_S5_Build_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:53:39+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:T3_S5_Build ;
+    backlog:viaTransition backlog:T_WithdrawInProgress .
 
 pcl:Ev3_T_S14_Refine a backlog:TransitionEvent ;
     backlog:transitionedAt "2026-11-05T07:52:31+00:00"^^xsd:dateTime ;
@@ -606,31 +688,6 @@ pcl:Ev3_Task_S9_Complete a backlog:TransitionEvent ;
     backlog:transitionedByExecutor pcl:Run3_Build01 ;
     backlog:transitionedItem pcl:T3_S9_Build ;
     backlog:viaTransition backlog:T_Complete .
-
-pcl:Finding3_BuildBeforeStart_S1_S2 a backlog:RetrospectiveFinding ;
-    rdfs:label "The first build of S1, S2 was made before its start was recorded"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:detectedAt "2026-11-04T10:03:56+00:00"^^xsd:dateTime ;
-    backlog:detectedBy backlog:Builder ;
-    backlog:hasFindingScope backlog:Scope_LineageLocal ;
-    backlog:hasRemedy "Disclosed here and not backfilled. Nothing was released before this record; the build is released together with it, and Done is recorded only after the acceptance criteria hold."^^xsd:string ;
-    backlog:hasRootCause "The two stories are tied (a new ontology file must have every class linked), so the file was built in one piece in the working tree, and the step script that records a start did not yet exist for this lineage."^^xsd:string ;
-    backlog:relatesToWorkItem pcl:Story3_S1,
-        pcl:Story3_S2 .
-
-pcl:Finding3_IneffectiveMaintenanceMetrics_S3_S4_S14_S15 a backlog:RetrospectiveFinding ;
-    rdfs:label "Taking the first bracketing reading for the lineage's broad maintenance metrics (Conf, Contained, X1-X6, A9) exposes drift against stories closed before any such reading existed"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:detectedAt "2026-11-05T12:05:00+00:00"^^xsd:dateTime ;
-    backlog:detectedBy backlog:Builder ;
-    backlog:hasFindingScope backlog:Scope_LineageLocal ;
-    backlog:hasRemedy "Disclosed here, not interpreted or fixed. Recording that the pattern was seen and considered is what this shape requires; deciding whether to narrow metricMovableBy to the objectives each story actually pursues, or to leave the broad linkage and expect this kind of drift on every future first-reading, is the Owner's or the framework's call, not this session's to make unasked."^^xsd:string ;
-    backlog:hasRootCause "Obj3_Conf, Obj3_Contained, Obj3_X1 through Obj3_X6 and Obj3_A9 all hold backlog:metricMovableBy links to every story of this lineage, S3, S4 and S14 included, as a blanket default recorded when the register was built -- not because each of those stories specifically targeted these broad maintenance/exclusion-tracking metrics. No observation of any of these objectives existed at or after any of those stories' own finishedAt until Story S15's finish recorded one (needed to satisfy CorrectiveActionMeasuredOnCloseShape for Story S15 itself, which shares the same metricMovableBy links). That one new reading is now the nearest 'after' observation for S3, S4 and S14 too, and for at least one of these Hold-direction objectives it differs from the reading that was nearest their own start -- which is what IneffectiveCorrectiveAttemptAdvisoryShape/CorrectiveActionMeasuredOnCloseShape detect. This is a structural consequence of the blanket metricMovableBy linkage finally being checked for the first time, not a defect introduced by Story S15's own work, and not a claim that any of these four stories failed at something they were trying to do. Story S9's own finish records a second such reading, sharing the same blanket metricMovableBy links, and the same drift against the same pre-existing baseline recurs for the same structural reason; it is added to this finding rather than opened as a new one, since the root cause and remedy are identical."^^xsd:string ;
-    backlog:relatesToWorkItem pcl:Story3_S14,
-        pcl:Story3_S15,
-        pcl:Story3_S3,
-        pcl:Story3_S4,
-        pcl:Story3_S9 .
 
 pcl:Gap_PageConditions_Suspension a backlog:BlueprintGap ;
     rdfs:label "No coverage: life-cycle stage Suspension"@en ;
@@ -920,6 +977,202 @@ pcl:Obs3_A9 a backlog:MetricObservation ;
     backlog:observationFor pcl:Obj3_A9 ;
     backlog:observedAt "2026-11-04T08:32:23+00:00"^^xsd:dateTime ;
     backlog:observesMetric pcl:Metric3_A9 .
+
+pcl:Obs3_Close_A10 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A10."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_A10 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A10 .
+
+pcl:Obs3_Close_A11 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A11."^^xsd:string ;
+    backlog:hasObservedValue 4.0 ;
+    backlog:observationFor pcl:Obj3_A11 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A11 .
+
+pcl:Obs3_Close_A1a a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A1a."^^xsd:string ;
+    backlog:hasObservedValue 256.0 ;
+    backlog:observationFor pcl:Obj3_A1a ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A1a .
+
+pcl:Obs3_Close_A1b a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A1b."^^xsd:string ;
+    backlog:hasObservedValue 1.0 ;
+    backlog:observationFor pcl:Obj3_A1b ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A1b .
+
+pcl:Obs3_Close_A1c a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A1c."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_A1c ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A1c .
+
+pcl:Obs3_Close_A2 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A2."^^xsd:string ;
+    backlog:hasObservedValue 10.0 ;
+    backlog:observationFor pcl:Obj3_A2 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A2 .
+
+pcl:Obs3_Close_A3a a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A3a."^^xsd:string ;
+    backlog:hasObservedValue 28.0 ;
+    backlog:observationFor pcl:Obj3_A3a ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A3a .
+
+pcl:Obs3_Close_A3b a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A3b."^^xsd:string ;
+    backlog:hasObservedValue 28.0 ;
+    backlog:observationFor pcl:Obj3_A3b ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A3b .
+
+pcl:Obs3_Close_A3c a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A3c."^^xsd:string ;
+    backlog:hasObservedValue 28.0 ;
+    backlog:observationFor pcl:Obj3_A3c ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A3c .
+
+pcl:Obs3_Close_A4a a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A4a."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_A4a ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A4a .
+
+pcl:Obs3_Close_A4b a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A4b."^^xsd:string ;
+    backlog:hasObservedValue 28.0 ;
+    backlog:observationFor pcl:Obj3_A4b ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A4b .
+
+pcl:Obs3_Close_A5 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A5."^^xsd:string ;
+    backlog:hasObservedValue 4.0 ;
+    backlog:observationFor pcl:Obj3_A5 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A5 .
+
+pcl:Obs3_Close_A6a a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A6a."^^xsd:string ;
+    backlog:hasObservedValue 2.0 ;
+    backlog:observationFor pcl:Obj3_A6a ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A6a .
+
+pcl:Obs3_Close_A6b a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A6b."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_A6b ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A6b .
+
+pcl:Obs3_Close_A7a a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A7a."^^xsd:string ;
+    backlog:hasObservedValue 1.0 ;
+    backlog:observationFor pcl:Obj3_A7a ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A7a .
+
+pcl:Obs3_Close_A7b a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A7b."^^xsd:string ;
+    backlog:hasObservedValue 1.0 ;
+    backlog:observationFor pcl:Obj3_A7b ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A7b .
+
+pcl:Obs3_Close_A8a a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A8a."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_A8a ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A8a .
+
+pcl:Obs3_Close_A8b a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A8b."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_A8b ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A8b .
+
+pcl:Obs3_Close_A9 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value A9."^^xsd:string ;
+    backlog:hasObservedValue 17.0 ;
+    backlog:observationFor pcl:Obj3_A9 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_A9 .
+
+pcl:Obs3_Close_Conf a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read at closure by measure_page_ontology_v2_2_0.py --metric Conf on the register as it stands with the closing readings (commit e3be984fa0efb86152bb36ba109a9b9543cc8909); value Conf."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_Conf ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_Conf .
+
+pcl:Obs3_Close_Contained a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value Contained."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_Contained ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_Contained .
+
+pcl:Obs3_Close_Mission a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value Mission."^^xsd:string ;
+    backlog:hasObservedValue 1.0 ;
+    backlog:observationFor pcl:Obj3_Mission ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_Mission .
+
+pcl:Obs3_Close_X1 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value X1."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_X1 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_X1 .
+
+pcl:Obs3_Close_X2 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value X2."^^xsd:string ;
+    backlog:hasObservedValue 6.0 ;
+    backlog:observationFor pcl:Obj3_X2 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_X2 .
+
+pcl:Obs3_Close_X3 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value X3."^^xsd:string ;
+    backlog:hasObservedValue 1.0 ;
+    backlog:observationFor pcl:Obj3_X3 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_X3 .
+
+pcl:Obs3_Close_X4 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value X4."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_X4 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_X4 .
+
+pcl:Obs3_Close_X5 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value X5."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_X5 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_X5 .
+
+pcl:Obs3_Close_X6 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read again at closure by measure_page_ontology_v2_2_0.py on commit e3be984fa0efb86152bb36ba109a9b9543cc8909; value X6."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj3_X6 ;
+    backlog:observedAt "2026-11-08T09:03:50+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric3_X6 .
 
 pcl:Obs3_Conf a backlog:MetricObservation ;
     backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage; the register-based figures are read over this register."^^xsd:string ;
@@ -1786,6 +2039,81 @@ pcl:AsIs_L2 a backlog:AsIsAssessment ;
     backlog:hasFitGapStatement "Nothing of Lineage 2 was delivered: its 5 epics and 9 stories are all still proposed, and none of its 18 objectives has moved from its baseline. Its plan is a gap, not a fit, against the new mission, which asks for a stand-alone ontology of interactive pages that the plan did not contain." ;
     backlog:hasImpactStatement "Setting it down loses no delivered work. The five planning releases (1.234.0 to 1.238.0) stay in the record. The new lineage starts from the Owner's rules and the measured baselines of this one." .
 
+pcl:AsIs_L3 a backlog:AsIsAssessment ;
+    rdfs:label "As-is assessment of Lineage 3 on the day it is concluded"@en ;
+    backlog:accomplishedItem pcl:It3_S14,
+        pcl:It3_S15,
+        pcl:It3_S1_S2,
+        pcl:It3_S3,
+        pcl:It3_S4,
+        pcl:It3_S9,
+        pcl:Rel3_S14,
+        pcl:Rel3_S15,
+        pcl:Rel3_S1_S2,
+        pcl:Rel3_S3,
+        pcl:Rel3_S4,
+        pcl:Rel3_S9,
+        pcl:Story3_S1,
+        pcl:Story3_S14,
+        pcl:Story3_S15,
+        pcl:Story3_S2,
+        pcl:Story3_S3,
+        pcl:Story3_S4,
+        pcl:Story3_S9,
+        pcl:T3_S14_Build,
+        pcl:T3_S15_Build,
+        pcl:T3_S1_Build,
+        pcl:T3_S2_Build,
+        pcl:T3_S3_Build,
+        pcl:T3_S4_Build,
+        pcl:T3_S9_Build ;
+    backlog:assessedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
+    backlog:assessesLineage pcl:Lineage03 ;
+    backlog:failedItem pcl:Epic3_E1,
+        pcl:Epic3_E2,
+        pcl:Epic3_E3,
+        pcl:Epic3_E4,
+        pcl:It3_S5,
+        pcl:Story3_S10,
+        pcl:Story3_S11,
+        pcl:Story3_S12,
+        pcl:Story3_S13,
+        pcl:Story3_S5,
+        pcl:Story3_S6,
+        pcl:Story3_S7,
+        pcl:Story3_S8,
+        pcl:T3_S5_Build ;
+    backlog:fitsObjective pcl:Obj3_A11,
+        pcl:Obj3_A1a,
+        pcl:Obj3_A1b,
+        pcl:Obj3_A1c,
+        pcl:Obj3_A2,
+        pcl:Obj3_A3a,
+        pcl:Obj3_A3b,
+        pcl:Obj3_A3c,
+        pcl:Obj3_A4b,
+        pcl:Obj3_A7a,
+        pcl:Obj3_A7b,
+        pcl:Obj3_Conf,
+        pcl:Obj3_Contained,
+        pcl:Obj3_Mission,
+        pcl:Obj3_X1,
+        pcl:Obj3_X2,
+        pcl:Obj3_X3,
+        pcl:Obj3_X4,
+        pcl:Obj3_X5,
+        pcl:Obj3_X6 ;
+    backlog:gapsObjective pcl:Obj3_A10,
+        pcl:Obj3_A4a,
+        pcl:Obj3_A5,
+        pcl:Obj3_A6a,
+        pcl:Obj3_A6b,
+        pcl:Obj3_A8a,
+        pcl:Obj3_A8b,
+        pcl:Obj3_A9 ;
+    backlog:hasFitGapStatement "As-is on 2026-11-08. Done (7 stories): the stand-alone ontology (S1), its tree of kinds (S2), the qualities and their standards (S3), the 28 rules (S4), the default page format (S9), the move to IPage (S14) and the one browser measurement (S15); their deliverables hold as measured. Cancelled (8 stories, 4 epics, 1 task; 1 iteration dissolved): rules as shapes (S5: built, but the three reviews of 2026-11-08 found the shapes never refuse a page in the project's own checks and do not name the rule), rules as Stage 4 gates (S6), the check of the shipped pages (S7), a page for every profile (S8), the course page as one profile's page (S10, S11), the measured release path (S12) and the hand-over (S13). Every objective is read again at closure (the closing observations); those short of target are recorded Missed: rules as gates, shipped pages failing, profiles without a page statement, profile shapes, the two course-page checks, the hand-over, and the release-path figure."^^xsd:string ;
+    backlog:hasImpactStatement "Closing now loses nothing recorded: the delivered stories stay Done and measured; the cancelled work and the defects found in S5 pass as scope to narrow Delivery lineages, the repair of the rule shapes first; the two pending hand-overs (how an epic closes; whether a profile may name its own page format) pass to IPage's Governance lineage. Keeping Lineage 3 open would hold a package-wide mission open while its slices are built one at a time, which the Owner's rule on narrow lineages refuses, and a mission can only be widened, never narrowed."^^xsd:string .
+
 pcl:CP3_A10 a backlog:ObjectiveCheckpoint ;
     rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en,
         "Waits on S13 reaching Done, not a calendar date"@en ;
@@ -2651,6 +2979,103 @@ pcl:Fc_pcl_X7 a backlog:Forecast ;
     backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
     backlog:forecastObservedVelocity 2.01 .
 
+pcl:Finding3_BuildBeforeStart_S1_S2 a backlog:RetrospectiveFinding ;
+    rdfs:label "The first build of S1, S2 was made before its start was recorded"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-04T10:03:56+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "Disclosed here and not backfilled. Nothing was released before this record; the build is released together with it, and Done is recorded only after the acceptance criteria hold."^^xsd:string ;
+    backlog:hasRootCause "The two stories are tied (a new ontology file must have every class linked), so the file was built in one piece in the working tree, and the step script that records a start did not yet exist for this lineage."^^xsd:string ;
+    backlog:relatesToWorkItem pcl:Story3_S1,
+        pcl:Story3_S2 .
+
+pcl:Finding3_Close_1 a backlog:RetrospectiveFinding ;
+    rdfs:label "The 28 rule shapes never refused a page in the project's own checks"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "Carried forward, first in order, to the Delivery lineage on rules as checks: core targets (or the advanced mode in every call), and a test in which a page that breaks a rule is refused through the exact command the gate runs."^^xsd:string ;
+    backlog:hasRootCause "Each shape selects its targets with a SPARQL target, a SHACL advanced feature the validator applies only in its advanced mode; the release check, the measurement's self-test and the criterion's own command run it without that mode, and the self-test tried only a page built to pass. Found by the approving and verifying agents on 2026-11-08 on a fresh clone at commit e3be984: in advanced mode a breaking page is refused (36 violations for 18 failing rules); without it the same page conforms."^^xsd:string .
+
+pcl:Finding3_Close_2 a backlog:RetrospectiveFinding ;
+    rdfs:label "A refused page's report does not name the rule"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "Carried forward with the first finding: each rule's message and name on the check that fails, tested with results whose identifiers carry no rule number."^^xsd:string ;
+    backlog:hasRootCause "Each rule's message sits on the outer node shape while the failing check is an unnamed inner property shape, so the report shows the validator's generic text; the rule shows only through the result's identifier, which the measurement happens to build from the rule number. Found by the overseeing agent on 2026-11-08."^^xsd:string .
+
+pcl:Finding3_Close_3 a backlog:RetrospectiveFinding ;
+    rdfs:label "The rule shapes need the rule records loaded with them"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "Carried forward: the gate's command loads the vocabulary and the records together, and the Delivery lineage's test proves it."^^xsd:string ;
+    backlog:hasRootCause "A result names its rule by a link to a rule record in the A-Box; validating with the T-Box alone refuses every result (56 'not a page rule' violations), so every check must load both. Found by the verifying agent on 2026-11-08."^^xsd:string .
+
+pcl:Finding3_Close_4 a backlog:RetrospectiveFinding ;
+    rdfs:label "A figure that counted the link, not the effect"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "The Delivery lineage measures rules whose shape refuses a planted breaking page through the gate's own command."^^xsd:string ;
+    backlog:hasRootCause "Objective A3c counts shapes that carry a link to a rule. It read 28 of 28 while no shape had ever refused a page in the project's own checks, so it could not fall when the shapes did not work: completion is not accomplishment."^^xsd:string .
+
+pcl:Finding3_Close_5 a backlog:RetrospectiveFinding ;
+    rdfs:label "Guard figures were recorded from missing inputs"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "Corrected here, not rewritten there: read again at closure with the register and the full history; measure_page_ontology 2.2.0 finds the register by default, bounds X1 at the move and refuses a shallow clone."^^xsd:string ;
+    backlog:hasRootCause "The readings of Conf, Contained and X1 recorded at the finish of S9 and S15 were -1 because the measurement ran without the register (Conf, Contained) or without the monorepo's history (X1); the note of the S9 measurement called -1 the metrics' documented meaning, which was wrong: it was a missing input. X1 also counted the rdodi-ecosystem session's own releases after the move (6 files of oe-pack), and X4 read 4 from a shallow clone and 0 from the full history."^^xsd:string .
+
+pcl:Finding3_Close_6 a backlog:RetrospectiveFinding ;
+    rdfs:label "Forty-six objective queries name a path that no longer exists"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "Not rewritten in a concluded lineage; the new lineages state their own commands."^^xsd:string ;
+    backlog:hasRootCause "The stored measurement command of 46 objectives still names the monorepo path and measure_page_ontology_v1_0_0.py, from before the move to IPage. Found by the overseeing agent on 2026-11-08."^^xsd:string .
+
+pcl:Finding3_Close_7 a backlog:RetrospectiveFinding ;
+    rdfs:label "An obstacle that stopped work was never raised"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "Resolved by cancelling the epic (option 3 of the hand-over) on the Owner's ruling IP-R1; the hand-over's remaining question, how an epic closes as Done, passes to IPage's Governance lineage."^^xsd:string ;
+    backlog:hasRootCause "Closing S5 was blocked from 2026-11-05 by the rule that an epic resolves when its last child does (G148); the block lived only in a hand-over, not as an impediment with its kind and owner (G191)."^^xsd:string .
+
+pcl:Finding3_Close_8 a backlog:RetrospectiveFinding ;
+    rdfs:label "The release-path figure counts every commit that is not a release"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "The Delivery lineages measure changes that reached a release without the gate, not commits between releases."^^xsd:string ;
+    backlog:hasRootCause "Objective A9 counts commits that are neither a release nor a hand-over deposit (17 at closure); the lineage discipline's own practice commits each stage and step before its release, so the figure counts that practice as well as any real bypass."^^xsd:string .
+
+pcl:Finding3_IneffectiveMaintenanceMetrics_S3_S4_S14_S15 a backlog:RetrospectiveFinding ;
+    rdfs:label "Taking the first bracketing reading for the lineage's broad maintenance metrics (Conf, Contained, X1-X6, A9) exposes drift against stories closed before any such reading existed"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-05T12:05:00+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "Disclosed here, not interpreted or fixed. Recording that the pattern was seen and considered is what this shape requires; deciding whether to narrow metricMovableBy to the objectives each story actually pursues, or to leave the broad linkage and expect this kind of drift on every future first-reading, is the Owner's or the framework's call, not this session's to make unasked."^^xsd:string ;
+    backlog:hasRootCause "Obj3_Conf, Obj3_Contained, Obj3_X1 through Obj3_X6 and Obj3_A9 all hold backlog:metricMovableBy links to every story of this lineage, S3, S4 and S14 included, as a blanket default recorded when the register was built -- not because each of those stories specifically targeted these broad maintenance/exclusion-tracking metrics. No observation of any of these objectives existed at or after any of those stories' own finishedAt until Story S15's finish recorded one (needed to satisfy CorrectiveActionMeasuredOnCloseShape for Story S15 itself, which shares the same metricMovableBy links). That one new reading is now the nearest 'after' observation for S3, S4 and S14 too, and for at least one of these Hold-direction objectives it differs from the reading that was nearest their own start -- which is what IneffectiveCorrectiveAttemptAdvisoryShape/CorrectiveActionMeasuredOnCloseShape detect. This is a structural consequence of the blanket metricMovableBy linkage finally being checked for the first time, not a defect introduced by Story S15's own work, and not a claim that any of these four stories failed at something they were trying to do. Story S9's own finish records a second such reading, sharing the same blanket metricMovableBy links, and the same drift against the same pre-existing baseline recurs for the same structural reason; it is added to this finding rather than opened as a new one, since the root cause and remedy are identical."^^xsd:string ;
+    backlog:relatesToWorkItem pcl:Story3_S14,
+        pcl:Story3_S15,
+        pcl:Story3_S3,
+        pcl:Story3_S4,
+        pcl:Story3_S9 .
+
 pcl:Goal3_A10 a backlog:Goal ;
     rdfs:label "The work is handed over to a new session with everything it needs to carry on"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
@@ -3135,30 +3560,6 @@ pcl:Maintainer3_IPage a backlog:LineageMaintainer ;
     rdfs:label "The IPage project: the repository github.com/altunelyusuf/IPage and the session that works in it"@en ;
     backlog:maintainerKind backlog:Mk_Project .
 
-pcl:Metric3_A10 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of hand-over files about the page ontology in an inbox or hand-over folder"@en .
-
-pcl:Metric3_A3c a <http://example.org/core#Metric> ;
-    rdfs:label "Count of shapes in the stand-alone shapes file that check one recorded rule"@en .
-
-pcl:Metric3_A4a a <http://example.org/core#Metric> ;
-    rdfs:label "Count of recorded rules carried by a live Stage 4 gate row of the newest procedure"@en .
-
-pcl:Metric3_A5 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of the nine shipped pages that scroll sideways at 375 px, raise a script error, hold a dialog element or offer no text-size control"@en .
-
-pcl:Metric3_A6a a <http://example.org/core#Metric> ;
-    rdfs:label "Count of the three profiles with a generated run that have neither a link to a page nor a recorded statement that none exists"@en .
-
-pcl:Metric3_A6b a <http://example.org/core#Metric> ;
-    rdfs:label "Count of shapes in the package's shapes file that state what a profile requires of its page"@en .
-
-pcl:Metric3_A8a a <http://example.org/core#Metric> ;
-    rdfs:label "Count of chapter pages built in this package from the default format and the pinned course page that pass every gate"@en .
-
-pcl:Metric3_A8b a <http://example.org/core#Metric> ;
-    rdfs:label "Count of chapter pages built here on which the browser test shows edited code changes the shown result"@en .
-
 pcl:Metric_Conf a <http://example.org/core#Metric> ;
     rdfs:label "Count of sh:Violation results of the framework validator for Lineage 2"@en .
 
@@ -3274,76 +3675,6 @@ pcl:Plan3_Verifier_S4 a ns1:VerificationPlan ;
 pcl:Plan3_Verifier_S9 a ns1:VerificationPlan ;
     ns1:hasPlanDigest "73ab8a6e24d9ab2a4a27fb717b019c0a736821c15fb6c98f41d9f5aa2aea2f59"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
-
-pcl:Rel3_S14 a backlog:DeploymentUnit ;
-    rdfs:label "Release IPage v1.3.1 carrying S14"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:decidedBy backlog:Builder ;
-    backlog:deploysFrom pcl:It3_S14 ;
-    backlog:deploysItem pcl:Story3_S14 ;
-    backlog:hasDeploymentDate "2026-11-05T09:18:30+00:00"^^xsd:dateTime ;
-    backlog:hasIdentifier "RDPO-REL-S14"^^xsd:string ;
-    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e."^^xsd:string ;
-    backlog:hasSelectionBasis backlog:Sel_Committed ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "The stand-alone ontology, published as IPage v1.3.1"@en ;
-    backlog:memberOfContainer pcl:Backlog .
-
-pcl:Rel3_S15 a backlog:DeploymentUnit ;
-    rdfs:label "Release IPage v1.4.0 carrying S15"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:decidedBy backlog:Builder ;
-    backlog:deploysFrom pcl:It3_S15 ;
-    backlog:deploysItem pcl:Story3_S15 ;
-    backlog:hasDeploymentDate "2026-11-05T11:55:00+00:00"^^xsd:dateTime ;
-    backlog:hasIdentifier "RDPO-REL-S15"^^xsd:string ;
-    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit 9186f19."^^xsd:string ;
-    backlog:hasSelectionBasis backlog:Sel_Committed ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "The stand-alone ontology, published as IPage v1.4.0"@en ;
-    backlog:memberOfContainer pcl:Backlog .
-
-pcl:Rel3_S3 a backlog:DeploymentUnit ;
-    rdfs:label "Release interactive-page-ontology v1.1.2 carrying S3"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:decidedBy backlog:Builder ;
-    backlog:deploysFrom pcl:It3_S3 ;
-    backlog:deploysItem pcl:Story3_S3 ;
-    backlog:hasDeploymentDate "2026-11-04T17:40:00+03:00"^^xsd:dateTime ;
-    backlog:hasIdentifier "RDPO-REL-S3"^^xsd:string ;
-    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b."^^xsd:string ;
-    backlog:hasSelectionBasis backlog:Sel_Committed ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "The stand-alone ontology, published as interactive-page-ontology v1.1.2"@en ;
-    backlog:memberOfContainer pcl:Backlog .
-
-pcl:Rel3_S4 a backlog:DeploymentUnit ;
-    rdfs:label "Release interactive-page-ontology v1.2.1 carrying S4"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:decidedBy backlog:Builder ;
-    backlog:deploysFrom pcl:It3_S4 ;
-    backlog:deploysItem pcl:Story3_S4 ;
-    backlog:hasDeploymentDate "2026-11-05T06:18:15+00:00"^^xsd:dateTime ;
-    backlog:hasIdentifier "RDPO-REL-S4"^^xsd:string ;
-    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit 37febbe158987b18934a5518b48e97b026aeb095."^^xsd:string ;
-    backlog:hasSelectionBasis backlog:Sel_Committed ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "The stand-alone ontology, published as interactive-page-ontology v1.2.1"@en ;
-    backlog:memberOfContainer pcl:Backlog .
-
-pcl:Rel3_S9 a backlog:DeploymentUnit ;
-    rdfs:label "Release IPage v1.5.0 carrying S9"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:decidedBy backlog:Builder ;
-    backlog:deploysFrom pcl:It3_S9 ;
-    backlog:deploysItem pcl:Story3_S9 ;
-    backlog:hasDeploymentDate "2026-11-05T13:12:27+00:00"^^xsd:dateTime ;
-    backlog:hasIdentifier "RDPO-REL-S9"^^xsd:string ;
-    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit fdb801128ed317bd689d2026103aecd3eb1a62a1."^^xsd:string ;
-    backlog:hasSelectionBasis backlog:Sel_Committed ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "The stand-alone ontology, published as IPage v1.5.0"@en ;
-    backlog:memberOfContainer pcl:Backlog .
 
 pcl:Session3_Verifier a prov:Agent ;
     rdfs:label "an independent verifying agent (a fresh agent that did not do the work)"@en .
@@ -3533,134 +3864,6 @@ pcl:Del3_W3 a backlog:ScopeDeliverable ;
     backlog:derivesFromMissionClause "Build one stand-alone ontology of interactive pages"^^xsd:string ;
     backlog:hasScopeLayer backlog:Layer_Work ;
     prov:wasDerivedFrom pcl:SC3_Move .
-
-pcl:Epic3_E1 a backlog:Epic ;
-    rdfs:label "The ontology of interactive pages"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:coversEntity pcl:DomainEntity_PageOntology ;
-    backlog:coversStage backlog:Stage_Creation ;
-    backlog:decomposesInto pcl:Story3_S1,
-        pcl:Story3_S2,
-        pcl:Story3_S3,
-        pcl:Story3_S4,
-        pcl:Story3_S5 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E1 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-E1"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Cancelled ;
-    backlog:hasTitle "The ontology of interactive pages"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A1a,
-        pcl:Obj3_A1b,
-        pcl:Obj3_A1c,
-        pcl:Obj3_A2,
-        pcl:Obj3_A3a,
-        pcl:Obj3_A3b,
-        pcl:Obj3_A3c ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D1,
-        pcl:Del3_D2,
-        pcl:Del3_D3,
-        pcl:Del3_D4,
-        pcl:Del3_D5 .
-
-pcl:Epic3_E2 a backlog:Epic ;
-    rdfs:label "The checks on pages"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:coversEntity pcl:DomainEntity_PageOntology ;
-    backlog:coversStage backlog:Stage_Creation ;
-    backlog:decomposesInto pcl:Story3_S15,
-        pcl:Story3_S6,
-        pcl:Story3_S7 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E2 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-E2"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Cancelled ;
-    backlog:hasTitle "The checks on pages"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A4a,
-        pcl:Obj3_A4b,
-        pcl:Obj3_A5 ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D6,
-        pcl:Del3_D7 .
-
-pcl:Epic3_E3 a backlog:Epic ;
-    rdfs:label "Profiles, the default format and the course page"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:coversEntity pcl:DomainEntity_PageOntology ;
-    backlog:coversStage backlog:Stage_Creation ;
-    backlog:decomposesInto pcl:Story3_S10,
-        pcl:Story3_S11,
-        pcl:Story3_S8,
-        pcl:Story3_S9 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E3 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-E3"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Cancelled ;
-    backlog:hasTitle "Profiles, the default format and the course page"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A6a,
-        pcl:Obj3_A6b,
-        pcl:Obj3_A7a,
-        pcl:Obj3_A7b,
-        pcl:Obj3_A8a,
-        pcl:Obj3_A8b,
-        pcl:Obj3_Mission ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D10,
-        pcl:Del3_D11,
-        pcl:Del3_D8,
-        pcl:Del3_D9 .
-
-pcl:Epic3_E4 a backlog:Epic ;
-    rdfs:label "Delivery and hand-over"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:coversEntity pcl:DomainEntity_PageOntology ;
-    backlog:coversStage backlog:Stage_ActiveUse,
-        backlog:Stage_Creation ;
-    backlog:decomposesInto pcl:Story3_S12,
-        pcl:Story3_S13,
-        pcl:Story3_S14 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E4 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-E4"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Cancelled ;
-    backlog:hasTitle "Delivery and hand-over"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A10,
-        pcl:Obj3_A9 ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_W1,
-        pcl:Del3_W2 .
 
 pcl:Epic_E1 a backlog:Epic ;
     rdfs:label "The page conditions as gates"@en ;
@@ -4060,65 +4263,29 @@ pcl:Goal_Scope a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
 
-pcl:Metric3_A11 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of the four conditions of the home in IPage that hold (ontology, register, tools in IPage; monorepo copy pointing to IPage)"@en .
+pcl:Metric3_A10 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of hand-over files about the page ontology in an inbox or hand-over folder"@en .
 
-pcl:Metric3_A1a a <http://example.org/core#Metric> ;
-    rdfs:label "Count of page-part classes in the newest stand-alone page-ontology file"@en .
+pcl:Metric3_A3c a <http://example.org/core#Metric> ;
+    rdfs:label "Count of shapes in the stand-alone shapes file that check one recorded rule"@en .
 
-pcl:Metric3_A1b a <http://example.org/core#Metric> ;
-    rdfs:label "Count of page-part classes with no parent class among the page parts (target 1: the one root)"@en .
+pcl:Metric3_A4a a <http://example.org/core#Metric> ;
+    rdfs:label "Count of recorded rules carried by a live Stage 4 gate row of the newest procedure"@en .
 
-pcl:Metric3_A1c a <http://example.org/core#Metric> ;
-    rdfs:label "Count of page-part classes linked to no other page-part class"@en .
+pcl:Metric3_A5 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the nine shipped pages that scroll sideways at 375 px, raise a script error, hold a dialog element or offer no text-size control"@en .
 
-pcl:Metric3_A2 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of the ten recorded standards and methods that carry an applies-to link to page parts"@en .
+pcl:Metric3_A6a a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the three profiles with a generated run that have neither a link to a page nor a recorded statement that none exists"@en .
 
-pcl:Metric3_A3a a <http://example.org/core#Metric> ;
-    rdfs:label "Count of the Owner's page rules recorded as rules in the stand-alone ontology (28 counted by the session on 2026-11-04)"@en .
+pcl:Metric3_A6b a <http://example.org/core#Metric> ;
+    rdfs:label "Count of shapes in the package's shapes file that state what a profile requires of its page"@en .
 
-pcl:Metric3_A3b a <http://example.org/core#Metric> ;
-    rdfs:label "Count of recorded rules that name the Owner's words as source, one quality and one kind of page part"@en .
+pcl:Metric3_A8a a <http://example.org/core#Metric> ;
+    rdfs:label "Count of chapter pages built in this package from the default format and the pinned course page that pass every gate"@en .
 
-pcl:Metric3_A4b a <http://example.org/core#Metric> ;
-    rdfs:label "Count of recorded rules the gate instrument lists as measured"@en .
-
-pcl:Metric3_A7a a <http://example.org/core#Metric> ;
-    rdfs:label "Count of default page formats recorded in the stand-alone ontology"@en .
-
-pcl:Metric3_A7b a <http://example.org/core#Metric> ;
-    rdfs:label "Count of pages built from the default format that pass every gate"@en .
-
-pcl:Metric3_A9 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of commits to the package since the Scope release that the release path did not make"@en .
-
-pcl:Metric3_Conf a <http://example.org/core#Metric> ;
-    rdfs:label "Count of sh:Violation results of the framework validator for Lineage 3"@en .
-
-pcl:Metric3_Contained a <http://example.org/core#Metric> ;
-    rdfs:label "Count of stories of this lineage that satisfy no scope deliverable"@en .
-
-pcl:Metric3_Mission a <http://example.org/core#Metric> ;
-    rdfs:label "Count of default page formats that name the stand-alone ontology as what they are built from"@en .
-
-pcl:Metric3_X1 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of files outside rdodi-ecosystem changed by the releases of this lineage since the Scope release"@en .
-
-pcl:Metric3_X2 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of page-ontology classes whose label names a chapter, exam, lecture, Bitcoin, Python or syllabus (6 today; it must not grow)"@en .
-
-pcl:Metric3_X3 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of page-ontology definitions long enough to be a copy of a standard's text (1 today; it must not grow)"@en .
-
-pcl:Metric3_X4 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of pinned commit and SHA-256 values of the page-selection register that differ from the Scope release"@en .
-
-pcl:Metric3_X5 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of html files named for the Roadmap-Report, Whitepaper or Technical-Report profile"@en .
-
-pcl:Metric3_X6 a <http://example.org/core#Metric> ;
-    rdfs:label "Count of claims in this lineage's evidence that a page was measured on a physical device or offline"@en .
+pcl:Metric3_A8b a <http://example.org/core#Metric> ;
+    rdfs:label "Count of chapter pages built here on which the browser test shows edited code changes the shown result"@en .
 
 pcl:Metric_G1 a <http://example.org/core#Metric> ;
     rdfs:label "Count of the Owner's seven page conditions carried by a live Stage 4 gate row of the newest procedure"@en .
@@ -4144,19 +4311,74 @@ pcl:Metric_R1 a <http://example.org/core#Metric> ;
 pcl:Metric_R2 a <http://example.org/core#Metric> ;
     rdfs:label "Count of shapes in the package's shapes file that state what a profile requires of its page"@en .
 
-pcl:Rel3_S1_S2 a backlog:DeploymentUnit ;
-    rdfs:label "Release interactive-page-ontology v1.0.1 carrying S1, S2"@en ;
+pcl:Rel3_S14 a backlog:DeploymentUnit ;
+    rdfs:label "Release IPage v1.3.1 carrying S14"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:decidedBy backlog:Builder ;
-    backlog:deploysFrom pcl:It3_S1_S2 ;
-    backlog:deploysItem pcl:Story3_S1,
-        pcl:Story3_S2 ;
-    backlog:hasDeploymentDate "2026-11-04T15:50:00+03:00"^^xsd:dateTime ;
-    backlog:hasIdentifier "RDPO-REL-S1_S2"^^xsd:string ;
-    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit d6aa9133939e64222a7afc68b47929ef9f96c7fa."^^xsd:string ;
+    backlog:deploysFrom pcl:It3_S14 ;
+    backlog:deploysItem pcl:Story3_S14 ;
+    backlog:hasDeploymentDate "2026-11-05T09:18:30+00:00"^^xsd:dateTime ;
+    backlog:hasIdentifier "RDPO-REL-S14"^^xsd:string ;
+    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit 61950a16dd1f3551bdd883ebe90112fa0b7e145e."^^xsd:string ;
     backlog:hasSelectionBasis backlog:Sel_Committed ;
     backlog:hasState backlog:Done ;
-    backlog:hasTitle "The stand-alone ontology, published as interactive-page-ontology v1.0.1"@en ;
+    backlog:hasTitle "The stand-alone ontology, published as IPage v1.3.1"@en ;
+    backlog:memberOfContainer pcl:Backlog .
+
+pcl:Rel3_S15 a backlog:DeploymentUnit ;
+    rdfs:label "Release IPage v1.4.0 carrying S15"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:decidedBy backlog:Builder ;
+    backlog:deploysFrom pcl:It3_S15 ;
+    backlog:deploysItem pcl:Story3_S15 ;
+    backlog:hasDeploymentDate "2026-11-05T11:55:00+00:00"^^xsd:dateTime ;
+    backlog:hasIdentifier "RDPO-REL-S15"^^xsd:string ;
+    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit 9186f19."^^xsd:string ;
+    backlog:hasSelectionBasis backlog:Sel_Committed ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "The stand-alone ontology, published as IPage v1.4.0"@en ;
+    backlog:memberOfContainer pcl:Backlog .
+
+pcl:Rel3_S3 a backlog:DeploymentUnit ;
+    rdfs:label "Release interactive-page-ontology v1.1.2 carrying S3"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:decidedBy backlog:Builder ;
+    backlog:deploysFrom pcl:It3_S3 ;
+    backlog:deploysItem pcl:Story3_S3 ;
+    backlog:hasDeploymentDate "2026-11-04T17:40:00+03:00"^^xsd:dateTime ;
+    backlog:hasIdentifier "RDPO-REL-S3"^^xsd:string ;
+    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit 438bf1a55a2d660d3c1a06f0be20c4e25279367b."^^xsd:string ;
+    backlog:hasSelectionBasis backlog:Sel_Committed ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "The stand-alone ontology, published as interactive-page-ontology v1.1.2"@en ;
+    backlog:memberOfContainer pcl:Backlog .
+
+pcl:Rel3_S4 a backlog:DeploymentUnit ;
+    rdfs:label "Release interactive-page-ontology v1.2.1 carrying S4"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:decidedBy backlog:Builder ;
+    backlog:deploysFrom pcl:It3_S4 ;
+    backlog:deploysItem pcl:Story3_S4 ;
+    backlog:hasDeploymentDate "2026-11-05T06:18:15+00:00"^^xsd:dateTime ;
+    backlog:hasIdentifier "RDPO-REL-S4"^^xsd:string ;
+    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit 37febbe158987b18934a5518b48e97b026aeb095."^^xsd:string ;
+    backlog:hasSelectionBasis backlog:Sel_Committed ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "The stand-alone ontology, published as interactive-page-ontology v1.2.1"@en ;
+    backlog:memberOfContainer pcl:Backlog .
+
+pcl:Rel3_S9 a backlog:DeploymentUnit ;
+    rdfs:label "Release IPage v1.5.0 carrying S9"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:decidedBy backlog:Builder ;
+    backlog:deploysFrom pcl:It3_S9 ;
+    backlog:deploysItem pcl:Story3_S9 ;
+    backlog:hasDeploymentDate "2026-11-05T13:12:27+00:00"^^xsd:dateTime ;
+    backlog:hasIdentifier "RDPO-REL-S9"^^xsd:string ;
+    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit fdb801128ed317bd689d2026103aecd3eb1a62a1."^^xsd:string ;
+    backlog:hasSelectionBasis backlog:Sel_Committed ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "The stand-alone ontology, published as IPage v1.5.0"@en ;
     backlog:memberOfContainer pcl:Backlog .
 
 pcl:Run3_Approver_S14 a backlog:ExecutorInstance,
@@ -4483,6 +4705,624 @@ pcl:Goal_C0 a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Mission ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
     rdfs:comment "Mission clause: \"makes the Owner's page conditions gates that every Stage 4 page must pass\""^^xsd:string .
+
+pcl:Metric3_A11 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the four conditions of the home in IPage that hold (ontology, register, tools in IPage; monorepo copy pointing to IPage)"@en .
+
+pcl:Metric3_A1a a <http://example.org/core#Metric> ;
+    rdfs:label "Count of page-part classes in the newest stand-alone page-ontology file"@en .
+
+pcl:Metric3_A1b a <http://example.org/core#Metric> ;
+    rdfs:label "Count of page-part classes with no parent class among the page parts (target 1: the one root)"@en .
+
+pcl:Metric3_A1c a <http://example.org/core#Metric> ;
+    rdfs:label "Count of page-part classes linked to no other page-part class"@en .
+
+pcl:Metric3_A2 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the ten recorded standards and methods that carry an applies-to link to page parts"@en .
+
+pcl:Metric3_A3a a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the Owner's page rules recorded as rules in the stand-alone ontology (28 counted by the session on 2026-11-04)"@en .
+
+pcl:Metric3_A3b a <http://example.org/core#Metric> ;
+    rdfs:label "Count of recorded rules that name the Owner's words as source, one quality and one kind of page part"@en .
+
+pcl:Metric3_A4b a <http://example.org/core#Metric> ;
+    rdfs:label "Count of recorded rules the gate instrument lists as measured"@en .
+
+pcl:Metric3_A7a a <http://example.org/core#Metric> ;
+    rdfs:label "Count of default page formats recorded in the stand-alone ontology"@en .
+
+pcl:Metric3_A7b a <http://example.org/core#Metric> ;
+    rdfs:label "Count of pages built from the default format that pass every gate"@en .
+
+pcl:Metric3_A9 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of commits to the package since the Scope release that the release path did not make"@en .
+
+pcl:Metric3_Conf a <http://example.org/core#Metric> ;
+    rdfs:label "Count of sh:Violation results of the framework validator for Lineage 3"@en .
+
+pcl:Metric3_Contained a <http://example.org/core#Metric> ;
+    rdfs:label "Count of stories of this lineage that satisfy no scope deliverable"@en .
+
+pcl:Metric3_Mission a <http://example.org/core#Metric> ;
+    rdfs:label "Count of default page formats that name the stand-alone ontology as what they are built from"@en .
+
+pcl:Metric3_X1 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of files outside rdodi-ecosystem changed by the releases of this lineage since the Scope release"@en .
+
+pcl:Metric3_X2 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of page-ontology classes whose label names a chapter, exam, lecture, Bitcoin, Python or syllabus (6 today; it must not grow)"@en .
+
+pcl:Metric3_X3 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of page-ontology definitions long enough to be a copy of a standard's text (1 today; it must not grow)"@en .
+
+pcl:Metric3_X4 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of pinned commit and SHA-256 values of the page-selection register that differ from the Scope release"@en .
+
+pcl:Metric3_X5 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of html files named for the Roadmap-Report, Whitepaper or Technical-Report profile"@en .
+
+pcl:Metric3_X6 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of claims in this lineage's evidence that a page was measured on a physical device or offline"@en .
+
+pcl:Rel3_S1_S2 a backlog:DeploymentUnit ;
+    rdfs:label "Release interactive-page-ontology v1.0.1 carrying S1, S2"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:decidedBy backlog:Builder ;
+    backlog:deploysFrom pcl:It3_S1_S2 ;
+    backlog:deploysItem pcl:Story3_S1,
+        pcl:Story3_S2 ;
+    backlog:hasDeploymentDate "2026-11-04T15:50:00+03:00"^^xsd:dateTime ;
+    backlog:hasIdentifier "RDPO-REL-S1_S2"^^xsd:string ;
+    backlog:hasRationale "Published by the Builder on the Owner's instruction of 2026-11-04 to carry out the lineage. Commit d6aa9133939e64222a7afc68b47929ef9f96c7fa."^^xsd:string ;
+    backlog:hasSelectionBasis backlog:Sel_Committed ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "The stand-alone ontology, published as interactive-page-ontology v1.0.1"@en ;
+    backlog:memberOfContainer pcl:Backlog .
+
+pcl:S9 a backlog:Story ;
+    rdfs:label "Record the Owner's decision of 2026-11-04 and replace the mission"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S9 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S9" ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Record the Owner's decision of 2026-11-04 and replace the mission" ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_Conf,
+        pcl:Obj_Contained,
+        pcl:Obj_ScopeSat,
+        pcl:Obj_X1,
+        pcl:Obj_X2,
+        pcl:Obj_X3,
+        pcl:Obj_X4,
+        pcl:Obj_X5,
+        pcl:Obj_X6,
+        pcl:Obj_X7 ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_W1 .
+
+pcl:Area3_A10 a backlog:ScopeArea ;
+    rdfs:label "The hand-over to a new session"@en ;
+    backlog:areaLocation "the inbox of the session that takes over, in the repository that session works in"^^xsd:string ;
+    backlog:areaMeasure "0 hand-overs written; one is due when the work is complete"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Area3_A2 a backlog:ScopeArea ;
+    rdfs:label "The qualities a good page has"@en ;
+    backlog:areaLocation "01-stage-vocabularies/rdodi_ecosystem_tbox (newest), the interactive-page-ontology module; 01-stage-vocabularies/rdodi_ecosystem_abox (newest): the usability and accessibility standards it carries"^^xsd:string ;
+    backlog:areaMeasure "10 standards and methods already recorded (WCAG 2.2 AA, Nielsen heuristics, Shneiderman rules, cognitive load, axe-core, pa11y, WAVE, WAI-ARIA, inclusive components, ISO 25010); each is to be tied to the parts it applies to"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area3_A5 a backlog:ScopeArea ;
+    rdfs:label "The pages and templates already shipped"@en ;
+    backlog:areaLocation "28-interactive-html-surface (proposal template and instance, native exemplar, question-box template, corpus shell, v37)"^^xsd:string ;
+    backlog:areaMeasure "9 pages measured on 2026-11-04; 4 fail the Owner's conditions"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area3_A6 a backlog:ScopeArea ;
+    rdfs:label "Which page each profile gets"@en ;
+    backlog:areaLocation "01-profiles; 28-interactive-html-surface/16-page-selection (the page-selection register)"^^xsd:string ;
+    backlog:areaMeasure "the profiles with a generated run are listed in the profile and page status page; the register names a page for some and none for others (gaps A2, A3)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area3_A7 a backlog:ScopeArea ;
+    rdfs:label "The default page format"@en ;
+    backlog:areaLocation "28-interactive-html-surface/16-page-selection; TEMPLATE_SELECTION (newest)"^^xsd:string ;
+    backlog:areaMeasure "0 default formats exist today; three candidates are in use (the corpus shell v37, the Explorer, the course page)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area3_A9 a backlog:ScopeArea ;
+    rdfs:label "How changes reach the users"@en ;
+    backlog:areaLocation "rdodi-ecosystem releases through oe_release; 03-tooling/release_check (newest)"^^xsd:string ;
+    backlog:areaMeasure "every change is released through the one release path; the measured figures are taken again from a fresh clone of what was published"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Area_A2 a backlog:ScopeArea ;
+    rdfs:label "The page templates and examples already shipped"@en ;
+    backlog:areaLocation "28-interactive-html-surface/ templates and examples (proposal template and instance, native exemplar, question-box template, corpus shell, v37)"^^xsd:string ;
+    backlog:areaMeasure "every shipped template and example is measured at 1280 and 375 px; sideways scroll, dialog elements, text-size control, text size and script errors are listed per page (gaps B2 to B5)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area_A5 a backlog:ScopeArea ;
+    rdfs:label "How the lineage's changes reach users"@en ;
+    backlog:areaLocation "rdodi-ecosystem releases through oe_release; 03-tooling/release_check (newest)"^^xsd:string ;
+    backlog:areaMeasure "each increment is released through the one release path and its gate figures are measured again from a fresh clone of what was published"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del_W1 a backlog:ScopeDeliverable ;
+    rdfs:label "Every change is published through the release path and its gate figures are measured again from a fresh clone of what was published"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:deliverableForArea pcl:Area_A5 ;
+    backlog:derivesFromMissionClause "makes the Owner's page conditions gates that every Stage 4 page must pass"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Epic3_E1 a backlog:Epic ;
+    rdfs:label "The ontology of interactive pages"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:coversEntity pcl:DomainEntity_PageOntology ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:Story3_S1,
+        pcl:Story3_S2,
+        pcl:Story3_S3,
+        pcl:Story3_S4,
+        pcl:Story3_S5 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E1 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-E1"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "The ontology of interactive pages"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A1a,
+        pcl:Obj3_A1b,
+        pcl:Obj3_A1c,
+        pcl:Obj3_A2,
+        pcl:Obj3_A3a,
+        pcl:Obj3_A3b,
+        pcl:Obj3_A3c ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D1,
+        pcl:Del3_D2,
+        pcl:Del3_D3,
+        pcl:Del3_D4,
+        pcl:Del3_D5 .
+
+pcl:Epic3_E2 a backlog:Epic ;
+    rdfs:label "The checks on pages"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:coversEntity pcl:DomainEntity_PageOntology ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:Story3_S15,
+        pcl:Story3_S6,
+        pcl:Story3_S7 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E2 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-E2"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "The checks on pages"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A4a,
+        pcl:Obj3_A4b,
+        pcl:Obj3_A5 ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D6,
+        pcl:Del3_D7 .
+
+pcl:Epic3_E3 a backlog:Epic ;
+    rdfs:label "Profiles, the default format and the course page"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:coversEntity pcl:DomainEntity_PageOntology ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:Story3_S10,
+        pcl:Story3_S11,
+        pcl:Story3_S8,
+        pcl:Story3_S9 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E3 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-E3"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Profiles, the default format and the course page"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A6a,
+        pcl:Obj3_A6b,
+        pcl:Obj3_A7a,
+        pcl:Obj3_A7b,
+        pcl:Obj3_A8a,
+        pcl:Obj3_A8b,
+        pcl:Obj3_Mission ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D10,
+        pcl:Del3_D11,
+        pcl:Del3_D8,
+        pcl:Del3_D9 .
+
+pcl:Epic3_E4 a backlog:Epic ;
+    rdfs:label "Delivery and hand-over"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:coversEntity pcl:DomainEntity_PageOntology ;
+    backlog:coversStage backlog:Stage_ActiveUse,
+        backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:Story3_S12,
+        pcl:Story3_S13,
+        pcl:Story3_S14 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E4 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-E4"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Delivery and hand-over"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A10,
+        pcl:Obj3_A9 ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_W1,
+        pcl:Del3_W2 .
+
+pcl:Run3_Approver a backlog:ExecutorInstance,
+        backlog:Executor_SingleAgent ;
+    rdfs:label "An independent agent run that reviewed the corrected ontology and approved it"@en ;
+    backlog:instanceOf pcl:Exec_Approver_L3 ;
+    backlog:instantiatedAt "2026-11-04T12:33:00+00:00"^^xsd:dateTime ;
+    backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a1e076ae68f1a7dc2"^^xsd:string .
+
+pcl:Run3_Oversight a backlog:ExecutorInstance,
+        backlog:Executor_SingleAgent ;
+    rdfs:label "An independent agent run that oversaw the work and sent it back once for sorting defects"@en ;
+    backlog:instanceOf pcl:Exec_Oversight_L3 ;
+    backlog:instantiatedAt "2026-11-04T12:11:00+00:00"^^xsd:dateTime ;
+    backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a2102d0bf58d45189"^^xsd:string .
+
+pcl:Run3_Verifier a backlog:ExecutorInstance,
+        backlog:Executor_SingleAgent ;
+    rdfs:label "An independent agent run that re-ran the acceptance checks in a fresh clone"@en ;
+    ns1:executedBy pcl:Session3_Verifier ;
+    ns1:followsPlan pcl:Plan3_Verifier ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier ;
+    backlog:instanceOf pcl:Exec_Verifier_L3 ;
+    backlog:instantiatedAt "2026-11-04T12:27:00+00:00"^^xsd:dateTime ;
+    backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a119b93563b0d6b86"^^xsd:string .
+
+pcl:SC3_Move a backlog:ScopeChange ;
+    backlog:admitsItem pcl:Story3_S14,
+        pcl:Story3_S15 ;
+    backlog:changesScope pcl:Scope3 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:fulfillsRequest pcl:CR3_Move ;
+    backlog:hasScopeChangeRationale "Admits the move to IPage and the browser measurement as IPage's own work; paid for by the out-scoping declaration recorded beside it (PSD3_OutRDODI), which removes the work that changes RDODI's files."^^xsd:string .
+
+pcl:Area3_A1 a backlog:ScopeArea ;
+    rdfs:label "The kinds of page parts (the ontology itself)"@en ;
+    backlog:areaLocation "01-stage-vocabularies/rdodi_ecosystem_tbox (newest), the interactive-page-ontology module"^^xsd:string ;
+    backlog:areaMeasure "238 classes today, inside the RDODI ecosystem file; they are to become one stand-alone ontology, sorted into kinds, with no class left unconnected"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area3_A3 a backlog:ScopeArea ;
+    rdfs:label "The Owner's page rules"@en ;
+    backlog:areaLocation "01-profiles/RDODI_PROFILE_AND_PAGE_GAPS_v1_0_0.md (B1); the Owner's recorded instructions on course pages (2026-10-13 to 2026-11-03)"^^xsd:string ;
+    backlog:areaMeasure "7 conditions are listed in the gap analysis (text-size control, adaptive layout, tree and tabs in step, one level of tabs, runnable code, zoom and full screen, default text not small); the later rules are to be collected, each tied to one quality and one kind of page part"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area3_A4 a backlog:ScopeArea ;
+    rdfs:label "The checks that read a page against the rules"@en ;
+    backlog:areaLocation "03-procedure/RDODI_FourStage_Pipeline_Procedure (newest), Stage 4 gates; the package's one SHACL file; 28-interactive-html-surface: the Explorer instrument and the course page test"^^xsd:string ;
+    backlog:areaMeasure "0 of the Owner's page conditions are Stage 4 gates today (gap B1); two separate instruments measure the same conditions (gap C5)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area3_A8 a backlog:ScopeArea ;
+    rdfs:label "The course page as one profile's page"@en ;
+    backlog:areaLocation "the pinned course page template (read-only, cited by repository, commit and SHA-256)"^^xsd:string ;
+    backlog:areaMeasure "1 course page, cited and not copied; it is to be one profile's page, built from the default format and checked by the same rules"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area_A1 a backlog:ScopeArea ;
+    rdfs:label "The page conditions as gates"@en ;
+    backlog:areaLocation "03-procedure/RDODI_FourStage_Pipeline_Procedure (newest), Stage 4 gates; the package's one SHACL file; 28-interactive-html-surface measuring instruments (Explorer instrument; course page test, read-only)"^^xsd:string ;
+    backlog:areaMeasure "Owner conditions: text-size control, adaptive layout, tree and tabs in step, one level of tabs, runnable code, zoom and full-screen, default text not small; each is a named gate with a shape and a browser measurement (gap B1, C5)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area_A3 a backlog:ScopeArea ;
+    rdfs:label "What each profile requires of its page"@en ;
+    backlog:areaLocation "01-profiles; 16-page-selection (page-selection register)"^^xsd:string ;
+    backlog:areaMeasure "every profile with a generated run names its page by link or is recorded as having none; a shape states what a profile requires of its page (gaps A2, A3)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Area_A4 a backlog:ScopeArea ;
+    rdfs:label "The adopted course page, working here"@en ;
+    backlog:areaLocation "the pinned course page template (read-only, cited by repository, commit and SHA-256); 28-interactive-html-surface (one chapter page built here)"^^xsd:string ;
+    backlog:areaMeasure "one chapter page built in this package from the pinned course page, passing the new gates, with its code really running (gaps C1, C2)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+
+pcl:Obj_Contained a backlog:Objective ;
+    rdfs:label "Work items that serve no deliverable or objective"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_Contained ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_Contained ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric Contained"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of stories with no satisfied deliverable or no pursued objective"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+
+pcl:Obj_X1 a backlog:Objective ;
+    rdfs:label "Page files for Roadmap-Report or Whitepaper"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X1 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X1 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X1"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of html files named for the Roadmap-Report or Whitepaper profile"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+
+pcl:Obj_X2 a backlog:Objective ;
+    rdfs:label "Page files for Technical-Report"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X2 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X2 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X2"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of html files named for the Technical-Report profile"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+
+pcl:Obj_X3 a backlog:Objective ;
+    rdfs:label "Files outside this package changed by this lineage"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X3 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X3 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X3"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of files outside rdodi-ecosystem changed by the releases of this lineage"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+
+pcl:Obj_X4 a backlog:Objective ;
+    rdfs:label "Course page pin records changed"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X4 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X4 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X4"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of pinned commit and SHA-256 values of the page-selection register that differ from the Mission release"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+
+pcl:Obj_X5 a backlog:Objective ;
+    rdfs:label "Default page rule changed"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X5 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X5 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X5"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of differences of the default page-selection rule from the Mission release"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+
+pcl:Obj_X6 a backlog:Objective ;
+    rdfs:label "Claims of a physical-device or offline measurement"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X6 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X6 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X6"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of claims in this lineage's evidence that a page was measured on a physical device or offline"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+
+pcl:Obj_X7 a backlog:Objective ;
+    rdfs:label "Files of the raw shell changed"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X7 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X7 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X7"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of files of the raw corpus shell changed since the Mission release"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+
+pcl:AccessRoute_Git a ns1:AccessRoute ;
+    rdfs:label "A fresh clone of the published repository"@en .
+
+pcl:Exec_Approver_L3 a backlog:Executor_SingleAgent ;
+    rdfs:label "The approving agent: a reviewer that accepts the work only if it finds no clear defect"@en .
+
+pcl:Exec_Oversight_L3 a backlog:Executor_SingleAgent ;
+    rdfs:label "The overseeing agent: a reviewer that did not do the work and may send it back"@en .
+
+pcl:It3_S15 a backlog:Iteration ;
+    rdfs:label "Iteration: S15"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasDurationSource "iterationStart of this iteration to the finishedAt recorded by l3_steps finish."^^xsd:string ;
+    backlog:hasIdentifier "RDPO-IT-S15"^^xsd:string ;
+    backlog:hasObservedDuration "PT0H46M20S"^^xsd:string ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "Work on S15"@en ;
+    backlog:iterationEnd "2026-11-05T12:10:29+00:00"^^xsd:dateTime ;
+    backlog:iterationStart "2026-11-05T11:24:09+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog .
+
+pcl:It3_S3 a backlog:Iteration ;
+    rdfs:label "Iteration: S3"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasDurationSource "iterationStart of this iteration to the finishedAt recorded by l3_steps finish."^^xsd:string ;
+    backlog:hasIdentifier "RDPO-IT-S3"^^xsd:string ;
+    backlog:hasObservedDuration "PT3H59M31S"^^xsd:string ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "Work on S3"@en ;
+    backlog:iterationEnd "2026-11-04T14:18:17+00:00"^^xsd:dateTime ;
+    backlog:iterationStart "2026-11-04T10:18:46+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog .
+
+pcl:It3_S4 a backlog:Iteration ;
+    rdfs:label "Iteration: S4"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasDurationSource "iterationStart of this iteration to the finishedAt recorded by l3_steps finish."^^xsd:string ;
+    backlog:hasIdentifier "RDPO-IT-S4"^^xsd:string ;
+    backlog:hasObservedDuration "PT0H8M3S"^^xsd:string ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "Work on S4"@en ;
+    backlog:iterationEnd "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
+    backlog:iterationStart "2026-11-05T06:11:13+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog .
+
+pcl:It3_S9 a backlog:Iteration ;
+    rdfs:label "Iteration: S9"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasDurationSource "iterationStart of this iteration to the finishedAt recorded by l3_steps finish."^^xsd:string ;
+    backlog:hasIdentifier "RDPO-IT-S9"^^xsd:string ;
+    backlog:hasObservedDuration "PT0H39M54S"^^xsd:string ;
+    backlog:hasState backlog:Done ;
+    backlog:hasTitle "Work on S9"@en ;
+    backlog:iterationEnd "2026-11-05T13:14:13+00:00"^^xsd:dateTime ;
+    backlog:iterationStart "2026-11-05T12:34:19+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog .
 
 pcl:Obj3_A10 a backlog:Objective ;
     rdfs:label "Hand-overs written to the new session"@en ;
@@ -4851,641 +5691,127 @@ pcl:Obj3_X6 a backlog:Objective ;
         pcl:Story3_S8,
         pcl:Story3_S9 .
 
-pcl:S9 a backlog:Story ;
-    rdfs:label "Record the Owner's decision of 2026-11-04 and replace the mission"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
+pcl:Obj_Conf a backlog:Objective ;
+    rdfs:label "Framework validator violations on Lineage 2"@en ;
     backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC_S9 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPC-S9" ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Record the Owner's decision of 2026-11-04 and replace the mission" ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj_Conf,
-        pcl:Obj_Contained,
-        pcl:Obj_ScopeSat,
-        pcl:Obj_X1,
-        pcl:Obj_X2,
-        pcl:Obj_X3,
-        pcl:Obj_X4,
-        pcl:Obj_X5,
-        pcl:Obj_X6,
-        pcl:Obj_X7 ;
-    backlog:responsible pcl:Run_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del_W1 .
-
-pcl:Area3_A10 a backlog:ScopeArea ;
-    rdfs:label "The hand-over to a new session"@en ;
-    backlog:areaLocation "the inbox of the session that takes over, in the repository that session works in"^^xsd:string ;
-    backlog:areaMeasure "0 hand-overs written; one is due when the work is complete"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Area3_A2 a backlog:ScopeArea ;
-    rdfs:label "The qualities a good page has"@en ;
-    backlog:areaLocation "01-stage-vocabularies/rdodi_ecosystem_tbox (newest), the interactive-page-ontology module; 01-stage-vocabularies/rdodi_ecosystem_abox (newest): the usability and accessibility standards it carries"^^xsd:string ;
-    backlog:areaMeasure "10 standards and methods already recorded (WCAG 2.2 AA, Nielsen heuristics, Shneiderman rules, cognitive load, axe-core, pa11y, WAVE, WAI-ARIA, inclusive components, ISO 25010); each is to be tied to the parts it applies to"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area3_A5 a backlog:ScopeArea ;
-    rdfs:label "The pages and templates already shipped"@en ;
-    backlog:areaLocation "28-interactive-html-surface (proposal template and instance, native exemplar, question-box template, corpus shell, v37)"^^xsd:string ;
-    backlog:areaMeasure "9 pages measured on 2026-11-04; 4 fail the Owner's conditions"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area3_A6 a backlog:ScopeArea ;
-    rdfs:label "Which page each profile gets"@en ;
-    backlog:areaLocation "01-profiles; 28-interactive-html-surface/16-page-selection (the page-selection register)"^^xsd:string ;
-    backlog:areaMeasure "the profiles with a generated run are listed in the profile and page status page; the register names a page for some and none for others (gaps A2, A3)"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area3_A7 a backlog:ScopeArea ;
-    rdfs:label "The default page format"@en ;
-    backlog:areaLocation "28-interactive-html-surface/16-page-selection; TEMPLATE_SELECTION (newest)"^^xsd:string ;
-    backlog:areaMeasure "0 default formats exist today; three candidates are in use (the corpus shell v37, the Explorer, the course page)"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area3_A9 a backlog:ScopeArea ;
-    rdfs:label "How changes reach the users"@en ;
-    backlog:areaLocation "rdodi-ecosystem releases through oe_release; 03-tooling/release_check (newest)"^^xsd:string ;
-    backlog:areaMeasure "every change is released through the one release path; the measured figures are taken again from a fresh clone of what was published"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Area_A2 a backlog:ScopeArea ;
-    rdfs:label "The page templates and examples already shipped"@en ;
-    backlog:areaLocation "28-interactive-html-surface/ templates and examples (proposal template and instance, native exemplar, question-box template, corpus shell, v37)"^^xsd:string ;
-    backlog:areaMeasure "every shipped template and example is measured at 1280 and 375 px; sideways scroll, dialog elements, text-size control, text size and script errors are listed per page (gaps B2 to B5)"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area_A5 a backlog:ScopeArea ;
-    rdfs:label "How the lineage's changes reach users"@en ;
-    backlog:areaLocation "rdodi-ecosystem releases through oe_release; 03-tooling/release_check (newest)"^^xsd:string ;
-    backlog:areaMeasure "each increment is released through the one release path and its gate figures are measured again from a fresh clone of what was published"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del_W1 a backlog:ScopeDeliverable ;
-    rdfs:label "Every change is published through the release path and its gate figures are measured again from a fresh clone of what was published"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:deliverableForArea pcl:Area_A5 ;
-    backlog:derivesFromMissionClause "makes the Owner's page conditions gates that every Stage 4 page must pass"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:It3_S5 a backlog:Iteration ;
-    rdfs:label "Iteration: S5"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasIdentifier "RDPO-IT-S5"^^xsd:string ;
-    backlog:hasState backlog:InProgress ;
-    backlog:hasTitle "Work on S5"@en ;
-    backlog:iterationStart "2026-11-05T09:54:06+00:00"^^xsd:dateTime ;
-    backlog:memberOfContainer pcl:Backlog .
-
-pcl:Obj3_A1a a backlog:Objective ;
-    rdfs:label "Page-part classes living in the stand-alone ontology"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A1 ;
-    backlog:fillsScope pcl:Scope3 ;
+    backlog:contributesToGoal pcl:Goal_Conf ;
+    backlog:fillsScope pcl:Scope ;
     backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A1a ;
+    backlog:hasCheckpoint pcl:CP_Conf ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
     backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A1a"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of page-part classes in the newest stand-alone page-ontology file"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 238.0 ;
-    backlog:metricMovableBy pcl:Story3_S1 .
-
-pcl:Obj3_A3a a backlog:Objective ;
-    rdfs:label "Owner page rules recorded as rules"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A3 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A3a ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A3a"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test. The 28 rules counted: 1. Menu clicks change the main area first; 2. The right-hand detail card appears only when a detail is explicitly requested; 3. Tab menus are always sub-menus of the selected top-level item, never mixed with it; 4. Code on the page really runs: edited code changes the result; 5. Subject agents answer from their own slice of the ontology and corpus, not with generic identical answers; 6. Every diagram has zoom in and out, a full-screen view and a resizable panel; 7. The top-level menu stays uncrowded; 8. No list is shown twice on one screen; 9. Static explanations live in their own sub-tabs or in the detail card; 10. A taxonomy is drawn as one connected tree with labels that fit their boxes; 11. The page adapts to any device and screen, from a phone to a large screen, and scales as the window is resized; 12. Default text is not small; 13. The reader can adjust the text size; 14. Zoom controls never cover the diagram; 15. Touching a content element shows its options first, preferably in the right-hand card; 16. There is no third level of sub-tabs (a breadcrumb is used instead); 17. Choosing a low-level item in the left explorer opens that single item, not its siblings; 18. The tabs and the left hierarchical explorer always stay synchronized; 19. Every term and tool used on the page is explained; 20. Explanations are comprehensive, cohesive paragraphs of full sentences; 21. Learn sections carry visualizations and interactions, not rich text alone; 22. Long explanations are divided into sub-pages with direct access to each; 23. The concept map is readable and offers filtering; 24. The ontology graph shows its syntactic, semantic and behavioural categorizations; 25. Content and visualizations fit the display without scrolling; 26. Meta information about the work itself is guidance only and is never shown as content; 27. The top of the screen is never spent cheaply: tooltips replace messages and accordions, with details in the right-hand card; 28. Visualizations and interactions are merged with the content, and nothing sits behind a click a reader would only find by chance. The Owner's instructions on slides and course content are not page rules and are not counted. A different count found when the rules are collected is a gap and enters through change management."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of the Owner's page rules recorded as rules in the stand-alone ontology (28 counted by the session on 2026-11-04)"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 28.0 ;
-    backlog:metricMovableBy pcl:Story3_S4 .
-
-pcl:Obj3_A3c a backlog:Objective ;
-    rdfs:label "Rules that are also shapes"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A3 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A3c ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A3c"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of shapes in the stand-alone shapes file that check one recorded rule"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 28.0 ;
-    backlog:metricMovableBy pcl:Story3_S5 .
-
-pcl:Obj3_A7b a backlog:Objective ;
-    rdfs:label "Default-format pages that pass every gate"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A7 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A7b ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A7b"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of pages built from the default format that pass every gate"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 1.0 ;
-    backlog:metricMovableBy pcl:Story3_S9 .
-
-pcl:Obj3_A9 a backlog:Objective ;
-    rdfs:label "Changes that skipped the release path"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A9 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A9 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A9"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of commits to the package since the Scope release that the release path did not make"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric Conf --register REGISTER"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of sh:Violation results of the framework validator for Lineage 2"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Hold ;
     backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:Story3_S1,
-        pcl:Story3_S10,
-        pcl:Story3_S11,
-        pcl:Story3_S12,
-        pcl:Story3_S13,
-        pcl:Story3_S14,
-        pcl:Story3_S15,
-        pcl:Story3_S2,
-        pcl:Story3_S3,
-        pcl:Story3_S4,
-        pcl:Story3_S5,
-        pcl:Story3_S6,
-        pcl:Story3_S7,
-        pcl:Story3_S8,
-        pcl:Story3_S9 .
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
 
-pcl:Obj3_Mission a backlog:Objective ;
-    rdfs:label "Default formats built from the ontology"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_Mission ;
-    backlog:fillsScope pcl:Scope3 ;
+pcl:Obj_G1 a backlog:Objective ;
+    rdfs:label "Page conditions named as Stage 4 gates"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C0 ;
+    backlog:fillsScope pcl:Scope ;
     backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_Mission ;
+    backlog:hasCheckpoint pcl:CP_G1 ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
     backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric Mission"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of default page formats that name the stand-alone ontology as what they are built from"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric G1"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the Owner's seven page conditions carried by a live Stage 4 gate row of the newest procedure"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 7.0 ;
+    backlog:metricMovableBy pcl:S1 .
+
+pcl:Obj_G2 a backlog:Objective ;
+    rdfs:label "Page conditions that are shapes"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C0 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_G2 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric G2"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the seven page conditions carried by a page-condition shape in the package's shapes file"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 7.0 ;
+    backlog:metricMovableBy pcl:S1 .
+
+pcl:Obj_G3 a backlog:Objective ;
+    rdfs:label "Page conditions measured in a browser"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C0 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_G3 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric G3"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the seven page conditions the gate instrument lists as measured"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 7.0 ;
+    backlog:metricMovableBy pcl:S2 .
+
+pcl:Obj_K2 a backlog:Objective ;
+    rdfs:label "Chapter pages whose edited code changes the result"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C3 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_K2 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric K2"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of chapter pages built here on which the browser test shows edited code changes the shown result"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 1.0 ;
-    backlog:metricMovableBy pcl:Story3_S9 .
+    backlog:metricMovableBy pcl:S7 .
 
-pcl:Run3_Approver a backlog:ExecutorInstance,
-        backlog:Executor_SingleAgent ;
-    rdfs:label "An independent agent run that reviewed the corrected ontology and approved it"@en ;
-    backlog:instanceOf pcl:Exec_Approver_L3 ;
-    backlog:instantiatedAt "2026-11-04T12:33:00+00:00"^^xsd:dateTime ;
-    backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a1e076ae68f1a7dc2"^^xsd:string .
-
-pcl:Run3_Oversight a backlog:ExecutorInstance,
-        backlog:Executor_SingleAgent ;
-    rdfs:label "An independent agent run that oversaw the work and sent it back once for sorting defects"@en ;
-    backlog:instanceOf pcl:Exec_Oversight_L3 ;
-    backlog:instantiatedAt "2026-11-04T12:11:00+00:00"^^xsd:dateTime ;
-    backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a2102d0bf58d45189"^^xsd:string .
-
-pcl:Run3_Verifier a backlog:ExecutorInstance,
-        backlog:Executor_SingleAgent ;
-    rdfs:label "An independent agent run that re-ran the acceptance checks in a fresh clone"@en ;
-    ns1:executedBy pcl:Session3_Verifier ;
-    ns1:followsPlan pcl:Plan3_Verifier ;
-    ns1:placeUnchanged false ;
-    ns1:startedInWay pcl:StartWay_Request ;
-    ns1:startedUnderGrant pcl:Grant3_Verifier ;
-    backlog:instanceOf pcl:Exec_Verifier_L3 ;
-    backlog:instantiatedAt "2026-11-04T12:27:00+00:00"^^xsd:dateTime ;
-    backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a119b93563b0d6b86"^^xsd:string .
-
-pcl:SC3_Move a backlog:ScopeChange ;
-    backlog:admitsItem pcl:Story3_S14,
-        pcl:Story3_S15 ;
-    backlog:changesScope pcl:Scope3 ;
-    backlog:decidedBy backlog:Owner ;
-    backlog:fulfillsRequest pcl:CR3_Move ;
-    backlog:hasScopeChangeRationale "Admits the move to IPage and the browser measurement as IPage's own work; paid for by the out-scoping declaration recorded beside it (PSD3_OutRDODI), which removes the work that changes RDODI's files."^^xsd:string .
-
-pcl:T3_S5_Build a backlog:ExecutionTask ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-T-S5-BUILD"^^xsd:string ;
-    backlog:hasState backlog:InProgress ;
-    backlog:hasTaskType backlog:Task_Implementation ;
-    backlog:hasTitle "Build the work of S5"@en ;
-    backlog:memberOfContainer pcl:It3_S5 ;
-    backlog:pursuesObjective pcl:Obj3_A3c ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:startedAt "2026-11-05T09:54:15+00:00"^^xsd:dateTime .
-
-pcl:Area3_A1 a backlog:ScopeArea ;
-    rdfs:label "The kinds of page parts (the ontology itself)"@en ;
-    backlog:areaLocation "01-stage-vocabularies/rdodi_ecosystem_tbox (newest), the interactive-page-ontology module"^^xsd:string ;
-    backlog:areaMeasure "238 classes today, inside the RDODI ecosystem file; they are to become one stand-alone ontology, sorted into kinds, with no class left unconnected"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area3_A3 a backlog:ScopeArea ;
-    rdfs:label "The Owner's page rules"@en ;
-    backlog:areaLocation "01-profiles/RDODI_PROFILE_AND_PAGE_GAPS_v1_0_0.md (B1); the Owner's recorded instructions on course pages (2026-10-13 to 2026-11-03)"^^xsd:string ;
-    backlog:areaMeasure "7 conditions are listed in the gap analysis (text-size control, adaptive layout, tree and tabs in step, one level of tabs, runnable code, zoom and full screen, default text not small); the later rules are to be collected, each tied to one quality and one kind of page part"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area3_A4 a backlog:ScopeArea ;
-    rdfs:label "The checks that read a page against the rules"@en ;
-    backlog:areaLocation "03-procedure/RDODI_FourStage_Pipeline_Procedure (newest), Stage 4 gates; the package's one SHACL file; 28-interactive-html-surface: the Explorer instrument and the course page test"^^xsd:string ;
-    backlog:areaMeasure "0 of the Owner's page conditions are Stage 4 gates today (gap B1); two separate instruments measure the same conditions (gap C5)"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area3_A8 a backlog:ScopeArea ;
-    rdfs:label "The course page as one profile's page"@en ;
-    backlog:areaLocation "the pinned course page template (read-only, cited by repository, commit and SHA-256)"^^xsd:string ;
-    backlog:areaMeasure "1 course page, cited and not copied; it is to be one profile's page, built from the default format and checked by the same rules"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area_A1 a backlog:ScopeArea ;
-    rdfs:label "The page conditions as gates"@en ;
-    backlog:areaLocation "03-procedure/RDODI_FourStage_Pipeline_Procedure (newest), Stage 4 gates; the package's one SHACL file; 28-interactive-html-surface measuring instruments (Explorer instrument; course page test, read-only)"^^xsd:string ;
-    backlog:areaMeasure "Owner conditions: text-size control, adaptive layout, tree and tabs in step, one level of tabs, runnable code, zoom and full-screen, default text not small; each is a named gate with a shape and a browser measurement (gap B1, C5)"^^xsd:string ;
+pcl:Obj_R1 a backlog:Objective ;
+    rdfs:label "Profiles with a run and no page statement"@en ;
     backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area_A3 a backlog:ScopeArea ;
-    rdfs:label "What each profile requires of its page"@en ;
-    backlog:areaLocation "01-profiles; 16-page-selection (page-selection register)"^^xsd:string ;
-    backlog:areaMeasure "every profile with a generated run names its page by link or is recorded as having none; a shape states what a profile requires of its page (gaps A2, A3)"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:Area_A4 a backlog:ScopeArea ;
-    rdfs:label "The adopted course page, working here"@en ;
-    backlog:areaLocation "the pinned course page template (read-only, cited by repository, commit and SHA-256); 28-interactive-html-surface (one chapter page built here)"^^xsd:string ;
-    backlog:areaMeasure "one chapter page built in this package from the pinned course page, passing the new gates, with its code really running (gaps C1, C2)"^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:hasScopeLayer backlog:Layer_Product .
-
-pcl:It3_S15 a backlog:Iteration ;
-    rdfs:label "Iteration: S15"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasDurationSource "iterationStart of this iteration to the finishedAt recorded by l3_steps finish."^^xsd:string ;
-    backlog:hasIdentifier "RDPO-IT-S15"^^xsd:string ;
-    backlog:hasObservedDuration "PT0H46M20S"^^xsd:string ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "Work on S15"@en ;
-    backlog:iterationEnd "2026-11-05T12:10:29+00:00"^^xsd:dateTime ;
-    backlog:iterationStart "2026-11-05T11:24:09+00:00"^^xsd:dateTime ;
-    backlog:memberOfContainer pcl:Backlog .
-
-pcl:It3_S3 a backlog:Iteration ;
-    rdfs:label "Iteration: S3"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasDurationSource "iterationStart of this iteration to the finishedAt recorded by l3_steps finish."^^xsd:string ;
-    backlog:hasIdentifier "RDPO-IT-S3"^^xsd:string ;
-    backlog:hasObservedDuration "PT3H59M31S"^^xsd:string ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "Work on S3"@en ;
-    backlog:iterationEnd "2026-11-04T14:18:17+00:00"^^xsd:dateTime ;
-    backlog:iterationStart "2026-11-04T10:18:46+00:00"^^xsd:dateTime ;
-    backlog:memberOfContainer pcl:Backlog .
-
-pcl:It3_S4 a backlog:Iteration ;
-    rdfs:label "Iteration: S4"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasDurationSource "iterationStart of this iteration to the finishedAt recorded by l3_steps finish."^^xsd:string ;
-    backlog:hasIdentifier "RDPO-IT-S4"^^xsd:string ;
-    backlog:hasObservedDuration "PT0H8M3S"^^xsd:string ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "Work on S4"@en ;
-    backlog:iterationEnd "2026-11-05T06:19:16+00:00"^^xsd:dateTime ;
-    backlog:iterationStart "2026-11-05T06:11:13+00:00"^^xsd:dateTime ;
-    backlog:memberOfContainer pcl:Backlog .
-
-pcl:It3_S9 a backlog:Iteration ;
-    rdfs:label "Iteration: S9"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:hasDurationSource "iterationStart of this iteration to the finishedAt recorded by l3_steps finish."^^xsd:string ;
-    backlog:hasIdentifier "RDPO-IT-S9"^^xsd:string ;
-    backlog:hasObservedDuration "PT0H39M54S"^^xsd:string ;
-    backlog:hasState backlog:Done ;
-    backlog:hasTitle "Work on S9"@en ;
-    backlog:iterationEnd "2026-11-05T13:14:13+00:00"^^xsd:dateTime ;
-    backlog:iterationStart "2026-11-05T12:34:19+00:00"^^xsd:dateTime ;
-    backlog:memberOfContainer pcl:Backlog .
-
-pcl:Obj3_A11 a backlog:Objective ;
-    rdfs:label "The page work at home in IPage"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A11 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A11 ;
+    backlog:contributesToGoal pcl:Goal_C2 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 2.0 ;
+    backlog:hasCheckpoint pcl:CP_R1 ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
     backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_ipage_home_v1_0_0.py --ipage <a fresh clone of github.com/altunelyusuf/IPage>"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-05 against an empty IPage clone; the target is the four conditions of the deliverable, not a wish. The counting is checked by the script's self-test, which also shows the figure can fall."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of the four conditions of the home in IPage that hold (ontology, register, tools in IPage; monorepo copy pointing to IPage)"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 4.0 ;
-    backlog:metricMovableBy pcl:Story3_S14 ;
-    rdfs:comment "Read in the IPage repository with 05-lineage/measure_ipage_home_v1_1_0.py (the IPage clone defaults to the repository the script sits in); the query above names the monorepo version the objective was written with. Noted 2026-11-05 after an independent overseer's review."@en ;
-    prov:wasDerivedFrom pcl:SC3_Move .
-
-pcl:Obj3_A1b a backlog:Objective ;
-    rdfs:label "Page-part classes with no parent kind"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A1 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 108.0 ;
-    backlog:hasCheckpoint pcl:CP3_A1b ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A1b"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of page-part classes with no parent class among the page parts (target 1: the one root)"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 1.0 ;
-    backlog:metricMovableBy pcl:Story3_S2 .
-
-pcl:Obj3_A1c a backlog:Objective ;
-    rdfs:label "Page-part classes standing alone"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A1 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 59.0 ;
-    backlog:hasCheckpoint pcl:CP3_A1c ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A1c"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of page-part classes linked to no other page-part class"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric R1"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the three profiles with a generated run that have neither a link to a page nor a recorded statement that none exists"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:Story3_S1 .
+    backlog:metricMovableBy pcl:S4 .
 
-pcl:Obj3_A2 a backlog:Objective ;
-    rdfs:label "Standards and qualities tied to the parts they apply to"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A2 ;
-    backlog:fillsScope pcl:Scope3 ;
+pcl:Obj_R2 a backlog:Objective ;
+    rdfs:label "Shapes stating what a profile requires of its page"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C2 ;
+    backlog:fillsScope pcl:Scope ;
     backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A2 ;
+    backlog:hasCheckpoint pcl:CP_R2 ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
     backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A2"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of the ten recorded standards and methods that carry an applies-to link to page parts"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 10.0 ;
-    backlog:metricMovableBy pcl:Story3_S3 .
-
-pcl:Obj3_A3b a backlog:Objective ;
-    rdfs:label "Rules tied to a source, a quality and a kind of part"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A3 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A3b ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A3b"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of recorded rules that name the Owner's words as source, one quality and one kind of page part"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 28.0 ;
-    backlog:metricMovableBy pcl:Story3_S4 .
-
-pcl:Obj3_A7a a backlog:Objective ;
-    rdfs:label "Default page formats"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A7 ;
-    backlog:fillsScope pcl:Scope3 ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A7a ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A7a"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of default page formats recorded in the stand-alone ontology"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric R2"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of shapes in the package's shapes file that state what a profile requires of its page"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 1.0 ;
-    backlog:metricMovableBy pcl:Story3_S9 .
+    backlog:metricMovableBy pcl:S5 .
 
-pcl:Obj_Contained a backlog:Objective ;
-    rdfs:label "Work items that serve no deliverable or objective"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_Contained ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_Contained ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric Contained"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of stories with no satisfied deliverable or no pursued objective"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Hold ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:S1,
-        pcl:S2,
-        pcl:S3,
-        pcl:S4,
-        pcl:S5,
-        pcl:S6,
-        pcl:S7,
-        pcl:S8 .
-
-pcl:Obj_X1 a backlog:Objective ;
-    rdfs:label "Page files for Roadmap-Report or Whitepaper"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_X1 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_X1 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X1"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of html files named for the Roadmap-Report or Whitepaper profile"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Hold ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:S1,
-        pcl:S2,
-        pcl:S3,
-        pcl:S4,
-        pcl:S5,
-        pcl:S6,
-        pcl:S7,
-        pcl:S8 .
-
-pcl:Obj_X2 a backlog:Objective ;
-    rdfs:label "Page files for Technical-Report"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_X2 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_X2 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X2"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of html files named for the Technical-Report profile"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Hold ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:S1,
-        pcl:S2,
-        pcl:S3,
-        pcl:S4,
-        pcl:S5,
-        pcl:S6,
-        pcl:S7,
-        pcl:S8 .
-
-pcl:Obj_X3 a backlog:Objective ;
-    rdfs:label "Files outside this package changed by this lineage"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_X3 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_X3 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X3"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of files outside rdodi-ecosystem changed by the releases of this lineage"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Hold ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:S1,
-        pcl:S2,
-        pcl:S3,
-        pcl:S4,
-        pcl:S5,
-        pcl:S6,
-        pcl:S7,
-        pcl:S8 .
-
-pcl:Obj_X4 a backlog:Objective ;
-    rdfs:label "Course page pin records changed"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_X4 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_X4 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X4"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of pinned commit and SHA-256 values of the page-selection register that differ from the Mission release"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Hold ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:S1,
-        pcl:S2,
-        pcl:S3,
-        pcl:S4,
-        pcl:S5,
-        pcl:S6,
-        pcl:S7,
-        pcl:S8 .
-
-pcl:Obj_X5 a backlog:Objective ;
-    rdfs:label "Default page rule changed"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_X5 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_X5 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X5"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of differences of the default page-selection rule from the Mission release"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Hold ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:S1,
-        pcl:S2,
-        pcl:S3,
-        pcl:S4,
-        pcl:S5,
-        pcl:S6,
-        pcl:S7,
-        pcl:S8 .
-
-pcl:Obj_X6 a backlog:Objective ;
-    rdfs:label "Claims of a physical-device or offline measurement"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_X6 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_X6 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X6"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of claims in this lineage's evidence that a page was measured on a physical device or offline"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Hold ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:S1,
-        pcl:S2,
-        pcl:S3,
-        pcl:S4,
-        pcl:S5,
-        pcl:S6,
-        pcl:S7,
-        pcl:S8 .
-
-pcl:Obj_X7 a backlog:Objective ;
-    rdfs:label "Files of the raw shell changed"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_X7 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_X7 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X7"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of files of the raw corpus shell changed since the Mission release"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Hold ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:S1,
-        pcl:S2,
-        pcl:S3,
-        pcl:S4,
-        pcl:S5,
-        pcl:S6,
-        pcl:S7,
-        pcl:S8 .
+pcl:StartWay_Request a ns1:StartWay ;
+    rdfs:label "On the builder's request"@en .
 
 pcl:T3_S14_Build a backlog:ExecutionTask ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
@@ -5627,14 +5953,9 @@ pcl:T3_S9_Build a backlog:ExecutionTask ;
     backlog:startedAt "2026-11-05T12:34:28+00:00"^^xsd:dateTime ;
     backlog:verifiedBy pcl:Run3_Verifier_S9 .
 
-pcl:AccessRoute_Git a ns1:AccessRoute ;
-    rdfs:label "A fresh clone of the published repository"@en .
-
-pcl:Exec_Approver_L3 a backlog:Executor_SingleAgent ;
-    rdfs:label "The approving agent: a reviewer that accepts the work only if it finds no clear defect"@en .
-
-pcl:Exec_Oversight_L3 a backlog:Executor_SingleAgent ;
-    rdfs:label "The overseeing agent: a reviewer that did not do the work and may send it back"@en .
+pcl:DomainEntity_PageOntology a backlog:DomainEntity ;
+    rdfs:label "The ontology of interactive pages"@en ;
+    skos:definition "The first-class thing this lineage is about: one stand-alone ontology of interactive pages, organised by kind, that carries the Owner's page rules and from which RDODI builds and checks its default page format."^^xsd:string .
 
 pcl:It3_S14 a backlog:Iteration ;
     rdfs:label "Iteration: S14"@en ;
@@ -5648,148 +5969,127 @@ pcl:It3_S14 a backlog:Iteration ;
     backlog:iterationStart "2026-11-05T07:52:23+00:00"^^xsd:dateTime ;
     backlog:memberOfContainer pcl:Backlog .
 
-pcl:Obj3_A4b a backlog:Objective ;
-    rdfs:label "Rules the browser measurement covers"@en ;
+pcl:It3_S5 a backlog:Iteration ;
+    rdfs:label "Iteration: S5"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:contributesToGoal pcl:Goal3_A4 ;
+    backlog:hasIdentifier "RDPO-IT-S5"^^xsd:string ;
+    backlog:hasRationale "Not finished in this lineage. Its 28 shapes were built (commit 467bf0e), but the three independent reviews of 2026-11-08 found that they never refuse a page in the project's own checks (they select their targets by SPARQL, which the validator applies only in its advanced mode, never switched on here) and that a refused page's report does not name the rule. Lineage 3 is concluded on the Owner's ruling IP-R1; the repair is carried forward, first in order, to a narrow Delivery lineage."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Work on S5"@en ;
+    backlog:iterationStart "2026-11-05T09:54:06+00:00"^^xsd:dateTime ;
+    backlog:memberOfContainer pcl:Backlog .
+
+pcl:Obj3_A1a a backlog:Objective ;
+    rdfs:label "Page-part classes living in the stand-alone ontology"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A1 ;
     backlog:fillsScope pcl:Scope3 ;
     backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP3_A4b ;
+    backlog:hasCheckpoint pcl:CP3_A1a ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
     backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A4b"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A1a"^^xsd:string ;
     backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of recorded rules the gate instrument lists as measured"^^xsd:string ;
+    backlog:hasSuccessMetric "Count of page-part classes in the newest stand-alone page-ontology file"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 238.0 ;
+    backlog:metricMovableBy pcl:Story3_S1 .
+
+pcl:Obj3_A3a a backlog:Objective ;
+    rdfs:label "Owner page rules recorded as rules"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A3 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A3a ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A3a"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test. The 28 rules counted: 1. Menu clicks change the main area first; 2. The right-hand detail card appears only when a detail is explicitly requested; 3. Tab menus are always sub-menus of the selected top-level item, never mixed with it; 4. Code on the page really runs: edited code changes the result; 5. Subject agents answer from their own slice of the ontology and corpus, not with generic identical answers; 6. Every diagram has zoom in and out, a full-screen view and a resizable panel; 7. The top-level menu stays uncrowded; 8. No list is shown twice on one screen; 9. Static explanations live in their own sub-tabs or in the detail card; 10. A taxonomy is drawn as one connected tree with labels that fit their boxes; 11. The page adapts to any device and screen, from a phone to a large screen, and scales as the window is resized; 12. Default text is not small; 13. The reader can adjust the text size; 14. Zoom controls never cover the diagram; 15. Touching a content element shows its options first, preferably in the right-hand card; 16. There is no third level of sub-tabs (a breadcrumb is used instead); 17. Choosing a low-level item in the left explorer opens that single item, not its siblings; 18. The tabs and the left hierarchical explorer always stay synchronized; 19. Every term and tool used on the page is explained; 20. Explanations are comprehensive, cohesive paragraphs of full sentences; 21. Learn sections carry visualizations and interactions, not rich text alone; 22. Long explanations are divided into sub-pages with direct access to each; 23. The concept map is readable and offers filtering; 24. The ontology graph shows its syntactic, semantic and behavioural categorizations; 25. Content and visualizations fit the display without scrolling; 26. Meta information about the work itself is guidance only and is never shown as content; 27. The top of the screen is never spent cheaply: tooltips replace messages and accordions, with details in the right-hand card; 28. Visualizations and interactions are merged with the content, and nothing sits behind a click a reader would only find by chance. The Owner's instructions on slides and course content are not page rules and are not counted. A different count found when the rules are collected is a gap and enters through change management."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the Owner's page rules recorded as rules in the stand-alone ontology (28 counted by the session on 2026-11-04)"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 28.0 ;
-    backlog:metricMovableBy pcl:Story3_S15,
-        pcl:Story3_S6 .
+    backlog:metricMovableBy pcl:Story3_S4 .
 
-pcl:Obj_Conf a backlog:Objective ;
-    rdfs:label "Framework validator violations on Lineage 2"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_Conf ;
-    backlog:fillsScope pcl:Scope ;
+pcl:Obj3_A3c a backlog:Objective ;
+    rdfs:label "Rules that are also shapes"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A3 ;
+    backlog:fillsScope pcl:Scope3 ;
     backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_Conf ;
+    backlog:hasCheckpoint pcl:CP3_A3c ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
     backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric Conf --register REGISTER"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of sh:Violation results of the framework validator for Lineage 2"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A3c"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of shapes in the stand-alone shapes file that check one recorded rule"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 28.0 ;
+    backlog:metricMovableBy pcl:Story3_S5 .
+
+pcl:Obj3_A7b a backlog:Objective ;
+    rdfs:label "Default-format pages that pass every gate"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A7 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A7b ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A7b"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of pages built from the default format that pass every gate"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 1.0 ;
+    backlog:metricMovableBy pcl:Story3_S9 .
+
+pcl:Obj3_A9 a backlog:Objective ;
+    rdfs:label "Changes that skipped the release path"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A9 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasAchievementStatus backlog:Ach_Missed ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A9 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A9"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of commits to the package since the Scope release that the release path did not make"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Hold ;
     backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:S1,
-        pcl:S2,
-        pcl:S3,
-        pcl:S4,
-        pcl:S5,
-        pcl:S6,
-        pcl:S7,
-        pcl:S8 .
+    backlog:metricMovableBy pcl:Story3_S1,
+        pcl:Story3_S10,
+        pcl:Story3_S11,
+        pcl:Story3_S12,
+        pcl:Story3_S13,
+        pcl:Story3_S14,
+        pcl:Story3_S15,
+        pcl:Story3_S2,
+        pcl:Story3_S3,
+        pcl:Story3_S4,
+        pcl:Story3_S5,
+        pcl:Story3_S6,
+        pcl:Story3_S7,
+        pcl:Story3_S8,
+        pcl:Story3_S9 ;
+    rdfs:comment "Missed: the last work that could move this figure (Story S5) was cancelled when Lineage 3 was concluded on the Owner's ruling IP-R1 of 2026-11-08; read again at closure it counts 17 commits that are not releases. Its forecast date (2026-11-09) had not come; the lineage concludes first."@en .
 
-pcl:Obj_G1 a backlog:Objective ;
-    rdfs:label "Page conditions named as Stage 4 gates"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_C0 ;
-    backlog:fillsScope pcl:Scope ;
+pcl:Obj3_Mission a backlog:Objective ;
+    rdfs:label "Default formats built from the ontology"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_Mission ;
+    backlog:fillsScope pcl:Scope3 ;
     backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_G1 ;
+    backlog:hasCheckpoint pcl:CP3_Mission ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
     backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric G1"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of the Owner's seven page conditions carried by a live Stage 4 gate row of the newest procedure"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 7.0 ;
-    backlog:metricMovableBy pcl:S1 .
-
-pcl:Obj_G2 a backlog:Objective ;
-    rdfs:label "Page conditions that are shapes"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_C0 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_G2 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric G2"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of the seven page conditions carried by a page-condition shape in the package's shapes file"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 7.0 ;
-    backlog:metricMovableBy pcl:S1 .
-
-pcl:Obj_G3 a backlog:Objective ;
-    rdfs:label "Page conditions measured in a browser"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_C0 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_G3 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric G3"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of the seven page conditions the gate instrument lists as measured"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 7.0 ;
-    backlog:metricMovableBy pcl:S2 .
-
-pcl:Obj_K2 a backlog:Objective ;
-    rdfs:label "Chapter pages whose edited code changes the result"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_C3 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_K2 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric K2"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of chapter pages built here on which the browser test shows edited code changes the shown result"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric Mission"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of default page formats that name the stand-alone ontology as what they are built from"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 1.0 ;
-    backlog:metricMovableBy pcl:S7 .
-
-pcl:Obj_R1 a backlog:Objective ;
-    rdfs:label "Profiles with a run and no page statement"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_C2 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 2.0 ;
-    backlog:hasCheckpoint pcl:CP_R1 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric R1"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of the three profiles with a generated run that have neither a link to a page nor a recorded statement that none exists"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:S4 .
-
-pcl:Obj_R2 a backlog:Objective ;
-    rdfs:label "Shapes stating what a profile requires of its page"@en ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:contributesToGoal pcl:Goal_C2 ;
-    backlog:fillsScope pcl:Scope ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP_R2 ;
-    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric R2"^^xsd:string ;
-    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
-    backlog:hasSuccessMetric "Count of shapes in the package's shapes file that state what a profile requires of its page"^^xsd:string ;
-    backlog:hasTargetDirection backlog:Dir_Increase ;
-    backlog:hasTargetValue 1.0 ;
-    backlog:metricMovableBy pcl:S5 .
-
-pcl:StartWay_Request a ns1:StartWay ;
-    rdfs:label "On the builder's request"@en .
-
-pcl:DomainEntity_PageOntology a backlog:DomainEntity ;
-    rdfs:label "The ontology of interactive pages"@en ;
-    skos:definition "The first-class thing this lineage is about: one stand-alone ontology of interactive pages, organised by kind, that carries the Owner's page rules and from which RDODI builds and checks its default page format."^^xsd:string .
+    backlog:metricMovableBy pcl:Story3_S9 .
 
 pcl:Obj_K1 a backlog:Objective ;
     rdfs:label "Chapter pages built here that pass the gates"@en ;
@@ -5823,9 +6123,121 @@ pcl:Obj_P1 a backlog:Objective ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:S3 .
 
+pcl:T3_S5_Build a backlog:ExecutionTask ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-T-S5-BUILD"^^xsd:string ;
+    backlog:hasRationale "Not finished in this lineage. Its 28 shapes were built (commit 467bf0e), but the three independent reviews of 2026-11-08 found that they never refuse a page in the project's own checks (they select their targets by SPARQL, which the validator applies only in its advanced mode, never switched on here) and that a refused page's report does not name the rule. Lineage 3 is concluded on the Owner's ruling IP-R1; the repair is carried forward, first in order, to a narrow Delivery lineage."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTaskType backlog:Task_Implementation ;
+    backlog:hasTitle "Build the work of S5"@en ;
+    backlog:memberOfContainer pcl:It3_S5 ;
+    backlog:pursuesObjective pcl:Obj3_A3c ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:startedAt "2026-11-05T09:54:15+00:00"^^xsd:dateTime .
+
 pcl:DomainEntity_PageConditions a backlog:DomainEntity ;
     rdfs:label "RDODI page conditions"@en ;
     skos:definition "The first-class thing this lineage is about: the Owner's conditions for interactive pages, made gates that every Stage 4 page must pass."^^xsd:string .
+
+pcl:Obj3_A11 a backlog:Objective ;
+    rdfs:label "The page work at home in IPage"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A11 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A11 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_ipage_home_v1_0_0.py --ipage <a fresh clone of github.com/altunelyusuf/IPage>"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-05 against an empty IPage clone; the target is the four conditions of the deliverable, not a wish. The counting is checked by the script's self-test, which also shows the figure can fall."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the four conditions of the home in IPage that hold (ontology, register, tools in IPage; monorepo copy pointing to IPage)"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 4.0 ;
+    backlog:metricMovableBy pcl:Story3_S14 ;
+    rdfs:comment "Read in the IPage repository with 05-lineage/measure_ipage_home_v1_1_0.py (the IPage clone defaults to the repository the script sits in); the query above names the monorepo version the objective was written with. Noted 2026-11-05 after an independent overseer's review."@en ;
+    prov:wasDerivedFrom pcl:SC3_Move .
+
+pcl:Obj3_A1b a backlog:Objective ;
+    rdfs:label "Page-part classes with no parent kind"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A1 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 108.0 ;
+    backlog:hasCheckpoint pcl:CP3_A1b ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A1b"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of page-part classes with no parent class among the page parts (target 1: the one root)"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 1.0 ;
+    backlog:metricMovableBy pcl:Story3_S2 .
+
+pcl:Obj3_A1c a backlog:Objective ;
+    rdfs:label "Page-part classes standing alone"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A1 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 59.0 ;
+    backlog:hasCheckpoint pcl:CP3_A1c ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A1c"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of page-part classes linked to no other page-part class"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Story3_S1 .
+
+pcl:Obj3_A2 a backlog:Objective ;
+    rdfs:label "Standards and qualities tied to the parts they apply to"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A2 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A2 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A2"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the ten recorded standards and methods that carry an applies-to link to page parts"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 10.0 ;
+    backlog:metricMovableBy pcl:Story3_S3 .
+
+pcl:Obj3_A3b a backlog:Objective ;
+    rdfs:label "Rules tied to a source, a quality and a kind of part"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A3 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A3b ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A3b"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of recorded rules that name the Owner's words as source, one quality and one kind of page part"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 28.0 ;
+    backlog:metricMovableBy pcl:Story3_S4 .
+
+pcl:Obj3_A7a a backlog:Objective ;
+    rdfs:label "Default page formats"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A7 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A7a ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A7a"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of default page formats recorded in the stand-alone ontology"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 1.0 ;
+    backlog:metricMovableBy pcl:Story3_S9 .
 
 pcl:It3_S1_S2 a backlog:Iteration ;
     rdfs:label "Iteration: S1, S2"@en ;
@@ -5838,6 +6250,23 @@ pcl:It3_S1_S2 a backlog:Iteration ;
     backlog:iterationEnd "2026-11-04T13:33:40+00:00"^^xsd:dateTime ;
     backlog:iterationStart "2026-11-04T10:03:36+00:00"^^xsd:dateTime ;
     backlog:memberOfContainer pcl:Backlog .
+
+pcl:Obj3_A4b a backlog:Objective ;
+    rdfs:label "Rules the browser measurement covers"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:contributesToGoal pcl:Goal3_A4 ;
+    backlog:fillsScope pcl:Scope3 ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP3_A4b ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_ontology_v1_0_0.py --metric A4b"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-04; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of recorded rules the gate instrument lists as measured"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 28.0 ;
+    backlog:metricMovableBy pcl:Story3_S15,
+        pcl:Story3_S6 .
 
 pcl:Exec_Verifier_L3 a backlog:Executor_SingleAgent ;
     rdfs:label "The verifying agent: an agent that did not do the work and judges it against the evidence"@en .
@@ -5872,26 +6301,6 @@ pcl:Run_Build01 a backlog:ExecutorInstance,
     backlog:instantiatedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 (the model this session is configured for)"^^xsd:string ;
     rdfs:comment "A run, not the standing definition: it names the definition it is a run of, its version and when it began."^^xsd:string .
-
-pcl:Story3_S13 a backlog:Story ;
-    rdfs:label "Write the hand-over to the new session in the right inbox"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S13 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S13"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Cancelled ;
-    backlog:hasTitle "Write the hand-over to the new session in the right inbox"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A10 ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_W2 .
 
 pcl:S2 a backlog:Story ;
     rdfs:label "Build the browser gate instrument that measures each condition"@en ;
@@ -6013,6 +6422,47 @@ pcl:S7 a backlog:Story ;
     backlog:responsible pcl:Run_Build01 ;
     backlog:satisfiesDeliverable pcl:Del_D7 .
 
+pcl:Story3_S13 a backlog:Story ;
+    rdfs:label "Write the hand-over to the new session in the right inbox"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S13 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S13"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Write the hand-over to the new session in the right inbox"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A10 ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_W2 .
+
+pcl:S1 a backlog:Story ;
+    rdfs:label "Make the seven page conditions Stage 4 gates and shapes"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S1 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S1"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Make the seven page conditions Stage 4 gates and shapes"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_G1,
+        pcl:Obj_G2,
+        pcl:Obj_ScopeSat ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D1 .
+
 pcl:Story3_S10 a backlog:Story ;
     rdfs:label "Make the course page one profile's page, built from the default format"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
@@ -6073,26 +6523,17 @@ pcl:Story3_S7 a backlog:Story ;
     backlog:responsible pcl:Run3_Build01 ;
     backlog:satisfiesDeliverable pcl:Del3_D7 .
 
-pcl:S1 a backlog:Story ;
-    rdfs:label "Make the seven page conditions Stage 4 gates and shapes"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage02 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC_S1 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPC-S1"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Make the seven page conditions Stage 4 gates and shapes"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj_G1,
-        pcl:Obj_G2,
-        pcl:Obj_ScopeSat ;
-    backlog:responsible pcl:Run_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del_D1 .
+pcl:Mission a backlog:Mission ;
+    rdfs:label "Mission: the page conditions of RDODI"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:hasMissionOrigin backlog:Origin_SessionDrafted ;
+    backlog:hasMissionOutcome backlog:Out_Abandoned ;
+    backlog:hasMissionStatement "Make the Owner's page conditions rules that RDODI enforces: RDODI makes the Owner's page conditions gates that every Stage 4 page must pass; has every page template and example it ships meet those conditions; names, for every profile with a generated run, the page it gets and what it requires of that page; and shows the adopted course page working here, with one chapter page built in this package that passes the gates."^^xsd:string ;
+    backlog:missionFor pcl:Backlog ;
+    backlog:missionSource "Owner, 2026-10-28 and 2026-11-02: the conditions for course HTML pages (menu and tabs, left tree and tabs kept in step, code that really runs, text-size control, adaptive to any device, diagram zoom and full-screen, default text not small); 'Which RDODI profiles are existing and which interactive page templates are matching, and are they satisfying the conditions of that profile?'; 'use [the course page] or enhance the current template'; and, on the gap analysis (RDODI_PROFILE_AND_PAGE_GAPS_v1_0_0.md): 'OK, recommendations are rational. Proceed.'"^^xsd:string ;
+    backlog:outcomeRationale "Replaced on the Owner's decision of 2026-11-04: the mission was not set properly. See the closure report." ;
+    rdfs:comment "DRAFT by an assistant session; the Owner accepted the recommendation of 2026-11-02 (the gap analysis, section E); not owner-worded (Lineage Operating Discipline: session-drafted)."^^xsd:string,
+        "Replaced on 2026-11-04 by Mission 2: it was not set properly (it left out the default page format and treated the course page as the page to prove). Kept as the record of what was believed." .
 
 pcl:Story3_S6 a backlog:Story ;
     rdfs:label "Make each rule a Stage 4 gate and build the one browser measurement"@en ;
@@ -6136,18 +6577,6 @@ pcl:Story3_S8 a backlog:Story ;
     backlog:responsible pcl:Run3_Build01 ;
     backlog:satisfiesDeliverable pcl:Del3_D8 .
 
-pcl:Mission a backlog:Mission ;
-    rdfs:label "Mission: the page conditions of RDODI"@en ;
-    backlog:decidedBy backlog:Owner ;
-    backlog:hasMissionOrigin backlog:Origin_SessionDrafted ;
-    backlog:hasMissionOutcome backlog:Out_Abandoned ;
-    backlog:hasMissionStatement "Make the Owner's page conditions rules that RDODI enforces: RDODI makes the Owner's page conditions gates that every Stage 4 page must pass; has every page template and example it ships meet those conditions; names, for every profile with a generated run, the page it gets and what it requires of that page; and shows the adopted course page working here, with one chapter page built in this package that passes the gates."^^xsd:string ;
-    backlog:missionFor pcl:Backlog ;
-    backlog:missionSource "Owner, 2026-10-28 and 2026-11-02: the conditions for course HTML pages (menu and tabs, left tree and tabs kept in step, code that really runs, text-size control, adaptive to any device, diagram zoom and full-screen, default text not small); 'Which RDODI profiles are existing and which interactive page templates are matching, and are they satisfying the conditions of that profile?'; 'use [the course page] or enhance the current template'; and, on the gap analysis (RDODI_PROFILE_AND_PAGE_GAPS_v1_0_0.md): 'OK, recommendations are rational. Proceed.'"^^xsd:string ;
-    backlog:outcomeRationale "Replaced on the Owner's decision of 2026-11-04: the mission was not set properly. See the closure report." ;
-    rdfs:comment "DRAFT by an assistant session; the Owner accepted the recommendation of 2026-11-02 (the gap analysis, section E); not owner-worded (Lineage Operating Discipline: session-drafted)."^^xsd:string,
-        "Replaced on 2026-11-04 by Mission 2: it was not set properly (it left out the default page format and treated the course page as the page to prove). Kept as the record of what was believed." .
-
 pcl:Story3_S5 a backlog:Story ;
     rdfs:label "Make each rule a shape a page can be checked against"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
@@ -6158,8 +6587,9 @@ pcl:Story3_S5 a backlog:Story ;
     backlog:hasExecutionModality backlog:Mode_Automated ;
     backlog:hasIdentifier "RDPO-S5"^^xsd:string ;
     backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not finished in this lineage. Its 28 shapes were built (commit 467bf0e), but the three independent reviews of 2026-11-08 found that they never refuse a page in the project's own checks (they select their targets by SPARQL, which the validator applies only in its advanced mode, never switched on here) and that a refused page's report does not name the rule. Lineage 3 is concluded on the Owner's ruling IP-R1; the repair is carried forward, first in order, to a narrow Delivery lineage."^^xsd:string ;
     backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:InProgress ;
+    backlog:hasState backlog:Cancelled ;
     backlog:hasTitle "Make each rule a shape a page can be checked against"@en ;
     backlog:memberOfContainer pcl:Backlog ;
     backlog:notYetScoreable true ;
@@ -6167,46 +6597,6 @@ pcl:Story3_S5 a backlog:Story ;
     backlog:responsible pcl:Run3_Build01 ;
     backlog:satisfiesDeliverable pcl:Del3_D5 ;
     backlog:startedAt "2026-11-05T09:54:11+00:00"^^xsd:dateTime .
-
-pcl:Story3_S12 a backlog:Story ;
-    rdfs:label "Release each change through the one release path and measure again from a fresh clone"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S12 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S12"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Cancelled ;
-    backlog:hasTitle "Release each change through the one release path and measure again from a fresh clone"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A9,
-        pcl:Obj3_Conf,
-        pcl:Obj3_Contained,
-        pcl:Obj3_X1,
-        pcl:Obj3_X2,
-        pcl:Obj3_X3,
-        pcl:Obj3_X4,
-        pcl:Obj3_X5,
-        pcl:Obj3_X6 ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_W1 .
-
-pcl:Mission_R2 a backlog:Mission ;
-    rdfs:label "Mission 2: one ontology of interactive pages that carries the Owner's page rules"@en ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:decidedBy backlog:Owner ;
-    backlog:hasMissionOrigin backlog:Origin_SessionDrafted ;
-    backlog:hasMissionOutcome backlog:Out_InFlight ;
-    backlog:hasMissionStatement "Build one stand-alone ontology of interactive pages, organised by kind, that carries the Owner's page rules, so that RDODI can use it to build and check its default page format."^^xsd:string ;
-    backlog:missionFor pcl:Backlog ;
-    backlog:missionSource "Owner, 2026-11-04: accepted both change requests and one replacement mission (\"Yes, one mission is rational\"; \"Yes, proceed\"), after proposing that the interactive page needs a stand-alone ontology, organised by kind, which RDODI consumes, built by this lineage and then handed to a new session." ;
-    backlog:supersedesMission pcl:Mission ;
-    rdfs:comment "DRAFT by an assistant session from the Owner's words of 2026-11-04; accepted by the Owner the same day." .
 
 pcl:S8 a backlog:Story ;
     rdfs:label "Release each change through the one release path and measure again from a fresh clone"@en ;
@@ -6235,6 +6625,46 @@ pcl:S8 a backlog:Story ;
         pcl:Obj_X7 ;
     backlog:responsible pcl:Run_Build01 ;
     backlog:satisfiesDeliverable pcl:Del_W1 .
+
+pcl:Mission_R2 a backlog:Mission ;
+    rdfs:label "Mission 2: one ontology of interactive pages that carries the Owner's page rules"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:hasMissionOrigin backlog:Origin_SessionDrafted ;
+    backlog:hasMissionOutcome backlog:Out_InFlight ;
+    backlog:hasMissionStatement "Build one stand-alone ontology of interactive pages, organised by kind, that carries the Owner's page rules, so that RDODI can use it to build and check its default page format."^^xsd:string ;
+    backlog:missionFor pcl:Backlog ;
+    backlog:missionSource "Owner, 2026-11-04: accepted both change requests and one replacement mission (\"Yes, one mission is rational\"; \"Yes, proceed\"), after proposing that the interactive page needs a stand-alone ontology, organised by kind, which RDODI consumes, built by this lineage and then handed to a new session." ;
+    backlog:supersedesMission pcl:Mission ;
+    rdfs:comment "DRAFT by an assistant session from the Owner's words of 2026-11-04; accepted by the Owner the same day." .
+
+pcl:Story3_S12 a backlog:Story ;
+    rdfs:label "Release each change through the one release path and measure again from a fresh clone"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S12 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S12"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Release each change through the one release path and measure again from a fresh clone"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A9,
+        pcl:Obj3_Conf,
+        pcl:Obj3_Contained,
+        pcl:Obj3_X1,
+        pcl:Obj3_X2,
+        pcl:Obj3_X3,
+        pcl:Obj3_X4,
+        pcl:Obj3_X5,
+        pcl:Obj3_X6 ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_W1 .
 
 pcl:Story3_S15 a backlog:Story ;
     rdfs:label "Build the one browser measurement in IPage that reads a page against every rule"@en ;

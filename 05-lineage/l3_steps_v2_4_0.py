@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""l3_steps_v2_3_0.py - the recorded steps of Lineage 3's work stories, one command per step. Each writes the NEXT register version, never edits or deletes the previous one (OE BP-D7),
+"""l3_steps_v2_4_0.py - the recorded steps of Lineage 3's work stories, one command per step. Each writes the NEXT register version, never edits or deletes the previous one (OE BP-D7),
 and refuses unless every earlier statement is still there except exactly those the step may change.
 
-  l3_steps_v2_3_0.py start S1 S2 ...    the named stories move to InProgress, stamped from the clock; with the disclosure that the first build of S1 and S2 preceded this record.
+  l3_steps_v2_4_0.py start S1 S2 ...    the named stories move to InProgress, stamped from the clock; with the disclosure that the first build of S1 and S2 preceded this record.
 
 v2.1.0 (2026-11-05): STORY_KEYS was missing S5 (it pursues A3c, like every other story this tool finishes) -- a gap found while finishing S5, not a change of what any story means.
 Tried and reverted (2026-11-05): closing S5 makes Epic3_E1's last child Done, which G148 (RS_DecompositionStateAgrees) then requires the epic itself to resolve. A same-step auto-close that only set hasState=Done cascaded into the full Done governance apparatus a story gets (G109/G112/G113/G115/G118/G168/G172/L1/L2/L3: overseenBy/verifiedBy/approvedBy, startedAt, readiness checks, evidence, an acceptance criterion with a real artifact) -- none of which exists for an Epic and none of which this tool can honestly fabricate. Left for the Owner to rule on (cancel the epic, add a child still to come, or define what closes a decomposition parent); see the hand-over. finish() is unchanged from v2.1.0; it still refuses to leave S5 Done while this is open.
@@ -10,7 +10,7 @@ v2.2.0 (2026-11-05): STORY_KEYS was missing S9 (it pursues A7a, A7b and Mission)
 v2.3.0 (2026-11-08): three steps for concluding the lineage (G215), on the Owner's ruling IP-R1:
   withdraw ITEM ... --rationale TEXT [--missed KEY ... --missed-rationale TEXT]
                                          each named item (local name: Story3_S6, Epic3_E1, ...) moves to Cancelled by the withdrawal its state allows
-                                         (T_WithdrawProposed / T_WithdrawReady / T_WithdrawInProgress / T_WithdrawSuspended), with the reason and a recorded move;
+                                         (T_WithdrawProposed / T_WithdrawReady / T_WithdrawInProgress / T_WithdrawSuspended), with the reason and a recorded move (an iteration, a container, ends by the Owner's dissolution instead);
                                          each objective named by --missed (left with no live work that can move it, and short of its target) is recorded Missed.
   report --fit-gap T --impact T --summary T [--finding LABEL=ROOTCAUSE=REMEDY ...] [--best-practice T ...]
                                          reads every objective again with the newest measure_page_ontology script (a fresh observation each), records the
@@ -18,6 +18,8 @@ v2.3.0 (2026-11-08): three steps for concluding the lineage (G215), on the Owner
                                          Cancelled, citing the assessment and every finding. The mission outcome is NOT set: the Owner confirms first.
   conclude --confirmation TEXT           after the Owner confirms: the ruling of his confirmation, the mission outcome Abandoned with its rationale (the
                                          closure summary), and the lineage status Abandoned. Refuses without a closure report committed earlier.
+v2.4.0 (2026-11-08, the same day, before any release carried 2.3.0): an iteration is ended by the Owner's dissolution, not withdrawn like an
+  item (a container's state is derived); the validator figure (Conf) names itself, so the report reads it until the value recorded is the value read.
   finish also takes --agent-model (the model of the reviewing agents, recorded instead of a fixed name), and its observations name the measurement
   script actually used (it named v1_0_0, which was retired; corrected for observations written from now on, earlier ones stay as written).
 """
@@ -213,6 +215,11 @@ def withdraw(a):
         g.add((it, B.hasState, B.Cancelled)); subj.add(it)
         if g0.value(it, B.hasRationale) is None: g.add((it, B.hasRationale, T(a.rationale)))
         else: g.add((it, RDFS.comment, Literal("Cancelled: " + a.rationale, lang="en")))
+        if (it, RDF.type, B.Iteration) in g0:   # a container is not moved: it ends by the Owner's dissolution, which derives Cancelled
+            e = P["Dissolve3_" + nm]; subj.add(e)
+            for p_, o_ in ((RDF.type, B.ContainerDissolution), (B.dissolvesContainer, it), (B.decidedBy, B.Owner), (B.dissolutionRationale, T(a.rationale + " Dissolved on the Owner's ruling IP-R1."))):
+                g.add((e, p_, o_))
+            continue
         e = P["Ev3_" + nm + "_Withdraw"]; subj.add(e)
         for p_, o_ in ((RDF.type, B.TransitionEvent), (B.transitionedItem, it), (B.viaTransition, WITHDRAW[st]), (B.transitionedAt, ts), (B.transitionedBy, B.Builder), (B.transitionedByExecutor, P.Run3_Build01)):
             g.add((e, p_, o_))
@@ -255,6 +262,22 @@ def report(a):
         tv = g0.value(o, B.hasTargetValue); dr = g0.value(o, B.hasTargetDirection)
         met = tv is not None and ((v >= float(tv)) if dr == B.Dir_Increase else (v <= float(tv)) if dr == B.Dir_Decrease else (v == float(tv)))
         (fit if met else gap).append(o)
+    if "Conf" in vals:   # Conf counts the validator's findings on the register itself: read it again on the register as it stands with these readings
+        import tempfile, subprocess as sp_
+        # the reading names itself: start from 0 and read again until the value read is the value recorded (a fixed point), at most four times
+        oc = P.Obs3_Close_Conf; vc = 0.0
+        with tempfile.TemporaryDirectory() as d_:
+            for _ in range(4):
+                g.remove((oc, B.hasObservedValue, None)); g.add((oc, B.hasObservedValue, Literal(vc, datatype=XSD.decimal)))
+                tp = os.path.join(d_, "interactive_page_lineage_abox_v0_0_0.ttl"); g.serialize(destination=tp, format="turtle")
+                r_ = sp_.run([sys.executable, os.path.join(HERE, MPO), "--metric", "Conf", "--register", tp], capture_output=True, text=True, cwd=ROOT)
+                v_ = float(r_.stdout.strip().splitlines()[-1])
+                if v_ == vc: break
+                vc = v_
+            else: sys.exit("refused: the validator figure does not settle")
+        g.remove((oc, B.hasObservedValue, None)); g.add((oc, B.hasObservedValue, Literal(vc, datatype=XSD.decimal)))
+        g.remove((oc, B.hasObservationMethod, None)); g.add((oc, B.hasObservationMethod, T(f"Read at closure by {MPO} --metric Conf on the register as it stands with the closing readings (commit {gitc}); value Conf.")))
+        oo = P.Obj3_Conf; fit = [o for o in fit if o != oo]; gap = [o for o in gap if o != oo]; (fit if vc == float(g0.value(oo, B.hasTargetValue)) else gap).append(oo)
     acc = [i for i in _items(g0) if g0.value(i, B.hasState) == B.Done]; can = [i for i in _items(g0) if g0.value(i, B.hasState) == B.Cancelled]
     t = clk(); AS = P.AsIs_L3
     A(AS, RDF.type, B.AsIsAssessment); A(AS, RDFS.label, EN("As-is assessment of Lineage 3 on the day it is concluded")); A(AS, B.assessesLineage, LN); A(AS, B.assessedAt, t)

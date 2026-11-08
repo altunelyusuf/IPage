@@ -1,0 +1,15 @@
+# IPage 1.6.0
+
+Date: 2026-11-08. Lineage 3 is concluded on the Owner's ruling: its closure report is written and waits for his confirmation.
+
+- **The Owner's ruling IP-R1** (2026-11-08, 10:49 and 11:32 Istanbul): IPage adopts the framework's Governance and Delivery lineages. Lineage 3, broad and opened before the package rules, is not cut down in place; it is concluded and its open work carried forward to narrow new lineages. Recorded in the register before any work of it (commit 3d93798).
+- **Withdrawn, each with its reason and a recorded move:** the four epics and the seven unstarted stories (rules as gates, the shipped pages, a page for every profile, the two course-page stories, the release path, the hand-over); then the story "make each rule a shape a page can be checked against", its task, and its iteration (dissolved).
+- **That story was meant to close as Done** (its count read 28 of 28). Three fresh independent reviews on a clean clone found otherwise: the 28 shapes never refuse a page in the project's own checks (they pick their targets with a SPARQL target, which the validator applies only in an advanced mode no call here uses), the report of a refused page does not name the rule, and the rule records must be loaded with the shapes. Recorded as findings; the repair goes first in the next Delivery lineage.
+- **Every objective read again at closure:** 20 meet their target; 8 are recorded Missed (rules as gates, shipped pages failing, profiles without a page statement, profile shapes, the two course-page checks, the hand-over, the release-path figure).
+- **As-is assessment and closure report**, marked Cancelled, citing eight findings and two best practices. The mission outcome is not set yet: the Owner confirms the report first, then the outcome is set and the lineage is set down in the next release (with Lineage 2, already concluded on 2026-11-04).
+- **A correction to the record of 1.5.0:** that release's measurement note said three guard figures read -1 "by their documented meaning". It was a missing input: the measurement ran without the register and the full monorepo history. Read properly at closure they hold (0, 0, 0). The note is not rewritten; the correction is a finding in the register.
+- `05-lineage/l3_steps_v2_2_0.py` -> `v2_3_0.py` -> `v2_4_0.py` (2.3.0 was pushed before this release and then changed, so it got its own version): the steps withdraw, report and conclude; an iteration ends by the Owner's dissolution; the validator figure is read until it is self-consistent.
+- `05-lineage/measure_page_ontology_v2_1_0.py` -> `v2_2_0.py`: the files-outside figure is bounded at the move (it counted another session's releases: 6 read, 0 true); the register is found by default; a shallow monorepo clone is refused instead of giving wrong history figures.
+- `04-documentation/SESSION_START_v1_0_4.md` -> `v1_0_5.md` -> `v1_0_6.md`; README updated.
+
+**Unplanned work:** none outside the ruling. Every change carries out the Owner's ruling IP-R1 of 2026-11-08 (10:49 and 11:32 Istanbul), recorded in the register in this release; the register's items moved (withdrawn) under it.
