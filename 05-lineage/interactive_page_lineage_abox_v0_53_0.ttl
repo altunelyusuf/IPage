@@ -185,6 +185,7 @@ pcl:Closure_L3 a backlog:ClosureReport ;
         pcl:Finding3_Close_6,
         pcl:Finding3_Close_7,
         pcl:Finding3_Close_8,
+        pcl:Finding3_Close_9,
         pcl:Finding3_IneffectiveMaintenanceMetrics_S3_S4_S14_S15 ;
     backlog:closesForMission pcl:Mission_R2 ;
     backlog:hasClosureMark backlog:Cm_Cancelled ;
@@ -233,7 +234,8 @@ pcl:Closure_L3 a backlog:ClosureReport ;
         pcl:Obj3_X5,
         pcl:Obj3_X6 ;
     backlog:statesBestPractice "Prove every shape on a planted breaking case through the exact command the gate runs; a shape that conforms on every input has not been shown to work."^^xsd:string,
-        "Read every guard again at closure with every input it needs (the register, the full history); a figure of -1 is a missing input, not a reading."^^xsd:string .
+        "Read every guard again at closure with every input it needs (the register, the full history); a figure of -1 is a missing input, not a reading."^^xsd:string ;
+    rdfs:comment "Correction appended 2026-11-08 after the independent review of release 1.6.0: (1) of the 20 objectives that meet their target, one ('Rules that are also shapes') meets its count but not its intent; (2) the report cites ten findings (eight written at closure and two from earlier in the lineage), not eight as release 1.6.0's changelog says; (3) a ninth finding is added below: a second shape is inert."@en .
 
 pcl:Config3_Verifier a ns1:AgentConfiguration ;
     ns1:hasConfigurationItem pcl:CfgItem3_Verifier_brief,
@@ -3061,6 +3063,15 @@ pcl:Finding3_Close_8 a backlog:RetrospectiveFinding ;
     backlog:hasFindingScope backlog:Scope_LineageLocal ;
     backlog:hasRemedy "The Delivery lineages measure changes that reached a release without the gate, not commits between releases."^^xsd:string ;
     backlog:hasRootCause "Objective A9 counts commits that are neither a release nor a hand-over deposit (17 at closure); the lineage discipline's own practice commits each stage and step before its release, so the figure counts that practice as well as any real bypass."^^xsd:string .
+
+pcl:Finding3_Close_9 a backlog:RetrospectiveFinding ;
+    rdfs:label "The class-label shape of the ontology is inert too"@en ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:detectedAt "2026-11-08T09:23:44+00:00"^^xsd:dateTime ;
+    backlog:detectedBy backlog:Builder ;
+    backlog:hasFindingScope backlog:Scope_LineageLocal ;
+    backlog:hasRemedy "Carried forward with the repair of the rule shapes: core targets (or the validator's advanced mode in every call), each shape proved on a planted failing case."^^xsd:string ;
+    backlog:hasRootCause "The shape that requires every class of the ontology to carry a label selects its targets with a SPARQL target as well, so the release check's 'the ontology conforms to its shapes' has never checked class labels. Found by the independent reviewer of release 1.6.0 on 2026-11-08."^^xsd:string .
 
 pcl:Finding3_IneffectiveMaintenanceMetrics_S3_S4_S14_S15 a backlog:RetrospectiveFinding ;
     rdfs:label "Taking the first bracketing reading for the lineage's broad maintenance metrics (Conf, Contained, X1-X6, A9) exposes drift against stories closed before any such reading existed"@en ;
@@ -6025,7 +6036,8 @@ pcl:Obj3_A3c a backlog:Objective ;
     backlog:hasSuccessMetric "Count of shapes in the stand-alone shapes file that check one recorded rule"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 28.0 ;
-    backlog:metricMovableBy pcl:Story3_S5 .
+    backlog:metricMovableBy pcl:Story3_S5 ;
+    rdfs:comment "Correction appended 2026-11-08 after the independent review of release 1.6.0: this objective reads 28 of 28 and is counted among those meeting their target at closure, but it counts shapes linked to a rule, not shapes that refuse a page; the deliverable it measures (every rule a shape a page can be checked against) was not accomplished. See the finding 'A figure that counted the link, not the effect'."@en .
 
 pcl:Obj3_A7b a backlog:Objective ;
     rdfs:label "Default-format pages that pass every gate"@en ;
@@ -6440,7 +6452,8 @@ pcl:Story3_S13 a backlog:Story ;
     backlog:notYetScoreable true ;
     backlog:pursuesObjective pcl:Obj3_A10 ;
     backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_W2 .
+    backlog:satisfiesDeliverable pcl:Del3_W2 ;
+    rdfs:comment "Correction appended 2026-11-08 after the independent review of release 1.6.0: the reason recorded for this story ends with a sentence about epics (an epic groups stories and they keep their own states); it applies to the epics withdrawn in the same step, not to this story. The reason for this story is the rest of the text."@en .
 
 pcl:S1 a backlog:Story ;
     rdfs:label "Make the seven page conditions Stage 4 gates and shapes"@en ;
@@ -6481,7 +6494,8 @@ pcl:Story3_S10 a backlog:Story ;
     backlog:notYetScoreable true ;
     backlog:pursuesObjective pcl:Obj3_A8a ;
     backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D10 .
+    backlog:satisfiesDeliverable pcl:Del3_D10 ;
+    rdfs:comment "Correction appended 2026-11-08 after the independent review of release 1.6.0: the reason recorded for this story ends with a sentence about epics (an epic groups stories and they keep their own states); it applies to the epics withdrawn in the same step, not to this story. The reason for this story is the rest of the text."@en .
 
 pcl:Story3_S11 a backlog:Story ;
     rdfs:label "Show the course page opens from a fresh clone and edited code changes its result"@en ;
@@ -6501,7 +6515,8 @@ pcl:Story3_S11 a backlog:Story ;
     backlog:notYetScoreable true ;
     backlog:pursuesObjective pcl:Obj3_A8b ;
     backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D11 .
+    backlog:satisfiesDeliverable pcl:Del3_D11 ;
+    rdfs:comment "Correction appended 2026-11-08 after the independent review of release 1.6.0: the reason recorded for this story ends with a sentence about epics (an epic groups stories and they keep their own states); it applies to the epics withdrawn in the same step, not to this story. The reason for this story is the rest of the text."@en .
 
 pcl:Story3_S7 a backlog:Story ;
     rdfs:label "Check every shipped page and template and fix or retire each failing one"@en ;
@@ -6521,7 +6536,8 @@ pcl:Story3_S7 a backlog:Story ;
     backlog:notYetScoreable true ;
     backlog:pursuesObjective pcl:Obj3_A5 ;
     backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D7 .
+    backlog:satisfiesDeliverable pcl:Del3_D7 ;
+    rdfs:comment "Correction appended 2026-11-08 after the independent review of release 1.6.0: the reason recorded for this story ends with a sentence about epics (an epic groups stories and they keep their own states); it applies to the epics withdrawn in the same step, not to this story. The reason for this story is the rest of the text."@en .
 
 pcl:Mission a backlog:Mission ;
     rdfs:label "Mission: the page conditions of RDODI"@en ;
@@ -6554,7 +6570,8 @@ pcl:Story3_S6 a backlog:Story ;
     backlog:pursuesObjective pcl:Obj3_A4a,
         pcl:Obj3_A4b ;
     backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D6 .
+    backlog:satisfiesDeliverable pcl:Del3_D6 ;
+    rdfs:comment "Correction appended 2026-11-08 after the independent review of release 1.6.0: the reason recorded for this story ends with a sentence about epics (an epic groups stories and they keep their own states); it applies to the epics withdrawn in the same step, not to this story. The reason for this story is the rest of the text."@en .
 
 pcl:Story3_S8 a backlog:Story ;
     rdfs:label "Give every profile with a run its page, or record that none exists, and state what a profile requires"@en ;
@@ -6575,7 +6592,8 @@ pcl:Story3_S8 a backlog:Story ;
     backlog:pursuesObjective pcl:Obj3_A6a,
         pcl:Obj3_A6b ;
     backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D8 .
+    backlog:satisfiesDeliverable pcl:Del3_D8 ;
+    rdfs:comment "Correction appended 2026-11-08 after the independent review of release 1.6.0: the reason recorded for this story ends with a sentence about epics (an epic groups stories and they keep their own states); it applies to the epics withdrawn in the same step, not to this story. The reason for this story is the rest of the text."@en .
 
 pcl:Story3_S5 a backlog:Story ;
     rdfs:label "Make each rule a shape a page can be checked against"@en ;
@@ -6664,7 +6682,8 @@ pcl:Story3_S12 a backlog:Story ;
         pcl:Obj3_X5,
         pcl:Obj3_X6 ;
     backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_W1 .
+    backlog:satisfiesDeliverable pcl:Del3_W1 ;
+    rdfs:comment "Correction appended 2026-11-08 after the independent review of release 1.6.0: the reason recorded for this story ends with a sentence about epics (an epic groups stories and they keep their own states); it applies to the epics withdrawn in the same step, not to this story. The reason for this story is the rest of the text."@en .
 
 pcl:Story3_S15 a backlog:Story ;
     rdfs:label "Build the one browser measurement in IPage that reads a page against every rule"@en ;
