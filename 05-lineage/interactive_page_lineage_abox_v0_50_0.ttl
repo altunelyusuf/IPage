@@ -208,6 +208,34 @@ pcl:Config3_Verifier_S9 a ns1:AgentConfiguration ;
     ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
     ns1:recordedAt "2026-11-05T12:40:00+00:00"^^xsd:dateTime .
 
+pcl:Ev3_Epic3_E1_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:05+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Epic3_E1 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+
+pcl:Ev3_Epic3_E2_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:06+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Epic3_E2 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+
+pcl:Ev3_Epic3_E3_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:07+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Epic3_E3 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+
+pcl:Ev3_Epic3_E4_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:09+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Epic3_E4 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+
 pcl:Ev3_S14_Refine a backlog:TransitionEvent ;
     backlog:transitionedAt "2026-11-05T07:52:27+00:00"^^xsd:dateTime ;
     backlog:transitionedBy backlog:Builder ;
@@ -319,6 +347,55 @@ pcl:Ev3_S9_Start a backlog:TransitionEvent ;
     backlog:transitionedByExecutor pcl:Run3_Build01 ;
     backlog:transitionedItem pcl:Story3_S9 ;
     backlog:viaTransition backlog:T_Start .
+
+pcl:Ev3_Story3_S10_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:13+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S10 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+
+pcl:Ev3_Story3_S11_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:14+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S11 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+
+pcl:Ev3_Story3_S12_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:15+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S12 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+
+pcl:Ev3_Story3_S13_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:16+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S13 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+
+pcl:Ev3_Story3_S6_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:10+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S6 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+
+pcl:Ev3_Story3_S7_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:11+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S7 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+
+pcl:Ev3_Story3_S8_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T08:48:12+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run3_Build01 ;
+    backlog:transitionedItem pcl:Story3_S8 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
 
 pcl:Ev3_Story_S14_Complete a backlog:TransitionEvent ;
     backlog:transitionedAt "2026-11-05T09:32:34+00:00"^^xsd:dateTime ;
@@ -2129,130 +2206,6 @@ pcl:Commit01 a backlog:Commitment ;
 pcl:Commit03 a backlog:Commitment ;
     backlog:commitsToGoal pcl:Goal3_Mission .
 
-pcl:Epic3_E1 a backlog:Epic ;
-    rdfs:label "The ontology of interactive pages"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:coversEntity pcl:DomainEntity_PageOntology ;
-    backlog:coversStage backlog:Stage_Creation ;
-    backlog:decomposesInto pcl:Story3_S1,
-        pcl:Story3_S2,
-        pcl:Story3_S3,
-        pcl:Story3_S4,
-        pcl:Story3_S5 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E1 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-E1"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "The ontology of interactive pages"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A1a,
-        pcl:Obj3_A1b,
-        pcl:Obj3_A1c,
-        pcl:Obj3_A2,
-        pcl:Obj3_A3a,
-        pcl:Obj3_A3b,
-        pcl:Obj3_A3c ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D1,
-        pcl:Del3_D2,
-        pcl:Del3_D3,
-        pcl:Del3_D4,
-        pcl:Del3_D5 .
-
-pcl:Epic3_E2 a backlog:Epic ;
-    rdfs:label "The checks on pages"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:coversEntity pcl:DomainEntity_PageOntology ;
-    backlog:coversStage backlog:Stage_Creation ;
-    backlog:decomposesInto pcl:Story3_S15,
-        pcl:Story3_S6,
-        pcl:Story3_S7 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E2 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-E2"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "The checks on pages"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A4a,
-        pcl:Obj3_A4b,
-        pcl:Obj3_A5 ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D6,
-        pcl:Del3_D7 .
-
-pcl:Epic3_E3 a backlog:Epic ;
-    rdfs:label "Profiles, the default format and the course page"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:coversEntity pcl:DomainEntity_PageOntology ;
-    backlog:coversStage backlog:Stage_Creation ;
-    backlog:decomposesInto pcl:Story3_S10,
-        pcl:Story3_S11,
-        pcl:Story3_S8,
-        pcl:Story3_S9 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E3 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-E3"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Profiles, the default format and the course page"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A6a,
-        pcl:Obj3_A6b,
-        pcl:Obj3_A7a,
-        pcl:Obj3_A7b,
-        pcl:Obj3_A8a,
-        pcl:Obj3_A8b,
-        pcl:Obj3_Mission ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D10,
-        pcl:Del3_D11,
-        pcl:Del3_D8,
-        pcl:Del3_D9 .
-
-pcl:Epic3_E4 a backlog:Epic ;
-    rdfs:label "Delivery and hand-over"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:coversEntity pcl:DomainEntity_PageOntology ;
-    backlog:coversStage backlog:Stage_ActiveUse,
-        backlog:Stage_Creation ;
-    backlog:decomposesInto pcl:Story3_S12,
-        pcl:Story3_S13,
-        pcl:Story3_S14 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E4 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-E4"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Delivery and hand-over"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A10,
-        pcl:Obj3_A9 ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_W1,
-        pcl:Del3_W2 .
-
 pcl:Ev3_DoneT_S1 a backlog:Evidence,
         backlog:TestEvidence ;
     rdfs:label "Test that the task of S1 produced what was planned: A1a,A1c"@en ;
@@ -3581,6 +3534,134 @@ pcl:Del3_W3 a backlog:ScopeDeliverable ;
     backlog:hasScopeLayer backlog:Layer_Work ;
     prov:wasDerivedFrom pcl:SC3_Move .
 
+pcl:Epic3_E1 a backlog:Epic ;
+    rdfs:label "The ontology of interactive pages"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:coversEntity pcl:DomainEntity_PageOntology ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:Story3_S1,
+        pcl:Story3_S2,
+        pcl:Story3_S3,
+        pcl:Story3_S4,
+        pcl:Story3_S5 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E1 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-E1"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "The ontology of interactive pages"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A1a,
+        pcl:Obj3_A1b,
+        pcl:Obj3_A1c,
+        pcl:Obj3_A2,
+        pcl:Obj3_A3a,
+        pcl:Obj3_A3b,
+        pcl:Obj3_A3c ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D1,
+        pcl:Del3_D2,
+        pcl:Del3_D3,
+        pcl:Del3_D4,
+        pcl:Del3_D5 .
+
+pcl:Epic3_E2 a backlog:Epic ;
+    rdfs:label "The checks on pages"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:coversEntity pcl:DomainEntity_PageOntology ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:Story3_S15,
+        pcl:Story3_S6,
+        pcl:Story3_S7 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E2 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-E2"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "The checks on pages"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A4a,
+        pcl:Obj3_A4b,
+        pcl:Obj3_A5 ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D6,
+        pcl:Del3_D7 .
+
+pcl:Epic3_E3 a backlog:Epic ;
+    rdfs:label "Profiles, the default format and the course page"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:coversEntity pcl:DomainEntity_PageOntology ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:Story3_S10,
+        pcl:Story3_S11,
+        pcl:Story3_S8,
+        pcl:Story3_S9 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E3 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-E3"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Profiles, the default format and the course page"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A6a,
+        pcl:Obj3_A6b,
+        pcl:Obj3_A7a,
+        pcl:Obj3_A7b,
+        pcl:Obj3_A8a,
+        pcl:Obj3_A8b,
+        pcl:Obj3_Mission ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D10,
+        pcl:Del3_D11,
+        pcl:Del3_D8,
+        pcl:Del3_D9 .
+
+pcl:Epic3_E4 a backlog:Epic ;
+    rdfs:label "Delivery and hand-over"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:coversEntity pcl:DomainEntity_PageOntology ;
+    backlog:coversStage backlog:Stage_ActiveUse,
+        backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:Story3_S12,
+        pcl:Story3_S13,
+        pcl:Story3_S14 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_Epic_E4 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-E4"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Delivery and hand-over"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A10,
+        pcl:Obj3_A9 ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_W1,
+        pcl:Del3_W2 .
+
 pcl:Epic_E1 a backlog:Epic ;
     rdfs:label "The page conditions as gates"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
@@ -4408,6 +4489,7 @@ pcl:Obj3_A10 a backlog:Objective ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:contributesToGoal pcl:Goal3_A10 ;
     backlog:fillsScope pcl:Scope3 ;
+    backlog:hasAchievementStatus backlog:Ach_Missed ;
     backlog:hasBaselineValue 0.0 ;
     backlog:hasCheckpoint pcl:CP3_A10 ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
@@ -4417,13 +4499,15 @@ pcl:Obj3_A10 a backlog:Objective ;
     backlog:hasSuccessMetric "Count of hand-over files about the page ontology in an inbox or hand-over folder"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 1.0 ;
-    backlog:metricMovableBy pcl:Story3_S13 .
+    backlog:metricMovableBy pcl:Story3_S13 ;
+    rdfs:comment "Missed: the work that would move this figure was cancelled when Lineage 3 was concluded on the Owner's ruling IP-R1 of 2026-11-08; the figure is carried forward as scope of a narrow Delivery lineage. Read again at closure by the measurement script."@en .
 
 pcl:Obj3_A4a a backlog:Objective ;
     rdfs:label "Rules that are Stage 4 gates"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:contributesToGoal pcl:Goal3_A4 ;
     backlog:fillsScope pcl:Scope3 ;
+    backlog:hasAchievementStatus backlog:Ach_Missed ;
     backlog:hasBaselineValue 0.0 ;
     backlog:hasCheckpoint pcl:CP3_A4a ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
@@ -4433,13 +4517,15 @@ pcl:Obj3_A4a a backlog:Objective ;
     backlog:hasSuccessMetric "Count of recorded rules carried by a live Stage 4 gate row of the newest procedure"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 28.0 ;
-    backlog:metricMovableBy pcl:Story3_S6 .
+    backlog:metricMovableBy pcl:Story3_S6 ;
+    rdfs:comment "Missed: the work that would move this figure was cancelled when Lineage 3 was concluded on the Owner's ruling IP-R1 of 2026-11-08; the figure is carried forward as scope of a narrow Delivery lineage. Read again at closure by the measurement script."@en .
 
 pcl:Obj3_A5 a backlog:Objective ;
     rdfs:label "Shipped pages failing a rule"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:contributesToGoal pcl:Goal3_A5 ;
     backlog:fillsScope pcl:Scope3 ;
+    backlog:hasAchievementStatus backlog:Ach_Missed ;
     backlog:hasBaselineValue 4.0 ;
     backlog:hasCheckpoint pcl:CP3_A5 ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
@@ -4449,13 +4535,15 @@ pcl:Obj3_A5 a backlog:Objective ;
     backlog:hasSuccessMetric "Count of the nine shipped pages that scroll sideways at 375 px, raise a script error, hold a dialog element or offer no text-size control"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:Story3_S7 .
+    backlog:metricMovableBy pcl:Story3_S7 ;
+    rdfs:comment "Missed: the work that would move this figure was cancelled when Lineage 3 was concluded on the Owner's ruling IP-R1 of 2026-11-08; the figure is carried forward as scope of a narrow Delivery lineage. Read again at closure by the measurement script."@en .
 
 pcl:Obj3_A6a a backlog:Objective ;
     rdfs:label "Profiles with a run and no page statement"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:contributesToGoal pcl:Goal3_A6 ;
     backlog:fillsScope pcl:Scope3 ;
+    backlog:hasAchievementStatus backlog:Ach_Missed ;
     backlog:hasBaselineValue 2.0 ;
     backlog:hasCheckpoint pcl:CP3_A6a ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
@@ -4465,13 +4553,15 @@ pcl:Obj3_A6a a backlog:Objective ;
     backlog:hasSuccessMetric "Count of the three profiles with a generated run that have neither a link to a page nor a recorded statement that none exists"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:metricMovableBy pcl:Story3_S8 .
+    backlog:metricMovableBy pcl:Story3_S8 ;
+    rdfs:comment "Missed: the work that would move this figure was cancelled when Lineage 3 was concluded on the Owner's ruling IP-R1 of 2026-11-08; the figure is carried forward as scope of a narrow Delivery lineage. Read again at closure by the measurement script."@en .
 
 pcl:Obj3_A6b a backlog:Objective ;
     rdfs:label "Shapes stating what a profile requires of its page"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:contributesToGoal pcl:Goal3_A6 ;
     backlog:fillsScope pcl:Scope3 ;
+    backlog:hasAchievementStatus backlog:Ach_Missed ;
     backlog:hasBaselineValue 0.0 ;
     backlog:hasCheckpoint pcl:CP3_A6b ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
@@ -4481,13 +4571,15 @@ pcl:Obj3_A6b a backlog:Objective ;
     backlog:hasSuccessMetric "Count of shapes in the package's shapes file that state what a profile requires of its page"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 1.0 ;
-    backlog:metricMovableBy pcl:Story3_S8 .
+    backlog:metricMovableBy pcl:Story3_S8 ;
+    rdfs:comment "Missed: the work that would move this figure was cancelled when Lineage 3 was concluded on the Owner's ruling IP-R1 of 2026-11-08; the figure is carried forward as scope of a narrow Delivery lineage. Read again at closure by the measurement script."@en .
 
 pcl:Obj3_A8a a backlog:Objective ;
     rdfs:label "Course chapter pages built here that pass every gate"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:contributesToGoal pcl:Goal3_A8 ;
     backlog:fillsScope pcl:Scope3 ;
+    backlog:hasAchievementStatus backlog:Ach_Missed ;
     backlog:hasBaselineValue 0.0 ;
     backlog:hasCheckpoint pcl:CP3_A8a ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
@@ -4497,13 +4589,15 @@ pcl:Obj3_A8a a backlog:Objective ;
     backlog:hasSuccessMetric "Count of chapter pages built in this package from the default format and the pinned course page that pass every gate"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 1.0 ;
-    backlog:metricMovableBy pcl:Story3_S10 .
+    backlog:metricMovableBy pcl:Story3_S10 ;
+    rdfs:comment "Missed: the work that would move this figure was cancelled when Lineage 3 was concluded on the Owner's ruling IP-R1 of 2026-11-08; the figure is carried forward as scope of a narrow Delivery lineage. Read again at closure by the measurement script."@en .
 
 pcl:Obj3_A8b a backlog:Objective ;
     rdfs:label "Course chapter pages whose edited code changes the result"@en ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:contributesToGoal pcl:Goal3_A8 ;
     backlog:fillsScope pcl:Scope3 ;
+    backlog:hasAchievementStatus backlog:Ach_Missed ;
     backlog:hasBaselineValue 0.0 ;
     backlog:hasCheckpoint pcl:CP3_A8b ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
@@ -4513,7 +4607,8 @@ pcl:Obj3_A8b a backlog:Objective ;
     backlog:hasSuccessMetric "Count of chapter pages built here on which the browser test shows edited code changes the shown result"^^xsd:string ;
     backlog:hasTargetDirection backlog:Dir_Increase ;
     backlog:hasTargetValue 1.0 ;
-    backlog:metricMovableBy pcl:Story3_S11 .
+    backlog:metricMovableBy pcl:Story3_S11 ;
+    rdfs:comment "Missed: the work that would move this figure was cancelled when Lineage 3 was concluded on the Owner's ruling IP-R1 of 2026-11-08; the figure is carried forward as scope of a narrow Delivery lineage. Read again at closure by the measurement script."@en .
 
 pcl:Obj3_Conf a backlog:Objective ;
     rdfs:label "Framework validator violations on Lineage 3"@en ;
@@ -5770,6 +5865,14 @@ pcl:Obj_ScopeSat a backlog:Objective ;
         pcl:S7,
         pcl:S8 .
 
+pcl:Run_Build01 a backlog:ExecutorInstance,
+        backlog:Executor_SingleAgent ;
+    rdfs:label "The run of the Claude Code session that wrote this backlog"@en ;
+    backlog:instanceOf pcl:Executor_ClaudeCodeSession ;
+    backlog:instantiatedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:instantiatedFromVersion "claude-sonnet-5-5 (the model this session is configured for)"^^xsd:string ;
+    rdfs:comment "A run, not the standing definition: it names the definition it is a run of, its version and when it began."^^xsd:string .
+
 pcl:Story3_S13 a backlog:Story ;
     rdfs:label "Write the hand-over to the new session in the right inbox"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
@@ -5780,79 +5883,15 @@ pcl:Story3_S13 a backlog:Story ;
     backlog:hasExecutionModality backlog:Mode_Automated ;
     backlog:hasIdentifier "RDPO-S13"^^xsd:string ;
     backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
     backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
+    backlog:hasState backlog:Cancelled ;
     backlog:hasTitle "Write the hand-over to the new session in the right inbox"@en ;
     backlog:memberOfContainer pcl:Backlog ;
     backlog:notYetScoreable true ;
     backlog:pursuesObjective pcl:Obj3_A10 ;
     backlog:responsible pcl:Run3_Build01 ;
     backlog:satisfiesDeliverable pcl:Del3_W2 .
-
-pcl:Run_Build01 a backlog:ExecutorInstance,
-        backlog:Executor_SingleAgent ;
-    rdfs:label "The run of the Claude Code session that wrote this backlog"@en ;
-    backlog:instanceOf pcl:Executor_ClaudeCodeSession ;
-    backlog:instantiatedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
-    backlog:instantiatedFromVersion "claude-sonnet-5-5 (the model this session is configured for)"^^xsd:string ;
-    rdfs:comment "A run, not the standing definition: it names the definition it is a run of, its version and when it began."^^xsd:string .
-
-pcl:Story3_S10 a backlog:Story ;
-    rdfs:label "Make the course page one profile's page, built from the default format"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S10 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S10"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Make the course page one profile's page, built from the default format"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A8a ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D10 .
-
-pcl:Story3_S11 a backlog:Story ;
-    rdfs:label "Show the course page opens from a fresh clone and edited code changes its result"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S11 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S11"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Show the course page opens from a fresh clone and edited code changes its result"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A8b ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D11 .
-
-pcl:Story3_S7 a backlog:Story ;
-    rdfs:label "Check every shipped page and template and fix or retire each failing one"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD ;
-    backlog:belongsToLineage pcl:Lineage03 ;
-    backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S7 ;
-    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S7"^^xsd:string ;
-    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
-    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Check every shipped page and template and fix or retire each failing one"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A5 ;
-    backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D7 .
 
 pcl:S2 a backlog:Story ;
     rdfs:label "Build the browser gate instrument that measures each condition"@en ;
@@ -5974,45 +6013,65 @@ pcl:S7 a backlog:Story ;
     backlog:responsible pcl:Run_Build01 ;
     backlog:satisfiesDeliverable pcl:Del_D7 .
 
-pcl:Story3_S6 a backlog:Story ;
-    rdfs:label "Make each rule a Stage 4 gate and build the one browser measurement"@en ;
+pcl:Story3_S10 a backlog:Story ;
+    rdfs:label "Make the course page one profile's page, built from the default format"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S6 ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S10 ;
     backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
     backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S6"^^xsd:string ;
+    backlog:hasIdentifier "RDPO-S10"^^xsd:string ;
     backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
     backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Make each rule a Stage 4 gate and build the one browser measurement"@en ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Make the course page one profile's page, built from the default format"@en ;
     backlog:memberOfContainer pcl:Backlog ;
     backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A4a,
-        pcl:Obj3_A4b ;
+    backlog:pursuesObjective pcl:Obj3_A8a ;
     backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D6 .
+    backlog:satisfiesDeliverable pcl:Del3_D10 .
 
-pcl:Story3_S8 a backlog:Story ;
-    rdfs:label "Give every profile with a run its page, or record that none exists, and state what a profile requires"@en ;
+pcl:Story3_S11 a backlog:Story ;
+    rdfs:label "Show the course page opens from a fresh clone and edited code changes its result"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:effectiveDefinitionOfDone pcl:DoD ;
-    backlog:hasAcceptanceCriterion pcl:AC3_S8 ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S11 ;
     backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
     backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "RDPO-S8"^^xsd:string ;
+    backlog:hasIdentifier "RDPO-S11"^^xsd:string ;
     backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
     backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Give every profile with a run its page, or record that none exists, and state what a profile requires"@en ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Show the course page opens from a fresh clone and edited code changes its result"@en ;
     backlog:memberOfContainer pcl:Backlog ;
     backlog:notYetScoreable true ;
-    backlog:pursuesObjective pcl:Obj3_A6a,
-        pcl:Obj3_A6b ;
+    backlog:pursuesObjective pcl:Obj3_A8b ;
     backlog:responsible pcl:Run3_Build01 ;
-    backlog:satisfiesDeliverable pcl:Del3_D8 .
+    backlog:satisfiesDeliverable pcl:Del3_D11 .
+
+pcl:Story3_S7 a backlog:Story ;
+    rdfs:label "Check every shipped page and template and fix or retire each failing one"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S7 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S7"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Check every shipped page and template and fix or retire each failing one"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A5 ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D7 .
 
 pcl:S1 a backlog:Story ;
     rdfs:label "Make the seven page conditions Stage 4 gates and shapes"@en ;
@@ -6034,6 +6093,48 @@ pcl:S1 a backlog:Story ;
         pcl:Obj_ScopeSat ;
     backlog:responsible pcl:Run_Build01 ;
     backlog:satisfiesDeliverable pcl:Del_D1 .
+
+pcl:Story3_S6 a backlog:Story ;
+    rdfs:label "Make each rule a Stage 4 gate and build the one browser measurement"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S6 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S6"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Make each rule a Stage 4 gate and build the one browser measurement"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A4a,
+        pcl:Obj3_A4b ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D6 .
+
+pcl:Story3_S8 a backlog:Story ;
+    rdfs:label "Give every profile with a run its page, or record that none exists, and state what a profile requires"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage03 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC3_S8 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPO-S8"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Give every profile with a run its page, or record that none exists, and state what a profile requires"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj3_A6a,
+        pcl:Obj3_A6b ;
+    backlog:responsible pcl:Run3_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del3_D8 .
 
 pcl:Mission a backlog:Mission ;
     rdfs:label "Mission: the page conditions of RDODI"@en ;
@@ -6077,8 +6178,9 @@ pcl:Story3_S12 a backlog:Story ;
     backlog:hasExecutionModality backlog:Mode_Automated ;
     backlog:hasIdentifier "RDPO-S12"^^xsd:string ;
     backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in this lineage. Lineage 3 is concluded on the Owner's ruling IP-R1 of 2026-11-08 (IPage adopts the framework's governance and delivery lineages; a broad lineage is not cut down in place). What this item would deliver is carried forward as scope of a narrow Delivery lineage; an epic is a grouping of stories, and the stories it groups keep their own states."^^xsd:string ;
     backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
-    backlog:hasState backlog:Proposed ;
+    backlog:hasState backlog:Cancelled ;
     backlog:hasTitle "Release each change through the one release path and measure again from a fresh clone"@en ;
     backlog:memberOfContainer pcl:Backlog ;
     backlog:notYetScoreable true ;

@@ -1,12 +1,25 @@
 #!/usr/bin/env python3
-"""l3_steps_v2_2_0.py - the recorded steps of Lineage 3's work stories, one command per step. Each writes the NEXT register version, never edits or deletes the previous one (OE BP-D7),
+"""l3_steps_v2_3_0.py - the recorded steps of Lineage 3's work stories, one command per step. Each writes the NEXT register version, never edits or deletes the previous one (OE BP-D7),
 and refuses unless every earlier statement is still there except exactly those the step may change.
 
-  l3_steps_v2_2_0.py start S1 S2 ...    the named stories move to InProgress, stamped from the clock; with the disclosure that the first build of S1 and S2 preceded this record.
+  l3_steps_v2_3_0.py start S1 S2 ...    the named stories move to InProgress, stamped from the clock; with the disclosure that the first build of S1 and S2 preceded this record.
 
 v2.1.0 (2026-11-05): STORY_KEYS was missing S5 (it pursues A3c, like every other story this tool finishes) -- a gap found while finishing S5, not a change of what any story means.
 Tried and reverted (2026-11-05): closing S5 makes Epic3_E1's last child Done, which G148 (RS_DecompositionStateAgrees) then requires the epic itself to resolve. A same-step auto-close that only set hasState=Done cascaded into the full Done governance apparatus a story gets (G109/G112/G113/G115/G118/G168/G172/L1/L2/L3: overseenBy/verifiedBy/approvedBy, startedAt, readiness checks, evidence, an acceptance criterion with a real artifact) -- none of which exists for an Epic and none of which this tool can honestly fabricate. Left for the Owner to rule on (cancel the epic, add a child still to come, or define what closes a decomposition parent); see the hand-over. finish() is unchanged from v2.1.0; it still refuses to leave S5 Done while this is open.
 v2.2.0 (2026-11-05): STORY_KEYS was missing S9 (it pursues A7a, A7b and Mission) -- added while finishing S9, not a change of what the story means.
+v2.3.0 (2026-11-08): three steps for concluding the lineage (G215), on the Owner's ruling IP-R1:
+  withdraw ITEM ... --rationale TEXT [--missed KEY ... --missed-rationale TEXT]
+                                         each named item (local name: Story3_S6, Epic3_E1, ...) moves to Cancelled by the withdrawal its state allows
+                                         (T_WithdrawProposed / T_WithdrawReady / T_WithdrawInProgress / T_WithdrawSuspended), with the reason and a recorded move;
+                                         each objective named by --missed (left with no live work that can move it, and short of its target) is recorded Missed.
+  report --fit-gap T --impact T --summary T [--finding LABEL=ROOTCAUSE=REMEDY ...] [--best-practice T ...]
+                                         reads every objective again with the newest measure_page_ontology script (a fresh observation each), records the
+                                         as-is assessment (every item sorted by its state, every objective fitted or gapped) and the closure report marked
+                                         Cancelled, citing the assessment and every finding. The mission outcome is NOT set: the Owner confirms first.
+  conclude --confirmation TEXT           after the Owner confirms: the ruling of his confirmation, the mission outcome Abandoned with its rationale (the
+                                         closure summary), and the lineage status Abandoned. Refuses without a closure report committed earlier.
+  finish also takes --agent-model (the model of the reviewing agents, recorded instead of a fixed name), and its observations name the measurement
+  script actually used (it named v1_0_0, which was retired; corrected for observations written from now on, earlier ones stay as written).
 """
 import os, re, sys, glob, argparse, datetime
 from rdflib import Graph, Namespace, Literal, RDF, RDFS, XSD
@@ -86,6 +99,7 @@ def start(a):
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
 BRSF = os.environ.get("BRSF_ROOT") or next((d for d in (os.path.join(ROOT, "..", "backlog-roadmap-framework"), os.path.join(ROOT, "..", "ontologies", "backlog-roadmap-framework"), "/tmp/brsf") if os.path.isdir(os.path.join(d, "03-tooling"))), "")
 SPEC = "05-lineage/l3_check_v1_0_0.py"
+MPO = os.path.basename(sorted(glob.glob(os.path.join(HERE, "measure_page_ontology_v*.py")), key=lambda p: [int(x) for x in re.findall(r"_v(\d+)_(\d+)_(\d+)\.", p)[0]])[-1])
 STORY_KEYS = {"S1": ["A1a", "A1c"], "S2": ["A1b"], "S3": ["A2"], "S4": ["A3a", "A3b"], "S5": ["A3c"], "S9": ["A7a", "A7b", "Mission"], "S14": ["A11"], "S15": ["A4b"]}
 vkey = lambda p: [int(x) for x in re.findall(r"_v(\d+)_(\d+)_(\d+)\.", p)[0]]
 def bridge(path, meas, commit, ids):
@@ -123,7 +137,7 @@ def finish(a):
         for nm, aid, role, brief in (("Oversight", AG["Oversight"], "oversaw the work and sent it back once" if a.sent_back else "oversaw the work", None), ("Verifier", AG["Verifier"], "re-ran the acceptance check in a fresh clone", a.brief), ("Approver", AG["Approver"], "reviewed the work and approved it", None)):
             D = P["Exec_" + nm + "_L3"]; A(D, RDF.type, B.Executor_SingleAgent); A(D, RDFS.label, EN({"Oversight": "The overseeing agent: a reviewer that did not do the work and may send it back", "Verifier": "The verifying agent: an agent that did not do the work and judges it against the evidence", "Approver": "The approving agent: a reviewer that accepts the work only if it finds no clear defect"}[nm]))
             R = P["Run3_" + nm + SUF]; A(R, RDF.type, B.ExecutorInstance); A(R, RDF.type, B.Executor_SingleAgent); A(R, RDFS.label, EN("An independent agent run that " + role)); A(R, B.instanceOf, D)
-            A(R, B.instantiatedAt, Literal(a.run_times[nm], datatype=XSD.dateTime)); A(R, B.instantiatedFromVersion, T("claude-sonnet-5-5 sub-agent run " + aid))
+            A(R, B.instantiatedAt, Literal(a.run_times[nm], datatype=XSD.dateTime)); A(R, B.instantiatedFromVersion, T(a.agent_model + " sub-agent run " + aid))
             if brief:
                 SW = P.StartWay_Request; A(SW, RDF.type, AGS.StartWay); A(SW, RDFS.label, EN("On the builder's request"))
                 AR = P.AccessRoute_Git; A(AR, RDF.type, AGS.AccessRoute); A(AR, RDFS.label, EN("A fresh clone of the published repository"))
@@ -132,7 +146,7 @@ def finish(a):
                 SE = P["Session3_Verifier" + SUF]; A(SE, RDF.type, PROV.Agent); A(SE, RDFS.label, EN("an independent verifying agent (a fresh agent that did not do the work)"))
                 A(R, AGS.startedInWay, SW); A(R, AGS.startedUnderGrant, GR); A(R, AGS.followsPlan, PL); A(R, AGS.executedBy, SE); A(R, AGS.placeUnchanged, Literal(False))
                 C = P["Config3_" + nm + SUF]; A(C, RDF.type, AGS.AgentConfiguration); A(C, AGS.isConfigurationOf, D); A(C, AGS.recordedAt, cfg_t)
-                for kind, val in (("brief", "sha256 " + brief), ("model", "Claude Sonnet 5.5 (general-purpose agent)")):
+                for kind, val in (("brief", "sha256 " + brief), ("model", a.agent_model + " (general-purpose agent)")):
                     ci = P[f"CfgItem3_{nm}{SUF}_{kind}"]; A(ci, RDF.type, AGS.ConfigurationItem); A(ci, AGS.hasItemKind, T(kind)); A(ci, AGS.hasItemValue, T(val)); A(C, AGS.hasConfigurationItem, ci)
         DU = P["Rel3_" + tag]; A(DU, RDF.type, B.DeploymentUnit); A(DU, RDFS.label, EN("Release " + a.release_tag.replace("-v", " v") + " carrying " + ", ".join(a.stories))); A(DU, B.belongsToLineage, LN)
         A(DU, B.hasIdentifier, T("RDPO-REL-" + tag)); A(DU, B.hasTitle, EN("The stand-alone ontology, published as " + a.release_tag.replace("-v", " v"))); A(DU, B.hasDeploymentDate, Literal(a.deployed, datatype=XSD.dateTime))
@@ -155,14 +169,14 @@ def finish(a):
                 ev3 = P[f"Ev3_{nm}_{s}_Complete"]; A(ev3, RDF.type, B.TransitionEvent); A(ev3, B.transitionedItem, item); A(ev3, B.viaTransition, B.T_Complete); A(ev3, B.transitionedAt, TF); A(ev3, B.transitionedBy, B.Builder); A(ev3, B.transitionedByExecutor, P.Run3_Build01)
             for k in STORY_KEYS[s]:
                 ob = P[f"Obs3_Done_{k}"]; A(ob, RDF.type, B.MetricObservation); A(ob, B.observationFor, P["Obj3_" + k]); A(ob, B.observesMetric, P["Metric3_" + k]); A(ob, B.observedAt, clk())
-                A(ob, B.hasObservedValue, Literal(float(M["values"][k]), datatype=XSD.decimal)); A(ob, B.hasObservationMethod, T(f"Measured by measure_page_ontology_v1_0_0.py --metric {k} on commit {gitc} (file SHA-256 {commit})."))
+                A(ob, B.hasObservedValue, Literal(float(M["values"][k]), datatype=XSD.decimal)); A(ob, B.hasObservationMethod, T(f"Measured by {MPO} on commit {gitc} (file SHA-256 {commit}); value {k}."))
         done_keys = set(k for s in a.stories for k in STORY_KEYS[s])
         for ob_ in sorted(set(g.subjects(B.metricMovableBy, None)) - set()):
             pass
         for k in a.also_observe.split(","):
             if k in done_keys or not k: continue
             ob = P[f"Obs3_Done_{k}"]; A(ob, RDF.type, B.MetricObservation); A(ob, B.observationFor, P["Obj3_" + k]); A(ob, B.observesMetric, P["Metric3_" + k]); A(ob, B.observedAt, clk())
-            A(ob, B.hasObservedValue, Literal(float(M["values"][k]), datatype=XSD.decimal)); A(ob, B.hasObservationMethod, T(f"Measured by measure_page_ontology_v1_0_0.py --metric {k} on commit {gitc} (file SHA-256 {commit})."))
+            A(ob, B.hasObservedValue, Literal(float(M["values"][k]), datatype=XSD.decimal)); A(ob, B.hasObservationMethod, T(f"Measured by {MPO} on commit {gitc} (file SHA-256 {commit}); value {k}."))
         st_ = g.value(IT, B.iterationStart); TE = clk(); d_ = int((TE.toPython() - st_.toPython()).total_seconds())
         for t in list(g.triples((IT, B.hasState, None))): g.remove(t)
         g.add((IT, B.hasState, B.Done)); A(IT, B.iterationEnd, TE); A(IT, B.hasObservedDuration, T(f"PT{d_ // 3600}H{(d_ % 3600) // 60}M{d_ % 60}S")); A(IT, B.hasDurationSource, T("iterationStart of this iteration to the finishedAt recorded by l3_steps finish."))
@@ -175,8 +189,118 @@ def finish(a):
         print("violations:", v2); [print("  ", l.strip()[:260]) for l in v.splitlines() if "[Violation]" in l][:6]; break
     print("wrote", out)
 
+WITHDRAW = {B.Proposed: B.T_WithdrawProposed, B.Refined: B.T_WithdrawReady, B.Ready: B.T_WithdrawReady, B.InProgress: B.T_WithdrawInProgress, B.Suspended: B.T_WithdrawSuspended}
+def _open():
+    base = newest(); out = nxt(base); g0 = Graph(); g0.parse(base, format="turtle"); g = Graph()
+    for t in g0: g.add(t)
+    g.bind("backlog", B); g.bind("pcl", P); return base, out, g0, g
+def _write(out, g0, g, removed, subj):
+    g.serialize(destination=out, format="turtle"); g1 = Graph(); g1.parse(out, format="turtle")
+    rem = set(g0) - set(g1); add = set(g1) - set(g0)
+    if [t for t in rem if t not in removed] or [t for t in add if t[0] not in subj]: os.remove(out); sys.exit("refused: unexpected change")
+    print(f"wrote {out}: {len(rem)} replaced, {len(add)} added")
+def withdraw(a):
+    import time
+    base, out, g0, g = _open(); removed = set(); subj = set()
+    T = lambda t: Literal(t, datatype=XSD.string)
+    for nm in a.items:
+        it = P[nm]; st = g0.value(it, B.hasState)
+        if st not in WITHDRAW: sys.exit(f"refused: {nm} is {st}; only an open item is withdrawn")
+        if (it, B.belongsToLineage, LN) not in g0: sys.exit(f"refused: {nm} is not an item of Lineage 3")
+    for nm in a.items:
+        it = P[nm]; st = g0.value(it, B.hasState); time.sleep(1.1); ts = Literal(now(), datatype=XSD.dateTime)
+        for t in list(g.triples((it, B.hasState, None))): removed.add(t); g.remove(t)
+        g.add((it, B.hasState, B.Cancelled)); subj.add(it)
+        if g0.value(it, B.hasRationale) is None: g.add((it, B.hasRationale, T(a.rationale)))
+        else: g.add((it, RDFS.comment, Literal("Cancelled: " + a.rationale, lang="en")))
+        e = P["Ev3_" + nm + "_Withdraw"]; subj.add(e)
+        for p_, o_ in ((RDF.type, B.TransitionEvent), (B.transitionedItem, it), (B.viaTransition, WITHDRAW[st]), (B.transitionedAt, ts), (B.transitionedBy, B.Builder), (B.transitionedByExecutor, P.Run3_Build01)):
+            g.add((e, p_, o_))
+    for k in (a.missed or []):
+        o = P["Obj3_" + k]
+        if (o, B.belongsToLineage, LN) not in g0: sys.exit(f"refused: Obj3_{k} is not an objective of Lineage 3")
+        if g0.value(o, B.hasAchievementStatus) is not None: sys.exit(f"refused: Obj3_{k} already has an achievement status")
+        if [w for w in g.objects(o, B.metricMovableBy) if g.value(w, B.hasState) not in (B.Done, B.Cancelled)]: sys.exit(f"refused: Obj3_{k} still has live work that can move it")
+        g.add((o, B.hasAchievementStatus, B.Ach_Missed)); g.add((o, RDFS.comment, Literal("Missed: " + a.missed_rationale, lang="en"))); subj.add(o)
+    _write(out, g0, g, removed, subj)
+def _items(g):
+    s = set(g.subjects(B.belongsToLineage, LN))
+    for o in list(s): s |= set(g.subjects(B.admittedByOutput, o))
+    return sorted(i for i in s if (i, B.hasState, None) in g)
+def _read_metrics():
+    import subprocess
+    r = subprocess.run([sys.executable, os.path.join(HERE, MPO)], capture_output=True, text=True, cwd=ROOT)
+    vals = {}
+    for ln in r.stdout.splitlines():
+        m = re.match(r"^(\S+)\s+(-?[\d.]+)\s*$", ln.strip())
+        if m: vals[m.group(1)] = float(m.group(2))
+    if not vals: sys.exit("the measurement printed no figures:\n" + (r.stdout + r.stderr)[-600:])
+    return vals
+def report(a):
+    import subprocess
+    base, out, g0, g = _open(); subj = set(); removed = set()
+    EN = lambda t: Literal(t, lang="en"); T = lambda t: Literal(t, datatype=XSD.string); clk = lambda: Literal(now(), datatype=XSD.dateTime)
+    A = lambda s_, p_, o_: (g.add((s_, p_, o_)), subj.add(s_))
+    open_ = [i for i in _items(g0) if g0.value(i, B.hasState) in WITHDRAW and g0.value(i, B.hasState) != B.InProgress]
+    if [i for i in _items(g0) if g0.value(i, B.hasState) not in (B.Done, B.Cancelled)]:
+        sys.exit("refused: every item must be Done or Cancelled before the closure report (G215): " + ", ".join(str(i).split("#")[-1] for i in _items(g0) if g0.value(i, B.hasState) not in (B.Done, B.Cancelled)))
+    vals = _read_metrics(); gitc = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
+    objs = sorted(o for o in g0.subjects(RDF.type, B.Objective) if (o, B.belongsToLineage, LN) in g0)
+    fit, gap = [], []
+    for o in objs:
+        k = str(o).split("Obj3_")[-1]; v = vals.get(k)
+        if v is None: sys.exit(f"refused: no figure for {k}")
+        ob = P["Obs3_Close_" + k]; A(ob, RDF.type, B.MetricObservation); A(ob, B.observationFor, o); A(ob, B.observesMetric, P["Metric3_" + k]); A(ob, B.observedAt, clk())
+        A(ob, B.hasObservedValue, Literal(v, datatype=XSD.decimal)); A(ob, B.hasObservationMethod, T(f"Read again at closure by {MPO} on commit {gitc}; value {k}."))
+        tv = g0.value(o, B.hasTargetValue); dr = g0.value(o, B.hasTargetDirection)
+        met = tv is not None and ((v >= float(tv)) if dr == B.Dir_Increase else (v <= float(tv)) if dr == B.Dir_Decrease else (v == float(tv)))
+        (fit if met else gap).append(o)
+    acc = [i for i in _items(g0) if g0.value(i, B.hasState) == B.Done]; can = [i for i in _items(g0) if g0.value(i, B.hasState) == B.Cancelled]
+    t = clk(); AS = P.AsIs_L3
+    A(AS, RDF.type, B.AsIsAssessment); A(AS, RDFS.label, EN("As-is assessment of Lineage 3 on the day it is concluded")); A(AS, B.assessesLineage, LN); A(AS, B.assessedAt, t)
+    A(AS, B.hasFitGapStatement, T(a.fit_gap)); A(AS, B.hasImpactStatement, T(a.impact))
+    for i in acc: A(AS, B.accomplishedItem, i)
+    for i in can: A(AS, B.failedItem, i)
+    for o in fit: A(AS, B.fitsObjective, o)
+    for o in gap: A(AS, B.gapsObjective, o)
+    CR = P.Closure_L3; mis = g0.value(LN, B.lineageForMission)
+    A(CR, RDF.type, B.ClosureReport); A(CR, RDFS.label, EN("Closure report of Lineage 3: concluded on the Owner's ruling, its open work carried forward")); A(CR, B.closesForMission, mis)
+    A(CR, B.reportGeneratedAt, t); A(CR, B.hasClosureMark, B.Cm_Cancelled); A(CR, B.citesAssessment, AS); A(CR, B.hasClosureSummary, T(a.summary)); A(CR, B.belongsToLineage, LN)
+    for o in objs: A(CR, B.reportsOnObjective, o)
+    for i in can: A(CR, B.reportsCancelledItem, i)
+    for f_ in sorted(g0.subjects(RDF.type, B.RetrospectiveFinding)):
+        if (f_, B.belongsToLineage, LN) in g0: A(CR, B.citesFinding, f_)
+    for j, spec in enumerate(a.finding or [], 1):
+        lab, root, rem_ = spec.split("=", 2); F = P[f"Finding3_Close_{j}"]
+        A(F, RDF.type, B.RetrospectiveFinding); A(F, RDFS.label, EN(lab)); A(F, B.belongsToLineage, LN); A(F, B.detectedAt, t); A(F, B.detectedBy, B.Builder)
+        A(F, B.hasFindingScope, B.Scope_LineageLocal); A(F, B.hasRootCause, T(root)); A(F, B.hasRemedy, T(rem_)); A(CR, B.citesFinding, F)
+    for bp in a.best_practice or []: A(CR, B.statesBestPractice, T(bp))
+    print(f"objectives fitted {len(fit)}, gapped {len(gap)}: " + ", ".join(str(o).split("Obj3_")[-1] for o in gap))
+    _write(out, g0, g, removed, subj)
+def conclude(a):
+    import subprocess
+    base, out, g0, g = _open(); subj = set(); removed = set(); T = lambda t: Literal(t, datatype=XSD.string)
+    CR = P.Closure_L3; mis = g0.value(LN, B.lineageForMission)
+    if (CR, RDF.type, B.ClosureReport) not in g0: sys.exit("refused: no closure report; run report first")
+    first = subprocess.run(["git", "log", "--format=%H", "-S", "pcl:Closure_L3 a backlog:ClosureReport", "--", "05-lineage"], capture_output=True, text=True, cwd=ROOT).stdout.split()
+    if not first: sys.exit("refused: the closure report is not committed yet; the Owner confirms a committed report")
+    summ = str(g0.value(CR, B.hasClosureSummary)); ts = Literal(now(), datatype=XSD.dateTime)
+    g.add((CR, B.closureCommittedAt, T(first[-1]))); subj.add(CR)
+    R = P.Ruling_IP2; subj.add(R)
+    for p_, o_ in ((RDF.type, B.GovernanceRuling), (B.hasRulingIdentifier, T("IP-R2")), (RDFS.label, Literal("The Owner confirms the closure of Lineage 3", lang="en")),
+                   (B.hasRulingStatement, T("The Owner confirmed the closure report of Lineage 3 (marked Cancelled: concluded on his ruling IP-R1, its open work carried forward); the mission outcome is set to Abandoned with the closure summary as its rationale, and the lineage status to Abandoned. The lineage is set down in the next release.")),
+                   (B.enforcedByShape, B.OwnerRulingDatedShape), (B.rulingSource, T(a.confirmation))):
+        g.add((R, p_, o_))
+    for s_, p_, v_ in ((mis, B.hasMissionOutcome, B.Out_Abandoned), (mis, B.outcomeRationale, T(summ)), (LN, B.hasLineageStatus, B.LS_Abandoned)):
+        for t in list(g.triples((s_, p_, None))): removed.add(t); g.remove(t)
+        g.add((s_, p_, v_)); subj.add(s_)
+    _write(out, g0, g, removed, subj)
+
 ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="cmd", required=True); s_ = sp.add_parser("start"); s_.add_argument("stories", nargs="+"); s_.add_argument("--report-tool", required=True)
-fp = sp.add_parser("finish"); fp.add_argument("stories", nargs="+"); fp.add_argument("--measurement", required=True); fp.add_argument("--release-tag", required=True); fp.add_argument("--deployed", required=True); fp.add_argument("--validator", required=True); fp.add_argument("--also-observe", default=""); fp.add_argument("--run-times", required=True); fp.add_argument("--agents", required=True); fp.add_argument("--brief", required=True); fp.add_argument("--config-time", required=True); fp.add_argument("--suffix", default=""); fp.add_argument("--sent-back", action="store_true")
+fp = sp.add_parser("finish"); fp.add_argument("stories", nargs="+"); fp.add_argument("--measurement", required=True); fp.add_argument("--release-tag", required=True); fp.add_argument("--deployed", required=True); fp.add_argument("--validator", required=True); fp.add_argument("--also-observe", default=""); fp.add_argument("--run-times", required=True); fp.add_argument("--agents", required=True); fp.add_argument("--brief", required=True); fp.add_argument("--config-time", required=True); fp.add_argument("--suffix", default=""); fp.add_argument("--sent-back", action="store_true"); fp.add_argument("--agent-model", default="Claude")
+wp = sp.add_parser("withdraw"); wp.add_argument("items", nargs="+"); wp.add_argument("--rationale", required=True); wp.add_argument("--missed", nargs="*"); wp.add_argument("--missed-rationale", default="")
+rp = sp.add_parser("report"); rp.add_argument("--fit-gap", required=True); rp.add_argument("--impact", required=True); rp.add_argument("--summary", required=True); rp.add_argument("--finding", action="append"); rp.add_argument("--best-practice", action="append")
+cp = sp.add_parser("conclude"); cp.add_argument("--confirmation", required=True)
 a = ap.parse_args()
 if getattr(a, "run_times", None): a.run_times = dict(x.split("=", 1) for x in a.run_times.split(","))
-{"start": start, "finish": finish}[a.cmd](a)
+{"start": start, "finish": finish, "withdraw": withdraw, "report": report, "conclude": conclude}[a.cmd](a)

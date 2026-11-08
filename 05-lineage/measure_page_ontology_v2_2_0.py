@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Re-runnable measurements for Lineage 3 (one ontology of interactive pages), v2.1.0, kept in the IPage repository.
-   python3 measure_page_ontology_v2_1_0.py --metric KEY [--register FILE] [--monorepo ONTOLOGIES_CLONE]   prints one integer
-   python3 measure_page_ontology_v2_1_0.py --all [--register FILE] [--monorepo ONTOLOGIES_CLONE]          prints KEY value for every metric
-   python3 measure_page_ontology_v2_1_0.py --selftest                                                     the counting rules on fixtures with a known answer
+   python3 measure_page_ontology_v2_2_0.py --metric KEY [--register FILE] [--monorepo ONTOLOGIES_CLONE]   prints one integer
+   python3 measure_page_ontology_v2_2_0.py --all [--register FILE] [--monorepo ONTOLOGIES_CLONE]          prints KEY value for every metric
+   python3 measure_page_ontology_v2_2_0.py --selftest                                                     the counting rules on fixtures with a known answer
 v2.0.0 (2026-11-05, the move to IPage): the ontology figures are read from this repository; the figures about RDODI's own surface (the exclusions,
 the out-scoped page work) are read from a clone of the Ontologies monorepo with its history (not shallow: some figures read git history), given by
 --monorepo or ONTOLOGIES_ROOT, or found as a sibling folder named ontologies or Ontologies. A figure that needs the monorepo reads -1 without it.
@@ -11,6 +11,12 @@ v2.1.0 (2026-11-05, after an independent overseer's send-back): X1 ('other repos
 lineage. Before the move it counts, as before, the files outside rdodi-ecosystem that the lineage's rdodi-ecosystem releases changed. From the move
 (MOVE_COMMIT, the last change the move made in the monorepo) the lineage's home is this repository, so X1 adds every file in the monorepo's former Lineage 3
 places (17-page-conditions-lineage, the frozen package interactive-page-ontology) changed after the move: the lineage writes nothing more there.
+v2.2.0 (2026-11-08, found when the guards were read again at the closure of Lineage 3): (a) the half of X1 before the move counted every
+rdodi-ecosystem release up to the monorepo's HEAD, so after the move it counted the rdodi-ecosystem session's own releases (6 files of oe-pack on
+2026-11-05) as Lineage 3's; it is now bounded at MOVE_COMMIT, as the docstring of v2.1.0 already said it was. (b) Without --register the register
+figures (Conf, Contained) read -1; the newest register in 05-lineage is now used by default. (c) A shallow clone of the monorepo gave figures that
+read git history wrong without saying so (X4 read 4 shallow and 0 with full history); a shallow monorepo is now treated as absent (-1) with a
+warning on stderr, so no figure is silently wrong.
 Every figure is read from files, the register or a browser, never typed."""
 import os, re, sys, glob, subprocess, importlib.util
 from rdflib import Graph, RDF, RDFS, OWL, Namespace, URIRef
@@ -19,7 +25,10 @@ def _mono():
     a = sys.argv
     c = [a[a.index("--monorepo") + 1]] if "--monorepo" in a else []
     c += [os.environ.get("ONTOLOGIES_ROOT", "")] + [os.path.join(REPO, "..", n) for n in ("ontologies", "Ontologies")]
-    return next((os.path.abspath(d) for d in c if d and os.path.isdir(os.path.join(d, "rdodi-ecosystem"))), "")
+    m = next((os.path.abspath(d) for d in c if d and os.path.isdir(os.path.join(d, "rdodi-ecosystem"))), "")
+    if m and subprocess.run(["git", "-C", m, "rev-parse", "--is-shallow-repository"], capture_output=True, text=True).stdout.strip() == "true":
+        print(f"warning: {m} is a shallow clone; the figures that read its history read -1 (fetch it with --unshallow)", file=sys.stderr); return ""
+    return m
 MONO = _mono(); ECO = os.path.join(MONO, "rdodi-ecosystem") if MONO else ""; SURF = os.path.join(ECO, "28-interactive-html-surface") if MONO else ""
 OLD = os.path.join(SURF, "17-page-conditions-lineage") if MONO else ""
 BRSF = os.environ.get("BRSF_ROOT") or next((d for d in (os.path.join(REPO, "..", "backlog-roadmap-framework"), os.path.join(MONO, "backlog-roadmap-framework") if MONO else "", "/tmp/brsf") if d and os.path.isdir(os.path.join(d, "03-tooling"))), "")
@@ -117,6 +126,14 @@ def m_validator(register):
     if not v or not register: return -1
     out = subprocess.run([sys.executable, sorted(v, key=vkey)[-1], "--validate-lineage", "Lineage03", register], capture_output=True, text=True).stdout
     return 0 if "holds clean" in out else len(re.findall(r"\[Violation\]", out)) or 1
+def m_outside_changes_before_move():
+    """Files outside rdodi-ecosystem changed by the rdodi-ecosystem releases from BASE_COMMIT up to the move; -1 without the monorepo."""
+    if not MONO: return -1
+    n = 0
+    for c in _git(MONO, "log", "--format=%h %s", f"{BASE_COMMIT}..{MOVE_COMMIT}").splitlines():
+        h, _, s_ = c.partition(" ")
+        if s_.startswith("rdodi-ecosystem v"): n += sum(1 for f in _git(MONO, "show", "--name-only", "--format=", h).splitlines() if f.strip() and not f.startswith("rdodi-ecosystem/"))
+    return n
 def m_outside_changes_after_move():
     if not MONO: return -1
     out = subprocess.run(["git", "-C", MONO, "diff", "--name-only", MOVE_COMMIT, "HEAD", "--", "rdodi-ecosystem/28-interactive-html-surface/17-page-conditions-lineage", "interactive-page-ontology"], capture_output=True, text=True)
@@ -131,7 +148,7 @@ def metrics(register):
     return {"A1a": m_standalone_classes, "A1b": m_rootless, "A1c": m_unlinked, "A2": m_standards_tied, "A3a": m_rules_recorded, "A3b": m_rules_tied, "A3c": m_rule_shapes,
             "A4a": m_gate_rows, "A4b": m_rules_measured, "A5": M("m_pages_failing"), "A6a": M("m_run_profiles_without_page"), "A6b": M("m_profile_page_shapes"), "A7a": m_default_formats, "A7b": m_default_pages_passing,
             "A8a": M("m_chapter_pages_passing"), "A8b": M("m_edited_code_changes_result"), "A9": m_release_path_bypass, "A10": m_handovers, "Contained": lambda: m_contained(register),
-            "X1": lambda: (lambda a, b: -1 if -1 in (a, b) else a + b)(M("m_outside_changes")(), m_outside_changes_after_move()), "X2": m_course_classes, "X3": m_long_definitions, "X4": M("m_pin_changes"), "X5": M("m_html_named", r"road.?map.?report|white.?paper|technical.?report"), "X6": M("m_device_claims"),
+            "X1": lambda: (lambda a, b: -1 if -1 in (a, b) else a + b)(m_outside_changes_before_move(), m_outside_changes_after_move()), "X2": m_course_classes, "X3": m_long_definitions, "X4": M("m_pin_changes"), "X5": M("m_html_named", r"road.?map.?report|white.?paper|technical.?report"), "X6": M("m_device_claims"),
             "Mission": m_default_formats_traced, "Conf": lambda: m_validator(register), "A11": m_home}
 def selftest():
     g = Graph(); N = lambda x: URIRef(IPO + x)
@@ -144,7 +161,7 @@ def selftest():
     for n, v in ok: print(("PASS " if v else "FAIL ") + n)
     return all(v for _, v in ok)
 if __name__ == "__main__":
-    a = sys.argv; reg = a[a.index("--register") + 1] if "--register" in a else None
+    a = sys.argv; reg = a[a.index("--register") + 1] if "--register" in a else (sorted(glob.glob(f"{HERE}/interactive_page_lineage_abox_v*.ttl"), key=vkey) or [None])[-1]
     if "--selftest" in a: sys.exit(0 if selftest() else 1)
     ms = metrics(reg)
     if "--metric" in a: print(ms[a[a.index("--metric") + 1]]())
