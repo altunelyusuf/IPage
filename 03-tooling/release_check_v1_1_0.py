@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""release_check_v1_0_1.py - the gate every IPage release passes before it is committed and pushed.
+"""release_check_v1_1_0.py - the gate every IPage release passes before it is committed and pushed.
 
-  python3 03-tooling/release_check_v1_0_1.py                   run every check; exit 0 only if all pass
-  python3 03-tooling/release_check_v1_0_1.py --write-manifest  rewrite MANIFEST_SHA256.txt, then run every check
+  python3 03-tooling/release_check_v1_1_0.py                   run every check; exit 0 only if all pass
+  python3 03-tooling/release_check_v1_1_0.py --write-manifest  rewrite MANIFEST_SHA256.txt, then run every check
 
 Checks, in order:
   1. one live version: each file name stem in 01-ontologies, 02-shacl-safeguards, 03-tooling, 05-lineage and 06-page-measure has one version
@@ -15,6 +15,9 @@ Checks, in order:
   7. MANIFEST_SHA256.txt lists every tracked file with its SHA-256, and every hash matches.
 The backlog framework is read from BRSF_ROOT or a sibling clone (backlog-roadmap-framework, or ontologies/backlog-roadmap-framework);
 the Ontologies monorepo from ONTOLOGIES_ROOT or a sibling clone named ontologies or Ontologies.
+v1.1.0 (2026-11-08): a lineage set down in the archive (05-lineage/archive) is still audited: the checks of Lineage 3 (holds clean, evidence,
+digests) read the live register together with the newest archive file, because what they check moved there (lineage discipline step 6:
+checks of live records must read the archive too). The register as a whole is still validated alone.
 """
 import os, re, sys, glob, hashlib, subprocess
 
@@ -63,17 +66,28 @@ def main(write):
             check("self-test of " + os.path.basename(s), r.returncode == 0)
     # 4
     reg = newest("05-lineage/interactive_page_lineage_abox_v*.ttl"); fw = brsf()
+    arc = sorted(glob.glob(os.path.join(ROOT, "05-lineage", "archive", "*_archive_v*.ttl")), key=vk)
+    lreg = reg
+    if arc:   # the lineage's records live partly in the archive: audit them together
+        import tempfile, rdflib
+        gl = rdflib.Graph(); gl.parse(reg, format="turtle"); ga = rdflib.Graph(); ga.parse(arc[-1], format="turtle")
+        LS = rdflib.URIRef("http://example.org/backlog#hasLineageStatus")
+        for s_ in set(gl.subjects(LS, None)): ga.remove((s_, LS, None))   # a lineage's status is a pointer: the live register's value is the current one
+        gm = rdflib.Graph()
+        for t in gl: gm.add(t)
+        for t in ga: gm.add(t)
+        lreg = os.path.join(tempfile.mkdtemp(), "interactive_page_lineage_abox_v0_0_0.ttl"); gm.serialize(destination=lreg, format="turtle")
     if not fw: check("the register conforms (backlog framework found)", False, "no backlog-roadmap-framework clone; set BRSF_ROOT")
     else:
         v = sorted(glob.glob(os.path.join(fw, "03-tooling", "backlog_validate_v*.py")), key=vk)[-1]
         o = subprocess.run([sys.executable, v, reg], capture_output=True, text=True).stdout
         m = re.search(r"results\s*:\s*(\d+) Violation", o); check("the register conforms to the framework's shapes", bool(m) and m.group(1) == "0", m.group(0) if m else "no result line")
-        o = subprocess.run([sys.executable, v, "--validate-lineage", "Lineage03", reg], capture_output=True, text=True).stdout
+        o = subprocess.run([sys.executable, v, "--validate-lineage", "Lineage03", lreg], capture_output=True, text=True).stdout
         check("Lineage 3 holds clean under the current shapes", "holds clean" in o)
     # 5
-    r = subprocess.run([sys.executable, os.path.join(ROOT, "05-lineage", "evidence_audit_v1_0_0.py"), reg], capture_output=True, text=True)
+    r = subprocess.run([sys.executable, os.path.join(ROOT, "05-lineage", "evidence_audit_v1_0_0.py"), lreg], capture_output=True, text=True)
     check("every recorded verification reproduces", r.returncode == 0, r.stdout.strip().splitlines()[-1] if r.stdout.strip() else r.stderr.strip()[-200:])
-    r = subprocess.run([sys.executable, os.path.join(ROOT, "05-lineage", "digest_audit_v1_0_0.py"), reg], capture_output=True, text=True)
+    r = subprocess.run([sys.executable, os.path.join(ROOT, "05-lineage", "digest_audit_v1_0_0.py"), lreg], capture_output=True, text=True)
     check("every closed stage of Lineage 3 still holds what it closed on", r.returncode == 0, r.stdout.strip().splitlines()[-1] if r.stdout.strip() else r.stderr.strip()[-200:])
     # 6
     ver = open(os.path.join(ROOT, "VERSION.txt")).read().strip()

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""l3_steps_v2_5_0.py - the recorded steps of Lineage 3's work stories, one command per step. Each writes the NEXT register version, never edits or deletes the previous one (OE BP-D7),
+"""l3_steps_v2_6_0.py - the recorded steps of Lineage 3's work stories, one command per step. Each writes the NEXT register version, never edits or deletes the previous one (OE BP-D7),
 and refuses unless every earlier statement is still there except exactly those the step may change.
 
-  l3_steps_v2_5_0.py start S1 S2 ...    the named stories move to InProgress, stamped from the clock; with the disclosure that the first build of S1 and S2 preceded this record.
+  l3_steps_v2_6_0.py start S1 S2 ...    the named stories move to InProgress, stamped from the clock; with the disclosure that the first build of S1 and S2 preceded this record.
 
 v2.1.0 (2026-11-05): STORY_KEYS was missing S5 (it pursues A3c, like every other story this tool finishes) -- a gap found while finishing S5, not a change of what any story means.
 Tried and reverted (2026-11-05): closing S5 makes Epic3_E1's last child Done, which G148 (RS_DecompositionStateAgrees) then requires the epic itself to resolve. A same-step auto-close that only set hasState=Done cascaded into the full Done governance apparatus a story gets (G109/G112/G113/G115/G118/G168/G172/L1/L2/L3: overseenBy/verifiedBy/approvedBy, startedAt, readiness checks, evidence, an acceptance criterion with a real artifact) -- none of which exists for an Epic and none of which this tool can honestly fabricate. Left for the Owner to rule on (cancel the epic, add a child still to come, or define what closes a decomposition parent); see the hand-over. finish() is unchanged from v2.1.0; it still refuses to leave S5 Done while this is open.
@@ -22,6 +22,9 @@ v2.4.0 (2026-11-08, the same day, before any release carried 2.3.0): an iteratio
   item (a container's state is derived); the validator figure (Conf) names itself, so the report reads it until the value recorded is the value read.
 v2.5.0 (2026-11-08): conclude looked for the commit of the closure report in every file of 05-lineage and found its own source text
   (commit e3be984); it now reads only the register files.
+v2.6.0 (2026-11-08): every step now writes the register's header to the version of the file it writes (versionInfo, versionIRI, priorVersion
+  the version it read); since 0.42.0 the header had stayed at 0.41.0, which the framework's archive tool refuses. sync-header writes the next
+  version with only the header corrected.
   finish also takes --agent-model (the model of the reviewing agents, recorded instead of a fixed name), and its observations name the measurement
   script actually used (it named v1_0_0, which was retired; corrected for observations written from now on, earlier ones stay as written).
 """
@@ -34,6 +37,20 @@ vk = lambda p: [int(x) for x in re.findall(r"_v(\d+)_(\d+)_(\d+)\.", p)[0]]
 now = lambda: datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
 def newest(): return sorted(glob.glob(f"{REGD}/interactive_page_lineage_abox_v*.ttl"), key=vk)[-1]
 def nxt(p): v = vk(p); return os.path.join(REGD, "interactive_page_lineage_abox_v%d_%d_0.ttl" % (v[0], v[1] + 1))
+
+REGH = None
+def header(g, out):
+    """The register's header names the version of the file being written and the version it was written from (OE BP-D7)."""
+    from rdflib import URIRef
+    H = URIRef("http://example.org/rdodi/page-conditions-lineage/register"); OWL_ = Namespace("http://www.w3.org/2002/07/owl#")
+    v = vk(out); vs = f"{v[0]}.{v[1]}.{v[2]}"; prev = [x for x in g.objects(H, OWL_.versionInfo)]
+    pv = str(prev[0]) if prev else None
+    for p_ in (OWL_.versionInfo, OWL_.versionIRI, OWL_.priorVersion): g.remove((H, p_, None))
+    g.add((H, OWL_.versionInfo, Literal(vs))); g.add((H, OWL_.versionIRI, URIRef(f"{H}/{vs}")))
+    base_v = vk(newest()); bvs = f"{base_v[0]}.{base_v[1]}.{base_v[2]}"
+    g.add((H, OWL_.priorVersion, URIRef(f"{H}/{bvs}")))
+    PROV_ = Namespace("http://www.w3.org/ns/prov#"); g.add((H, PROV_.wasAttributedTo, URIRef("http://example.org/rdodi/agent/YusufAltunel")))   # as every IPage header; it also keeps versionInfo from ending the header, which the framework's archive tool reads as text
+    return {(H, OWL_.versionInfo), (H, OWL_.versionIRI), (H, OWL_.priorVersion), (H, PROV_.wasAttributedTo)}
 def start(a):
     import time, rdflib
     base = newest(); out = nxt(base); g0 = Graph(); g0.parse(base, format="turtle"); g = Graph()
@@ -95,9 +112,10 @@ def start(a):
         A(f, B.hasRootCause, T("The two stories are tied (a new ontology file must have every class linked), so the file was built in one piece in the working tree, and the step script that records a start did not yet exist for this lineage."))
         A(f, B.hasRemedy, T("Disclosed here and not backfilled. Nothing was released before this record; the build is released together with it, and Done is recorded only after the acceptance criteria hold."))
         for s in a.stories: g.add((f, B.relatesToWorkItem, P["Story3_" + s]))
+    hp = header(g, out)
     g.serialize(destination=out, format="turtle"); g1 = Graph(); g1.parse(out, format="turtle")
     rem = set(g0) - set(g1); add = set(g1) - set(g0)
-    if [t for t in rem if t not in removed] or [t for t in add if t[0] not in subj]: os.remove(out); sys.exit("refused: unexpected change")
+    if [t for t in rem if t not in removed and (t[0], t[1]) not in hp] or [t for t in add if t[0] not in subj and (t[0], t[1]) not in hp]: os.remove(out); sys.exit("refused: unexpected change")
     print(f"wrote {out}: {len(rem)} replaced, {len(add)} added")
 
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
@@ -184,6 +202,7 @@ def finish(a):
         st_ = g.value(IT, B.iterationStart); TE = clk(); d_ = int((TE.toPython() - st_.toPython()).total_seconds())
         for t in list(g.triples((IT, B.hasState, None))): g.remove(t)
         g.add((IT, B.hasState, B.Done)); A(IT, B.iterationEnd, TE); A(IT, B.hasObservedDuration, T(f"PT{d_ // 3600}H{(d_ % 3600) // 60}M{d_ % 60}S")); A(IT, B.hasDurationSource, T("iterationStart of this iteration to the finishedAt recorded by l3_steps finish."))
+        header(g, out)
         return g, ids
     viol = 0
     for _ in range(5):
@@ -199,9 +218,10 @@ def _open():
     for t in g0: g.add(t)
     g.bind("backlog", B); g.bind("pcl", P); return base, out, g0, g
 def _write(out, g0, g, removed, subj):
+    hp = header(g, out)
     g.serialize(destination=out, format="turtle"); g1 = Graph(); g1.parse(out, format="turtle")
     rem = set(g0) - set(g1); add = set(g1) - set(g0)
-    if [t for t in rem if t not in removed] or [t for t in add if t[0] not in subj]: os.remove(out); sys.exit("refused: unexpected change")
+    if [t for t in rem if t not in removed and (t[0], t[1]) not in hp] or [t for t in add if t[0] not in subj and (t[0], t[1]) not in hp]: os.remove(out); sys.exit("refused: unexpected change")
     print(f"wrote {out}: {len(rem)} replaced, {len(add)} added")
 def withdraw(a):
     import time
@@ -321,11 +341,14 @@ def conclude(a):
         g.add((s_, p_, v_)); subj.add(s_)
     _write(out, g0, g, removed, subj)
 
+def sync_header(a):
+    base, out, g0, g = _open(); _write(out, g0, g, set(), set())
+
 ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="cmd", required=True); s_ = sp.add_parser("start"); s_.add_argument("stories", nargs="+"); s_.add_argument("--report-tool", required=True)
 fp = sp.add_parser("finish"); fp.add_argument("stories", nargs="+"); fp.add_argument("--measurement", required=True); fp.add_argument("--release-tag", required=True); fp.add_argument("--deployed", required=True); fp.add_argument("--validator", required=True); fp.add_argument("--also-observe", default=""); fp.add_argument("--run-times", required=True); fp.add_argument("--agents", required=True); fp.add_argument("--brief", required=True); fp.add_argument("--config-time", required=True); fp.add_argument("--suffix", default=""); fp.add_argument("--sent-back", action="store_true"); fp.add_argument("--agent-model", default="Claude")
 wp = sp.add_parser("withdraw"); wp.add_argument("items", nargs="+"); wp.add_argument("--rationale", required=True); wp.add_argument("--missed", nargs="*"); wp.add_argument("--missed-rationale", default="")
 rp = sp.add_parser("report"); rp.add_argument("--fit-gap", required=True); rp.add_argument("--impact", required=True); rp.add_argument("--summary", required=True); rp.add_argument("--finding", action="append"); rp.add_argument("--best-practice", action="append")
-cp = sp.add_parser("conclude"); cp.add_argument("--confirmation", required=True)
+sp.add_parser("sync-header"); cp = sp.add_parser("conclude"); cp.add_argument("--confirmation", required=True)
 a = ap.parse_args()
 if getattr(a, "run_times", None): a.run_times = dict(x.split("=", 1) for x in a.run_times.split(","))
-{"start": start, "finish": finish, "withdraw": withdraw, "report": report, "conclude": conclude}[a.cmd](a)
+{"start": start, "finish": finish, "withdraw": withdraw, "report": report, "conclude": conclude, "sync-header": sync_header}[a.cmd](a)

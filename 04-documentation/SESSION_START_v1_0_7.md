@@ -25,7 +25,7 @@ Read both in full, state the file names and versions used, and follow them. If e
 
 ```
 cd ipage
-python3 03-tooling/release_check_v1_0_1.py          # must PASS before any work
+python3 03-tooling/release_check_v1_1_0.py          # must PASS before any work
 ```
 
 The register is the newest `05-lineage/interactive_page_lineage_abox_v*.ttl`. Its stories, their states and what moves each objective are the plan. The hand-over in `07-handover-inbox/pending` says what is done, what is open and how to check it.
@@ -42,7 +42,7 @@ Work reaches the register before it reaches a file.
 
 Release with this sequence:
 
-1. Run `python3 03-tooling/release_check_v1_0_1.py --write-manifest` until it passes.
+1. Run `python3 03-tooling/release_check_v1_1_0.py --write-manifest` until it passes.
 2. Raise `VERSION.txt` and write `04-documentation/CHANGELOG_v<version>.md`.
 3. Commit with the subject `IPage v<version>`.
 4. Push, then tag `IPage-v<version>`. Where the environment cannot push tags, the commit subject and SHA identify the release; say so in the finish record.
