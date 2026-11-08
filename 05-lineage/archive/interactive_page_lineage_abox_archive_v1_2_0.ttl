@@ -7,9 +7,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <http://example.org/rdodi/page-conditions-lineage/register-archive> a owl:Ontology ;
-    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register-archive/1.1.0> ;
-    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register-archive/1.0.0> ;
-    owl:versionInfo "1.1.0" ;
+    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register-archive/1.2.0> ;
+    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register-archive/1.1.0> , <http://example.org/rdodi/page-conditions-lineage/register-archive/1.0.0> ;
+    owl:versionInfo "1.2.0" ;
     rdfs:label "archived lineages"@en ;
     rdfs:comment "Lineages of this ledger that were set down by backlog_lineage_archive. Not loaded by the ordinary validation path; loaded for lineage-history checks." .
 
@@ -4501,3 +4501,1813 @@ pcl:Lineage03 a backlog:Lineage ;
     backlog:maintainedBy pcl:Maintainer3_IPage ;
     backlog:openedUnderRevision backlog:Pr_13 ;
     backlog:openedWithProfile backlog:Profile_AgenticAdaptive .
+
+#################################################################
+#  2026-11-08T18:06:11Z -- 199 statements of Lineage02 set down here by
+#  backlog_lineage_archive_v2_0_0 (verbatim, comments of the live register kept there).
+#################################################################
+pcl:CR_ClosureMission a backlog:ClosureReport ;
+    rdfs:label "Closure report of Mission 1: replaced, nothing delivered"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:citesAssessment pcl:AsIs_L2,
+        pcl:AsIs_L2_2 ;
+    backlog:closesForMission pcl:Mission ;
+    backlog:hasClosureMark backlog:Cm_Cancelled ;
+    backlog:hasClosureSummary "Mission 1 was set down on 2026-11-04 on the Owner's decision. Its five planning stages were published and no delivery work started, so nothing was delivered under it. It was replaced because it was not set properly: it left out the default page format, treated the course page as the page to prove, and was written in language the Owner found hard to read." ;
+    backlog:reportGeneratedAt "2026-11-04T12:00:00+03:00"^^xsd:dateTime ;
+    backlog:reportsCancelledItem pcl:Epic_E1,
+        pcl:Epic_E2,
+        pcl:Epic_E3,
+        pcl:Epic_E4,
+        pcl:Epic_E5,
+        pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8,
+        pcl:S9 ;
+    backlog:reportsOnObjective pcl:Obj_Conf,
+        pcl:Obj_Contained,
+        pcl:Obj_G1,
+        pcl:Obj_G2,
+        pcl:Obj_G3,
+        pcl:Obj_K1,
+        pcl:Obj_K2,
+        pcl:Obj_P1,
+        pcl:Obj_R1,
+        pcl:Obj_R2,
+        pcl:Obj_ScopeSat,
+        pcl:Obj_X1,
+        pcl:Obj_X2,
+        pcl:Obj_X3,
+        pcl:Obj_X4,
+        pcl:Obj_X5,
+        pcl:Obj_X6,
+        pcl:Obj_X7 ;
+    rdfs:comment "Appended 2026-11-08 on the Owner's ruling IP-R5: the 14 items left Proposed on 2026-11-04 are cancelled and named here, and the new as-is assessment AsIs_L2_2 sorts them; the summary above is not rewritten."@en .
+pcl:Ev2_Epic_E1_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:17+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:Epic_E1 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_Epic_E2_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:18+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:Epic_E2 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_Epic_E3_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:19+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:Epic_E3 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_Epic_E4_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:20+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:Epic_E4 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_Epic_E5_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:21+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:Epic_E5 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_S1_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:07+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:S1 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_S2_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:08+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:S2 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_S3_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:09+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:S3 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_S4_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:10+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:S4 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_S5_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:11+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:S5 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_S6_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:13+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:S6 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_S7_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:14+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:S7 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_S8_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:15+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:S8 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:Ev2_S9_Withdraw a backlog:TransitionEvent ;
+    backlog:transitionedAt "2026-11-08T18:05:16+00:00"^^xsd:dateTime ;
+    backlog:transitionedBy backlog:Builder ;
+    backlog:transitionedByExecutor pcl:Run_Build01 ;
+    backlog:transitionedItem pcl:S9 ;
+    backlog:viaTransition backlog:T_WithdrawProposed .
+pcl:IA_CourseNotDefault a backlog:ImpactAssessment ;
+    rdfs:label "Impact of: The course page is the page of one profile, not the default"@en ;
+    backlog:analyzesRequest pcl:CR_CourseNotDefault ;
+    backlog:hasImpactStatement "Narrows one deliverable group (the adopted course page working here, with one chapter page) to its place as one profile's page. Measured on this register (2026-11-04): 2 stories and 2 objectives concern the chapter page, none started (0 stories started in all). No effect on other lineages." .
+pcl:IA_DefaultPageFormat a backlog:ImpactAssessment ;
+    rdfs:label "Impact of: RDODI gets one default interactive page format"@en ;
+    backlog:analyzesRequest pcl:CR_DefaultPageFormat ;
+    backlog:hasImpactStatement "Adds one place the work reaches (the default page format), a deliverable for it, and lifts one exclusion. Measured on this register (2026-11-04): 14 goals, 18 objectives, 5 epics and 8 stories exist, of which 0 have started, so no delivered work is lost. The mission as written does not mention a default format and treats the course page as the page to prove, so it was not properly set; the framework allows a mission to change only in that case, by a new mission that supersedes the old one (the old one stays visible), and the chain is then rebuilt from the mission in fresh commits, one per stage. Cost: five planning releases (about 15 to 20 minutes each) and nothing else. Other lineages: none affected (Lineage 1 is Achieved and untouched)." .
+pcl:Obs2_G1 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository when the checkpoint date had passed; the value is unchanged from the baseline because no story had started, which is why the target was not met." ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_G1 ;
+    backlog:observedAt "2026-11-04T06:48:45+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_G1 .
+pcl:Obs2_G2 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository when the checkpoint date had passed; the value is unchanged from the baseline because no story had started, which is why the target was not met." ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_G2 ;
+    backlog:observedAt "2026-11-04T06:48:45+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_G2 .
+pcl:Obs2_G3 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository when the checkpoint date had passed; the value is unchanged from the baseline because no story had started, which is why the target was not met." ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_G3 ;
+    backlog:observedAt "2026-11-04T06:48:45+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_G3 .
+pcl:Obs2_K1 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository when the checkpoint date had passed; the value is unchanged from the baseline because no story had started, which is why the target was not met." ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_K1 ;
+    backlog:observedAt "2026-11-04T06:48:45+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_K1 .
+pcl:Obs2_K2 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository when the checkpoint date had passed; the value is unchanged from the baseline because no story had started, which is why the target was not met." ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_K2 ;
+    backlog:observedAt "2026-11-04T06:48:45+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_K2 .
+pcl:Obs2_P1 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository when the checkpoint date had passed; the value is unchanged from the baseline because no story had started, which is why the target was not met." ;
+    backlog:hasObservedValue 4.0 ;
+    backlog:observationFor pcl:Obj_P1 ;
+    backlog:observedAt "2026-11-04T06:48:45+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_P1 .
+pcl:Obs2_R1 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository when the checkpoint date had passed; the value is unchanged from the baseline because no story had started, which is why the target was not met." ;
+    backlog:hasObservedValue 2.0 ;
+    backlog:observationFor pcl:Obj_R1 ;
+    backlog:observedAt "2026-11-04T06:48:45+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_R1 .
+pcl:Obs2_R2 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository when the checkpoint date had passed; the value is unchanged from the baseline because no story had started, which is why the target was not met." ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_R2 ;
+    backlog:observedAt "2026-11-04T06:48:45+00:00"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_R2 .
+pcl:Obs_Conf a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Validator run when this stage was generated."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_Conf ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_Conf .
+pcl:Obs_Contained a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read over this register: nothing exists yet, so the count is 0."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_Contained ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_Contained .
+pcl:Obs_G1 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_G1 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_G1 .
+pcl:Obs_G2 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_G2 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_G2 .
+pcl:Obs_G3 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_G3 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_G3 .
+pcl:Obs_K1 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_K1 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_K1 .
+pcl:Obs_K2 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_K2 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_K2 .
+pcl:Obs_P1 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 4.0 ;
+    backlog:observationFor pcl:Obj_P1 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_P1 .
+pcl:Obs_R1 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 2.0 ;
+    backlog:observationFor pcl:Obj_R1 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_R1 .
+pcl:Obs_R2 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_R2 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_R2 .
+pcl:Obs_ScopeSat a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Read over this register: nothing exists yet, so the count is 0."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_ScopeSat ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_ScopeSat .
+pcl:Obs_X1 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_X1 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_X1 .
+pcl:Obs_X2 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_X2 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_X2 .
+pcl:Obs_X3 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_X3 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_X3 .
+pcl:Obs_X4 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_X4 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_X4 .
+pcl:Obs_X5 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_X5 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_X5 .
+pcl:Obs_X6 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_X6 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_X6 .
+pcl:Obs_X7 a backlog:MetricObservation ;
+    backlog:hasObservationMethod "Run of the measurement script on the repository at the Objective stage."^^xsd:string ;
+    backlog:hasObservedValue 0.0 ;
+    backlog:observationFor pcl:Obj_X7 ;
+    backlog:observedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:observesMetric pcl:Metric_X7 .
+pcl:Out_Backlog a backlog:StageOutput ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:closedAtCommit "rdodi-ecosystem-v1.238.0 (tag; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:consumesOutput pcl:Out_Objective ;
+    backlog:hasRationale "Backlog stage of Lineage 2, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
+    backlog:hasStateDigest "54ef1db1c4660d1819699694a0ead1ee6a2b0d63c9d833903f32257b44a79486"^^xsd:string ;
+    backlog:outputOfStage backlog:Stage_Backlog .
+pcl:ScopeChange_CourseNotDefault a backlog:ScopeChange ;
+    rdfs:label "The course page becomes one profile's page"@en ;
+    backlog:admitsItem pcl:S9 ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:changesScope pcl:Scope ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:fulfillsRequest pcl:CR_CourseNotDefault ;
+    backlog:hasScopeChangeRationale "Owner, 2026-11-04: accepted both change requests and one replacement mission (\"Yes, one mission is rational\"; \"Yes, proceed\"), after proposing that the interactive page needs a stand-alone ontology, organised by kind, which RDODI consumes, built by this lineage and then handed to a new session. Traded: the earlier chain (never started) is set aside at the cost of five planning releases." .
+pcl:ScopeChange_DefaultPageFormat a backlog:ScopeChange ;
+    rdfs:label "The default page format is admitted"@en ;
+    backlog:admitsItem pcl:S9 ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:changesScope pcl:Scope ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:fulfillsRequest pcl:CR_DefaultPageFormat ;
+    backlog:hasScopeChangeRationale "Owner, 2026-11-04: accepted both change requests and one replacement mission (\"Yes, one mission is rational\"; \"Yes, proceed\"), after proposing that the interactive page needs a stand-alone ontology, organised by kind, which RDODI consumes, built by this lineage and then handed to a new session. Traded: the earlier chain (never started) is set aside at the cost of five planning releases." .
+pcl:Session01 a backlog:RegisterSession ;
+    rdfs:label "Assistant session that built this register"@en ;
+    backlog:changedItem pcl:Epic_E1,
+        pcl:Epic_E2,
+        pcl:Epic_E3,
+        pcl:Epic_E4,
+        pcl:Epic_E5,
+        pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 ;
+    backlog:hasSessionScopeNote "Verified first: both disciplines by highest version, repository freshness, every baseline read by the measurement script."^^xsd:string ;
+    backlog:sessionEndedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:sessionFor pcl:Backlog ;
+    backlog:sessionStartedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:stateVerifiedAtStart true .
+pcl:AC_S1 a backlog:AcceptanceCriterion ;
+    backlog:hasGherkinText "Given the Owner's seven page conditions, When the procedure and the package's shapes file are read, Then each condition is a live Stage 4 gate row and a page-condition shape."^^xsd:string .
+pcl:AC_S2 a backlog:AcceptanceCriterion ;
+    backlog:hasGherkinText "Given any page, When the instrument opens it at 1280 and 375 px, Then it reports each of the seven conditions and refuses a page that fails one, naming the condition."^^xsd:string .
+pcl:AC_S3 a backlog:AcceptanceCriterion ;
+    backlog:hasGherkinText "Given the nine shipped pages, When the instrument runs on each, Then every page passes or is retired by a recorded decision."^^xsd:string .
+pcl:AC_S4 a backlog:AcceptanceCriterion ;
+    backlog:hasGherkinText "Given the profiles with a generated run, When the page-selection register is read, Then each is linked to a page or carries a statement that none exists."^^xsd:string .
+pcl:AC_S5 a backlog:AcceptanceCriterion ;
+    backlog:hasGherkinText "Given a profile that claims a page, When that page fails a condition the profile requires, Then the shape refuses the claim."^^xsd:string .
+pcl:AC_S6 a backlog:AcceptanceCriterion ;
+    backlog:hasGherkinText "Given the pinned course page, When one chapter page is built in this package, Then every gate passes on it."^^xsd:string .
+pcl:AC_S7 a backlog:AcceptanceCriterion ;
+    backlog:hasGherkinText "Given a fresh clone of the release, When the chapter page is opened and a code example is edited and run, Then the shown result changes."^^xsd:string .
+pcl:AC_S8 a backlog:AcceptanceCriterion ;
+    backlog:hasGherkinText "Given a published release, When the measurements are re-run from a fresh clone, Then they equal the figures recorded for that release."^^xsd:string .
+pcl:AC_S9 a backlog:AcceptanceCriterion ;
+    backlog:hasGherkinText "Given the Owner decided on 2026-11-04, When the register is read, Then both change requests are Accepted, Mission 2 supersedes the old mission, and the old lineage is closed as abandoned." .
+pcl:AsIs_L2 a backlog:AsIsAssessment ;
+    rdfs:label "As-is assessment of Lineage 2 on the day it was set down"@en ;
+    backlog:assessedAt "2026-11-04T12:30:00+03:00"^^xsd:dateTime ;
+    backlog:assessesLineage pcl:Lineage02 ;
+    backlog:dueItem pcl:Epic_E1,
+        pcl:Epic_E2,
+        pcl:Epic_E3,
+        pcl:Epic_E4,
+        pcl:Epic_E5,
+        pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8,
+        pcl:S9 ;
+    backlog:gapsObjective pcl:Obj_Conf,
+        pcl:Obj_Contained,
+        pcl:Obj_G1,
+        pcl:Obj_G2,
+        pcl:Obj_G3,
+        pcl:Obj_K1,
+        pcl:Obj_K2,
+        pcl:Obj_P1,
+        pcl:Obj_R1,
+        pcl:Obj_R2,
+        pcl:Obj_ScopeSat,
+        pcl:Obj_X1,
+        pcl:Obj_X2,
+        pcl:Obj_X3,
+        pcl:Obj_X4,
+        pcl:Obj_X5,
+        pcl:Obj_X6,
+        pcl:Obj_X7 ;
+    backlog:hasFitGapStatement "Nothing of Lineage 2 was delivered: its 5 epics and 9 stories are all still proposed, and none of its 18 objectives has moved from its baseline. Its plan is a gap, not a fit, against the new mission, which asks for a stand-alone ontology of interactive pages that the plan did not contain." ;
+    backlog:hasImpactStatement "Setting it down loses no delivered work. The five planning releases (1.234.0 to 1.238.0) stay in the record. The new lineage starts from the Owner's rules and the measured baselines of this one." .
+pcl:AsIs_L2_2 a backlog:AsIsAssessment ;
+    rdfs:label "As-is assessment of Lineage 2 on the day it is closed completely"@en ;
+    backlog:assessedAt "2026-11-08T18:05:21+00:00"^^xsd:dateTime ;
+    backlog:assessesLineage pcl:Lineage02 ;
+    backlog:failedItem pcl:Epic_E1,
+        pcl:Epic_E2,
+        pcl:Epic_E3,
+        pcl:Epic_E4,
+        pcl:Epic_E5,
+        pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8,
+        pcl:S9 ;
+    backlog:gapsObjective pcl:Obj_Conf,
+        pcl:Obj_Contained,
+        pcl:Obj_G1,
+        pcl:Obj_G2,
+        pcl:Obj_G3,
+        pcl:Obj_K1,
+        pcl:Obj_K2,
+        pcl:Obj_P1,
+        pcl:Obj_R1,
+        pcl:Obj_R2,
+        pcl:Obj_ScopeSat,
+        pcl:Obj_X1,
+        pcl:Obj_X2,
+        pcl:Obj_X3,
+        pcl:Obj_X4,
+        pcl:Obj_X5,
+        pcl:Obj_X6,
+        pcl:Obj_X7 ;
+    backlog:hasFitGapStatement "As-is on 2026-11-08: nothing of Lineage 2 was delivered; its 5 epics and 9 stories are now cancelled, each with its reason and a recorded move, and none of its 18 objectives moved from its baseline. Its mission was replaced on 2026-11-04 and its work was taken up by Lineage 3, which delivered part of it and is itself concluded and set down."^^xsd:string ;
+    backlog:hasImpactStatement "Closing it completely loses nothing: no work of it was started, and what it planned is carried by Lineage 3's record and the work carried forward from it. It lets the lineage be set down in the archive, so the live register holds only lineages at work."^^xsd:string .
+pcl:CP_Conf a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en ;
+    backlog:checkpointDate "2026-11-05T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_Conf ;
+    backlog:expectedValue 0.0 .
+pcl:CP_Contained a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en,
+        "Waits on S8 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S8 ;
+    backlog:checkpointDate "2026-11-05T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_Contained ;
+    backlog:expectedValue 0.0 .
+pcl:CP_G1 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-03"@en,
+        "Waits on S1 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S1 ;
+    backlog:checkpointDate "2026-11-03T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_G1 ;
+    backlog:expectedValue 7.0 .
+pcl:CP_G2 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-03"@en,
+        "Waits on S1 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S1 ;
+    backlog:checkpointDate "2026-11-03T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_G2 ;
+    backlog:expectedValue 7.0 .
+pcl:CP_G3 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-04"@en,
+        "Waits on S2 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S2 ;
+    backlog:checkpointDate "2026-11-04T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_G3 ;
+    backlog:expectedValue 7.0 .
+pcl:CP_K1 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-04"@en,
+        "Waits on S6 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S6 ;
+    backlog:checkpointDate "2026-11-04T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_K1 ;
+    backlog:expectedValue 1.0 .
+pcl:CP_K2 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-03"@en,
+        "Waits on S7 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S7 ;
+    backlog:checkpointDate "2026-11-03T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_K2 ;
+    backlog:expectedValue 1.0 .
+pcl:CP_P1 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-04"@en,
+        "Waits on S3 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S3 ;
+    backlog:checkpointDate "2026-11-04T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_P1 ;
+    backlog:expectedValue 0.0 .
+pcl:CP_R1 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-03"@en,
+        "Waits on S4 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S4 ;
+    backlog:checkpointDate "2026-11-03T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_R1 ;
+    backlog:expectedValue 0.0 .
+pcl:CP_R2 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-03"@en,
+        "Waits on S5 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S5 ;
+    backlog:checkpointDate "2026-11-03T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_R2 ;
+    backlog:expectedValue 1.0 .
+pcl:CP_ScopeSat a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en,
+        "Waits on S8 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S8 ;
+    backlog:checkpointDate "2026-11-05T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_ScopeSat ;
+    backlog:expectedValue 8.0 .
+pcl:CP_X1 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en,
+        "Waits on S8 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S8 ;
+    backlog:checkpointDate "2026-11-05T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_X1 ;
+    backlog:expectedValue 0.0 .
+pcl:CP_X2 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en,
+        "Waits on S8 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S8 ;
+    backlog:checkpointDate "2026-11-05T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_X2 ;
+    backlog:expectedValue 0.0 .
+pcl:CP_X3 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en,
+        "Waits on S8 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S8 ;
+    backlog:checkpointDate "2026-11-05T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_X3 ;
+    backlog:expectedValue 0.0 .
+pcl:CP_X4 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en,
+        "Waits on S8 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S8 ;
+    backlog:checkpointDate "2026-11-05T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_X4 ;
+    backlog:expectedValue 0.0 .
+pcl:CP_X5 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en,
+        "Waits on S8 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S8 ;
+    backlog:checkpointDate "2026-11-05T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_X5 ;
+    backlog:expectedValue 0.0 .
+pcl:CP_X6 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en,
+        "Waits on S8 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S8 ;
+    backlog:checkpointDate "2026-11-05T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_X6 ;
+    backlog:expectedValue 0.0 .
+pcl:CP_X7 a backlog:ObjectiveCheckpoint ;
+    rdfs:label "Checkpoint date from the forecast of 2026-11-05"@en,
+        "Waits on S8 reaching Done, not a calendar date"@en ;
+    backlog:checkpointCondition pcl:S8 ;
+    backlog:checkpointDate "2026-11-05T00:00:00+00:00"^^xsd:dateTime ;
+    backlog:datePredictedBy pcl:Fc_pcl_X7 ;
+    backlog:expectedValue 0.0 .
+pcl:Executor_ClaudeCodeSession a backlog:Executor_SingleAgent ;
+    rdfs:label "Claude Code session - the AI-agent executor of this register's work"@en ;
+    rdfs:comment "The party that performs this register's work: one non-human executing party with no standing team membership."^^xsd:string .
+pcl:Fc_pcl_Conf a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 57.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-04T12:55:12+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_Contained a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 57.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-04T12:55:12+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_G1 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 5.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-02T22:07:23+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_G2 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 5.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-02T22:07:23+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_G3 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 13.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-03T04:05:31+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_K1 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 13.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-03T04:05:31+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_K2 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 5.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-02T22:07:23+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_P1 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 8.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-03T00:21:41+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_R1 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 3.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-02T20:37:51+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_R2 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 5.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-02T22:07:23+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_ScopeSat a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 57.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-04T12:55:12+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_X1 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 57.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-04T12:55:12+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_X2 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 57.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-04T12:55:12+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_X3 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 57.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-04T12:55:12+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_X4 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 57.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-04T12:55:12+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_X5 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 57.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-04T12:55:12+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_X6 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 57.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-04T12:55:12+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Fc_pcl_X7 a backlog:Forecast ;
+    backlog:forecastAssumption "The agents keep the pace observed in 10 pair(s) of consecutive boxes: 2.01 points per elapsed hour (median); 57.0 points remain on the stories that move the objective; buffer x1.5. Pace taken from the framework's own register (backlog_abox_v1_149_0), because the earlier boxes of this register carry no points; the points per objective are the session's planning estimates, set before refinement." ;
+    backlog:forecastCompletion "2026-11-04T12:55:12+00:00"^^xsd:dateTime ;
+    backlog:forecastFor pcl:Backlog ;
+    backlog:forecastIterationsObserved 10 ;
+    backlog:forecastMadeAt "2026-11-02T18:23:34+00:00"^^xsd:dateTime ;
+    backlog:forecastObservedVelocity 2.01 .
+pcl:Goal_C1 a backlog:Goal ;
+    rdfs:label "Every page template and example the package ships meets the conditions"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:hasGoalFacing backlog:Facing_Mission ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    rdfs:comment "Mission clause: \"has every page template and example it ships meet those conditions\""^^xsd:string .
+pcl:Goal_Conf a backlog:Goal ;
+    rdfs:label "This register conforms to the framework's shapes governing it"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:hasGoalFacing backlog:Facing_Mission ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:isConformanceGoal true ;
+    rdfs:comment "Adoption conformance goal, built at kickoff of the goal stage (G42)."^^xsd:string .
+pcl:Goal_Contained a backlog:Goal ;
+    rdfs:label "No work was done outside what this scope named"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:goalCoversArea pcl:Area_A1,
+        pcl:Area_A2,
+        pcl:Area_A3,
+        pcl:Area_A4,
+        pcl:Area_A5 ;
+    backlog:hasGoalFacing backlog:Facing_Containment ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
+pcl:Goal_X1 a backlog:Goal ;
+    rdfs:label "The excluded concern stays excluded: No new page kinds for Roadmap-Report and Whitepaper"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:guardsExclusion pcl:Excl_X1 ;
+    backlog:hasGoalFacing backlog:Facing_Exclusion ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
+pcl:Goal_X2 a backlog:Goal ;
+    rdfs:label "The excluded concern stays excluded: No new page template for Technical-Report"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:guardsExclusion pcl:Excl_X2 ;
+    backlog:hasGoalFacing backlog:Facing_Exclusion ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
+pcl:Goal_X3 a backlog:Goal ;
+    rdfs:label "The excluded concern stays excluded: Other repositories are read, never changed"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:guardsExclusion pcl:Excl_X3 ;
+    backlog:hasGoalFacing backlog:Facing_Exclusion ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
+pcl:Goal_X4 a backlog:Goal ;
+    rdfs:label "The excluded concern stays excluded: The course page's own features stay as they are"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:guardsExclusion pcl:Excl_X4 ;
+    backlog:hasGoalFacing backlog:Facing_Exclusion ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
+pcl:Goal_X5 a backlog:Goal ;
+    rdfs:label "The excluded concern stays excluded: The default Stage 4 template is not chosen here"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:guardsExclusion pcl:Excl_X5 ;
+    backlog:hasGoalFacing backlog:Facing_Exclusion ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
+pcl:Goal_X6 a backlog:Goal ;
+    rdfs:label "The excluded concern stays excluded: No measurement on real phones or offline"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:guardsExclusion pcl:Excl_X6 ;
+    backlog:hasGoalFacing backlog:Facing_Exclusion ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
+pcl:Goal_X7 a backlog:Goal ;
+    rdfs:label "The excluded concern stays excluded: Company-internal text in the raw shell is not a page condition"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:guardsExclusion pcl:Excl_X7 ;
+    backlog:hasGoalFacing backlog:Facing_Exclusion ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
+pcl:Metric_Conf a <http://example.org/core#Metric> ;
+    rdfs:label "Count of sh:Violation results of the framework validator for Lineage 2"@en .
+pcl:Metric_Contained a <http://example.org/core#Metric> ;
+    rdfs:label "Count of stories with no satisfied deliverable or no pursued objective"@en .
+pcl:Metric_ScopeSat a <http://example.org/core#Metric> ;
+    rdfs:label "Count of scope deliverables all of whose satisfying stories are Done"@en .
+pcl:Metric_X1 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of html files named for the Roadmap-Report or Whitepaper profile"@en .
+pcl:Metric_X2 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of html files named for the Technical-Report profile"@en .
+pcl:Metric_X3 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of files outside rdodi-ecosystem changed by the releases of this lineage"@en .
+pcl:Metric_X4 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of pinned commit and SHA-256 values of the page-selection register that differ from the Mission release"@en .
+pcl:Metric_X5 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of differences of the default page-selection rule from the Mission release"@en .
+pcl:Metric_X6 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of claims in this lineage's evidence that a page was measured on a physical device or offline"@en .
+pcl:Metric_X7 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of files of the raw corpus shell changed since the Mission release"@en .
+pcl:Out_Goal a backlog:StageOutput ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:closedAtCommit "rdodi-ecosystem-v1.236.0 (tag; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:consumesOutput pcl:Out_Scope ;
+    backlog:hasRationale "Goal stage of Lineage 2, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
+    backlog:hasStateDigest "f4e315288bcef56390d9c2b3fd03840eb6338fbafe09e09fdb33aaeebf3ecf58"^^xsd:string ;
+    backlog:outputOfStage backlog:Stage_Goal .
+pcl:Out_Mission a backlog:StageOutput ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:closedAtCommit "rdodi-ecosystem-v1.234.0 (tag; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:hasRationale "Mission stage of Lineage 2, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
+    backlog:hasStateDigest "dbfe424b810b3fda7896cee561dca927da6eca5cc4774f37b9f492ba2a4c251c"^^xsd:string ;
+    backlog:outputOfStage backlog:Stage_Mission .
+pcl:Out_Objective a backlog:StageOutput ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:closedAtCommit "rdodi-ecosystem-v1.237.0 (tag; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:consumesOutput pcl:Out_Goal ;
+    backlog:hasRationale "Objective stage of Lineage 2, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
+    backlog:hasStateDigest "349ff38f70ad83712bd9b81e3209118a4c152a5e30f5baf618e009ad4dd548fa"^^xsd:string ;
+    backlog:outputOfStage backlog:Stage_Objective .
+pcl:Out_Scope a backlog:StageOutput ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:closedAtCommit "rdodi-ecosystem-v1.235.0 (tag; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:consumesOutput pcl:Out_Mission ;
+    backlog:hasRationale "Scope stage of Lineage 2, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
+    backlog:hasStateDigest "bf1d0452a0342a2e599cf6ccced285ad72530d7d7e8c561f7cd6bc85be6b6389"^^xsd:string ;
+    backlog:outputOfStage backlog:Stage_Scope .
+pcl:TC_Epic_E1 a backlog:TestCase ;
+    rdfs:label "Re-run measure_page_conditions_v0_1_0.py for G1, G2, G3"@en ;
+    backlog:exercisesCriterion pcl:AC_Epic_E1 ;
+    backlog:runsOnData "the repository and the pages of the published release, from a fresh clone"^^xsd:string .
+pcl:TC_Epic_E2 a backlog:TestCase ;
+    rdfs:label "Re-run measure_page_conditions_v0_1_0.py for P1"@en ;
+    backlog:exercisesCriterion pcl:AC_Epic_E2 ;
+    backlog:runsOnData "the repository and the pages of the published release, from a fresh clone"^^xsd:string .
+pcl:TC_Epic_E3 a backlog:TestCase ;
+    rdfs:label "Re-run measure_page_conditions_v0_1_0.py for R1, R2"@en ;
+    backlog:exercisesCriterion pcl:AC_Epic_E3 ;
+    backlog:runsOnData "the repository and the pages of the published release, from a fresh clone"^^xsd:string .
+pcl:TC_Epic_E4 a backlog:TestCase ;
+    rdfs:label "Re-run measure_page_conditions_v0_1_0.py for K1, K2"@en ;
+    backlog:exercisesCriterion pcl:AC_Epic_E4 ;
+    backlog:runsOnData "the repository and the pages of the published release, from a fresh clone"^^xsd:string .
+pcl:TC_Epic_E5 a backlog:TestCase ;
+    rdfs:label "Re-run measure_page_conditions_v0_1_0.py for Conf"@en ;
+    backlog:exercisesCriterion pcl:AC_Epic_E5 ;
+    backlog:runsOnData "the repository and the pages of the published release, from a fresh clone"^^xsd:string .
+pcl:AC_Epic_E1 a backlog:AcceptanceCriterion ;
+    backlog:coveredByCase pcl:TC_Epic_E1 ;
+    backlog:hasGherkinText "Given the stories of 'The page conditions as gates' are Done, When its objectives are measured, Then each reads its target: G1=7; G2=7; G3=7."^^xsd:string .
+pcl:AC_Epic_E2 a backlog:AcceptanceCriterion ;
+    backlog:coveredByCase pcl:TC_Epic_E2 ;
+    backlog:hasGherkinText "Given the stories of 'The shipped pages meet the conditions' are Done, When its objectives are measured, Then each reads its target: P1=0."^^xsd:string .
+pcl:AC_Epic_E3 a backlog:AcceptanceCriterion ;
+    backlog:coveredByCase pcl:TC_Epic_E3 ;
+    backlog:hasGherkinText "Given the stories of 'What a profile requires of its page' are Done, When its objectives are measured, Then each reads its target: R1=0; R2=1."^^xsd:string .
+pcl:AC_Epic_E4 a backlog:AcceptanceCriterion ;
+    backlog:coveredByCase pcl:TC_Epic_E4 ;
+    backlog:hasGherkinText "Given the stories of 'The course page working here' are Done, When its objectives are measured, Then each reads its target: K1=1; K2=1."^^xsd:string .
+pcl:AC_Epic_E5 a backlog:AcceptanceCriterion ;
+    backlog:coveredByCase pcl:TC_Epic_E5 ;
+    backlog:hasGherkinText "Given the stories of 'Changes reach users measured' are Done, When its objectives are measured, Then each reads its target: Conf=0."^^xsd:string .
+pcl:CR_CourseNotDefault a backlog:ChangeRequest ;
+    rdfs:label "The course page is the page of one profile, not the default"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:hasChangeDirection backlog:Direction_Shrink ;
+    backlog:hasChangeRequestRationale "Owner, 2026-11-04: \"We need to use more human language. This is hard to understand. Additionally, course page is one of the RDODI profiles set to build course pages from the pipeline. We need a default interactive page format. As far as I see, we need to revise the currently active lineage. Let's start the change management ceremony.\" Session's reading, to be confirmed: the course page is what the course-companion profile uses, so it is shown in the profile-to-page map and by one chapter page, and is no longer treated as the template everything is measured against." ;
+    backlog:hasDisposition backlog:Disp_Accepted ;
+    backlog:requestsChangeTo pcl:Scope ;
+    backlog:supportsObjective pcl:Obj_K1 ;
+    rdfs:comment "Owner, 2026-11-04: accepted both change requests and one replacement mission (\"Yes, one mission is rational\"; \"Yes, proceed\"), after proposing that the interactive page needs a stand-alone ontology, organised by kind, which RDODI consumes, built by this lineage and then handed to a new session." .
+pcl:CR_DefaultPageFormat a backlog:ChangeRequest ;
+    rdfs:label "RDODI gets one default interactive page format"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:hasChangeDirection backlog:Direction_Grow ;
+    backlog:hasChangeRequestRationale "Owner, 2026-11-04: \"We need to use more human language. This is hard to understand. Additionally, course page is one of the RDODI profiles set to build course pages from the pipeline. We need a default interactive page format. As far as I see, we need to revise the currently active lineage. Let's start the change management ceremony.\" Session's reading, to be confirmed: RDODI needs one default page format that every new interactive page starts from unless its profile names its own, made from the best of what exists (the current default page, the Explorer, the course page's features) and passing the Owner's page rules. This also lifts the exclusion that left the choice of the default template out of this lineage." ;
+    backlog:hasDisposition backlog:Disp_Accepted ;
+    backlog:requestsChangeTo pcl:Scope ;
+    backlog:supportsObjective pcl:Obj_P1 ;
+    rdfs:comment "Owner, 2026-11-04: accepted both change requests and one replacement mission (\"Yes, one mission is rational\"; \"Yes, proceed\"), after proposing that the interactive page needs a stand-alone ontology, organised by kind, which RDODI consumes, built by this lineage and then handed to a new session." .
+pcl:Excl_X1 a backlog:ScopeExclusion ;
+    rdfs:label "No new page kinds for Roadmap-Report and Whitepaper"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:excludesConcern "Building page templates for the Roadmap-Report and Whitepaper profiles"^^xsd:string ;
+    backlog:hasExclusionRationale "Checked fact: 01-profiles/RDODI_PROFILE_AND_PAGE_GAPS_v1_0_0.md (A1) records that these two profiles have no generated run, and the Charter asks for an exemplar over a run; the mission only names the page a profile with a run gets."^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Excl_X2 a backlog:ScopeExclusion ;
+    rdfs:label "No new page template for Technical-Report"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:excludesConcern "Building a page template for the Technical-Report profile"^^xsd:string ;
+    backlog:hasExclusionRationale "The mission names the page and its requirements for profiles with a run; a new template is not among its clauses (01-profiles/RDODI_PROFILE_AND_PAGE_GAPS_v1_0_0.md, A1 and E5)."^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Excl_X3 a backlog:ScopeExclusion ;
+    rdfs:label "Other repositories are read, never changed"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:excludesConcern "Editing the course repository, the CME repository or any other package"^^xsd:string ;
+    backlog:hasExclusionRationale "Checked fact: the Owner allowed read access to other repositories, not changes (2026-10-28), and the page-selection register cites the course page by repository, commit and SHA-256 (cite-not-import)."^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+pcl:Excl_X4 a backlog:ScopeExclusion ;
+    rdfs:label "The course page's own features stay as they are"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:excludesConcern "Changing the course page's graded-exam layer or giving Stage 2 a slot for executed examples"^^xsd:string ;
+    backlog:hasExclusionRationale "Not a clause of the mission; recorded as gaps C3 and C4 in 01-profiles/RDODI_PROFILE_AND_PAGE_GAPS_v1_0_0.md for a later decision."^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Excl_X5 a backlog:ScopeExclusion ;
+    rdfs:label "The default Stage 4 template is not chosen here"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:excludesConcern "Choosing the default Stage 4 template among v37, Explorer and the course page, or retiring v37"^^xsd:string ;
+    backlog:hasExclusionRationale "The choice remains with the Owner (01-profiles/RDODI_PROFILE_AND_PAGE_GAPS_v1_0_0.md, section D)."^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Excl_X6 a backlog:ScopeExclusion ;
+    rdfs:label "No measurement on real phones or offline"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:excludesConcern "Measuring on physical devices or without a network"^^xsd:string ;
+    backlog:hasExclusionRationale "Gap C6 records it as not measured; the gates measure in a browser at phone width, which the mission's clause on adaptive layout can be tested by."^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Excl_X7 a backlog:ScopeExclusion ;
+    rdfs:label "Company-internal text in the raw shell is not a page condition"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:excludesConcern "Removing company-internal text from the raw shell"^^xsd:string ;
+    backlog:hasExclusionRationale "Gap B6 is not among the Owner's page conditions the mission makes into gates."^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Goal_C2 a backlog:Goal ;
+    rdfs:label "Every profile with a generated run has a named page and a statement of what it requires of that page"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:hasGoalFacing backlog:Facing_Mission ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    rdfs:comment "Mission clause: \"names, for every profile with a generated run, the page it gets and what it requires of that page\""^^xsd:string .
+pcl:Goal_C3 a backlog:Goal ;
+    rdfs:label "The adopted course page works here, and one chapter page built in this package passes the gates"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:hasGoalFacing backlog:Facing_Mission ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    rdfs:comment "Mission clause: \"shows the adopted course page working here, with one chapter page built in this package that passes the gates\""^^xsd:string .
+pcl:Goal_Scope a backlog:Goal ;
+    rdfs:label "Every scope area is fully delivered"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:goalCoversArea pcl:Area_A1,
+        pcl:Area_A2,
+        pcl:Area_A3,
+        pcl:Area_A4,
+        pcl:Area_A5 ;
+    backlog:hasGoalFacing backlog:Facing_Scope ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
+pcl:Metric_G1 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the Owner's seven page conditions carried by a live Stage 4 gate row of the newest procedure"@en .
+pcl:Metric_G2 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the seven page conditions carried by a page-condition shape in the package's shapes file"@en .
+pcl:Metric_G3 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the seven page conditions the gate instrument lists as measured"@en .
+pcl:Metric_K1 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of chapter pages built in this package from the pinned course page that pass every gate"@en .
+pcl:Metric_K2 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of chapter pages built here on which the browser test shows edited code changes the shown result"@en .
+pcl:Metric_P1 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the nine shipped pages that scroll sideways at 375 px, raise a script error, hold a dialog element or offer no text-size control"@en .
+pcl:Metric_R1 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of the three profiles with a generated run that have neither a link to a page nor a recorded statement that none exists"@en .
+pcl:Metric_R2 a <http://example.org/core#Metric> ;
+    rdfs:label "Count of shapes in the package's shapes file that state what a profile requires of its page"@en .
+pcl:Del_D1 a backlog:ScopeDeliverable ;
+    rdfs:label "Every one of the Owner's page conditions is a named Stage 4 gate in the procedure and a shape in the package's shapes file"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:deliverableForArea pcl:Area_A1 ;
+    backlog:derivesFromMissionClause "makes the Owner's page conditions gates that every Stage 4 page must pass"^^xsd:string ;
+    backlog:hasProductScopeKind backlog:Kind_Functional ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Del_D2 a backlog:ScopeDeliverable ;
+    rdfs:label "A browser measurement reproduces each gate's figure on any page, at desktop and phone width, and a failing page is refused with the condition named"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:deliverableForArea pcl:Area_A1 ;
+    backlog:derivesFromMissionClause "makes the Owner's page conditions gates that every Stage 4 page must pass"^^xsd:string ;
+    backlog:hasProductScopeKind backlog:Kind_Functional ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Del_D3 a backlog:ScopeDeliverable ;
+    rdfs:label "Every page template and example the package ships passes the gates as measured, or is retired by a recorded decision"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:deliverableForArea pcl:Area_A2 ;
+    backlog:derivesFromMissionClause "has every page template and example it ships meet those conditions"^^xsd:string ;
+    backlog:hasProductScopeKind backlog:Kind_Functional ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Del_D4 a backlog:ScopeDeliverable ;
+    rdfs:label "Every profile with a generated run names its page by a link in the page-selection register, or the register says it has none"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:deliverableForArea pcl:Area_A3 ;
+    backlog:derivesFromMissionClause "names, for every profile with a generated run, the page it gets and what it requires of that page"^^xsd:string ;
+    backlog:hasProductScopeKind backlog:Kind_Functional ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Del_D5 a backlog:ScopeDeliverable ;
+    rdfs:label "A shape states what a profile requires of its page, and a profile claiming a page that does not meet it is refused"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:deliverableForArea pcl:Area_A3 ;
+    backlog:derivesFromMissionClause "names, for every profile with a generated run, the page it gets and what it requires of that page"^^xsd:string ;
+    backlog:hasProductScopeKind backlog:Kind_Functional ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Del_D6 a backlog:ScopeDeliverable ;
+    rdfs:label "One chapter page is built in this package from the pinned course page and passes every gate"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:deliverableForArea pcl:Area_A4 ;
+    backlog:derivesFromMissionClause "shows the adopted course page working here, with one chapter page built in this package that passes the gates"^^xsd:string ;
+    backlog:hasProductScopeKind backlog:Kind_Functional ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Del_D7 a backlog:ScopeDeliverable ;
+    rdfs:label "The adopted course page opens from a fresh clone of the release, and code edited on it changes its result"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:deliverableForArea pcl:Area_A4 ;
+    backlog:derivesFromMissionClause "shows the adopted course page working here, with one chapter page built in this package that passes the gates"^^xsd:string ;
+    backlog:hasProductScopeKind backlog:Kind_NonFunctional ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Goal_C0 a backlog:Goal ;
+    rdfs:label "The Owner's page conditions are gates that every Stage 4 page must pass"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToMission pcl:Mission ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope ;
+    backlog:hasGoalFacing backlog:Facing_Mission ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    rdfs:comment "Mission clause: \"makes the Owner's page conditions gates that every Stage 4 page must pass\""^^xsd:string .
+pcl:Area_A2 a backlog:ScopeArea ;
+    rdfs:label "The page templates and examples already shipped"@en ;
+    backlog:areaLocation "28-interactive-html-surface/ templates and examples (proposal template and instance, native exemplar, question-box template, corpus shell, v37)"^^xsd:string ;
+    backlog:areaMeasure "every shipped template and example is measured at 1280 and 375 px; sideways scroll, dialog elements, text-size control, text size and script errors are listed per page (gaps B2 to B5)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Area_A5 a backlog:ScopeArea ;
+    rdfs:label "How the lineage's changes reach users"@en ;
+    backlog:areaLocation "rdodi-ecosystem releases through oe_release; 03-tooling/release_check (newest)"^^xsd:string ;
+    backlog:areaMeasure "each increment is released through the one release path and its gate figures are measured again from a fresh clone of what was published"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+pcl:Del_W1 a backlog:ScopeDeliverable ;
+    rdfs:label "Every change is published through the release path and its gate figures are measured again from a fresh clone of what was published"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:deliverableForArea pcl:Area_A5 ;
+    backlog:derivesFromMissionClause "makes the Owner's page conditions gates that every Stage 4 page must pass"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+pcl:Area_A1 a backlog:ScopeArea ;
+    rdfs:label "The page conditions as gates"@en ;
+    backlog:areaLocation "03-procedure/RDODI_FourStage_Pipeline_Procedure (newest), Stage 4 gates; the package's one SHACL file; 28-interactive-html-surface measuring instruments (Explorer instrument; course page test, read-only)"^^xsd:string ;
+    backlog:areaMeasure "Owner conditions: text-size control, adaptive layout, tree and tabs in step, one level of tabs, runnable code, zoom and full-screen, default text not small; each is a named gate with a shape and a browser measurement (gap B1, C5)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Area_A3 a backlog:ScopeArea ;
+    rdfs:label "What each profile requires of its page"@en ;
+    backlog:areaLocation "01-profiles; 16-page-selection (page-selection register)"^^xsd:string ;
+    backlog:areaMeasure "every profile with a generated run names its page by link or is recorded as having none; a shape states what a profile requires of its page (gaps A2, A3)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Area_A4 a backlog:ScopeArea ;
+    rdfs:label "The adopted course page, working here"@en ;
+    backlog:areaLocation "the pinned course page template (read-only, cited by repository, commit and SHA-256); 28-interactive-html-surface (one chapter page built here)"^^xsd:string ;
+    backlog:areaMeasure "one chapter page built in this package from the pinned course page, passing the new gates, with its code really running (gaps C1, C2)"^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:hasScopeLayer backlog:Layer_Product .
+pcl:Epic_E1 a backlog:Epic ;
+    rdfs:label "The page conditions as gates"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:coversEntity pcl:DomainEntity_PageConditions ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:S1,
+        pcl:S2 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_Epic_E1 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-E1"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "The page conditions as gates"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_G1,
+        pcl:Obj_G2,
+        pcl:Obj_G3 ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D1,
+        pcl:Del_D2 .
+pcl:Epic_E2 a backlog:Epic ;
+    rdfs:label "The shipped pages meet the conditions"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:coversEntity pcl:DomainEntity_PageConditions ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:S3 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_Epic_E2 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-E2"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "The shipped pages meet the conditions"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_P1 ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D3 .
+pcl:Epic_E3 a backlog:Epic ;
+    rdfs:label "What a profile requires of its page"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:coversEntity pcl:DomainEntity_PageConditions ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:S4,
+        pcl:S5 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_Epic_E3 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-E3"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "What a profile requires of its page"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_R1,
+        pcl:Obj_R2 ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D4,
+        pcl:Del_D5 .
+pcl:Epic_E4 a backlog:Epic ;
+    rdfs:label "The course page working here"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:coversEntity pcl:DomainEntity_PageConditions ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:S6,
+        pcl:S7 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_Epic_E4 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-E4"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "The course page working here"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_K1,
+        pcl:Obj_K2 ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D6,
+        pcl:Del_D7 .
+pcl:Epic_E5 a backlog:Epic ;
+    rdfs:label "Changes reach users measured"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:coversEntity pcl:DomainEntity_PageConditions ;
+    backlog:coversStage backlog:Stage_ActiveUse,
+        backlog:Stage_Creation ;
+    backlog:decomposesInto pcl:S8 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_Epic_E5 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-E5"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Changes reach users measured"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_Conf ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_W1 .
+pcl:Obj_Contained a backlog:Objective ;
+    rdfs:label "Work items that serve no deliverable or objective"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_Contained ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_Contained ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric Contained"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of stories with no satisfied deliverable or no pursued objective"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+pcl:Obj_X1 a backlog:Objective ;
+    rdfs:label "Page files for Roadmap-Report or Whitepaper"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X1 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X1 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X1"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of html files named for the Roadmap-Report or Whitepaper profile"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+pcl:Obj_X2 a backlog:Objective ;
+    rdfs:label "Page files for Technical-Report"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X2 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X2 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X2"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of html files named for the Technical-Report profile"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+pcl:Obj_X3 a backlog:Objective ;
+    rdfs:label "Files outside this package changed by this lineage"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X3 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X3 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X3"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of files outside rdodi-ecosystem changed by the releases of this lineage"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+pcl:Obj_X4 a backlog:Objective ;
+    rdfs:label "Course page pin records changed"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X4 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X4 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X4"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of pinned commit and SHA-256 values of the page-selection register that differ from the Mission release"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+pcl:Obj_X5 a backlog:Objective ;
+    rdfs:label "Default page rule changed"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X5 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X5 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X5"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of differences of the default page-selection rule from the Mission release"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+pcl:Obj_X6 a backlog:Objective ;
+    rdfs:label "Claims of a physical-device or offline measurement"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X6 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X6 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X6"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of claims in this lineage's evidence that a page was measured on a physical device or offline"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+pcl:Obj_X7 a backlog:Objective ;
+    rdfs:label "Files of the raw shell changed"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_X7 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_X7 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric X7"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of files of the raw corpus shell changed since the Mission release"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+pcl:S9 a backlog:Story ;
+    rdfs:label "Record the Owner's decision of 2026-11-04 and replace the mission"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S9 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S9" ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Record the Owner's decision of 2026-11-04 and replace the mission" ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_Conf,
+        pcl:Obj_Contained,
+        pcl:Obj_ScopeSat,
+        pcl:Obj_X1,
+        pcl:Obj_X2,
+        pcl:Obj_X3,
+        pcl:Obj_X4,
+        pcl:Obj_X5,
+        pcl:Obj_X6,
+        pcl:Obj_X7 ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_W1 .
+pcl:Obj_Conf a backlog:Objective ;
+    rdfs:label "Framework validator violations on Lineage 2"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_Conf ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_Conf ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric Conf --register REGISTER"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of sh:Violation results of the framework validator for Lineage 2"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+pcl:Obj_G1 a backlog:Objective ;
+    rdfs:label "Page conditions named as Stage 4 gates"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C0 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_G1 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric G1"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the Owner's seven page conditions carried by a live Stage 4 gate row of the newest procedure"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 7.0 ;
+    backlog:metricMovableBy pcl:S1 .
+pcl:Obj_G2 a backlog:Objective ;
+    rdfs:label "Page conditions that are shapes"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C0 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_G2 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric G2"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the seven page conditions carried by a page-condition shape in the package's shapes file"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 7.0 ;
+    backlog:metricMovableBy pcl:S1 .
+pcl:Obj_G3 a backlog:Objective ;
+    rdfs:label "Page conditions measured in a browser"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C0 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_G3 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric G3"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the seven page conditions the gate instrument lists as measured"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 7.0 ;
+    backlog:metricMovableBy pcl:S2 .
+pcl:Obj_K2 a backlog:Objective ;
+    rdfs:label "Chapter pages whose edited code changes the result"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C3 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_K2 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric K2"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of chapter pages built here on which the browser test shows edited code changes the shown result"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 1.0 ;
+    backlog:metricMovableBy pcl:S7 .
+pcl:Obj_R1 a backlog:Objective ;
+    rdfs:label "Profiles with a run and no page statement"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C2 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 2.0 ;
+    backlog:hasCheckpoint pcl:CP_R1 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric R1"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the three profiles with a generated run that have neither a link to a page nor a recorded statement that none exists"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S4 .
+pcl:Obj_R2 a backlog:Objective ;
+    rdfs:label "Shapes stating what a profile requires of its page"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C2 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_R2 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric R2"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of shapes in the package's shapes file that state what a profile requires of its page"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 1.0 ;
+    backlog:metricMovableBy pcl:S5 .
+pcl:Obj_K1 a backlog:Objective ;
+    rdfs:label "Chapter pages built here that pass the gates"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C3 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_K1 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric K1"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of chapter pages built in this package from the pinned course page that pass every gate"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 1.0 ;
+    backlog:metricMovableBy pcl:S6 .
+pcl:Obj_P1 a backlog:Objective ;
+    rdfs:label "Shipped pages failing a condition"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_C1 ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 4.0 ;
+    backlog:hasCheckpoint pcl:CP_P1 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric P1"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of the nine shipped pages that scroll sideways at 375 px, raise a script error, hold a dialog element or offer no text-size control"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:S3 .
+pcl:Obj_ScopeSat a backlog:Objective ;
+    rdfs:label "Scope deliverables satisfied"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:contributesToGoal pcl:Goal_Scope ;
+    backlog:fillsScope pcl:Scope ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP_ScopeSat ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 28-interactive-html-surface/17-page-conditions-lineage/measure_page_conditions_v0_1_0.py --metric ScopeSat"^^xsd:string ;
+    backlog:hasRationale "Baseline read by the measurement script on 2026-11-02; the target follows from the scope deliverable it serves, not from a wish. The counting rules are checked by the script's self-test on fixtures with a known answer."^^xsd:string ;
+    backlog:hasSuccessMetric "Count of scope deliverables all of whose satisfying stories are Done"^^xsd:string ;
+    backlog:hasTargetDirection backlog:Dir_Increase ;
+    backlog:hasTargetValue 8.0 ;
+    backlog:metricMovableBy pcl:S1,
+        pcl:S2,
+        pcl:S3,
+        pcl:S4,
+        pcl:S5,
+        pcl:S6,
+        pcl:S7,
+        pcl:S8 .
+pcl:Mission a backlog:Mission ;
+    rdfs:label "Mission: the page conditions of RDODI"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:hasMissionOrigin backlog:Origin_SessionDrafted ;
+    backlog:hasMissionOutcome backlog:Out_Abandoned ;
+    backlog:hasMissionStatement "Make the Owner's page conditions rules that RDODI enforces: RDODI makes the Owner's page conditions gates that every Stage 4 page must pass; has every page template and example it ships meet those conditions; names, for every profile with a generated run, the page it gets and what it requires of that page; and shows the adopted course page working here, with one chapter page built in this package that passes the gates."^^xsd:string ;
+    backlog:missionFor pcl:Backlog ;
+    backlog:missionSource "Owner, 2026-10-28 and 2026-11-02: the conditions for course HTML pages (menu and tabs, left tree and tabs kept in step, code that really runs, text-size control, adaptive to any device, diagram zoom and full-screen, default text not small); 'Which RDODI profiles are existing and which interactive page templates are matching, and are they satisfying the conditions of that profile?'; 'use [the course page] or enhance the current template'; and, on the gap analysis (RDODI_PROFILE_AND_PAGE_GAPS_v1_0_0.md): 'OK, recommendations are rational. Proceed.'"^^xsd:string ;
+    backlog:outcomeRationale "Replaced on the Owner's decision of 2026-11-04: the mission was not set properly. See the closure report." ;
+    rdfs:comment "DRAFT by an assistant session; the Owner accepted the recommendation of 2026-11-02 (the gap analysis, section E); not owner-worded (Lineage Operating Discipline: session-drafted)."^^xsd:string,
+        "Replaced on 2026-11-04 by Mission 2: it was not set properly (it left out the default page format and treated the course page as the page to prove). Kept as the record of what was believed." .
+pcl:S2 a backlog:Story ;
+    rdfs:label "Build the browser gate instrument that measures each condition"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S2 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S2"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Build the browser gate instrument that measures each condition"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_G3,
+        pcl:Obj_ScopeSat ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D2 .
+pcl:S3 a backlog:Story ;
+    rdfs:label "Run the gates on every shipped page and fix or retire each failing one"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S3 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S3"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Run the gates on every shipped page and fix or retire each failing one"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_P1,
+        pcl:Obj_ScopeSat ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D3 .
+pcl:S4 a backlog:Story ;
+    rdfs:label "Link every profile with a run to its page or record that none exists"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S4 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S4"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Link every profile with a run to its page or record that none exists"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_R1,
+        pcl:Obj_ScopeSat ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D4 .
+pcl:S5 a backlog:Story ;
+    rdfs:label "State what a profile requires of its page as a shape that refuses a claim it does not meet"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S5 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S5"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "State what a profile requires of its page as a shape that refuses a claim it does not meet"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_R2,
+        pcl:Obj_ScopeSat ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D5 .
+pcl:S6 a backlog:Story ;
+    rdfs:label "Build one chapter page here from the pinned course page and run every gate on it"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S6 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S6"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Build one chapter page here from the pinned course page and run every gate on it"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_K1,
+        pcl:Obj_ScopeSat ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D6 .
+pcl:S7 a backlog:Story ;
+    rdfs:label "Show the course page opens from a fresh clone and edited code changes its result"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S7 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S7"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Show the course page opens from a fresh clone and edited code changes its result"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_K2,
+        pcl:Obj_ScopeSat ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D7 .
+pcl:S1 a backlog:Story ;
+    rdfs:label "Make the seven page conditions Stage 4 gates and shapes"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S1 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S1"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Make the seven page conditions Stage 4 gates and shapes"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_G1,
+        pcl:Obj_G2,
+        pcl:Obj_ScopeSat ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_D1 .
+pcl:S8 a backlog:Story ;
+    rdfs:label "Release each change through the one release path and measure again from a fresh clone"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:effectiveDefinitionOfDone pcl:DoD ;
+    backlog:hasAcceptanceCriterion pcl:AC_S8 ;
+    backlog:hasApplicableConcern backlog:Concern_Interface_UI ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "RDPC-S8"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_NewCapability ;
+    backlog:hasRationale "Not built in Lineage 2. Its mission was replaced on the Owner's decision of 2026-11-04 and its work was taken up by Lineage 3; the item was left Proposed when the lineage was set down, against the framework's rule that a lineage closes only with its items closed. Cancelled on the Owner's ruling IP-R5 of 2026-11-08 so that the lineage can be closed completely."^^xsd:string ;
+    backlog:hasScoreabilityReason "Not yet estimated: effort is set at refinement, before the box that takes the item opens."^^xsd:string ;
+    backlog:hasState backlog:Cancelled ;
+    backlog:hasTitle "Release each change through the one release path and measure again from a fresh clone"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj_Conf,
+        pcl:Obj_Contained,
+        pcl:Obj_ScopeSat,
+        pcl:Obj_X1,
+        pcl:Obj_X2,
+        pcl:Obj_X3,
+        pcl:Obj_X4,
+        pcl:Obj_X5,
+        pcl:Obj_X6,
+        pcl:Obj_X7 ;
+    backlog:responsible pcl:Run_Build01 ;
+    backlog:satisfiesDeliverable pcl:Del_W1 .
+pcl:Run_Build01 a backlog:ExecutorInstance,
+        backlog:Executor_SingleAgent ;
+    rdfs:label "The run of the Claude Code session that wrote this backlog"@en ;
+    backlog:instanceOf pcl:Executor_ClaudeCodeSession ;
+    backlog:instantiatedAt "2026-11-02T21:54:13"^^xsd:dateTime ;
+    backlog:instantiatedFromVersion "claude-sonnet-5-5 (the model this session is configured for)"^^xsd:string ;
+    rdfs:comment "A run, not the standing definition: it names the definition it is a run of, its version and when it began."^^xsd:string .
+pcl:Scope a backlog:ScopeStatement ;
+    rdfs:label "Scope: the page conditions of RDODI"@en ;
+    backlog:belongsToLineage pcl:Lineage02 ;
+    backlog:coversArea pcl:Area_A1,
+        pcl:Area_A2,
+        pcl:Area_A3,
+        pcl:Area_A4,
+        pcl:Area_A5 ;
+    backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted ;
+    backlog:hasScopeExclusion pcl:Excl_X1,
+        pcl:Excl_X2,
+        pcl:Excl_X3,
+        pcl:Excl_X4,
+        pcl:Excl_X5,
+        pcl:Excl_X6,
+        pcl:Excl_X7 ;
+    backlog:hasScopeStatementText "The scope is the verified gaps of 01-profiles/RDODI_PROFILE_AND_PAGE_GAPS_v1_0_0.md that the mission names: the Owner's page conditions as Stage 4 gates (with a shape and a browser measurement), their effect on every page template and example the package ships, what each profile with a generated run requires of its page, and one chapter page built here from the pinned course page. Scope is tested against the framework's own taxonomy: layer (product or work) by kind (functional or non-functional); every mission clause has a deliverable. Other repositories are only read."^^xsd:string ;
+    backlog:requiresDeliverable pcl:Del_D1,
+        pcl:Del_D2,
+        pcl:Del_D3,
+        pcl:Del_D4,
+        pcl:Del_D5,
+        pcl:Del_D6,
+        pcl:Del_D7,
+        pcl:Del_W1 ;
+    backlog:scopeForMission pcl:Mission ;
+    rdfs:comment "DRAFT by an assistant session; the Owner accepted the recommendation of 2026-11-02 (gap analysis, section E); not owner-worded."^^xsd:string .
+pcl:Lineage02 a backlog:Lineage ;
+    rdfs:label "Lineage 2: the page conditions of RDODI"@en ;
+    backlog:adoptionRecordedAtOpen true ;
+    backlog:adoptsRuleSet backlog:RS_AgentAccountability,
+        backlog:RS_CancellationAssessed,
+        backlog:RS_CeremonyKinds,
+        backlog:RS_ChainBothWays,
+        backlog:RS_ChangeSupportsMission,
+        backlog:RS_ConcurrentLineages,
+        backlog:RS_DecompositionStateAgrees,
+        backlog:RS_DigestTable_v5,
+        backlog:RS_FlowPointsRecorded,
+        backlog:RS_ImpedimentNamesWhatItBlocks,
+        backlog:RS_ImpedimentsKnown,
+        backlog:RS_IndependentVerification,
+        backlog:RS_ObligationsFollowStatus,
+        backlog:RS_PlanBeforeStart,
+        backlog:RS_PlannedDates,
+        backlog:RS_ReadinessChecked,
+        backlog:RS_RepairReprioritises,
+        backlog:RS_ReviewNeedsControlRun,
+        backlog:RS_StateReflectsEvidence,
+        backlog:RS_StatusHistoryRecorded,
+        backlog:RS_VerifierSession ;
+    backlog:hasLineageArtifactDomain backlog:Domain_ContentTransformation ;
+    backlog:hasLineageDepthLevel backlog:Depth_FullChain ;
+    backlog:hasLineageStatus backlog:LS_Abandoned ;
+    backlog:humanApprovalLevel 3 ;
+    backlog:lineageArchived true ; backlog:hasArchivalConfirmationStatus backlog:AC_PendingConfirmation ;
+    backlog:lineageForMission pcl:Mission ;
+    backlog:lineageOrdinal 2 ;
+    backlog:openedUnderRevision backlog:Pr_13 ;
+    backlog:openedWithProfile backlog:Profile_AgenticAdaptive ;
+    rdfs:comment "Abandoned 2026-11-04 on the Owner's decision: its mission was replaced; Lineage 3 carries on. Its five planning stages are kept as they were.",
+        "Correction appended 2026-11-08: on this day the session wrote (IPage 1.7.0 and to the Owner) that this lineage was concluded before the framework required its items to be closed, and that closing them would change a closed lineage. Both were wrong: the framework has required every item closed before a lineage is set down since September. The items are cancelled on the Owner's ruling IP-R5."@en .

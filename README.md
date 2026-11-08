@@ -4,7 +4,7 @@ One stand-alone ontology of interactive pages, organised by kind, that carries t
 
 This was the mission of Lineage 3, decided by the Owner on 2026-11-04. On 2026-11-05 the Owner moved the work out of RDODI's agenda into this repository and a session of its own. RDODI now uses what is published here.
 
-On 2026-11-08 the Owner ruled that IPage is run as the lineage framework now runs a package: one Governance lineage that looks after how IPage's lineages live, and narrow Delivery lineages that build the product, each planned in packages. Lineage 3 is concluded (confirmed by the Owner the same day) and set down in the archive; its unfinished work is carried forward to the new lineages.
+On 2026-11-08 the Owner ruled that IPage is run as the lineage framework now runs a package: one Governance lineage that looks after how IPage's lineages live, and narrow Delivery lineages that build the product, each planned in packages. Lineages 2 and 3 are concluded and set down in the archive; Lineage 3's unfinished work is carried forward to the new lineages.
 
 ## What is here
 
