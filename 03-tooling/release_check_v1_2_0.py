@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""release_check_v1_1_0.py - the gate every IPage release passes before it is committed and pushed.
+"""release_check_v1_2_0.py - the gate every IPage release passes before it is committed and pushed.
 
-  python3 03-tooling/release_check_v1_1_0.py                   run every check; exit 0 only if all pass
-  python3 03-tooling/release_check_v1_1_0.py --write-manifest  rewrite MANIFEST_SHA256.txt, then run every check
+  python3 03-tooling/release_check_v1_2_0.py                   run every check; exit 0 only if all pass
+  python3 03-tooling/release_check_v1_2_0.py --write-manifest  rewrite MANIFEST_SHA256.txt, then run every check
 
 Checks, in order:
   1. one live version: each file name stem in 01-ontologies, 02-shacl-safeguards, 03-tooling, 05-lineage and 06-page-measure has one version
@@ -18,6 +18,8 @@ the Ontologies monorepo from ONTOLOGIES_ROOT or a sibling clone named ontologies
 v1.1.0 (2026-11-08): a lineage set down in the archive (05-lineage/archive) is still audited: the checks of Lineage 3 (holds clean, evidence,
 digests) read the live register together with the newest archive file, because what they check moved there (lineage discipline step 6:
 checks of live records must read the archive too). The register as a whole is still validated alone.
+v1.2.0 (2026-11-08): every lineage of the register with a recorded stage output is audited, not only Lineage 3: each holds clean under the
+current shapes and each closed stage still holds what it closed on (Lineage 4, the Governance lineage, closes its stages from 1.8.0 on).
 """
 import os, re, sys, glob, hashlib, subprocess
 
@@ -77,18 +79,23 @@ def main(write):
         for t in gl: gm.add(t)
         for t in ga: gm.add(t)
         lreg = os.path.join(tempfile.mkdtemp(), "interactive_page_lineage_abox_v0_0_0.ttl"); gm.serialize(destination=lreg, format="turtle")
+    import rdflib as _r
+    _g = _r.Graph(); _g.parse(lreg, format="turtle"); _B = "http://example.org/backlog#"
+    lineages = sorted({str(_g.value(o, _r.URIRef(_B + "belongsToLineage"))).split("#")[-1] for o in _g.subjects(_r.RDF.type, _r.URIRef(_B + "StageOutput")) if _g.value(o, _r.URIRef(_B + "belongsToLineage")) is not None})
     if not fw: check("the register conforms (backlog framework found)", False, "no backlog-roadmap-framework clone; set BRSF_ROOT")
     else:
         v = sorted(glob.glob(os.path.join(fw, "03-tooling", "backlog_validate_v*.py")), key=vk)[-1]
         o = subprocess.run([sys.executable, v, reg], capture_output=True, text=True).stdout
         m = re.search(r"results\s*:\s*(\d+) Violation", o); check("the register conforms to the framework's shapes", bool(m) and m.group(1) == "0", m.group(0) if m else "no result line")
-        o = subprocess.run([sys.executable, v, "--validate-lineage", "Lineage03", lreg], capture_output=True, text=True).stdout
-        check("Lineage 3 holds clean under the current shapes", "holds clean" in o)
+        for ln in lineages:
+            o = subprocess.run([sys.executable, v, "--validate-lineage", ln, lreg], capture_output=True, text=True).stdout
+            check(f"{ln} holds clean under the current shapes", "holds clean" in o)
     # 5
     r = subprocess.run([sys.executable, os.path.join(ROOT, "05-lineage", "evidence_audit_v1_0_0.py"), lreg], capture_output=True, text=True)
     check("every recorded verification reproduces", r.returncode == 0, r.stdout.strip().splitlines()[-1] if r.stdout.strip() else r.stderr.strip()[-200:])
-    r = subprocess.run([sys.executable, os.path.join(ROOT, "05-lineage", "digest_audit_v1_0_0.py"), lreg], capture_output=True, text=True)
-    check("every closed stage of Lineage 3 still holds what it closed on", r.returncode == 0, r.stdout.strip().splitlines()[-1] if r.stdout.strip() else r.stderr.strip()[-200:])
+    for ln in lineages:
+        r = subprocess.run([sys.executable, os.path.join(ROOT, "05-lineage", "digest_audit_v1_0_0.py"), lreg, ln], capture_output=True, text=True)
+        check(f"every closed stage of {ln} still holds what it closed on", r.returncode == 0, r.stdout.strip().splitlines()[-1] if r.stdout.strip() else r.stderr.strip()[-200:])
     # 6
     ver = open(os.path.join(ROOT, "VERSION.txt")).read().strip()
     check("VERSION.txt has its changelog", os.path.isfile(os.path.join(ROOT, "04-documentation", "CHANGELOG_v" + ver.replace(".", "_") + ".md")), ver)
