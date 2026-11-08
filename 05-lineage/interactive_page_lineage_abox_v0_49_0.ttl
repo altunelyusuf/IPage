@@ -1,5 +1,5 @@
-@prefix agsys: <http://example.org/agentic-systems#> .
 @prefix backlog: <http://example.org/backlog#> .
+@prefix ns1: <http://example.org/agentic-systems#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pcl: <http://example.org/rdodi/page-conditions-lineage#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -172,41 +172,41 @@ pcl:Chk3_T_S9 a backlog:ReadinessCheck ;
         pcl:K3_T_S9_Input ;
     backlog:readinessCheckedAt "2026-11-05T12:34:26+00:00"^^xsd:dateTime .
 
-pcl:Config3_Verifier a agsys:AgentConfiguration ;
-    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_brief,
+pcl:Config3_Verifier a ns1:AgentConfiguration ;
+    ns1:hasConfigurationItem pcl:CfgItem3_Verifier_brief,
         pcl:CfgItem3_Verifier_model ;
-    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
-    agsys:recordedAt "2026-11-04T12:26:25+00:00"^^xsd:dateTime .
+    ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    ns1:recordedAt "2026-11-04T12:26:25+00:00"^^xsd:dateTime .
 
-pcl:Config3_Verifier_S14 a agsys:AgentConfiguration ;
-    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_S14_brief,
+pcl:Config3_Verifier_S14 a ns1:AgentConfiguration ;
+    ns1:hasConfigurationItem pcl:CfgItem3_Verifier_S14_brief,
         pcl:CfgItem3_Verifier_S14_model ;
-    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
-    agsys:recordedAt "2026-11-05T09:20:40+00:00"^^xsd:dateTime .
+    ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    ns1:recordedAt "2026-11-05T09:20:40+00:00"^^xsd:dateTime .
 
-pcl:Config3_Verifier_S15 a agsys:AgentConfiguration ;
-    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_S15_brief,
+pcl:Config3_Verifier_S15 a ns1:AgentConfiguration ;
+    ns1:hasConfigurationItem pcl:CfgItem3_Verifier_S15_brief,
         pcl:CfgItem3_Verifier_S15_model ;
-    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
-    agsys:recordedAt "2026-11-05T11:30:00+00:00"^^xsd:dateTime .
+    ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    ns1:recordedAt "2026-11-05T11:30:00+00:00"^^xsd:dateTime .
 
-pcl:Config3_Verifier_S3 a agsys:AgentConfiguration ;
-    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_S3_brief,
+pcl:Config3_Verifier_S3 a ns1:AgentConfiguration ;
+    ns1:hasConfigurationItem pcl:CfgItem3_Verifier_S3_brief,
         pcl:CfgItem3_Verifier_S3_model ;
-    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
-    agsys:recordedAt "2026-11-04T14:14:59+00:00"^^xsd:dateTime .
+    ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    ns1:recordedAt "2026-11-04T14:14:59+00:00"^^xsd:dateTime .
 
-pcl:Config3_Verifier_S4 a agsys:AgentConfiguration ;
-    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_S4_brief,
+pcl:Config3_Verifier_S4 a ns1:AgentConfiguration ;
+    ns1:hasConfigurationItem pcl:CfgItem3_Verifier_S4_brief,
         pcl:CfgItem3_Verifier_S4_model ;
-    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
-    agsys:recordedAt "2026-11-05T06:16:24+00:00"^^xsd:dateTime .
+    ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    ns1:recordedAt "2026-11-05T06:16:24+00:00"^^xsd:dateTime .
 
-pcl:Config3_Verifier_S9 a agsys:AgentConfiguration ;
-    agsys:hasConfigurationItem pcl:CfgItem3_Verifier_S9_brief,
+pcl:Config3_Verifier_S9 a ns1:AgentConfiguration ;
+    ns1:hasConfigurationItem pcl:CfgItem3_Verifier_S9_brief,
         pcl:CfgItem3_Verifier_S9_model ;
-    agsys:isConfigurationOf pcl:Exec_Verifier_L3 ;
-    agsys:recordedAt "2026-11-05T12:40:00+00:00"^^xsd:dateTime .
+    ns1:isConfigurationOf pcl:Exec_Verifier_L3 ;
+    ns1:recordedAt "2026-11-05T12:40:00+00:00"^^xsd:dateTime .
 
 pcl:Ev3_S14_Refine a backlog:TransitionEvent ;
     backlog:transitionedAt "2026-11-05T07:52:27+00:00"^^xsd:dateTime ;
@@ -1532,6 +1532,13 @@ pcl:Refine3_S9 a backlog:RefinementEvent ;
     backlog:refinedBy backlog:Builder ;
     backlog:refines pcl:Story3_S9 .
 
+pcl:Ruling_IP1 a backlog:GovernanceRuling ;
+    rdfs:label "IPage adopts the governance and delivery lineages of the framework: Lineage 3 is concluded and its open work is carried forward to narrow new lineages"@en ;
+    backlog:enforcedByShape backlog:OwnerRulingDatedShape ;
+    backlog:hasRulingIdentifier "IP-R1"^^xsd:string ;
+    backlog:hasRulingStatement "IPage is run as the framework now runs a package: one Governance lineage that looks after how IPage's lineages live (obstacles, hand-overs, the rule sets a lineage adopts), and narrow Delivery lineages that build the product, each scoped to its smallest closeable slice and planned in packages. Lineage 3, broad and opened before the package rules, is not cut down in place (a mission is only widened): its open stories, epics, task and iteration are cancelled with a reason, an as-is assessment and a closure report marked cancelled are written, the Owner confirms the closure, the mission outcome is set, and the lineage is set down in the next release (G215). What it delivered stays Done; what it did not deliver is carried forward as scope of the new lineages. Lineage 2, already concluded on 2026-11-04, is set down in the same release. The Governance lineage opens after Lineage 3 is concluded; the Delivery lineages open one at a time."^^xsd:string ;
+    backlog:rulingSource "Owner, 2026-11-08 10:49 Istanbul (07:49 UTC): 'Adapt the package based new BRSF with governance and production lineages. Let's discuss later.' Owner, 2026-11-08 11:32 Istanbul (08:32 UTC), choosing option 1 of the three put to him (close Lineage 3 and carry the rest forward; keep it as the Delivery lineage; keep it open but paused): '1 is the cleanest option. Let's proceed in this option.'"^^xsd:string .
+
 pcl:ScopeChange_CourseNotDefault a backlog:ScopeChange ;
     rdfs:label "The course page becomes one profile's page"@en ;
     backlog:admitsItem pcl:S9 ;
@@ -2068,53 +2075,53 @@ pcl:CP_X7 a backlog:ObjectiveCheckpoint ;
     backlog:datePredictedBy pcl:Fc_pcl_X7 ;
     backlog:expectedValue 0.0 .
 
-pcl:CfgItem3_Verifier_S14_brief a agsys:ConfigurationItem ;
-    agsys:hasItemKind "brief"^^xsd:string ;
-    agsys:hasItemValue "sha256 b51391bce417ffef1034141b8ddeb7e0158101a431b3ee9575798bf209a1f741"^^xsd:string .
+pcl:CfgItem3_Verifier_S14_brief a ns1:ConfigurationItem ;
+    ns1:hasItemKind "brief"^^xsd:string ;
+    ns1:hasItemValue "sha256 b51391bce417ffef1034141b8ddeb7e0158101a431b3ee9575798bf209a1f741"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S14_model a agsys:ConfigurationItem ;
-    agsys:hasItemKind "model"^^xsd:string ;
-    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+pcl:CfgItem3_Verifier_S14_model a ns1:ConfigurationItem ;
+    ns1:hasItemKind "model"^^xsd:string ;
+    ns1:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S15_brief a agsys:ConfigurationItem ;
-    agsys:hasItemKind "brief"^^xsd:string ;
-    agsys:hasItemValue "sha256 123657ab2616886c5bb84d4a7d44f741f8c0580fe6267fb591c497ff6fc1ac67"^^xsd:string .
+pcl:CfgItem3_Verifier_S15_brief a ns1:ConfigurationItem ;
+    ns1:hasItemKind "brief"^^xsd:string ;
+    ns1:hasItemValue "sha256 123657ab2616886c5bb84d4a7d44f741f8c0580fe6267fb591c497ff6fc1ac67"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S15_model a agsys:ConfigurationItem ;
-    agsys:hasItemKind "model"^^xsd:string ;
-    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+pcl:CfgItem3_Verifier_S15_model a ns1:ConfigurationItem ;
+    ns1:hasItemKind "model"^^xsd:string ;
+    ns1:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S3_brief a agsys:ConfigurationItem ;
-    agsys:hasItemKind "brief"^^xsd:string ;
-    agsys:hasItemValue "sha256 6ff8587c462c11ff73abb845e16f9fb0acba816bdef764e0dfdf5430fba7430c"^^xsd:string .
+pcl:CfgItem3_Verifier_S3_brief a ns1:ConfigurationItem ;
+    ns1:hasItemKind "brief"^^xsd:string ;
+    ns1:hasItemValue "sha256 6ff8587c462c11ff73abb845e16f9fb0acba816bdef764e0dfdf5430fba7430c"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S3_model a agsys:ConfigurationItem ;
-    agsys:hasItemKind "model"^^xsd:string ;
-    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+pcl:CfgItem3_Verifier_S3_model a ns1:ConfigurationItem ;
+    ns1:hasItemKind "model"^^xsd:string ;
+    ns1:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S4_brief a agsys:ConfigurationItem ;
-    agsys:hasItemKind "brief"^^xsd:string ;
-    agsys:hasItemValue "sha256 3e3861808a2d574e9860b3bc9259f2a782036ca37f69e4f6f5b386c1d9d51198"^^xsd:string .
+pcl:CfgItem3_Verifier_S4_brief a ns1:ConfigurationItem ;
+    ns1:hasItemKind "brief"^^xsd:string ;
+    ns1:hasItemValue "sha256 3e3861808a2d574e9860b3bc9259f2a782036ca37f69e4f6f5b386c1d9d51198"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S4_model a agsys:ConfigurationItem ;
-    agsys:hasItemKind "model"^^xsd:string ;
-    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+pcl:CfgItem3_Verifier_S4_model a ns1:ConfigurationItem ;
+    ns1:hasItemKind "model"^^xsd:string ;
+    ns1:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S9_brief a agsys:ConfigurationItem ;
-    agsys:hasItemKind "brief"^^xsd:string ;
-    agsys:hasItemValue "sha256 73ab8a6e24d9ab2a4a27fb717b019c0a736821c15fb6c98f41d9f5aa2aea2f59"^^xsd:string .
+pcl:CfgItem3_Verifier_S9_brief a ns1:ConfigurationItem ;
+    ns1:hasItemKind "brief"^^xsd:string ;
+    ns1:hasItemValue "sha256 73ab8a6e24d9ab2a4a27fb717b019c0a736821c15fb6c98f41d9f5aa2aea2f59"^^xsd:string .
 
-pcl:CfgItem3_Verifier_S9_model a agsys:ConfigurationItem ;
-    agsys:hasItemKind "model"^^xsd:string ;
-    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+pcl:CfgItem3_Verifier_S9_model a ns1:ConfigurationItem ;
+    ns1:hasItemKind "model"^^xsd:string ;
+    ns1:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
 
-pcl:CfgItem3_Verifier_brief a agsys:ConfigurationItem ;
-    agsys:hasItemKind "brief"^^xsd:string ;
-    agsys:hasItemValue "sha256 a3693b76e71e2473d8f02371c5594af89fd15c5596bb5d715cbd8e72c92ba6e7"^^xsd:string .
+pcl:CfgItem3_Verifier_brief a ns1:ConfigurationItem ;
+    ns1:hasItemKind "brief"^^xsd:string ;
+    ns1:hasItemValue "sha256 a3693b76e71e2473d8f02371c5594af89fd15c5596bb5d715cbd8e72c92ba6e7"^^xsd:string .
 
-pcl:CfgItem3_Verifier_model a agsys:ConfigurationItem ;
-    agsys:hasItemKind "model"^^xsd:string ;
-    agsys:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
+pcl:CfgItem3_Verifier_model a ns1:ConfigurationItem ;
+    ns1:hasItemKind "model"^^xsd:string ;
+    ns1:hasItemValue "Claude Sonnet 5.5 (general-purpose agent)"^^xsd:string .
 
 pcl:Commit01 a backlog:Commitment ;
     backlog:commitsToGoal pcl:Goal_Scope .
@@ -2937,47 +2944,47 @@ pcl:Goal_X7 a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Exclusion ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
 
-pcl:Grant3_Verifier a agsys:AccessGrant ;
-    agsys:grantMode "read-only"^^xsd:string ;
-    agsys:grantedAt "2026-11-04T12:26:25+00:00"^^xsd:dateTime ;
-    agsys:grantedBy pcl:Run3_Build01 ;
-    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
-    agsys:viaRoute pcl:AccessRoute_Git .
+pcl:Grant3_Verifier a ns1:AccessGrant ;
+    ns1:grantMode "read-only"^^xsd:string ;
+    ns1:grantedAt "2026-11-04T12:26:25+00:00"^^xsd:dateTime ;
+    ns1:grantedBy pcl:Run3_Build01 ;
+    ns1:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    ns1:viaRoute pcl:AccessRoute_Git .
 
-pcl:Grant3_Verifier_S14 a agsys:AccessGrant ;
-    agsys:grantMode "read-only"^^xsd:string ;
-    agsys:grantedAt "2026-11-05T09:20:40+00:00"^^xsd:dateTime ;
-    agsys:grantedBy pcl:Run3_Build01 ;
-    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
-    agsys:viaRoute pcl:AccessRoute_Git .
+pcl:Grant3_Verifier_S14 a ns1:AccessGrant ;
+    ns1:grantMode "read-only"^^xsd:string ;
+    ns1:grantedAt "2026-11-05T09:20:40+00:00"^^xsd:dateTime ;
+    ns1:grantedBy pcl:Run3_Build01 ;
+    ns1:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    ns1:viaRoute pcl:AccessRoute_Git .
 
-pcl:Grant3_Verifier_S15 a agsys:AccessGrant ;
-    agsys:grantMode "read-only"^^xsd:string ;
-    agsys:grantedAt "2026-11-05T11:30:00+00:00"^^xsd:dateTime ;
-    agsys:grantedBy pcl:Run3_Build01 ;
-    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
-    agsys:viaRoute pcl:AccessRoute_Git .
+pcl:Grant3_Verifier_S15 a ns1:AccessGrant ;
+    ns1:grantMode "read-only"^^xsd:string ;
+    ns1:grantedAt "2026-11-05T11:30:00+00:00"^^xsd:dateTime ;
+    ns1:grantedBy pcl:Run3_Build01 ;
+    ns1:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    ns1:viaRoute pcl:AccessRoute_Git .
 
-pcl:Grant3_Verifier_S3 a agsys:AccessGrant ;
-    agsys:grantMode "read-only"^^xsd:string ;
-    agsys:grantedAt "2026-11-04T14:14:59+00:00"^^xsd:dateTime ;
-    agsys:grantedBy pcl:Run3_Build01 ;
-    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
-    agsys:viaRoute pcl:AccessRoute_Git .
+pcl:Grant3_Verifier_S3 a ns1:AccessGrant ;
+    ns1:grantMode "read-only"^^xsd:string ;
+    ns1:grantedAt "2026-11-04T14:14:59+00:00"^^xsd:dateTime ;
+    ns1:grantedBy pcl:Run3_Build01 ;
+    ns1:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    ns1:viaRoute pcl:AccessRoute_Git .
 
-pcl:Grant3_Verifier_S4 a agsys:AccessGrant ;
-    agsys:grantMode "read-only"^^xsd:string ;
-    agsys:grantedAt "2026-11-05T06:16:24+00:00"^^xsd:dateTime ;
-    agsys:grantedBy pcl:Run3_Build01 ;
-    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
-    agsys:viaRoute pcl:AccessRoute_Git .
+pcl:Grant3_Verifier_S4 a ns1:AccessGrant ;
+    ns1:grantMode "read-only"^^xsd:string ;
+    ns1:grantedAt "2026-11-05T06:16:24+00:00"^^xsd:dateTime ;
+    ns1:grantedBy pcl:Run3_Build01 ;
+    ns1:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    ns1:viaRoute pcl:AccessRoute_Git .
 
-pcl:Grant3_Verifier_S9 a agsys:AccessGrant ;
-    agsys:grantMode "read-only"^^xsd:string ;
-    agsys:grantedAt "2026-11-05T12:40:00+00:00"^^xsd:dateTime ;
-    agsys:grantedBy pcl:Run3_Build01 ;
-    agsys:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
-    agsys:viaRoute pcl:AccessRoute_Git .
+pcl:Grant3_Verifier_S9 a ns1:AccessGrant ;
+    ns1:grantMode "read-only"^^xsd:string ;
+    ns1:grantedAt "2026-11-05T12:40:00+00:00"^^xsd:dateTime ;
+    ns1:grantedBy pcl:Run3_Build01 ;
+    ns1:grantedPlace "the published repository, cloned fresh by the verifier"^^xsd:string ;
+    ns1:viaRoute pcl:AccessRoute_Git .
 
 pcl:K3_S14_AC a backlog:ReadinessCriterion ;
     rdfs:label "The acceptance criterion reads as a check the measurement script makes"@en ;
@@ -3291,28 +3298,28 @@ pcl:Out_Scope a backlog:StageOutput ;
     backlog:hasStateDigest "bf1d0452a0342a2e599cf6ccced285ad72530d7d7e8c561f7cd6bc85be6b6389"^^xsd:string ;
     backlog:outputOfStage backlog:Stage_Scope .
 
-pcl:Plan3_Verifier a agsys:VerificationPlan ;
-    agsys:hasPlanDigest "a3693b76e71e2473d8f02371c5594af89fd15c5596bb5d715cbd8e72c92ba6e7"^^xsd:string ;
+pcl:Plan3_Verifier a ns1:VerificationPlan ;
+    ns1:hasPlanDigest "a3693b76e71e2473d8f02371c5594af89fd15c5596bb5d715cbd8e72c92ba6e7"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
-pcl:Plan3_Verifier_S14 a agsys:VerificationPlan ;
-    agsys:hasPlanDigest "b51391bce417ffef1034141b8ddeb7e0158101a431b3ee9575798bf209a1f741"^^xsd:string ;
+pcl:Plan3_Verifier_S14 a ns1:VerificationPlan ;
+    ns1:hasPlanDigest "b51391bce417ffef1034141b8ddeb7e0158101a431b3ee9575798bf209a1f741"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
-pcl:Plan3_Verifier_S15 a agsys:VerificationPlan ;
-    agsys:hasPlanDigest "123657ab2616886c5bb84d4a7d44f741f8c0580fe6267fb591c497ff6fc1ac67"^^xsd:string ;
+pcl:Plan3_Verifier_S15 a ns1:VerificationPlan ;
+    ns1:hasPlanDigest "123657ab2616886c5bb84d4a7d44f741f8c0580fe6267fb591c497ff6fc1ac67"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
-pcl:Plan3_Verifier_S3 a agsys:VerificationPlan ;
-    agsys:hasPlanDigest "6ff8587c462c11ff73abb845e16f9fb0acba816bdef764e0dfdf5430fba7430c"^^xsd:string ;
+pcl:Plan3_Verifier_S3 a ns1:VerificationPlan ;
+    ns1:hasPlanDigest "6ff8587c462c11ff73abb845e16f9fb0acba816bdef764e0dfdf5430fba7430c"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
-pcl:Plan3_Verifier_S4 a agsys:VerificationPlan ;
-    agsys:hasPlanDigest "3e3861808a2d574e9860b3bc9259f2a782036ca37f69e4f6f5b386c1d9d51198"^^xsd:string ;
+pcl:Plan3_Verifier_S4 a ns1:VerificationPlan ;
+    ns1:hasPlanDigest "3e3861808a2d574e9860b3bc9259f2a782036ca37f69e4f6f5b386c1d9d51198"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
-pcl:Plan3_Verifier_S9 a agsys:VerificationPlan ;
-    agsys:hasPlanDigest "73ab8a6e24d9ab2a4a27fb717b019c0a736821c15fb6c98f41d9f5aa2aea2f59"^^xsd:string ;
+pcl:Plan3_Verifier_S9 a ns1:VerificationPlan ;
+    ns1:hasPlanDigest "73ab8a6e24d9ab2a4a27fb717b019c0a736821c15fb6c98f41d9f5aa2aea2f59"^^xsd:string ;
     rdfs:comment "The brief given to the verifying agent, fixed by its digest before the agent started."@en .
 
 pcl:Rel3_S14 a backlog:DeploymentUnit ;
@@ -4144,11 +4151,11 @@ pcl:Run3_Oversight_S9 a backlog:ExecutorInstance,
 pcl:Run3_Verifier_S14 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that re-ran the acceptance check in a fresh clone"@en ;
-    agsys:executedBy pcl:Session3_Verifier_S14 ;
-    agsys:followsPlan pcl:Plan3_Verifier_S14 ;
-    agsys:placeUnchanged false ;
-    agsys:startedInWay pcl:StartWay_Request ;
-    agsys:startedUnderGrant pcl:Grant3_Verifier_S14 ;
+    ns1:executedBy pcl:Session3_Verifier_S14 ;
+    ns1:followsPlan pcl:Plan3_Verifier_S14 ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier_S14 ;
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-05T09:21:13+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a7c3d0f7d4b0eced2"^^xsd:string .
@@ -4156,11 +4163,11 @@ pcl:Run3_Verifier_S14 a backlog:ExecutorInstance,
 pcl:Run3_Verifier_S15 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that re-ran the acceptance check in a fresh clone"@en ;
-    agsys:executedBy pcl:Session3_Verifier_S15 ;
-    agsys:followsPlan pcl:Plan3_Verifier_S15 ;
-    agsys:placeUnchanged false ;
-    agsys:startedInWay pcl:StartWay_Request ;
-    agsys:startedUnderGrant pcl:Grant3_Verifier_S15 ;
+    ns1:executedBy pcl:Session3_Verifier_S15 ;
+    ns1:followsPlan pcl:Plan3_Verifier_S15 ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier_S15 ;
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-05T11:35:00+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a2892a67736c2a38a"^^xsd:string .
@@ -4168,11 +4175,11 @@ pcl:Run3_Verifier_S15 a backlog:ExecutorInstance,
 pcl:Run3_Verifier_S3 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that re-ran the acceptance check in a fresh clone"@en ;
-    agsys:executedBy pcl:Session3_Verifier_S3 ;
-    agsys:followsPlan pcl:Plan3_Verifier_S3 ;
-    agsys:placeUnchanged false ;
-    agsys:startedInWay pcl:StartWay_Request ;
-    agsys:startedUnderGrant pcl:Grant3_Verifier_S3 ;
+    ns1:executedBy pcl:Session3_Verifier_S3 ;
+    ns1:followsPlan pcl:Plan3_Verifier_S3 ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier_S3 ;
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-04T14:15:30+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run afea60d8c118c52c2"^^xsd:string .
@@ -4180,11 +4187,11 @@ pcl:Run3_Verifier_S3 a backlog:ExecutorInstance,
 pcl:Run3_Verifier_S4 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that re-ran the acceptance check in a fresh clone"@en ;
-    agsys:executedBy pcl:Session3_Verifier_S4 ;
-    agsys:followsPlan pcl:Plan3_Verifier_S4 ;
-    agsys:placeUnchanged false ;
-    agsys:startedInWay pcl:StartWay_Request ;
-    agsys:startedUnderGrant pcl:Grant3_Verifier_S4 ;
+    ns1:executedBy pcl:Session3_Verifier_S4 ;
+    ns1:followsPlan pcl:Plan3_Verifier_S4 ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier_S4 ;
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-05T06:16:40+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run abb7a36c25a69947b"^^xsd:string .
@@ -4192,11 +4199,11 @@ pcl:Run3_Verifier_S4 a backlog:ExecutorInstance,
 pcl:Run3_Verifier_S9 a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that re-ran the acceptance check in a fresh clone"@en ;
-    agsys:executedBy pcl:Session3_Verifier_S9 ;
-    agsys:followsPlan pcl:Plan3_Verifier_S9 ;
-    agsys:placeUnchanged false ;
-    agsys:startedInWay pcl:StartWay_Request ;
-    agsys:startedUnderGrant pcl:Grant3_Verifier_S9 ;
+    ns1:executedBy pcl:Session3_Verifier_S9 ;
+    ns1:followsPlan pcl:Plan3_Verifier_S9 ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier_S9 ;
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-05T12:55:00+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a31b672fda4aaa6bc"^^xsd:string .
@@ -4976,11 +4983,11 @@ pcl:Run3_Oversight a backlog:ExecutorInstance,
 pcl:Run3_Verifier a backlog:ExecutorInstance,
         backlog:Executor_SingleAgent ;
     rdfs:label "An independent agent run that re-ran the acceptance checks in a fresh clone"@en ;
-    agsys:executedBy pcl:Session3_Verifier ;
-    agsys:followsPlan pcl:Plan3_Verifier ;
-    agsys:placeUnchanged false ;
-    agsys:startedInWay pcl:StartWay_Request ;
-    agsys:startedUnderGrant pcl:Grant3_Verifier ;
+    ns1:executedBy pcl:Session3_Verifier ;
+    ns1:followsPlan pcl:Plan3_Verifier ;
+    ns1:placeUnchanged false ;
+    ns1:startedInWay pcl:StartWay_Request ;
+    ns1:startedUnderGrant pcl:Grant3_Verifier ;
     backlog:instanceOf pcl:Exec_Verifier_L3 ;
     backlog:instantiatedAt "2026-11-04T12:27:00+00:00"^^xsd:dateTime ;
     backlog:instantiatedFromVersion "claude-sonnet-5-5 sub-agent run a119b93563b0d6b86"^^xsd:string .
@@ -5525,7 +5532,7 @@ pcl:T3_S9_Build a backlog:ExecutionTask ;
     backlog:startedAt "2026-11-05T12:34:28+00:00"^^xsd:dateTime ;
     backlog:verifiedBy pcl:Run3_Verifier_S9 .
 
-pcl:AccessRoute_Git a agsys:AccessRoute ;
+pcl:AccessRoute_Git a ns1:AccessRoute ;
     rdfs:label "A fresh clone of the published repository"@en .
 
 pcl:Exec_Approver_L3 a backlog:Executor_SingleAgent ;
@@ -5682,7 +5689,7 @@ pcl:Obj_R2 a backlog:Objective ;
     backlog:hasTargetValue 1.0 ;
     backlog:metricMovableBy pcl:S5 .
 
-pcl:StartWay_Request a agsys:StartWay ;
+pcl:StartWay_Request a ns1:StartWay ;
     rdfs:label "On the builder's request"@en .
 
 pcl:DomainEntity_PageOntology a backlog:DomainEntity ;
