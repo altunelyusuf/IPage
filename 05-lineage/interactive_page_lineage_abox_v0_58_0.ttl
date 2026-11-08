@@ -396,9 +396,9 @@ pcl:Session01 a backlog:RegisterSession ;
 <http://example.org/rdodi/page-conditions-lineage/register> a owl:Ontology ;
     rdfs:comment "BRSF register of Lineage 3 (one ontology of interactive pages), kept in the IPage repository from 2026-11-05. Its first version here is every statement of Lineage 3 in the RDODI register rdodi_overview_page_lineage_abox_v0_39_0.ttl, published by the Ontologies monorepo commit d3c1c30028cc48830c2b391c9be8e89dd15765cb, copied unchanged; that register keeps the whole history, and the evidence recorded there is re-run against the monorepo. From here the lineage writes only to this file."@en ;
     owl:imports <http://example.org/backlog> ;
-    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.54.0> ;
-    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.57.0> ;
-    owl:versionInfo "0.57.0" ;
+    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.57.0> ;
+    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.58.0> ;
+    owl:versionInfo "0.58.0" ;
     prov:wasAttributedTo <http://example.org/rdodi/agent/YusufAltunel> .
 
 pcl:AC_S1 a backlog:AcceptanceCriterion ;
@@ -953,6 +953,25 @@ pcl:Metric_X6 a <http://example.org/core#Metric> ;
 pcl:Metric_X7 a <http://example.org/core#Metric> ;
     rdfs:label "Count of files of the raw corpus shell changed since the Mission release"@en .
 
+pcl:Mission_G4 a backlog:Mission ;
+    rdfs:label "Mission 4: IPage's lineages are governed so the next Delivery lineage opens on a clear plan"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:hasMissionOrigin backlog:Origin_SessionDrafted ;
+    backlog:hasMissionOutcome backlog:Out_InFlight ;
+    backlog:hasMissionStatement "IPage's lineages are governed so the next Delivery lineage opens on a clear plan: every open hand-over is settled and delivered to its owner's inbox, Lineage 2 is set down, and the work carried forward from Lineage 3 is laid out as a roadmap of narrow Delivery lineages, each with its package, the repair of the rule checks first."^^xsd:string ;
+    backlog:missionFor pcl:Backlog ;
+    backlog:missionSource "Owner, 2026-11-08 16:05 Istanbul (13:05 UTC): 'Accept (Recommended)' to this mission, drafted by the session and put to him with its scope (the open hand-overs; setting down Lineage 2; the Delivery roadmap) and its exclusions (no change to the ontology, shapes or pages; no file outside IPage except hand-overs placed in a recipient's inbox), under his ruling IP-R1 of the same day."^^xsd:string ;
+    backlog:producedByStage pcl:Out4_Mission ;
+    rdfs:comment "DRAFT by an assistant session; accepted by the Owner on 2026-11-08 as worded."@en .
+
+pcl:Out4_Mission a backlog:StageOutput ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:closedAtCommit "IPage v1.8.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:hasRationale "Mission stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
+    backlog:hasStateDigest "caf1e639c625dd255d896504cc50def47019c2ac0884e8cd24e542203c476c5b"^^xsd:string ;
+    backlog:outputOfStage backlog:Stage_Mission .
+
 pcl:Out_Goal a backlog:StageOutput ;
     backlog:belongsToLineage pcl:Lineage02 ;
     backlog:closedAtCommit "rdodi-ecosystem-v1.236.0 (tag; witnessed by git, not asserted)"^^xsd:string ;
@@ -1261,6 +1280,45 @@ pcl:Goal_Scope a backlog:Goal ;
         pcl:Area_A5 ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_SessionDrafted .
+
+pcl:Lineage04 a backlog:Lineage ;
+    rdfs:label "Lineage 4: IPage's Governance lineage"@en ;
+    backlog:adoptionRecordedAtOpen true ;
+    backlog:adoptsRuleSet backlog:RS_AgentAccountability,
+        backlog:RS_CancellationAssessed,
+        backlog:RS_CeremonyKinds,
+        backlog:RS_ChainBothWays,
+        backlog:RS_ChangeSupportsMission,
+        backlog:RS_ConcurrentLineages,
+        backlog:RS_DecompositionStateAgrees,
+        backlog:RS_DigestTable_v5,
+        backlog:RS_FlowPointsRecorded,
+        backlog:RS_ForecastDiscussed,
+        backlog:RS_ImpedimentNamesWhatItBlocks,
+        backlog:RS_ImpedimentsKnown,
+        backlog:RS_IndependentVerification,
+        backlog:RS_ObligationsFollowStatus,
+        backlog:RS_PackagesRequired,
+        backlog:RS_PlanBeforeStart,
+        backlog:RS_PlannedDates,
+        backlog:RS_ReadinessChecked,
+        backlog:RS_RepairReprioritises,
+        backlog:RS_ReviewNeedsControlRun,
+        backlog:RS_ScopeItemsAnswered,
+        backlog:RS_StateReflectsEvidence,
+        backlog:RS_StatusHistoryRecorded,
+        backlog:RS_VerifierSession ;
+    backlog:hasLineageArtifactDomain backlog:Domain_Infrastructure ;
+    backlog:hasLineageDepthLevel backlog:Depth_FullChain ;
+    backlog:hasLineageStatus backlog:LS_Opened ;
+    backlog:humanApprovalLevel 3 ;
+    backlog:lineageArchived false ;
+    backlog:lineageForMission pcl:Mission_G4 ;
+    backlog:lineageOrdinal 4 ;
+    backlog:maintainedBy pcl:Maintainer3_IPage ;
+    backlog:openedUnderRevision backlog:Pr_16 ;
+    backlog:openedWithProfile backlog:Profile_AgenticAdaptive ;
+    rdfs:comment "The Governance lineage of IPage (the framework's ruling G217: the lineage that governs the lives of lineages). Opened on the Owner's ruling IP-R1 of 2026-11-08 under the framework's default profile (agentic adaptive, revision 16, which adopts the package rules), after Lineage 3 was concluded and set down."@en .
 
 pcl:Metric_G1 a <http://example.org/core#Metric> ;
     rdfs:label "Count of the Owner's seven page conditions carried by a live Stage 4 gate row of the newest procedure"@en .
