@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""release_check_v1_2_0.py - the gate every IPage release passes before it is committed and pushed.
+"""release_check_v1_3_0.py - the gate every IPage release passes before it is committed and pushed.
 
-  python3 03-tooling/release_check_v1_2_0.py                   run every check; exit 0 only if all pass
-  python3 03-tooling/release_check_v1_2_0.py --write-manifest  rewrite MANIFEST_SHA256.txt, then run every check
+  python3 03-tooling/release_check_v1_3_0.py                   run every check; exit 0 only if all pass
+  python3 03-tooling/release_check_v1_3_0.py --write-manifest  rewrite MANIFEST_SHA256.txt, then run every check
 
 Checks, in order:
   1. one live version: each file name stem in 01-ontologies, 02-shacl-safeguards, 03-tooling, 05-lineage and 06-page-measure has one version
@@ -20,6 +20,7 @@ digests) read the live register together with the newest archive file, because w
 checks of live records must read the archive too). The register as a whole is still validated alone.
 v1.2.0 (2026-11-08): every lineage of the register with a recorded stage output is audited, not only Lineage 3: each holds clean under the
 current shapes and each closed stage still holds what it closed on (Lineage 4, the Governance lineage, closes its stages from 1.8.0 on).
+v1.3.0 (2026-11-08): the evidence and digest audits are found by their name pattern (the newest version), not by a fixed file name.
 """
 import os, re, sys, glob, hashlib, subprocess
 
@@ -91,10 +92,10 @@ def main(write):
             o = subprocess.run([sys.executable, v, "--validate-lineage", ln, lreg], capture_output=True, text=True).stdout
             check(f"{ln} holds clean under the current shapes", "holds clean" in o)
     # 5
-    r = subprocess.run([sys.executable, os.path.join(ROOT, "05-lineage", "evidence_audit_v1_0_0.py"), lreg], capture_output=True, text=True)
+    r = subprocess.run([sys.executable, newest("05-lineage/evidence_audit_v*.py"), lreg], capture_output=True, text=True)
     check("every recorded verification reproduces", r.returncode == 0, r.stdout.strip().splitlines()[-1] if r.stdout.strip() else r.stderr.strip()[-200:])
     for ln in lineages:
-        r = subprocess.run([sys.executable, os.path.join(ROOT, "05-lineage", "digest_audit_v1_0_0.py"), lreg, ln], capture_output=True, text=True)
+        r = subprocess.run([sys.executable, newest("05-lineage/digest_audit_v*.py"), lreg, ln], capture_output=True, text=True)
         check(f"every closed stage of {ln} still holds what it closed on", r.returncode == 0, r.stdout.strip().splitlines()[-1] if r.stdout.strip() else r.stderr.strip()[-200:])
     # 6
     ver = open(os.path.join(ROOT, "VERSION.txt")).read().strip()

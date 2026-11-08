@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""digest_audit_v1_0_0.py - the closed stages of Lineage 3 still hold what they closed on.
+"""digest_audit_v1_1_0.py - the closed stages of Lineage 3 still hold what they closed on.
 
-  python3 digest_audit_v1_0_0.py REGISTER.ttl [Lineage03]
+  python3 digest_audit_v1_1_0.py REGISTER.ttl [Lineage03]
 
 Recomputes each closed stage's digest (the framework's backlog_pipeline_verify state digest, scoped to the lineage) and compares it with the
 digest the stage's output recorded. Set aside, and only these: execution tasks produced by planning; work items an owner-decided scope change
 admits for an accepted request; and scope deliverables, goals and objectives such a change introduced after the stage closed, tied to it by
 prov:wasDerivedFrom. Anything else added to or removed from a closed stage fails. Vendored from rdodi-ecosystem's lineage_disk_audit v1.6.0
 (--digest) when Lineage 3 moved to IPage; its self-test runs there against the full register.
+v1.1.0 (2026-11-08): an output a stage revision retracted (outputRetracted true) is not the stage's output any more and is skipped; the stage's
+current output is the one no revision retracted. Before, two outputs of one stage overwrote each other in no defined order.
 """
 import os, re, sys, glob
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, ".."))
@@ -20,7 +22,7 @@ def _pv():
     pvp = sorted(glob.glob(f"{fw}/03-tooling/backlog_pipeline_verify_v*.py"), key=_vk)[-1]; tbox = sorted(glob.glob(f"{fw}/01-ontologies/backlog_tbox_v*.ttl"), key=_vk)[-1]
     sp = importlib.util.spec_from_file_location("pv", pvp); pv = importlib.util.module_from_spec(sp); sp.loader.exec_module(pv); pv.STAGE_TYPES = pv._load_stage_types(tbox); return pv
 def digest_check(g, lineage="Lineage01"):
-    from rdflib import Graph, RDF, URIRef
+    from rdflib import Graph, RDF, URIRef, Literal
     pv = _pv(); LN = next((s for s in g.subjects(RDF.type, URIRef(B + "Lineage")) if str(s).endswith("#" + lineage)), None)
     if LN is None: return False, [f"no lineage {lineage}"]
     other = {t for st in pv.ORDER for t in pv.STAGE_TYPES[st]} - {"ExecutionTask"}
@@ -42,6 +44,7 @@ def digest_check(g, lineage="Lineage01"):
         if t[0] not in tasks and t[0] not in admitted and t[0] not in introduced: g2.add(t)
     msgs, ok, outs = [], True, {}
     for o in g.subjects(RDF.type, URIRef(B + "StageOutput")):
+        if (o, URIRef(B + "outputRetracted"), Literal(True)) in g: continue
         if (o, URIRef(B + "belongsToLineage"), LN) in g: outs[str(g.value(o, URIRef(B + "outputOfStage"))).split("#")[-1]] = str(g.value(o, URIRef(B + "hasStateDigest")))
     for st in pv.ORDER:
         if st not in outs: msgs.append(f"{st}: no output recorded"); continue
