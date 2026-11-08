@@ -34,11 +34,11 @@ The register is the newest `05-lineage/interactive_page_lineage_abox_v*.ttl`. It
 
 Work reaches the register before it reaches a file.
 
-1. **Start the story:** `python3 05-lineage/l3_steps_v2_4_0.py start SNN --report-tool ../backlog-roadmap-framework/03-tooling/backlog_roadmap_report_v*.py`. This writes the next register version.
+1. **Start the story:** `python3 05-lineage/l3_steps_v2_5_0.py start SNN --report-tool ../backlog-roadmap-framework/03-tooling/backlog_roadmap_report_v*.py`. This writes the next register version.
 2. **Build the work.**
 3. **Review it:** an independent overseer reviews the work, a verifier re-runs the acceptance check from a fresh clone, and a separate approver decides.
 4. **Measure it** into `05-lineage/l3_measurement_SNN_v1_0_0.json`, with the SHA-256 of the measured file and the commit.
-5. **Record the finish:** `python3 05-lineage/l3_steps_v2_4_0.py finish SNN ...`.
+5. **Record the finish:** `python3 05-lineage/l3_steps_v2_5_0.py finish SNN ...`.
 
 Release with this sequence:
 

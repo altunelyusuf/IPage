@@ -188,6 +188,7 @@ pcl:Closure_L3 a backlog:ClosureReport ;
         pcl:Finding3_Close_9,
         pcl:Finding3_IneffectiveMaintenanceMetrics_S3_S4_S14_S15 ;
     backlog:closesForMission pcl:Mission_R2 ;
+    backlog:closureCommittedAt "98c17044acf0c6a41a36d09c68126f98b5ac863a"^^xsd:string ;
     backlog:hasClosureMark backlog:Cm_Cancelled ;
     backlog:hasClosureSummary "Lineage 3 set out to build one stand-alone ontology of interactive pages that carries the Owner's page rules, so that RDODI can build and check its default page format. It delivered the ontology (256 page-part classes in one tree of kinds, none standing alone), the qualities and their standards, the 28 rules each with its source, quality and kind of part, one browser measurement that reads a page against every rule at desktop and phone width, the default page format built from the ontology and passing all 56 checks, and the move of the work into the IPage repository. It did not deliver rules as shapes that actually refuse a page (built, but inert in the project's own checks and not naming the rule), rules as Stage 4 gates, the check of the pages already shipped, a page for every profile, the course page as one profile's page, a measured release path, or the hand-over. On the Owner's ruling IP-R1 of 2026-11-08, IPage adopts the framework's Governance and Delivery lineages: Lineage 3 is concluded and its open work carried forward to narrow lineages, the repair of the rule shapes first."^^xsd:string ;
     backlog:reportGeneratedAt "2026-11-08T09:05:49+00:00"^^xsd:dateTime ;
@@ -1870,6 +1871,13 @@ pcl:Ruling_IP1 a backlog:GovernanceRuling ;
     backlog:hasRulingIdentifier "IP-R1"^^xsd:string ;
     backlog:hasRulingStatement "IPage is run as the framework now runs a package: one Governance lineage that looks after how IPage's lineages live (obstacles, hand-overs, the rule sets a lineage adopts), and narrow Delivery lineages that build the product, each scoped to its smallest closeable slice and planned in packages. Lineage 3, broad and opened before the package rules, is not cut down in place (a mission is only widened): its open stories, epics, task and iteration are cancelled with a reason, an as-is assessment and a closure report marked cancelled are written, the Owner confirms the closure, the mission outcome is set, and the lineage is set down in the next release (G215). What it delivered stays Done; what it did not deliver is carried forward as scope of the new lineages. Lineage 2, already concluded on 2026-11-04, is set down in the same release. The Governance lineage opens after Lineage 3 is concluded; the Delivery lineages open one at a time."^^xsd:string ;
     backlog:rulingSource "Owner, 2026-11-08 10:49 Istanbul (07:49 UTC): 'Adapt the package based new BRSF with governance and production lineages. Let's discuss later.' Owner, 2026-11-08 11:32 Istanbul (08:32 UTC), choosing option 1 of the three put to him (close Lineage 3 and carry the rest forward; keep it as the Delivery lineage; keep it open but paused): '1 is the cleanest option. Let's proceed in this option.'"^^xsd:string .
+
+pcl:Ruling_IP2 a backlog:GovernanceRuling ;
+    rdfs:label "The Owner confirms the closure of Lineage 3"@en ;
+    backlog:enforcedByShape backlog:OwnerRulingDatedShape ;
+    backlog:hasRulingIdentifier "IP-R2"^^xsd:string ;
+    backlog:hasRulingStatement "The Owner confirmed the closure report of Lineage 3 (marked Cancelled: concluded on his ruling IP-R1, its open work carried forward); the mission outcome is set to Abandoned with the closure summary as its rationale, and the lineage status to Abandoned. The lineage is set down in the next release."^^xsd:string ;
+    backlog:rulingSource "Owner, 2026-11-08 about 13:27 Istanbul (10:27 UTC), answering the closing question on the closure report of Lineage 3 committed in 98c1704 and corrected in 725a424: 'Confirm the closure (Recommended)'."^^xsd:string .
 
 pcl:ScopeChange_CourseNotDefault a backlog:ScopeChange ;
     rdfs:label "The course page becomes one profile's page"@en ;
@@ -6649,10 +6657,11 @@ pcl:Mission_R2 a backlog:Mission ;
     backlog:belongsToLineage pcl:Lineage03 ;
     backlog:decidedBy backlog:Owner ;
     backlog:hasMissionOrigin backlog:Origin_SessionDrafted ;
-    backlog:hasMissionOutcome backlog:Out_InFlight ;
+    backlog:hasMissionOutcome backlog:Out_Abandoned ;
     backlog:hasMissionStatement "Build one stand-alone ontology of interactive pages, organised by kind, that carries the Owner's page rules, so that RDODI can use it to build and check its default page format."^^xsd:string ;
     backlog:missionFor pcl:Backlog ;
     backlog:missionSource "Owner, 2026-11-04: accepted both change requests and one replacement mission (\"Yes, one mission is rational\"; \"Yes, proceed\"), after proposing that the interactive page needs a stand-alone ontology, organised by kind, which RDODI consumes, built by this lineage and then handed to a new session." ;
+    backlog:outcomeRationale "Lineage 3 set out to build one stand-alone ontology of interactive pages that carries the Owner's page rules, so that RDODI can build and check its default page format. It delivered the ontology (256 page-part classes in one tree of kinds, none standing alone), the qualities and their standards, the 28 rules each with its source, quality and kind of part, one browser measurement that reads a page against every rule at desktop and phone width, the default page format built from the ontology and passing all 56 checks, and the move of the work into the IPage repository. It did not deliver rules as shapes that actually refuse a page (built, but inert in the project's own checks and not naming the rule), rules as Stage 4 gates, the check of the pages already shipped, a page for every profile, the course page as one profile's page, a measured release path, or the hand-over. On the Owner's ruling IP-R1 of 2026-11-08, IPage adopts the framework's Governance and Delivery lineages: Lineage 3 is concluded and its open work carried forward to narrow lineages, the repair of the rule shapes first."^^xsd:string ;
     backlog:supersedesMission pcl:Mission ;
     rdfs:comment "DRAFT by an assistant session from the Owner's words of 2026-11-04; accepted by the Owner the same day." .
 
@@ -7035,7 +7044,7 @@ pcl:Lineage03 a backlog:Lineage ;
         backlog:RS_VerifierSession ;
     backlog:hasLineageArtifactDomain backlog:Domain_ContentTransformation ;
     backlog:hasLineageDepthLevel backlog:Depth_FullChain ;
-    backlog:hasLineageStatus backlog:LS_InProgress ;
+    backlog:hasLineageStatus backlog:LS_Abandoned ;
     backlog:humanApprovalLevel 3 ;
     backlog:lineageArchived false ;
     backlog:lineageForMission pcl:Mission_R2 ;

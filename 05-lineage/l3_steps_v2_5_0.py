@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""l3_steps_v2_4_0.py - the recorded steps of Lineage 3's work stories, one command per step. Each writes the NEXT register version, never edits or deletes the previous one (OE BP-D7),
+"""l3_steps_v2_5_0.py - the recorded steps of Lineage 3's work stories, one command per step. Each writes the NEXT register version, never edits or deletes the previous one (OE BP-D7),
 and refuses unless every earlier statement is still there except exactly those the step may change.
 
-  l3_steps_v2_4_0.py start S1 S2 ...    the named stories move to InProgress, stamped from the clock; with the disclosure that the first build of S1 and S2 preceded this record.
+  l3_steps_v2_5_0.py start S1 S2 ...    the named stories move to InProgress, stamped from the clock; with the disclosure that the first build of S1 and S2 preceded this record.
 
 v2.1.0 (2026-11-05): STORY_KEYS was missing S5 (it pursues A3c, like every other story this tool finishes) -- a gap found while finishing S5, not a change of what any story means.
 Tried and reverted (2026-11-05): closing S5 makes Epic3_E1's last child Done, which G148 (RS_DecompositionStateAgrees) then requires the epic itself to resolve. A same-step auto-close that only set hasState=Done cascaded into the full Done governance apparatus a story gets (G109/G112/G113/G115/G118/G168/G172/L1/L2/L3: overseenBy/verifiedBy/approvedBy, startedAt, readiness checks, evidence, an acceptance criterion with a real artifact) -- none of which exists for an Epic and none of which this tool can honestly fabricate. Left for the Owner to rule on (cancel the epic, add a child still to come, or define what closes a decomposition parent); see the hand-over. finish() is unchanged from v2.1.0; it still refuses to leave S5 Done while this is open.
@@ -20,6 +20,8 @@ v2.3.0 (2026-11-08): three steps for concluding the lineage (G215), on the Owner
                                          closure summary), and the lineage status Abandoned. Refuses without a closure report committed earlier.
 v2.4.0 (2026-11-08, the same day, before any release carried 2.3.0): an iteration is ended by the Owner's dissolution, not withdrawn like an
   item (a container's state is derived); the validator figure (Conf) names itself, so the report reads it until the value recorded is the value read.
+v2.5.0 (2026-11-08): conclude looked for the commit of the closure report in every file of 05-lineage and found its own source text
+  (commit e3be984); it now reads only the register files.
   finish also takes --agent-model (the model of the reviewing agents, recorded instead of a fixed name), and its observations name the measurement
   script actually used (it named v1_0_0, which was retired; corrected for observations written from now on, earlier ones stay as written).
 """
@@ -305,7 +307,7 @@ def conclude(a):
     base, out, g0, g = _open(); subj = set(); removed = set(); T = lambda t: Literal(t, datatype=XSD.string)
     CR = P.Closure_L3; mis = g0.value(LN, B.lineageForMission)
     if (CR, RDF.type, B.ClosureReport) not in g0: sys.exit("refused: no closure report; run report first")
-    first = subprocess.run(["git", "log", "--format=%H", "-S", "pcl:Closure_L3 a backlog:ClosureReport", "--", "05-lineage"], capture_output=True, text=True, cwd=ROOT).stdout.split()
+    first = subprocess.run(["git", "log", "--format=%H", "-S", "pcl:Closure_L3 a backlog:ClosureReport", "--", "05-lineage/interactive_page_lineage_abox_v*.ttl"], capture_output=True, text=True, cwd=ROOT).stdout.split()
     if not first: sys.exit("refused: the closure report is not committed yet; the Owner confirms a committed report")
     summ = str(g0.value(CR, B.hasClosureSummary)); ts = Literal(now(), datatype=XSD.dateTime)
     g.add((CR, B.closureCommittedAt, T(first[-1]))); subj.add(CR)
