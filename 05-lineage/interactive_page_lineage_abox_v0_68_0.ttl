@@ -397,6 +397,13 @@ pcl:Ruling_IP7 a backlog:GovernanceRuling ;
     backlog:hasRulingStatement "Epics are high-level backlog items defined in the Backlog stage from the scope. Before packages are chosen they are groomed into stories, to understand the scope and the business value; going from epics straight to packages leaves a gap between scope, backlog and roadmap. An epic carries an estimated value before grooming; after each grooming step its priority score is collected from its stories' scores and replaces the previous one. Recording a collected score beside scored stories, and the replacement of a score, wait on the framework (two hand-overs of 2026-11-09)."^^xsd:string ;
     backlog:rulingSource "Owner, 2026-11-09: at 13:55 Istanbul, 'Epics are a high level PBI needs grooming. Your Epic to package conversion is totally wrong and a clear drift from the methodology. Epics are generated or defined during the backlog stage. In roadmap stage they should be groomed at least to understand the scope and their business value. Jumping from epics to packages, means there is a gap between scope to backlog and roadmap. Review your methodology first.'; at 16:52, 'I think we can settle it with assigning a value before the grooming and after that, the story valuations whould be collected to finalize the EPIC priority score accordingly. If the grooming takes some steps, at the end of each step we can update EPIC appropriately. What do you say?'; at 16:57 (13:57 UTC), 'Yes, this is fine. Let's proceed.'"^^xsd:string .
 
+pcl:Ruling_IP8 a backlog:GovernanceRuling ;
+    rdfs:label "Packages are planned in the roadmap work from groomed, prioritised, cohesive stories; they are not counted from epics or stories alone"@en ;
+    backlog:enforcedByShape backlog:OwnerRulingDatedShape ;
+    backlog:hasRulingIdentifier "IP-R8"^^xsd:string ;
+    backlog:hasRulingStatement "Packages are a subject of planning and are defined after the backlog is groomed: prioritised, cohesive stories are packed into deployable packages, which is roadmap work; they are presented before the roadmap as its ingredient. In special cases a package may sit directly in the backlog (well-groomed, well-scoped work, for example inherited from earlier lineages), and grooming may continue after the roadmap as lower-priority work comes into focus, near-term work planned finely and the middle and long term in general. The number of packages is not counted from epics, stories or their combination without the prioritisation. This flexibility is why lineages run adaptively rather than in fixed steps."^^xsd:string ;
+    backlog:rulingSource "Owner, 2026-11-09, answering the session's two questions at 18:05 Istanbul (15:05 UTC): 'Packages are subject of planning and can only be defined after grooming the backlog. So, they can be presented before the roadmap as an ingredient of the roadmap. But, in special cases they can be directly part of the backlog, well groomed, nicely scoped work, possibly as a heritage from legacy or previous lineages, and even after the roadmap, as grooming can proceed as lower priority work becomes gets into the focus and as result of granular planning for near term and general planning of middle and long term. This is one of the reasons why we have switched from fixed step based to flexible adaptable lineage approach.' and 'We have prioritization and cohesive stories should be packed to build a deployable packages. Packages cannot be counted with epics or stories or their combinations without the prioritization. This is the roadmap work.'"^^xsd:string .
+
 pcl:SRev4_1 a backlog:StageRevision ;
     rdfs:label "First stage revision of Lineage 4: the Scope stage is rebuilt to answer the widened mission"@en ;
     backlog:decidedBy backlog:Owner ;
@@ -424,9 +431,9 @@ pcl:SRev4_3 a backlog:StageRevision ;
 <http://example.org/rdodi/page-conditions-lineage/register> a owl:Ontology ;
     rdfs:comment "BRSF register of Lineage 3 (one ontology of interactive pages), kept in the IPage repository from 2026-11-05. Its first version here is every statement of Lineage 3 in the RDODI register rdodi_overview_page_lineage_abox_v0_39_0.ttl, published by the Ontologies monorepo commit d3c1c30028cc48830c2b391c9be8e89dd15765cb, copied unchanged; that register keeps the whole history, and the evidence recorded there is re-run against the monorepo. From here the lineage writes only to this file."@en ;
     owl:imports <http://example.org/backlog> ;
-    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.66.0> ;
-    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.67.0> ;
-    owl:versionInfo "0.67.0" ;
+    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.67.0> ;
+    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.68.0> ;
+    owl:versionInfo "0.68.0" ;
     prov:wasAttributedTo <http://example.org/rdodi/agent/YusufAltunel> .
 
 pcl:CP4_A_Artifacts a backlog:ObjectiveCheckpoint ;
@@ -1409,7 +1416,8 @@ pcl:Obj4_Branches a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_Branches ;
     backlog:hasTargetDirection backlog:Dir_Hold ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_Conf a backlog:Objective ;
     rdfs:label "Objective: Violations of the framework's shapes on IPage's register, plus live lineages that do not hold clean"@en ;
@@ -1427,7 +1435,8 @@ pcl:Obj4_Conf a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_Conf ;
     backlog:hasTargetDirection backlog:Dir_Hold ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_Contained a backlog:Objective ;
     rdfs:label "Objective: Files changed since Lineage 4 opened outside the places its deliverables live in"@en ;
@@ -1445,7 +1454,8 @@ pcl:Obj4_Contained a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_Contained ;
     backlog:hasTargetDirection backlog:Dir_Hold ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_Mission a backlog:Objective ;
     rdfs:label "Objective: Deliverables of the Governance lineage's scope not met"@en ;
@@ -1464,6 +1474,7 @@ pcl:Obj4_Mission a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
     backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en ;
     prov:wasDerivedFrom pcl:Obj4_Execution,
         pcl:Obj4_Handovers,
         pcl:Obj4_Lifecycle,
@@ -1485,7 +1496,8 @@ pcl:Obj4_Outside a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_Outside ;
     backlog:hasTargetDirection backlog:Dir_Hold ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_Product a backlog:Objective ;
     rdfs:label "Objective: Files of the ontology, its shapes, the page measure, the default format or the page measurement changed since Lineage 4 opened"@en ;
@@ -1503,7 +1515,8 @@ pcl:Obj4_Product a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_Product ;
     backlog:hasTargetDirection backlog:Dir_Hold ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Out4_Goal a backlog:StageOutput ;
     backlog:belongsToLineage pcl:Lineage04 ;
@@ -1985,7 +1998,8 @@ pcl:Obj4_H_Archive a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_H_Archive ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_H_Epic a backlog:Objective ;
     rdfs:label "Objective: The hand-over on closing an epic not yet in the framework's inbox, or a copy left in IPage's pending"@en ;
@@ -2003,7 +2017,8 @@ pcl:Obj4_H_Epic a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_H_Epic ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_H_PageVersion a backlog:Objective ;
     rdfs:label "Objective: The hand-over on a page's version still pending in IPage's inbox"@en ;
@@ -2021,7 +2036,8 @@ pcl:Obj4_H_PageVersion a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_H_PageVersion ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_H_ProfileFormat a backlog:Objective ;
     rdfs:label "Objective: The hand-over on a profile's own page format still pending in IPage's inbox"@en ;
@@ -2039,7 +2055,8 @@ pcl:Obj4_H_ProfileFormat a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_H_ProfileFormat ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_Done a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for closing a task, story or sprint only on re-verified Definition of Done evidence (D16)"@en ;
@@ -2057,7 +2074,8 @@ pcl:Obj4_X_Done a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_X_Done ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_Packages a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for every backlog item in one package chosen on its recorded grounds (D13)"@en ;
@@ -2075,7 +2093,8 @@ pcl:Obj4_X_Packages a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_X_Packages ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_Review a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for a review of every sprint carrying its unfinished work, re-ranked, into the next (D17)"@en ;
@@ -2093,7 +2112,8 @@ pcl:Obj4_X_Review a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_X_Review ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_Sprints a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for a sprint planning the groomed stories of one package and naming their objectives (D14)"@en ;
@@ -2111,7 +2131,8 @@ pcl:Obj4_X_Sprints a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_X_Sprints ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_Tasks a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for refined stories with typed, planned tasks and every status move recorded (D15)"@en ;
@@ -2129,7 +2150,8 @@ pcl:Obj4_X_Tasks a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_X_Tasks ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_TimeBox a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for a time box with a base plan and a forecast end on every package and sprint (D18)"@en ;
@@ -2147,7 +2169,8 @@ pcl:Obj4_X_TimeBox a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_X_TimeBox ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_Trace a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for every changed file traced to its item and task (D11)"@en ;
@@ -2165,7 +2188,8 @@ pcl:Obj4_X_Trace a backlog:Objective ;
     backlog:hasSuccessMetric pcl:Metric4_X_Trace ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Area4_H_Archive a backlog:ScopeArea ;
     rdfs:label "Area: The archive tool's flaws found on 2026-11-08: it reads the register header as text, writes 'Achieved' for an abandoned mission, and cannot set down a lineage concluded before its items had to be closed"@en ;
@@ -2293,6 +2317,7 @@ pcl:Obj4_A_Artifacts a backlog:Objective ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_X_Artifacts ;
     backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en ;
     prov:wasDerivedFrom pcl:Obj4_X_Tasks,
         pcl:Obj4_X_Trace .
 
@@ -2314,6 +2339,7 @@ pcl:Obj4_A_Phases a backlog:Objective ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_X_Phases ;
     backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en ;
     prov:wasDerivedFrom pcl:Obj4_X_Done,
         pcl:Obj4_X_Review .
 
@@ -2335,6 +2361,7 @@ pcl:Obj4_A_Planning a backlog:Objective ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_X_Planning ;
     backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en ;
     prov:wasDerivedFrom pcl:Obj4_X_Packages,
         pcl:Obj4_X_Sprints,
         pcl:Obj4_X_TimeBox .
@@ -2357,6 +2384,7 @@ pcl:Obj4_Execution a backlog:Objective ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_Execution ;
     backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en ;
     prov:wasDerivedFrom pcl:Obj4_A_Artifacts,
         pcl:Obj4_A_Phases,
         pcl:Obj4_A_Planning,
@@ -2383,6 +2411,7 @@ pcl:Obj4_Handovers a backlog:Objective ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_Handovers ;
     backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en ;
     prov:wasDerivedFrom pcl:Obj4_H_Archive,
         pcl:Obj4_H_Epic,
         pcl:Obj4_H_PageVersion,
@@ -2405,7 +2434,8 @@ pcl:Obj4_Lifecycle a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Hold ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_Lifecycle ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_Roadmap a backlog:Objective ;
     rdfs:label "Objective: No Delivery lineage queued at Opened with its mission (D6)"@en ;
@@ -2424,7 +2454,8 @@ pcl:Obj4_Roadmap a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_Roadmap ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_Deploy a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for a deployment marked by a milestone, carrying completed packages and why they were chosen (D19)"@en ;
@@ -2443,7 +2474,8 @@ pcl:Obj4_X_Deploy a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_X_Deployment ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_Monitor a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for a monitoring report of each live lineage (D12) and a deviation in it with no route to correction"@en ;
@@ -2462,7 +2494,8 @@ pcl:Obj4_X_Monitor a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_X_Monitoring ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_Order a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for the queue order and one Delivery lineage at a time (D8)"@en ;
@@ -2481,7 +2514,8 @@ pcl:Obj4_X_Order a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_X_Order ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Obj4_X_Rules a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for the rule sets every live lineage adopted (D10)"@en ;
@@ -2500,7 +2534,8 @@ pcl:Obj4_X_Rules a backlog:Objective ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
     backlog:metricMovableBy pcl:Epic4_X_Enforcement ;
-    backlog:producedByStage pcl:Out4_Objective .
+    backlog:producedByStage pcl:Out4_Objective ;
+    rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
 pcl:Out4_Scope3 a backlog:StageOutput ;
     backlog:belongsToLineage pcl:Lineage04 ;
@@ -2752,33 +2787,3 @@ pcl:Lineage04 a backlog:Lineage ;
     backlog:openedWithProfile backlog:Profile_AgenticAdaptive ;
     rdfs:comment "The Governance lineage of IPage (the framework's ruling G217: the lineage that governs the lives of lineages). Opened on the Owner's ruling IP-R1 of 2026-11-08 under the framework's default profile (agentic adaptive, revision 16, which adopts the package rules), after Lineage 3 was concluded and set down."@en .
 
-
-# Correction note, 2026-11-09 (append, never edit): the measurement query of each objective of Lineage 4 moved to measure_governance_v1_1_0.py
-pcl:Obj4_Mission rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_Execution rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_A_Phases rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_A_Planning rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_A_Artifacts rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_Done rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_Review rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_Packages rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_Sprints rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_TimeBox rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_Tasks rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_Trace rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_Order rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_Rules rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_Monitor rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_X_Deploy rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_Handovers rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_H_Epic rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_H_Archive rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_H_ProfileFormat rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_H_PageVersion rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_Lifecycle rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_Roadmap rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_Conf rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_Contained rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_Product rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_Outside rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
-pcl:Obj4_Branches rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
