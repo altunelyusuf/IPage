@@ -116,7 +116,7 @@ pcl:Goal4_Conformance a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Mission ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:isConformanceGoal true ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_Contained a backlog:Goal ;
@@ -127,7 +127,7 @@ pcl:Goal4_Contained a backlog:Goal ;
     backlog:derivesFromScope pcl:Scope4 ;
     backlog:hasGoalFacing backlog:Facing_Containment ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_Guard_Branches a backlog:Goal ;
@@ -139,7 +139,7 @@ pcl:Goal4_Guard_Branches a backlog:Goal ;
     backlog:guardsExclusion pcl:Ex4_Branches ;
     backlog:hasGoalFacing backlog:Facing_Exclusion ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_Guard_Outside a backlog:Goal ;
@@ -151,7 +151,7 @@ pcl:Goal4_Guard_Outside a backlog:Goal ;
     backlog:guardsExclusion pcl:Ex4_Outside ;
     backlog:hasGoalFacing backlog:Facing_Exclusion ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_Guard_Product a backlog:Goal ;
@@ -163,21 +163,60 @@ pcl:Goal4_Guard_Product a backlog:Goal ;
     backlog:guardsExclusion pcl:Ex4_Product ;
     backlog:hasGoalFacing backlog:Facing_Exclusion ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
-pcl:Goal4_Handovers a backlog:Goal ;
-    rdfs:label "Every session that wrote to IPage, and the framework IPage writes to, finds its question settled in its own inbox, so none waits on IPage"@en ;
+pcl:Goal4_H_Archive a backlog:Goal ;
+    rdfs:label "The framework holds the archive tool's three flaws, with their evidence, in its own inbox"@en ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:contributesToMission pcl:Mission_G4 ;
     backlog:decidedBy backlog:Owner ;
     backlog:derivesFromScope pcl:Scope4 ;
-    backlog:goalCoversArea pcl:Area4_Handovers ;
+    backlog:goalCoversArea pcl:Area4_H_Archive ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Mission ;
-    backlog:producedByStage pcl:Out4_Goal ;
-    rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
+    backlog:hasParentItem pcl:Goal4_Handovers ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
+
+pcl:Goal4_H_Epic a backlog:Goal ;
+    rdfs:label "The framework holds the question on closing an epic in its own inbox, and IPage keeps no copy of it"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToMission pcl:Mission_G4 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope4 ;
+    backlog:goalCoversArea pcl:Area4_H_Epic ;
+    backlog:hasGoalFacing backlog:Facing_Scope ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasParentItem pcl:Goal4_Handovers ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
+
+pcl:Goal4_H_PageVersion a backlog:Goal ;
+    rdfs:label "The question on a page's version is settled in IPage's inbox, as scope of the Delivery lineage it belongs to"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToMission pcl:Mission_G4 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope4 ;
+    backlog:goalCoversArea pcl:Area4_H_PageVersion ;
+    backlog:hasGoalFacing backlog:Facing_Scope ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasParentItem pcl:Goal4_Handovers ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
+
+pcl:Goal4_H_ProfileFormat a backlog:Goal ;
+    rdfs:label "The question on a profile naming its own page format is settled in IPage's inbox, as scope of the Delivery lineage it belongs to"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToMission pcl:Mission_G4 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope4 ;
+    backlog:goalCoversArea pcl:Area4_H_ProfileFormat ;
+    backlog:hasGoalFacing backlog:Facing_Scope ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasParentItem pcl:Goal4_Handovers ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
 
 pcl:Goal4_Lifecycle a backlog:Goal ;
     rdfs:label "The live register holds only lineages still at work, so its checks read what is current"@en ;
@@ -189,7 +228,7 @@ pcl:Goal4_Lifecycle a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasParentItem pcl:Goal4_Mission ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_Roadmap a backlog:Goal ;
@@ -202,7 +241,7 @@ pcl:Goal4_Roadmap a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasParentItem pcl:Goal4_Mission ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_Deploy a backlog:Goal ;
@@ -215,7 +254,7 @@ pcl:Goal4_X_Deploy a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_Done a backlog:Goal ;
@@ -227,8 +266,8 @@ pcl:Goal4_X_Done a backlog:Goal ;
     backlog:goalCoversArea pcl:Area4_X_Phases ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:hasParentItem pcl:Goal4_A_Phases ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_Monitor a backlog:Goal ;
@@ -241,7 +280,7 @@ pcl:Goal4_X_Monitor a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_Order a backlog:Goal ;
@@ -254,7 +293,7 @@ pcl:Goal4_X_Order a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_Packages a backlog:Goal ;
@@ -266,8 +305,8 @@ pcl:Goal4_X_Packages a backlog:Goal ;
     backlog:goalCoversArea pcl:Area4_X_Planning ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:hasParentItem pcl:Goal4_A_Planning ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_Review a backlog:Goal ;
@@ -279,8 +318,8 @@ pcl:Goal4_X_Review a backlog:Goal ;
     backlog:goalCoversArea pcl:Area4_X_Phases ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:hasParentItem pcl:Goal4_A_Phases ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_Rules a backlog:Goal ;
@@ -293,7 +332,7 @@ pcl:Goal4_X_Rules a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_Sprints a backlog:Goal ;
@@ -305,8 +344,8 @@ pcl:Goal4_X_Sprints a backlog:Goal ;
     backlog:goalCoversArea pcl:Area4_X_Planning ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:hasParentItem pcl:Goal4_A_Planning ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_Tasks a backlog:Goal ;
@@ -318,8 +357,8 @@ pcl:Goal4_X_Tasks a backlog:Goal ;
     backlog:goalCoversArea pcl:Area4_X_Artifacts ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:hasParentItem pcl:Goal4_A_Artifacts ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_TimeBox a backlog:Goal ;
@@ -331,8 +370,8 @@ pcl:Goal4_X_TimeBox a backlog:Goal ;
     backlog:goalCoversArea pcl:Area4_X_Planning ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:hasParentItem pcl:Goal4_A_Planning ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Goal4_X_Trace a backlog:Goal ;
@@ -344,8 +383,8 @@ pcl:Goal4_X_Trace a backlog:Goal ;
     backlog:goalCoversArea pcl:Area4_X_Artifacts ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Execution ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:hasParentItem pcl:Goal4_A_Artifacts ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:MA4_1 a backlog:MissionAmendment ;
@@ -399,6 +438,13 @@ pcl:Ruling_IP5 a backlog:GovernanceRuling ;
     backlog:hasRulingStatement "A lineage is closed only when its items are closed or no longer alive: a precondition the framework has held since September (its archive rule, revision 2.1.0), not a rule that came after Lineage 2 was set down on 2026-11-04. Lineage 2's five epics and nine stories, left Proposed at that time, are cancelled with their reason and a recorded move, a new as-is assessment sorts them, its closure report names every cancelled item, and the lineage is set down in the archive in the next release. The session's statement of 2026-11-08 that Lineage 2 was concluded before the framework required its items closed, and that closing them would change a closed lineage, was wrong; it is corrected here."^^xsd:string ;
     backlog:rulingSource "Owner, 2026-11-08 21:03 Istanbul (18:03 UTC): 'No, a lineage closure requires as pre condition, the items should be closed or not alive at all. This is not a new rule, one of the oldest rule of BRSF. Do the work properly and close the Lineage completely.'"^^xsd:string .
 
+pcl:Ruling_IP6 a backlog:GovernanceRuling ;
+    rdfs:label "The Governance lineage's goals and objectives follow the taxonomy of its scope; checkpoints wait on conditions, not dates; every objective is read for driving, monitoring, control and closure"@en ;
+    backlog:enforcedByShape backlog:OwnerRulingDatedShape ;
+    backlog:hasRulingIdentifier "IP-R6"^^xsd:string ;
+    backlog:hasRulingStatement "Planned dates are forecasts and carry no due date without a known reason, so each objective's checkpoint waits on the condition that its deliverables are met, and the forecast is kept as information only. The scope is taxonomic, so goals and objectives follow its tree: each scope area has its own goal (the method goals of the Owner's ruling IP-R4 sit under the area they serve; an area served by one method goal has that goal as its own), and each node of the goal tree has an objective, a parent's figure being the sum of its children's. Objectives need not be one-to-one with goals by rule, only matching the tree. Every objective counts what is still missing, read by a script from the register, the files and the release gate, and each figure is used at four moments: driving (each sprint plan: the open counts choose the next work), monitoring (each release: the gate prints and records every figure), control (each release: the guards must read 0 or the release stops; a rising figure is raised as an obstacle with a route to correction) and closure (the last reading: all 0 is achieved, anything else is recorded as missed). The lineage's experience of this phase and its correction is handed over to the framework."^^xsd:string ;
+    backlog:rulingSource "Owner, 2026-11-09, answering the questions on the objectives: at about 12:55 Istanbul, 'Why do you set a date? All dates are predictive and cannot be treated as due to if there is no known reasoning. Objectives vs. goals vs. scope can be but need not be one-to-one. Scope is taxonomic, so the goals and objectives should be matching. Another concern is about measures, how and with which metrics are we going to measure the objectives, what is the correct timing to do them for various usages: monitoring, control, driving, and closure?'; at 13:15 Istanbul (10:15 UTC), choosing to proceed with the goals revised to mirror the scope tree and condition-based objectives with the four timings: '1 is fine. Just I need you build a handover and tell BRSF about our experiences and how we corrected the work in this phase.'"^^xsd:string .
+
 pcl:SRev4_1 a backlog:StageRevision ;
     rdfs:label "First stage revision of Lineage 4: the Scope stage is rebuilt to answer the widened mission"@en ;
     backlog:decidedBy backlog:Owner ;
@@ -415,12 +461,20 @@ pcl:SRev4_2 a backlog:StageRevision ;
     backlog:revisesLineage pcl:Lineage04 ;
     backlog:revisionReason "The Owner stated on 2026-11-08 (ruling IP-R4) the execution method the Delivery lineages are kept to; the scope of the first revision does not name its deliverables (sprints planned to packages, task work, closing by the Definition of Done, sprint review and carry-over, time boxes, deployment of completed packages). Nothing below the Scope stage had been built."^^xsd:string .
 
+pcl:SRev4_3 a backlog:StageRevision ;
+    rdfs:label "Third stage revision of Lineage 4: the goals follow the scope tree"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:retractsOutput pcl:Out4_Goal ;
+    backlog:revisesFromStage backlog:Stage_Goal ;
+    backlog:revisesLineage pcl:Lineage04 ;
+    backlog:revisionReason "The Owner ruled on 2026-11-09 (IP-R6) that goals and objectives follow the taxonomy of the scope. The goals of 2026-11-08 follow the eleven steps of the execution method: three execution areas (phases, planning, artifacts) are served by two or three method goals with no goal of their own, and the four hand-over areas share one goal. Goals are added for those seven areas and the method goals are placed under them; nothing below the Goal stage had been recorded (the objectives were a draft shown to the Owner)."^^xsd:string .
+
 <http://example.org/rdodi/page-conditions-lineage/register> a owl:Ontology ;
     rdfs:comment "BRSF register of Lineage 3 (one ontology of interactive pages), kept in the IPage repository from 2026-11-05. Its first version here is every statement of Lineage 3 in the RDODI register rdodi_overview_page_lineage_abox_v0_39_0.ttl, published by the Ontologies monorepo commit d3c1c30028cc48830c2b391c9be8e89dd15765cb, copied unchanged; that register keeps the whole history, and the evidence recorded there is re-run against the monorepo. From here the lineage writes only to this file."@en ;
     owl:imports <http://example.org/backlog> ;
-    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.62.0> ;
-    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.64.0> ;
-    owl:versionInfo "0.64.0" ;
+    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.64.0> ;
+    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.65.0> ;
+    owl:versionInfo "0.65.0" ;
     prov:wasAttributedTo <http://example.org/rdodi/agent/YusufAltunel> .
 
 pcl:CfgItem3_Verifier_S14_brief a ns1:ConfigurationItem ;
@@ -629,6 +683,15 @@ pcl:Lineage03 backlog:archivalTrigger "Found achieved and un-archived by backlog
     backlog:lineageArchived true ;
     rdfs:comment "Correction appended 2026-11-08: the archival trigger above is the archive tool's standard text and says the mission was Achieved. It was not: the mission of Lineage 3 is Abandoned, its closure report marked Cancelled, on the Owner's ruling IP-R1 and his confirmation IP-R2. The tool's checks accept an abandoned mission with a closure report; only its text is wrong."@en .
 
+pcl:Out4_Goal a backlog:StageOutput ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:closedAtCommit "IPage v1.12.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:consumesOutput pcl:Out4_Scope3 ;
+    backlog:hasRationale "Goal stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
+    backlog:hasStateDigest "17fdb0cdd609b49d483becd80eec5736a17de7684915f38215c3790f7d6eab6e"^^xsd:string ;
+    backlog:outputOfStage backlog:Stage_Goal ;
+    backlog:outputRetracted true .
+
 pcl:Out4_Scope a backlog:StageOutput ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:closedAtCommit "IPage v1.9.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
@@ -653,6 +716,56 @@ pcl:Ruling_IP3 a backlog:GovernanceRuling ;
     backlog:hasRulingIdentifier "IP-R3"^^xsd:string ;
     backlog:hasRulingStatement "The mission of IPage's Governance lineage keeps its wording and is widened, by a mission amendment, to the general mission of governance: to govern, direct, monitor, control, correct and keep on track the execution of IPage's Delivery lineages, so that each obeys its phases, connections, enforcements, ceremonies, methodologies, artifacts, dependencies, ordering, planning, predictions and task types, and can satisfy its mission. The Scope stage, closed in 1.9.0, is rebuilt by a stage revision to answer it, and the goals are built for the widened mission. The Owner's 'production lineage' is the framework's Delivery lineage (G217)."^^xsd:string ;
     backlog:rulingSource "Owner, 2026-11-08 about 20:30 Istanbul (17:30 UTC), answering the question on the Governance lineage's goals: 'The mission of the Governance lineage as a general is to govern, direct, monitor, control, correct, and keep in track the execution obeying the phases, connections, enforcements, ceremonies, methodologies, artifacts, dependencies, ordering, planinng, predictions, task types of the production lineage so that the production can satisfy the mission. What you need is just to adapt the current mission with general governance mission. You should build the goals for that mission.'"^^xsd:string .
+
+pcl:Ex4_Branches a backlog:ScopeExclusion ;
+    rdfs:label "Exclusion: Governance branches with no open work"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:excludesConcern "Risk, cost and speed, benefits, operating cadence, accountability and the other branches of the framework's governance taxonomy that have no open work in IPage."^^xsd:string ;
+    backlog:hasExclusionRationale "They enter by change management of this lineage when work appears in them."^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Ex4_Outside a backlog:ScopeExclusion ;
+    rdfs:label "Exclusion: Files of other packages"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:excludesConcern "Any file outside IPage, except a hand-over placed in a recipient's inbox."^^xsd:string ;
+    backlog:hasExclusionRationale "Another package is changed only by its own session (OE scope discipline); a hand-over is how IPage asks."^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Ex4_Product a backlog:ScopeExclusion ;
+    rdfs:label "Exclusion: Product work"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:excludesConcern "Any change to the ontology, its shapes, the pages or the measurement."^^xsd:string ;
+    backlog:hasExclusionRationale "Product work belongs to the Delivery lineages this lineage lays out."^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Goal4_A_Artifacts a backlog:Goal ;
+    rdfs:label "Every task has its type and plan, and every changed file traces to the item and task whose work it is"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToMission pcl:Mission_G4 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope4 ;
+    backlog:goalCoversArea pcl:Area4_X_Artifacts ;
+    backlog:hasGoalFacing backlog:Facing_Scope ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasParentItem pcl:Goal4_Execution ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
+
+pcl:Goal4_A_Phases a backlog:Goal ;
+    rdfs:label "Each Delivery lineage passes its stages and ceremonies in order, and each task, story and sprint is closed and reviewed by its rules"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToMission pcl:Mission_G4 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope4 ;
+    backlog:goalCoversArea pcl:Area4_X_Phases ;
+    backlog:hasGoalFacing backlog:Facing_Scope ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasParentItem pcl:Goal4_Execution ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
 
 pcl:Area4_H_Archive a backlog:ScopeArea ;
     rdfs:label "Area: The archive tool's flaws found on 2026-11-08: it reads the register header as text, writes 'Achieved' for an abandoned mission, and cannot set down a lineage concluded before its items had to be closed"@en ;
@@ -685,38 +798,6 @@ pcl:Area4_H_ProfileFormat a backlog:ScopeArea ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:hasParentItem pcl:Area4_Handovers ;
     backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Ex4_Branches a backlog:ScopeExclusion ;
-    rdfs:label "Exclusion: Governance branches with no open work"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:decidedBy backlog:Owner ;
-    backlog:excludesConcern "Risk, cost and speed, benefits, operating cadence, accountability and the other branches of the framework's governance taxonomy that have no open work in IPage."^^xsd:string ;
-    backlog:hasExclusionRationale "They enter by change management of this lineage when work appears in them."^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Ex4_Outside a backlog:ScopeExclusion ;
-    rdfs:label "Exclusion: Files of other packages"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:decidedBy backlog:Owner ;
-    backlog:excludesConcern "Any file outside IPage, except a hand-over placed in a recipient's inbox."^^xsd:string ;
-    backlog:hasExclusionRationale "Another package is changed only by its own session (OE scope discipline); a hand-over is how IPage asks."^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Ex4_Product a backlog:ScopeExclusion ;
-    rdfs:label "Exclusion: Product work"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:decidedBy backlog:Owner ;
-    backlog:excludesConcern "Any change to the ontology, its shapes, the pages or the measurement."^^xsd:string ;
-    backlog:hasExclusionRationale "Product work belongs to the Delivery lineages this lineage lays out."^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Out4_Scope3 a backlog:StageOutput ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:closedAtCommit "IPage v1.11.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
-    backlog:consumesOutput pcl:Out4_Mission ;
-    backlog:hasRationale "Scope stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
-    backlog:hasStateDigest "faad49a4b2a6d4eeadf63d2c79a8854169efc18f395d6e5cb5b82f849ee5e8d1"^^xsd:string ;
-    backlog:outputOfStage backlog:Stage_Scope .
 
 pcl:Area4_Lifecycle a backlog:ScopeArea ;
     rdfs:label "Area: Lineage lifecycle: Lineage 2, concluded on 2026-11-04 with its items still open, is set down"@en ;
@@ -768,6 +849,27 @@ pcl:DomainEntity_PageConditions a backlog:DomainEntity ;
     rdfs:label "RDODI page conditions"@en ;
     skos:definition "The first-class thing this lineage is about: the Owner's conditions for interactive pages, made gates that every Stage 4 page must pass."^^xsd:string .
 
+pcl:Goal4_A_Planning a backlog:Goal ;
+    rdfs:label "Each Delivery lineage is planned from its packages: chosen before its first box, sprints planned to them, time boxes read against the pace delivered"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToMission pcl:Mission_G4 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope4 ;
+    backlog:goalCoversArea pcl:Area4_X_Planning ;
+    backlog:hasGoalFacing backlog:Facing_Scope ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasParentItem pcl:Goal4_Execution ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
+
+pcl:Out4_Scope3 a backlog:StageOutput ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:closedAtCommit "IPage v1.11.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:consumesOutput pcl:Out4_Mission ;
+    backlog:hasRationale "Scope stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
+    backlog:hasStateDigest "faad49a4b2a6d4eeadf63d2c79a8854169efc18f395d6e5cb5b82f849ee5e8d1"^^xsd:string ;
+    backlog:outputOfStage backlog:Stage_Scope .
+
 pcl:Backlog a backlog:Backlog ;
     rdfs:label "RDODI page-conditions backlog"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD ;
@@ -778,6 +880,19 @@ pcl:Backlog a backlog:Backlog ;
     backlog:hasTitle "RDODI page conditions"@en ;
     backlog:isRegisterRoot true .
 
+pcl:Goal4_Handovers a backlog:Goal ;
+    rdfs:label "Every session that wrote to IPage, and the framework IPage writes to, finds its question settled in its own inbox, so none waits on IPage"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToMission pcl:Mission_G4 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope4 ;
+    backlog:goalCoversArea pcl:Area4_Handovers ;
+    backlog:hasGoalFacing backlog:Facing_Scope ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasParentItem pcl:Goal4_Mission ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
+
 pcl:Goal4_Mission a backlog:Goal ;
     rdfs:label "Every Delivery lineage of IPage runs on track to its mission: what it must obey is checked as it works, deviations are corrected when they appear, and the next one opens on a clear plan"@en ;
     backlog:belongsToLineage pcl:Lineage04 ;
@@ -786,7 +901,7 @@ pcl:Goal4_Mission a backlog:Goal ;
     backlog:derivesFromScope pcl:Scope4 ;
     backlog:hasGoalFacing backlog:Facing_Mission ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Out4_Mission a backlog:StageOutput ;
@@ -795,14 +910,6 @@ pcl:Out4_Mission a backlog:StageOutput ;
     backlog:hasRationale "Mission stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
     backlog:hasStateDigest "caf1e639c625dd255d896504cc50def47019c2ac0884e8cd24e542203c476c5b"^^xsd:string ;
     backlog:outputOfStage backlog:Stage_Mission .
-
-pcl:Area4_X_Artifacts a backlog:ScopeArea ;
-    rdfs:label "Area: Artifacts and task types: every file a release changes is traced to the item and task that moved it, and every task is of a known type"@en ;
-    backlog:areaLocation "03-tooling/, 05-lineage/"^^xsd:string ;
-    backlog:areaMeasure "Counted 2026-11-08: the framework's release-item check is not run by IPage's gate."^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:hasParentItem pcl:Area4_Execution ;
-    backlog:hasScopeLayer backlog:Layer_Work .
 
 pcl:DomainEntity_PageOntology a backlog:DomainEntity ;
     rdfs:label "The ontology of interactive pages"@en ;
@@ -815,10 +922,10 @@ pcl:Area4_Handovers a backlog:ScopeArea ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:hasScopeLayer backlog:Layer_Work .
 
-pcl:Area4_X_Phases a backlog:ScopeArea ;
-    rdfs:label "Area: Phases and ceremonies: each Delivery lineage passes its stages in order and holds each ceremony at its step"@en ;
+pcl:Area4_X_Artifacts a backlog:ScopeArea ;
+    rdfs:label "Area: Artifacts and task types: every file a release changes is traced to the item and task that moved it, and every task is of a known type"@en ;
     backlog:areaLocation "03-tooling/, 05-lineage/"^^xsd:string ;
-    backlog:areaMeasure "Counted 2026-11-08: the framework's order check is not run by IPage's release gate."^^xsd:string ;
+    backlog:areaMeasure "Counted 2026-11-08: the framework's release-item check is not run by IPage's gate."^^xsd:string ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:hasParentItem pcl:Area4_Execution ;
     backlog:hasScopeLayer backlog:Layer_Work .
@@ -826,19 +933,12 @@ pcl:Area4_X_Phases a backlog:ScopeArea ;
 pcl:Exec_Verifier_L3 a backlog:Executor_SingleAgent ;
     rdfs:label "The verifying agent: an agent that did not do the work and judges it against the evidence"@en .
 
-pcl:Area4_X_Planning a backlog:ScopeArea ;
-    rdfs:label "Area: Planning and predictions: the packages, plans and forecast dates of each Delivery lineage"@en ;
+pcl:Area4_X_Phases a backlog:ScopeArea ;
+    rdfs:label "Area: Phases and ceremonies: each Delivery lineage passes its stages in order and holds each ceremony at its step"@en ;
     backlog:areaLocation "03-tooling/, 05-lineage/"^^xsd:string ;
-    backlog:areaMeasure "Counted 2026-11-08: 0 forecasts discussed with the Owner; 0 base plans of Delivery boxes."^^xsd:string ;
+    backlog:areaMeasure "Counted 2026-11-08: the framework's order check is not run by IPage's release gate."^^xsd:string ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:hasParentItem pcl:Area4_Execution ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Area4_Execution a backlog:ScopeArea ;
-    rdfs:label "Area: Execution of the Delivery lineages: directed, monitored, controlled, corrected and kept on track, so each can satisfy its mission"@en ;
-    backlog:areaLocation "03-tooling/, 05-lineage/"^^xsd:string ;
-    backlog:areaMeasure "Counted 2026-11-08: 0 Delivery lineages running; IPage's release gate runs the framework's validator and digests, not its order check, release-item check or monitor."^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage04 ;
     backlog:hasScopeLayer backlog:Layer_Work .
 
 pcl:Goal4_Execution a backlog:Goal ;
@@ -851,15 +951,31 @@ pcl:Goal4_Execution a backlog:Goal ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasParentItem pcl:Goal4_Mission ;
-    backlog:producedByStage pcl:Out4_Goal ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
-pcl:Out4_Goal a backlog:StageOutput ;
+pcl:Area4_Execution a backlog:ScopeArea ;
+    rdfs:label "Area: Execution of the Delivery lineages: directed, monitored, controlled, corrected and kept on track, so each can satisfy its mission"@en ;
+    backlog:areaLocation "03-tooling/, 05-lineage/"^^xsd:string ;
+    backlog:areaMeasure "Counted 2026-11-08: 0 Delivery lineages running; IPage's release gate runs the framework's validator and digests, not its order check, release-item check or monitor."^^xsd:string ;
     backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:closedAtCommit "IPage v1.12.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Area4_X_Planning a backlog:ScopeArea ;
+    rdfs:label "Area: Planning and predictions: the packages, plans and forecast dates of each Delivery lineage"@en ;
+    backlog:areaLocation "03-tooling/, 05-lineage/"^^xsd:string ;
+    backlog:areaMeasure "Counted 2026-11-08: 0 forecasts discussed with the Owner; 0 base plans of Delivery boxes."^^xsd:string ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:hasParentItem pcl:Area4_Execution ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Out4_Goal2 a backlog:StageOutput ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:closedAtCommit "IPage v1.14.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
     backlog:consumesOutput pcl:Out4_Scope3 ;
-    backlog:hasRationale "Goal stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
-    backlog:hasStateDigest "17fdb0cdd609b49d483becd80eec5736a17de7684915f38215c3790f7d6eab6e"^^xsd:string ;
+    backlog:hasRationale "Goal stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string,
+        "Revision 3 of the Goal stage (SRev4_3, ruling IP-R6): 28 goals, one for each scope area and the method goals under the area they serve."^^xsd:string ;
+    backlog:hasStateDigest "3c0cc6e0e928e09fd25963056ec915ee2da043338b456463a3747171d5426034"^^xsd:string ;
     backlog:outputOfStage backlog:Stage_Goal .
 
 pcl:Scope4 a backlog:ScopeStatement ;
