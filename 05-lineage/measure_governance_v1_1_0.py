@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Re-runnable measurements for Lineage 4 (IPage's Governance lineage), v1.0.0, kept in the IPage repository.
-   python3 measure_governance_v1_0_0.py --metric KEY [--register FILE]   prints one integer
-   python3 measure_governance_v1_0_0.py --all [--register FILE]          prints KEY value for every metric
-   python3 measure_governance_v1_0_0.py --selftest                       the counting rules on fixtures with a known answer
+"""Re-runnable measurements for Lineage 4 (IPage's Governance lineage), v1.1.0 (Branches reads through an item's children too: an epic serves the deliverables its decomposition serves), kept in the IPage repository.
+   python3 measure_governance_v1_1_0.py --metric KEY [--register FILE]   prints one integer
+   python3 measure_governance_v1_1_0.py --all [--register FILE]          prints KEY value for every metric
+   python3 measure_governance_v1_1_0.py --selftest                       the counting rules on fixtures with a known answer
 
 Every objective of Lineage 4 counts what is still missing, so each target is 0. The figures follow the goal tree, which
 follows the scope tree (Owner's ruling IP-R6); a parent's figure is the sum of its children's:
@@ -19,7 +19,7 @@ follows the scope tree (Owner's ruling IP-R6); a parent's figure is the sum of i
   Contained    files changed since Lineage 4 opened outside the places its deliverables live in
   Product      files of the ontology, its shapes, the page measure, the default format or the page measurement changed since it opened
   Outside      files of the Ontologies monorepo changed by an IPage commit since it opened, other than a hand-over in an inbox
-  Branches     work items of Lineage 4 that serve no deliverable of its scope (nor through their parent)
+  Branches     work items of Lineage 4 that serve no deliverable of its scope (neither through their parent nor through what they decompose into)
 Each figure is used at four moments: driving (each sprint plan: the open figures choose the next work), monitoring (each release:
 the gate prints and records every figure), control (each release: Conf, Contained, Product, Outside and Branches must read 0 or
 the release stops; a figure that rises is raised as an obstacle with its route to correction) and closure (the last reading: all
@@ -103,10 +103,14 @@ def inside(paths, prefixes):
 
 def branches(g, lineage):
     dels = {d for d in g.subjects(B.deliverableForArea, None)}
-    def serves(i, seen=()):
-        if any(d in dels for d in g.objects(i, B.satisfiesDeliverable)): return True
-        par = g.value(i, B.hasParentItem)
-        return par is not None and par not in seen and serves(par, seen + (i,))
+    def own(i): return any(d in dels for d in g.objects(i, B.satisfiesDeliverable))
+    def up(i, seen=()):
+        if own(i): return True
+        par = g.value(i, B.hasParentItem) or next(iter(g.subjects(B.decomposesInto, i)), None)
+        return par is not None and par not in seen and up(par, seen + (i,))
+    def down(i, seen=()):
+        return any(own(c) or (c not in seen and down(c, seen + (i,))) for c in g.objects(i, B.decomposesInto))
+    def serves(i): return up(i) or down(i)
     items = [i for t in ITEM_TYPES for i in g.subjects(RDF.type, t) if (i, B.belongsToLineage, lineage) in g]
     return sum(1 for i in set(items) if not serves(i))
 
@@ -202,6 +206,10 @@ def selftest():
     t("branches, story serving nothing", branches(g, P.Lineage04), 1)
     g.add((P.E1, RDF.type, B.Epic)); g.add((P.E1, B.belongsToLineage, P.Lineage04)); g.add((P.E1, B.satisfiesDeliverable, P.D1)); g.add((P.S1, B.hasParentItem, P.E1))
     t("branches, story serving through its epic", branches(g, P.Lineage04), 0)
+    g.add((P.E2, RDF.type, B.Epic)); g.add((P.E2, B.belongsToLineage, P.Lineage04)); g.add((P.E2, B.decomposesInto, P.E1))
+    t("branches, parent epic serving through its child epic", branches(g, P.Lineage04), 0)
+    g.add((P.E3, RDF.type, B.Epic)); g.add((P.E3, B.belongsToLineage, P.Lineage04))
+    t("branches, epic serving nothing", branches(g, P.Lineage04), 1)
     t("gate, no probe", gate_met("D99", "/nonexistent", "x.py"), False)
     print("SELFTEST " + ("PASS" if ok else "FAIL")); return 0 if ok else 1
 

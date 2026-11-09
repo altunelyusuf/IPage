@@ -28,7 +28,8 @@ pcl:ArchiveEntry_Lineage03 a backlog:LineageArchiveEntry ;
 pcl:Blueprint01 a backlog:Blueprint ;
     rdfs:label "Domain model: what this backlog's work is about"@en ;
     backlog:blueprintFor pcl:Backlog ;
-    backlog:hasDomainEntity pcl:DomainEntity_PageConditions .
+    backlog:hasDomainEntity pcl:DomainEntity_DeliveryLineage,
+        pcl:DomainEntity_PageConditions .
 
 pcl:Blueprint03 a backlog:Blueprint ;
     rdfs:label "Domain model: what the work of Lineage 3 is about"@en ;
@@ -389,6 +390,13 @@ pcl:Ruling_IP6 a backlog:GovernanceRuling ;
     backlog:hasRulingStatement "Planned dates are forecasts and carry no due date without a known reason, so each objective's checkpoint waits on the condition that its deliverables are met, and the forecast is kept as information only. The scope is taxonomic, so goals and objectives follow its tree: each scope area has its own goal (the method goals of the Owner's ruling IP-R4 sit under the area they serve; an area served by one method goal has that goal as its own), and each node of the goal tree has an objective, a parent's figure being the sum of its children's. Objectives need not be one-to-one with goals by rule, only matching the tree. Every objective counts what is still missing, read by a script from the register, the files and the release gate, and each figure is used at four moments: driving (each sprint plan: the open counts choose the next work), monitoring (each release: the gate prints and records every figure), control (each release: the guards must read 0 or the release stops; a rising figure is raised as an obstacle with a route to correction) and closure (the last reading: all 0 is achieved, anything else is recorded as missed). The lineage's experience of this phase and its correction is handed over to the framework."^^xsd:string ;
     backlog:rulingSource "Owner, 2026-11-09, answering the questions on the objectives: at about 12:55 Istanbul, 'Why do you set a date? All dates are predictive and cannot be treated as due to if there is no known reasoning. Objectives vs. goals vs. scope can be but need not be one-to-one. Scope is taxonomic, so the goals and objectives should be matching. Another concern is about measures, how and with which metrics are we going to measure the objectives, what is the correct timing to do them for various usages: monitoring, control, driving, and closure?'; at 13:15 Istanbul (10:15 UTC), choosing to proceed with the goals revised to mirror the scope tree and condition-based objectives with the four timings: '1 is fine. Just I need you build a handover and tell BRSF about our experiences and how we corrected the work in this phase.'; at 13:32 Istanbul (10:32 UTC), shown that the adopted planned-dates rule keeps a forecast date beside each condition, labelled due on nothing, and the forecast of 48 points ending about 19:00 UTC on 10 Nov: 'Record and release (Recommended)'."^^xsd:string .
 
+pcl:Ruling_IP7 a backlog:GovernanceRuling ;
+    rdfs:label "Epics are defined in the Backlog stage with an estimated value, groomed into stories before packages, and their score is then collected from their stories at the end of each grooming step"@en ;
+    backlog:enforcedByShape backlog:OwnerRulingDatedShape ;
+    backlog:hasRulingIdentifier "IP-R7"^^xsd:string ;
+    backlog:hasRulingStatement "Epics are high-level backlog items defined in the Backlog stage from the scope. Before packages are chosen they are groomed into stories, to understand the scope and the business value; going from epics straight to packages leaves a gap between scope, backlog and roadmap. An epic carries an estimated value before grooming; after each grooming step its priority score is collected from its stories' scores and replaces the previous one. Recording a collected score beside scored stories, and the replacement of a score, wait on the framework (two hand-overs of 2026-11-09)."^^xsd:string ;
+    backlog:rulingSource "Owner, 2026-11-09: at 13:55 Istanbul, 'Epics are a high level PBI needs grooming. Your Epic to package conversion is totally wrong and a clear drift from the methodology. Epics are generated or defined during the backlog stage. In roadmap stage they should be groomed at least to understand the scope and their business value. Jumping from epics to packages, means there is a gap between scope to backlog and roadmap. Review your methodology first.'; at 16:52, 'I think we can settle it with assigning a value before the grooming and after that, the story valuations whould be collected to finalize the EPIC priority score accordingly. If the grooming takes some steps, at the end of each step we can update EPIC appropriately. What do you say?'; at 16:57 (13:57 UTC), 'Yes, this is fine. Let's proceed.'"^^xsd:string .
+
 pcl:SRev4_1 a backlog:StageRevision ;
     rdfs:label "First stage revision of Lineage 4: the Scope stage is rebuilt to answer the widened mission"@en ;
     backlog:decidedBy backlog:Owner ;
@@ -416,9 +424,9 @@ pcl:SRev4_3 a backlog:StageRevision ;
 <http://example.org/rdodi/page-conditions-lineage/register> a owl:Ontology ;
     rdfs:comment "BRSF register of Lineage 3 (one ontology of interactive pages), kept in the IPage repository from 2026-11-05. Its first version here is every statement of Lineage 3 in the RDODI register rdodi_overview_page_lineage_abox_v0_39_0.ttl, published by the Ontologies monorepo commit d3c1c30028cc48830c2b391c9be8e89dd15765cb, copied unchanged; that register keeps the whole history, and the evidence recorded there is re-run against the monorepo. From here the lineage writes only to this file."@en ;
     owl:imports <http://example.org/backlog> ;
-    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.65.0> ;
-    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.66.0> ;
-    owl:versionInfo "0.66.0" ;
+    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.66.0> ;
+    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.67.0> ;
+    owl:versionInfo "0.67.0" ;
     prov:wasAttributedTo <http://example.org/rdodi/agent/YusufAltunel> .
 
 pcl:CP4_A_Artifacts a backlog:ObjectiveCheckpoint ;
@@ -699,143 +707,117 @@ pcl:Commit01 a backlog:Commitment ;
 pcl:Commit03 a backlog:Commitment ;
     backlog:commitsToGoal pcl:Goal3_Mission .
 
-pcl:Del4_D1 a backlog:ScopeDeliverable ;
-    rdfs:label "The hand-over on closing an epic is rewritten for its recipient alone and placed in the framework's own inbox, and IPage's fallback copy is retired from its pending folder"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_H_Epic ;
-    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D10 a backlog:ScopeDeliverable ;
-    rdfs:label "The release gate runs, for every live lineage, the checks of the rule sets it adopted (the validator, the order check, the release-item check), so a release that moves no item and cites no dated Owner ruling fails"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Enforcement ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D11 a backlog:ScopeDeliverable ;
-    rdfs:label "Every file a release changes is traced, in the register, to the item and task whose work it is, and every task names its task type"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Artifacts ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D12 a backlog:ScopeDeliverable ;
-    rdfs:label "At every release a monitoring report of each live lineage (open obstacles, objectives off target, late boxes) is produced by the framework's monitor, and each deviation it names is raised as an obstacle or a finding with its route"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Monitoring ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D13 a backlog:ScopeDeliverable ;
-    rdfs:label "Every backlog item of a Delivery lineage sits in one package, chosen by its recorded priority, impact and the deliverable it serves, and every deliverable is delivered by a package"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Planning ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D14 a backlog:ScopeDeliverable ;
-    rdfs:label "Every sprint of a Delivery lineage plans the groomed stories of one package, and its plan names the objectives they move"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Planning ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D15 a backlog:ScopeDeliverable ;
-    rdfs:label "Every story taken into a sprint is refined, and its tasks are defined, typed and planned before they start; every move of a status is recorded when it happens"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Artifacts ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D16 a backlog:ScopeDeliverable ;
-    rdfs:label "Every task, story and sprint closes only with its Definition of Done proven by evidence the release gate re-verifies"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Phases ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D17 a backlog:ScopeDeliverable ;
-    rdfs:label "Every sprint ends with a review that names its unfinished tasks and stories and carries them, re-ranked, into the next sprint"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Phases ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D18 a backlog:ScopeDeliverable ;
-    rdfs:label "Every package and sprint has a time box whose end is a forecast, recorded with its base plan and read against the pace delivered"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Planning ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D19 a backlog:ScopeDeliverable ;
-    rdfs:label "Every release deploys one or more completed packages and records why they were chosen: urgency, coverage, cohesion or business value"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Deployment ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D2 a backlog:ScopeDeliverable ;
-    rdfs:label "A hand-over naming the archive tool's three flaws, with the evidence of 2026-11-08, is placed in the framework's own inbox"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_H_Archive ;
-    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D3 a backlog:ScopeDeliverable ;
-    rdfs:label "The hand-over on a profile naming its own page format is settled: taken as scope of the Delivery lineage on profiles, logged, and moved out of pending"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_H_ProfileFormat ;
-    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D4 a backlog:ScopeDeliverable ;
-    rdfs:label "The hand-over on page versions is settled: taken as scope of the Delivery lineage it belongs to, logged, and moved out of pending"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_H_PageVersion ;
-    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D5 a backlog:ScopeDeliverable ;
-    rdfs:label "Lineage 2 is set down in the archive, on the Owner's ruling on how a lineage concluded before its items had to be closed is set down"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_Lifecycle ;
-    backlog:derivesFromMissionClause "Lineage 2 is set down"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work ;
-    rdfs:comment "Correction appended 2026-11-08: this deliverable's wording assumed a ruling was needed on how to set down a lineage concluded before its items had to be closed. The premise was wrong (the framework has required every item closed since September); the Owner ruled (IP-R5, 21:03 Istanbul) that the items are closed first, and Lineage 2 was set down in IPage 1.13.0, before this lineage's backlog existed, on that ruling."@en .
-
-pcl:Del4_D6 a backlog:ScopeDeliverable ;
-    rdfs:label "Each Delivery lineage to come is recorded in the queue (a lineage at Opened) with its mission and the carried-forward deliverables it takes, in order, the repair of the rule checks first"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_Roadmap ;
-    backlog:derivesFromMissionClause "the work carried forward from Lineage 3 is laid out as a roadmap of narrow Delivery lineages, each with its package, the repair of the rule checks first"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D7 a backlog:ScopeDeliverable ;
-    rdfs:label "The release gate runs the framework's order check on IPage's register, so a Delivery lineage whose stage or ceremony is missing or out of order fails the release"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Phases ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D8 a backlog:ScopeDeliverable ;
-    rdfs:label "The queue of Delivery lineages records their order and the links between their items, and only one runs at a time unless the two are connected"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Order ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D9 a backlog:ScopeDeliverable ;
-    rdfs:label "Each Delivery lineage has its packages chosen before its first box, a forecast from the framework's date planner discussed with the Owner before its dates are final, and a base plan for every box it opens, read against it at the box's end"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Planning ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
 pcl:DoD a backlog:DefinitionOfDone ;
     rdfs:label "RDODI page conditions - Definition of Done"@en ;
     rdfs:comment "A story is Done when its deliverable's condition holds on the pages as measured by the gate from a fresh clone of the published release, with evidence the framework's bridge re-verifies."^^xsd:string .
+
+pcl:DoD4_1 a backlog:DoDCriterion ;
+    rdfs:label "Every Done item of Lineage 4 has its evidence"@en ;
+    backlog:hasCheckQuery "PREFIX b: <http://example.org/backlog#> ASK { ?s b:belongsToLineage <http://example.org/rdodi/page-conditions-lineage#Lineage04> ; b:hasState b:Done . ?s a ?k . FILTER (?k IN (b:Epic, b:Story, b:Task, b:ExecutionTask)) FILTER NOT EXISTS { ?s b:hasEvidence ?e } }"^^xsd:string ;
+    backlog:hasCriterionStatus backlog:Holds ;
+    backlog:hasExpectedResult "false" .
+
+pcl:DoD4_2 a backlog:DoDCriterion ;
+    rdfs:label "Every Done item of Lineage 4 is verified by an independent verifier"@en ;
+    backlog:hasCheckQuery "PREFIX b: <http://example.org/backlog#> ASK { ?s b:belongsToLineage <http://example.org/rdodi/page-conditions-lineage#Lineage04> ; b:hasState b:Done . ?s a ?k . FILTER (?k IN (b:Epic, b:Story, b:Task, b:ExecutionTask)) FILTER NOT EXISTS { ?s b:verifiedBy ?e } }"^^xsd:string ;
+    backlog:hasCriterionStatus backlog:Holds ;
+    backlog:hasExpectedResult "false" .
+
+pcl:Epic4_Execution a backlog:Epic ;
+    rdfs:label "The release gate keeps every Delivery lineage to the execution method"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:decomposesInto pcl:Epic4_X_Artifacts,
+        pcl:Epic4_X_Deployment,
+        pcl:Epic4_X_Enforcement,
+        pcl:Epic4_X_Monitoring,
+        pcl:Epic4_X_Order,
+        pcl:Epic4_X_Phases,
+        pcl:Epic4_X_Planning ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-Execution"^^xsd:string ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasScoreabilityReason "Its value is the value of its seven child epics, one for each execution area of the scope; its score is collected from theirs (ruling IP-R7), never set beside them."^^xsd:string ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "The release gate keeps every Delivery lineage to the execution method"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:notYetScoreable true ;
+    backlog:pursuesObjective pcl:Obj4_Execution ;
+    backlog:responsible pcl:Run4_Builder0 .
+
+pcl:Epic4_Handovers a backlog:Epic ;
+    rdfs:label "Hand-overs are settled in their recipients' inboxes"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:hasConfidence 0.8 ;
+    backlog:hasEffort 4.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-Handovers"^^xsd:string ;
+    backlog:hasImpact 3.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore 1.2 ;
+    backlog:hasRationale "Estimated value before grooming (ruling IP-R7): reach is the number of Delivery lineages the work reaches (1 to 5), impact its business value (1 to 5), confidence low while the epic is coarse, effort a rough count of points; score = reach x impact x confidence / effort. After each grooming step the score is collected from its stories."^^xsd:string ;
+    backlog:hasReach 2.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Hand-overs are settled in their recipients' inboxes"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:pursuesObjective pcl:Obj4_Handovers ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D1,
+        pcl:Del4_D2,
+        pcl:Del4_D3,
+        pcl:Del4_D4 .
+
+pcl:Epic4_Lifecycle a backlog:Epic ;
+    rdfs:label "The live register holds only lineages at work"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_Termination ;
+    backlog:hasConfidence 0.9 ;
+    backlog:hasEffort 0.5 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-Lifecycle"^^xsd:string ;
+    backlog:hasImpact 2.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore 3.6 ;
+    backlog:hasRationale "Estimated value before grooming (ruling IP-R7): reach is the number of Delivery lineages the work reaches (1 to 5), impact its business value (1 to 5), confidence low while the epic is coarse, effort a rough count of points; score = reach x impact x confidence / effort. After each grooming step the score is collected from its stories."^^xsd:string ;
+    backlog:hasReach 1.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "The live register holds only lineages at work"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:pursuesObjective pcl:Obj4_Lifecycle ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D5 .
+
+pcl:Epic4_Roadmap a backlog:Epic ;
+    rdfs:label "The Delivery lineages to come are queued in order, each with its mission"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:hasConfidence 0.7 ;
+    backlog:hasEffort 2.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-Roadmap"^^xsd:string ;
+    backlog:hasImpact 5.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore 8.75 ;
+    backlog:hasRationale "Estimated value before grooming (ruling IP-R7): reach is the number of Delivery lineages the work reaches (1 to 5), impact its business value (1 to 5), confidence low while the epic is coarse, effort a rough count of points; score = reach x impact x confidence / effort. After each grooming step the score is collected from its stories."^^xsd:string ;
+    backlog:hasReach 5.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "The Delivery lineages to come are queued in order, each with its mission"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:pursuesObjective pcl:Obj4_Roadmap ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D6 .
+
+pcl:Exec_Builder4 a backlog:Executor_SingleAgent ;
+    rdfs:label "The building agent of Lineage 4: the session agent that writes its records and builds its gate checks"@en .
 
 pcl:Fc4_A_Artifacts a backlog:Forecast ;
     backlog:forecastAssumption "The agents keep the pace observed in 10 pairs of consecutive boxes: 2.21 points per elapsed hour (median), buffer x1.5 (backlog_date_plan_v1_1_0.py). Pace taken from the framework's own register (backlog_abox_v1_199_0.ttl), because IPage's boxes carry no points. 39 points of the lineage's 48, counted in the planned order (hand-overs, queue, then the gate checks, 3 points each), are done when this objective's condition holds. Points are the session's planning estimates, set before refinement."^^xsd:string ;
@@ -1421,7 +1403,7 @@ pcl:Obj4_Branches a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_Branches ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric Branches"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric Branches"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure above 0 stops the release and is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_Branches ;
@@ -1439,7 +1421,7 @@ pcl:Obj4_Conf a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_Conf ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric Conf"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric Conf"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure above 0 stops the release and is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_Conf ;
@@ -1457,7 +1439,7 @@ pcl:Obj4_Contained a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_Contained ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric Contained"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric Contained"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure above 0 stops the release and is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_Contained ;
@@ -1475,7 +1457,7 @@ pcl:Obj4_Mission a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_Mission ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric Mission"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric Mission"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_Mission ;
@@ -1497,7 +1479,7 @@ pcl:Obj4_Outside a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_Outside ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric Outside"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric Outside"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure above 0 stops the release and is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_Outside ;
@@ -1515,7 +1497,7 @@ pcl:Obj4_Product a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_Product ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric Product"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric Product"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure above 0 stops the release and is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_Product ;
@@ -1556,6 +1538,300 @@ pcl:Ruling_IP3 a backlog:GovernanceRuling ;
     backlog:hasRulingIdentifier "IP-R3"^^xsd:string ;
     backlog:hasRulingStatement "The mission of IPage's Governance lineage keeps its wording and is widened, by a mission amendment, to the general mission of governance: to govern, direct, monitor, control, correct and keep on track the execution of IPage's Delivery lineages, so that each obeys its phases, connections, enforcements, ceremonies, methodologies, artifacts, dependencies, ordering, planning, predictions and task types, and can satisfy its mission. The Scope stage, closed in 1.9.0, is rebuilt by a stage revision to answer it, and the goals are built for the widened mission. The Owner's 'production lineage' is the framework's Delivery lineage (G217)."^^xsd:string ;
     backlog:rulingSource "Owner, 2026-11-08 about 20:30 Istanbul (17:30 UTC), answering the question on the Governance lineage's goals: 'The mission of the Governance lineage as a general is to govern, direct, monitor, control, correct, and keep in track the execution obeying the phases, connections, enforcements, ceremonies, methodologies, artifacts, dependencies, ordering, planinng, predictions, task types of the production lineage so that the production can satisfy the mission. What you need is just to adapt the current mission with general governance mission. You should build the goals for that mission.'"^^xsd:string .
+
+pcl:Del4_D1 a backlog:ScopeDeliverable ;
+    rdfs:label "The hand-over on closing an epic is rewritten for its recipient alone and placed in the framework's own inbox, and IPage's fallback copy is retired from its pending folder"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_H_Epic ;
+    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D10 a backlog:ScopeDeliverable ;
+    rdfs:label "The release gate runs, for every live lineage, the checks of the rule sets it adopted (the validator, the order check, the release-item check), so a release that moves no item and cites no dated Owner ruling fails"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Enforcement ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D11 a backlog:ScopeDeliverable ;
+    rdfs:label "Every file a release changes is traced, in the register, to the item and task whose work it is, and every task names its task type"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Artifacts ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D12 a backlog:ScopeDeliverable ;
+    rdfs:label "At every release a monitoring report of each live lineage (open obstacles, objectives off target, late boxes) is produced by the framework's monitor, and each deviation it names is raised as an obstacle or a finding with its route"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Monitoring ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D13 a backlog:ScopeDeliverable ;
+    rdfs:label "Every backlog item of a Delivery lineage sits in one package, chosen by its recorded priority, impact and the deliverable it serves, and every deliverable is delivered by a package"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Planning ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D14 a backlog:ScopeDeliverable ;
+    rdfs:label "Every sprint of a Delivery lineage plans the groomed stories of one package, and its plan names the objectives they move"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Planning ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D15 a backlog:ScopeDeliverable ;
+    rdfs:label "Every story taken into a sprint is refined, and its tasks are defined, typed and planned before they start; every move of a status is recorded when it happens"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Artifacts ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D16 a backlog:ScopeDeliverable ;
+    rdfs:label "Every task, story and sprint closes only with its Definition of Done proven by evidence the release gate re-verifies"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Phases ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D17 a backlog:ScopeDeliverable ;
+    rdfs:label "Every sprint ends with a review that names its unfinished tasks and stories and carries them, re-ranked, into the next sprint"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Phases ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D18 a backlog:ScopeDeliverable ;
+    rdfs:label "Every package and sprint has a time box whose end is a forecast, recorded with its base plan and read against the pace delivered"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Planning ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D19 a backlog:ScopeDeliverable ;
+    rdfs:label "Every release deploys one or more completed packages and records why they were chosen: urgency, coverage, cohesion or business value"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Deployment ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D2 a backlog:ScopeDeliverable ;
+    rdfs:label "A hand-over naming the archive tool's three flaws, with the evidence of 2026-11-08, is placed in the framework's own inbox"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_H_Archive ;
+    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D3 a backlog:ScopeDeliverable ;
+    rdfs:label "The hand-over on a profile naming its own page format is settled: taken as scope of the Delivery lineage on profiles, logged, and moved out of pending"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_H_ProfileFormat ;
+    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D4 a backlog:ScopeDeliverable ;
+    rdfs:label "The hand-over on page versions is settled: taken as scope of the Delivery lineage it belongs to, logged, and moved out of pending"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_H_PageVersion ;
+    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D5 a backlog:ScopeDeliverable ;
+    rdfs:label "Lineage 2 is set down in the archive, on the Owner's ruling on how a lineage concluded before its items had to be closed is set down"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_Lifecycle ;
+    backlog:derivesFromMissionClause "Lineage 2 is set down"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work ;
+    rdfs:comment "Correction appended 2026-11-08: this deliverable's wording assumed a ruling was needed on how to set down a lineage concluded before its items had to be closed. The premise was wrong (the framework has required every item closed since September); the Owner ruled (IP-R5, 21:03 Istanbul) that the items are closed first, and Lineage 2 was set down in IPage 1.13.0, before this lineage's backlog existed, on that ruling."@en .
+
+pcl:Del4_D6 a backlog:ScopeDeliverable ;
+    rdfs:label "Each Delivery lineage to come is recorded in the queue (a lineage at Opened) with its mission and the carried-forward deliverables it takes, in order, the repair of the rule checks first"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_Roadmap ;
+    backlog:derivesFromMissionClause "the work carried forward from Lineage 3 is laid out as a roadmap of narrow Delivery lineages, each with its package, the repair of the rule checks first"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D7 a backlog:ScopeDeliverable ;
+    rdfs:label "The release gate runs the framework's order check on IPage's register, so a Delivery lineage whose stage or ceremony is missing or out of order fails the release"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Phases ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D8 a backlog:ScopeDeliverable ;
+    rdfs:label "The queue of Delivery lineages records their order and the links between their items, and only one runs at a time unless the two are connected"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Order ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D9 a backlog:ScopeDeliverable ;
+    rdfs:label "Each Delivery lineage has its packages chosen before its first box, a forecast from the framework's date planner discussed with the Owner before its dates are final, and a base plan for every box it opens, read against it at the box's end"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Planning ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Epic4_X_Artifacts a backlog:Epic ;
+    rdfs:label "Tasks are typed and planned with their statuses kept, and every changed file traces to its item and task"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:hasConfidence 0.6 ;
+    backlog:hasEffort 6.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-X_Artifacts"^^xsd:string ;
+    backlog:hasImpact 4.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore 2.0 ;
+    backlog:hasRationale "Estimated value before grooming (ruling IP-R7): reach is the number of Delivery lineages the work reaches (1 to 5), impact its business value (1 to 5), confidence low while the epic is coarse, effort a rough count of points; score = reach x impact x confidence / effort. After each grooming step the score is collected from its stories."^^xsd:string ;
+    backlog:hasReach 5.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Tasks are typed and planned with their statuses kept, and every changed file traces to its item and task"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:pursuesObjective pcl:Obj4_A_Artifacts ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D11,
+        pcl:Del4_D15 .
+
+pcl:Epic4_X_Deployment a backlog:Epic ;
+    rdfs:label "Completed packages are deployed under a milestone, chosen for their urgency, coverage, cohesion and business value"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_Termination ;
+    backlog:hasConfidence 0.6 ;
+    backlog:hasEffort 3.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-X_Deployment"^^xsd:string ;
+    backlog:hasImpact 4.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore 4.0 ;
+    backlog:hasRationale "Estimated value before grooming (ruling IP-R7): reach is the number of Delivery lineages the work reaches (1 to 5), impact its business value (1 to 5), confidence low while the epic is coarse, effort a rough count of points; score = reach x impact x confidence / effort. After each grooming step the score is collected from its stories."^^xsd:string ;
+    backlog:hasReach 5.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Completed packages are deployed under a milestone, chosen for their urgency, coverage, cohesion and business value"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:pursuesObjective pcl:Obj4_X_Deploy ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D19 .
+
+pcl:Epic4_X_Enforcement a backlog:Epic ;
+    rdfs:label "Every rule set a live lineage adopted is checked at each release"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:hasConfidence 0.6 ;
+    backlog:hasEffort 3.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-X_Enforcement"^^xsd:string ;
+    backlog:hasImpact 5.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore 5.0 ;
+    backlog:hasRationale "Estimated value before grooming (ruling IP-R7): reach is the number of Delivery lineages the work reaches (1 to 5), impact its business value (1 to 5), confidence low while the epic is coarse, effort a rough count of points; score = reach x impact x confidence / effort. After each grooming step the score is collected from its stories."^^xsd:string ;
+    backlog:hasReach 5.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Every rule set a live lineage adopted is checked at each release"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:pursuesObjective pcl:Obj4_X_Rules ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D10 .
+
+pcl:Epic4_X_Monitoring a backlog:Epic ;
+    rdfs:label "Each live lineage's deviations are reported at release, each with a route to correction"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_SuspensionException ;
+    backlog:hasConfidence 0.6 ;
+    backlog:hasEffort 6.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-X_Monitoring"^^xsd:string ;
+    backlog:hasImpact 5.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore 2.5 ;
+    backlog:hasRationale "Estimated value before grooming (ruling IP-R7): reach is the number of Delivery lineages the work reaches (1 to 5), impact its business value (1 to 5), confidence low while the epic is coarse, effort a rough count of points; score = reach x impact x confidence / effort. After each grooming step the score is collected from its stories."^^xsd:string ;
+    backlog:hasReach 5.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Each live lineage's deviations are reported at release, each with a route to correction"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:pursuesObjective pcl:Obj4_X_Monitor ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D12 .
+
+pcl:Epic4_X_Order a backlog:Epic ;
+    rdfs:label "Delivery lineages run in their queued order, one at a time unless unconnected"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:hasConfidence 0.6 ;
+    backlog:hasEffort 3.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-X_Order"^^xsd:string ;
+    backlog:hasImpact 4.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore 3.2 ;
+    backlog:hasRationale "Estimated value before grooming (ruling IP-R7): reach is the number of Delivery lineages the work reaches (1 to 5), impact its business value (1 to 5), confidence low while the epic is coarse, effort a rough count of points; score = reach x impact x confidence / effort. After each grooming step the score is collected from its stories."^^xsd:string ;
+    backlog:hasReach 4.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Delivery lineages run in their queued order, one at a time unless unconnected"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:pursuesObjective pcl:Obj4_X_Order ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D8 .
+
+pcl:Epic4_X_Phases a backlog:Epic ;
+    rdfs:label "A Delivery lineage passes its stages and ceremonies in order, and its work closes only on proven Done and a sprint review"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:hasConfidence 0.6 ;
+    backlog:hasEffort 9.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-X_Phases"^^xsd:string ;
+    backlog:hasImpact 5.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore 1.67 ;
+    backlog:hasRationale "Estimated value before grooming (ruling IP-R7): reach is the number of Delivery lineages the work reaches (1 to 5), impact its business value (1 to 5), confidence low while the epic is coarse, effort a rough count of points; score = reach x impact x confidence / effort. After each grooming step the score is collected from its stories."^^xsd:string ;
+    backlog:hasReach 5.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "A Delivery lineage passes its stages and ceremonies in order, and its work closes only on proven Done and a sprint review"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:pursuesObjective pcl:Obj4_A_Phases ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D16,
+        pcl:Del4_D17,
+        pcl:Del4_D7 .
+
+pcl:Epic4_X_Planning a backlog:Epic ;
+    rdfs:label "A Delivery lineage is planned from its packages: chosen before its first box, sprints planned to them, every box time-boxed"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:hasConfidence 0.6 ;
+    backlog:hasEffort 12.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-E-X_Planning"^^xsd:string ;
+    backlog:hasImpact 4.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore 1.0 ;
+    backlog:hasRationale "Estimated value before grooming (ruling IP-R7): reach is the number of Delivery lineages the work reaches (1 to 5), impact its business value (1 to 5), confidence low while the epic is coarse, effort a rough count of points; score = reach x impact x confidence / effort. After each grooming step the score is collected from its stories."^^xsd:string ;
+    backlog:hasReach 5.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "A Delivery lineage is planned from its packages: chosen before its first box, sprints planned to them, every box time-boxed"@en ;
+    backlog:memberOfContainer pcl:Backlog ;
+    backlog:pursuesObjective pcl:Obj4_A_Planning ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D13,
+        pcl:Del4_D14,
+        pcl:Del4_D18,
+        pcl:Del4_D9 .
 
 pcl:Ex4_Branches a backlog:ScopeExclusion ;
     rdfs:label "Exclusion: Governance branches with no open work"@en ;
@@ -1693,92 +1969,6 @@ pcl:Metric4_X_Trace a <http://example.org/core#Metric> ;
     rdfs:label "Missing: a release-gate check that refuses a planted fault for every changed file traced to its item and task (D11)"@en ;
     skos:definition "Counted in units of: check."@en .
 
-pcl:Obj4_A_Artifacts a backlog:Objective ;
-    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for typed, planned tasks with current statuses (D15) and traced files (D11)"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_A_Artifacts ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 2.0 ;
-    backlog:hasCheckpoint pcl:CP4_A_Artifacts ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric A_Artifacts"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_A_Artifacts ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective ;
-    prov:wasDerivedFrom pcl:Obj4_X_Tasks,
-        pcl:Obj4_X_Trace .
-
-pcl:Obj4_A_Phases a backlog:Objective ;
-    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for stage and ceremony order (D7), closing by the Definition of Done (D16) and sprint review with carry-over (D17)"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_A_Phases ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 3.0 ;
-    backlog:hasCheckpoint pcl:CP4_A_Phases ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric A_Phases"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_A_Phases ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective ;
-    prov:wasDerivedFrom pcl:Obj4_X_Done,
-        pcl:Obj4_X_Review .
-
-pcl:Obj4_A_Planning a backlog:Objective ;
-    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for packages and a discussed forecast before the first box (D9), packages (D13), sprint plans (D14) and time boxes (D18)"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_A_Planning ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 4.0 ;
-    backlog:hasCheckpoint pcl:CP4_A_Planning ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric A_Planning"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_A_Planning ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective ;
-    prov:wasDerivedFrom pcl:Obj4_X_Packages,
-        pcl:Obj4_X_Sprints,
-        pcl:Obj4_X_TimeBox .
-
-pcl:Obj4_Execution a backlog:Objective ;
-    rdfs:label "Objective: Release-gate checks of the execution method that do not yet refuse a planted fault"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_Execution ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 14.0 ;
-    backlog:hasCheckpoint pcl:CP4_Execution ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric Execution"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_Execution ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective ;
-    prov:wasDerivedFrom pcl:Obj4_A_Artifacts,
-        pcl:Obj4_A_Phases,
-        pcl:Obj4_A_Planning,
-        pcl:Obj4_X_Deploy,
-        pcl:Obj4_X_Monitor,
-        pcl:Obj4_X_Order,
-        pcl:Obj4_X_Rules .
-
 pcl:Obj4_H_Archive a backlog:Objective ;
     rdfs:label "Objective: The hand-over on the archive tool's flaws not yet in the framework's inbox"@en ;
     backlog:belongsToLineage pcl:Lineage04 ;
@@ -1789,7 +1979,7 @@ pcl:Obj4_H_Archive a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_H_Archive ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric H_Archive"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric H_Archive"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_H_Archive ;
@@ -1807,7 +1997,7 @@ pcl:Obj4_H_Epic a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_H_Epic ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric H_Epic"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric H_Epic"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_H_Epic ;
@@ -1825,7 +2015,7 @@ pcl:Obj4_H_PageVersion a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_H_PageVersion ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric H_PageVersion"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric H_PageVersion"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_H_PageVersion ;
@@ -1843,86 +2033,10 @@ pcl:Obj4_H_ProfileFormat a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_H_ProfileFormat ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric H_ProfileFormat"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric H_ProfileFormat"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_H_ProfileFormat ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
-
-pcl:Obj4_Handovers a backlog:Objective ;
-    rdfs:label "Objective: Hand-overs not settled in their own recipient's inbox"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_Handovers ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 4.0 ;
-    backlog:hasCheckpoint pcl:CP4_Handovers ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Derived ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric Handovers"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_Handovers ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective ;
-    prov:wasDerivedFrom pcl:Obj4_H_Archive,
-        pcl:Obj4_H_Epic,
-        pcl:Obj4_H_PageVersion,
-        pcl:Obj4_H_ProfileFormat .
-
-pcl:Obj4_Lifecycle a backlog:Objective ;
-    rdfs:label "Objective: Concluded lineages still held in the live register, plus Lineage 2 if not set down"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_Lifecycle ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 0.0 ;
-    backlog:hasCheckpoint pcl:CP4_Lifecycle ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric Lifecycle"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure above 0 stops the release and is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_Lifecycle ;
-    backlog:hasTargetDirection backlog:Dir_Hold ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
-
-pcl:Obj4_Roadmap a backlog:Objective ;
-    rdfs:label "Objective: No Delivery lineage queued at Opened with its mission (D6)"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_Roadmap ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 1.0 ;
-    backlog:hasCheckpoint pcl:CP4_Roadmap ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric Roadmap"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_Roadmap ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
-
-pcl:Obj4_X_Deploy a backlog:Objective ;
-    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for a deployment marked by a milestone, carrying completed packages and why they were chosen (D19)"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_X_Deploy ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 1.0 ;
-    backlog:hasCheckpoint pcl:CP4_X_Deploy ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_Deploy"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_X_Deploy ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
     backlog:producedByStage pcl:Out4_Objective .
@@ -1937,46 +2051,10 @@ pcl:Obj4_X_Done a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_X_Done ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_Done"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_Done"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_X_Done ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
-
-pcl:Obj4_X_Monitor a backlog:Objective ;
-    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for a monitoring report of each live lineage (D12) and a deviation in it with no route to correction"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_X_Monitor ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 2.0 ;
-    backlog:hasCheckpoint pcl:CP4_X_Monitor ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_Monitor"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_X_Monitor ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
-
-pcl:Obj4_X_Order a backlog:Objective ;
-    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for the queue order and one Delivery lineage at a time (D8)"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_X_Order ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 1.0 ;
-    backlog:hasCheckpoint pcl:CP4_X_Order ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_Order"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_X_Order ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
     backlog:producedByStage pcl:Out4_Objective .
@@ -1991,7 +2069,7 @@ pcl:Obj4_X_Packages a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_X_Packages ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_Packages"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_Packages"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_X_Packages ;
@@ -2009,28 +2087,10 @@ pcl:Obj4_X_Review a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_X_Review ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_Review"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_Review"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_X_Review ;
-    backlog:hasTargetDirection backlog:Dir_Decrease ;
-    backlog:hasTargetValue 0.0 ;
-    backlog:producedByStage pcl:Out4_Objective .
-
-pcl:Obj4_X_Rules a backlog:Objective ;
-    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for the rule sets every live lineage adopted (D10)"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToGoal pcl:Goal4_X_Rules ;
-    backlog:fillsScope pcl:Scope4 ;
-    backlog:hasAchievementStatus backlog:Ach_Pending ;
-    backlog:hasBaselineValue 1.0 ;
-    backlog:hasCheckpoint pcl:CP4_X_Rules ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_Rules"^^xsd:string ;
-    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
-        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
-    backlog:hasSuccessMetric pcl:Metric4_X_Rules ;
     backlog:hasTargetDirection backlog:Dir_Decrease ;
     backlog:hasTargetValue 0.0 ;
     backlog:producedByStage pcl:Out4_Objective .
@@ -2045,7 +2105,7 @@ pcl:Obj4_X_Sprints a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_X_Sprints ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_Sprints"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_Sprints"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_X_Sprints ;
@@ -2063,7 +2123,7 @@ pcl:Obj4_X_Tasks a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_X_Tasks ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_Tasks"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_Tasks"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_X_Tasks ;
@@ -2081,7 +2141,7 @@ pcl:Obj4_X_TimeBox a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_X_TimeBox ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_TimeBox"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_TimeBox"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_X_TimeBox ;
@@ -2099,7 +2159,7 @@ pcl:Obj4_X_Trace a backlog:Objective ;
     backlog:hasCheckpoint pcl:CP4_X_Trace ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
     backlog:hasMeasurementKind backlog:Meas_Counted ;
-    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_0_0.py --metric X_Trace"^^xsd:string ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_Trace"^^xsd:string ;
     backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
         "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
     backlog:hasSuccessMetric pcl:Metric4_X_Trace ;
@@ -2215,6 +2275,233 @@ pcl:Goal4_A_Phases a backlog:Goal ;
     backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
 
+pcl:Obj4_A_Artifacts a backlog:Objective ;
+    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for typed, planned tasks with current statuses (D15) and traced files (D11)"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_A_Artifacts ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 2.0 ;
+    backlog:hasCheckpoint pcl:CP4_A_Artifacts ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric A_Artifacts"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_A_Artifacts ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_X_Artifacts ;
+    backlog:producedByStage pcl:Out4_Objective ;
+    prov:wasDerivedFrom pcl:Obj4_X_Tasks,
+        pcl:Obj4_X_Trace .
+
+pcl:Obj4_A_Phases a backlog:Objective ;
+    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for stage and ceremony order (D7), closing by the Definition of Done (D16) and sprint review with carry-over (D17)"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_A_Phases ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 3.0 ;
+    backlog:hasCheckpoint pcl:CP4_A_Phases ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric A_Phases"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_A_Phases ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_X_Phases ;
+    backlog:producedByStage pcl:Out4_Objective ;
+    prov:wasDerivedFrom pcl:Obj4_X_Done,
+        pcl:Obj4_X_Review .
+
+pcl:Obj4_A_Planning a backlog:Objective ;
+    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for packages and a discussed forecast before the first box (D9), packages (D13), sprint plans (D14) and time boxes (D18)"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_A_Planning ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 4.0 ;
+    backlog:hasCheckpoint pcl:CP4_A_Planning ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric A_Planning"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_A_Planning ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_X_Planning ;
+    backlog:producedByStage pcl:Out4_Objective ;
+    prov:wasDerivedFrom pcl:Obj4_X_Packages,
+        pcl:Obj4_X_Sprints,
+        pcl:Obj4_X_TimeBox .
+
+pcl:Obj4_Execution a backlog:Objective ;
+    rdfs:label "Objective: Release-gate checks of the execution method that do not yet refuse a planted fault"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_Execution ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 14.0 ;
+    backlog:hasCheckpoint pcl:CP4_Execution ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric Execution"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_Execution ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_Execution ;
+    backlog:producedByStage pcl:Out4_Objective ;
+    prov:wasDerivedFrom pcl:Obj4_A_Artifacts,
+        pcl:Obj4_A_Phases,
+        pcl:Obj4_A_Planning,
+        pcl:Obj4_X_Deploy,
+        pcl:Obj4_X_Monitor,
+        pcl:Obj4_X_Order,
+        pcl:Obj4_X_Rules .
+
+pcl:Obj4_Handovers a backlog:Objective ;
+    rdfs:label "Objective: Hand-overs not settled in their own recipient's inbox"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_Handovers ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 4.0 ;
+    backlog:hasCheckpoint pcl:CP4_Handovers ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Derived ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric Handovers"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0; it is the sum of its children's figures, as the goal tree sums the scope tree."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_Handovers ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_Handovers ;
+    backlog:producedByStage pcl:Out4_Objective ;
+    prov:wasDerivedFrom pcl:Obj4_H_Archive,
+        pcl:Obj4_H_Epic,
+        pcl:Obj4_H_PageVersion,
+        pcl:Obj4_H_ProfileFormat .
+
+pcl:Obj4_Lifecycle a backlog:Objective ;
+    rdfs:label "Objective: Concluded lineages still held in the live register, plus Lineage 2 if not set down"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_Lifecycle ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 0.0 ;
+    backlog:hasCheckpoint pcl:CP4_Lifecycle ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Counted ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric Lifecycle"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure above 0 stops the release and is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_Lifecycle ;
+    backlog:hasTargetDirection backlog:Dir_Hold ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_Lifecycle ;
+    backlog:producedByStage pcl:Out4_Objective .
+
+pcl:Obj4_Roadmap a backlog:Objective ;
+    rdfs:label "Objective: No Delivery lineage queued at Opened with its mission (D6)"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_Roadmap ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 1.0 ;
+    backlog:hasCheckpoint pcl:CP4_Roadmap ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Counted ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric Roadmap"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_Roadmap ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_Roadmap ;
+    backlog:producedByStage pcl:Out4_Objective .
+
+pcl:Obj4_X_Deploy a backlog:Objective ;
+    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for a deployment marked by a milestone, carrying completed packages and why they were chosen (D19)"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_X_Deploy ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 1.0 ;
+    backlog:hasCheckpoint pcl:CP4_X_Deploy ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Counted ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_Deploy"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_X_Deploy ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_X_Deployment ;
+    backlog:producedByStage pcl:Out4_Objective .
+
+pcl:Obj4_X_Monitor a backlog:Objective ;
+    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for a monitoring report of each live lineage (D12) and a deviation in it with no route to correction"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_X_Monitor ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 2.0 ;
+    backlog:hasCheckpoint pcl:CP4_X_Monitor ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Counted ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_Monitor"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_X_Monitor ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_X_Monitoring ;
+    backlog:producedByStage pcl:Out4_Objective .
+
+pcl:Obj4_X_Order a backlog:Objective ;
+    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for the queue order and one Delivery lineage at a time (D8)"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_X_Order ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 1.0 ;
+    backlog:hasCheckpoint pcl:CP4_X_Order ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Counted ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_Order"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_X_Order ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_X_Order ;
+    backlog:producedByStage pcl:Out4_Objective .
+
+pcl:Obj4_X_Rules a backlog:Objective ;
+    rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for the rule sets every live lineage adopted (D10)"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToGoal pcl:Goal4_X_Rules ;
+    backlog:fillsScope pcl:Scope4 ;
+    backlog:hasAchievementStatus backlog:Ach_Pending ;
+    backlog:hasBaselineValue 1.0 ;
+    backlog:hasCheckpoint pcl:CP4_X_Rules ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasMeasurementKind backlog:Meas_Counted ;
+    backlog:hasMeasurementQuery "python3 05-lineage/measure_governance_v1_1_0.py --metric X_Rules"^^xsd:string ;
+    backlog:hasRationale "Baseline read by measure_governance_v1_0_0.py on IPage v1.14.0 (9d90e53); the figure counts what is still missing, so the target is 0. A check counts as met only when the release gate refuses a planted fault for it, never by a file or a claim."^^xsd:string,
+        "Used at four moments (ruling IP-R6): driving, at each sprint plan, where the open figure helps choose the next work; monitoring, at each release, where the gate prints and records it; control, at each release, where a figure that rises is raised as an obstacle with its route to correction; closure, the last reading, where 0 is achieved and anything else is recorded as missed."^^xsd:string ;
+    backlog:hasSuccessMetric pcl:Metric4_X_Rules ;
+    backlog:hasTargetDirection backlog:Dir_Decrease ;
+    backlog:hasTargetValue 0.0 ;
+    backlog:metricMovableBy pcl:Epic4_X_Enforcement ;
+    backlog:producedByStage pcl:Out4_Objective .
+
 pcl:Out4_Scope3 a backlog:StageOutput ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:closedAtCommit "IPage v1.11.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
@@ -2324,6 +2611,23 @@ pcl:Area4_X_Planning a backlog:ScopeArea ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:hasParentItem pcl:Area4_Execution ;
     backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:DoD4 a backlog:DefinitionOfDone ;
+    rdfs:label "Definition of Done of Lineage 4's items"@en ;
+    backlog:hasDoDCriterion pcl:DoD4_1,
+        pcl:DoD4_2 ;
+    rdfs:comment "An item is Done when its acceptance criterion holds on the release that carries it: where it builds a gate check, the gate refuses its planted fault and passes the clean register; measure_governance reads its figure as 0; the release check passes; an independent verifier reproduces the evidence."^^xsd:string .
+
+pcl:Run4_Builder0 a backlog:ExecutorInstance,
+        backlog:Executor_SingleAgent ;
+    backlog:instanceOf pcl:Exec_Builder4 ;
+    backlog:instantiatedAt "2026-11-09T14:00:00+00:00"^^xsd:dateTime ;
+    backlog:instantiatedFromVersion "1.15.0"^^xsd:string .
+
+pcl:DomainEntity_DeliveryLineage a backlog:DomainEntity ;
+    rdfs:label "A Delivery lineage of IPage"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    skos:definition "What the Governance lineage is about: a Delivery lineage of IPage, from its place in the queue (creation), through its work kept to the execution method (active use) and the correction of its deviations (exception), to its setting down (termination)."^^xsd:string .
 
 pcl:Out4_Objective a backlog:StageOutput ;
     backlog:belongsToLineage pcl:Lineage04 ;
@@ -2448,3 +2752,33 @@ pcl:Lineage04 a backlog:Lineage ;
     backlog:openedWithProfile backlog:Profile_AgenticAdaptive ;
     rdfs:comment "The Governance lineage of IPage (the framework's ruling G217: the lineage that governs the lives of lineages). Opened on the Owner's ruling IP-R1 of 2026-11-08 under the framework's default profile (agentic adaptive, revision 16, which adopts the package rules), after Lineage 3 was concluded and set down."@en .
 
+
+# Correction note, 2026-11-09 (append, never edit): the measurement query of each objective of Lineage 4 moved to measure_governance_v1_1_0.py
+pcl:Obj4_Mission rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_Execution rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_A_Phases rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_A_Planning rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_A_Artifacts rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_Done rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_Review rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_Packages rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_Sprints rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_TimeBox rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_Tasks rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_Trace rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_Order rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_Rules rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_Monitor rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_X_Deploy rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_Handovers rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_H_Epic rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_H_Archive rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_H_ProfileFormat rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_H_PageVersion rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_Lifecycle rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_Roadmap rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_Conf rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_Contained rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_Product rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_Outside rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
+pcl:Obj4_Branches rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
