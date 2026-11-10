@@ -449,6 +449,69 @@ pcl:Out4_Backlog a backlog:StageOutput ;
     backlog:hasStateDigest "bbcc00728edd1670a224bc79d0e90c781c6424c860f58eb95564601f9e8cc173"^^xsd:string ;
     backlog:outputOfStage backlog:Stage_Backlog .
 
+pcl:PB4_1 a backlog:PlanBaseline ;
+    rdfs:label "Base plan of box 1"@en ;
+    backlog:baselineFor pcl:It4_1 ;
+    backlog:baselinedAt "2026-11-10T08:30:00+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineEnd "2026-11-10T12:03:15+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineStart "2026-11-10T09:00:00+00:00"^^xsd:dateTime ;
+    backlog:isCurrentBaseline true ;
+    rdfs:comment "Forecast only, due on nothing (G197, ruling IP-R6): 4.5 points at the median delivered pace of 2.21 points per elapsed hour (the framework's own register, as the Objective stage's forecast), buffer x1.5; boxes follow one another."^^xsd:string .
+
+pcl:PB4_2 a backlog:PlanBaseline ;
+    rdfs:label "Base plan of box 2"@en ;
+    backlog:baselineFor pcl:It4_2 ;
+    backlog:baselinedAt "2026-11-10T08:30:00+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineEnd "2026-11-10T16:07:35+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineStart "2026-11-10T12:03:15+00:00"^^xsd:dateTime ;
+    backlog:isCurrentBaseline true ;
+    rdfs:comment "Forecast only, due on nothing (G197, ruling IP-R6): 6 points at the median delivered pace of 2.21 points per elapsed hour (the framework's own register, as the Objective stage's forecast), buffer x1.5; boxes follow one another."^^xsd:string .
+
+pcl:PB4_3 a backlog:PlanBaseline ;
+    rdfs:label "Base plan of box 3"@en ;
+    backlog:baselineFor pcl:It4_3 ;
+    backlog:baselinedAt "2026-11-10T08:30:00+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineEnd "2026-11-10T21:33:22+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineStart "2026-11-10T16:07:35+00:00"^^xsd:dateTime ;
+    backlog:isCurrentBaseline true ;
+    rdfs:comment "Forecast only, due on nothing (G197, ruling IP-R6): 8 points at the median delivered pace of 2.21 points per elapsed hour (the framework's own register, as the Objective stage's forecast), buffer x1.5; boxes follow one another."^^xsd:string .
+
+pcl:PB4_4 a backlog:PlanBaseline ;
+    rdfs:label "Base plan of box 4"@en ;
+    backlog:baselineFor pcl:It4_4 ;
+    backlog:baselinedAt "2026-11-10T08:30:00+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineEnd "2026-11-11T03:39:52+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineStart "2026-11-10T21:33:22+00:00"^^xsd:dateTime ;
+    backlog:isCurrentBaseline true ;
+    rdfs:comment "Forecast only, due on nothing (G197, ruling IP-R6): 9 points at the median delivered pace of 2.21 points per elapsed hour (the framework's own register, as the Objective stage's forecast), buffer x1.5; boxes follow one another."^^xsd:string .
+
+pcl:PB4_5 a backlog:PlanBaseline ;
+    rdfs:label "Base plan of box 5"@en ;
+    backlog:baselineFor pcl:It4_5 ;
+    backlog:baselinedAt "2026-11-10T08:30:00+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineEnd "2026-11-11T09:46:22+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineStart "2026-11-11T03:39:52+00:00"^^xsd:dateTime ;
+    backlog:isCurrentBaseline true ;
+    rdfs:comment "Forecast only, due on nothing (G197, ruling IP-R6): 9 points at the median delivered pace of 2.21 points per elapsed hour (the framework's own register, as the Objective stage's forecast), buffer x1.5; boxes follow one another."^^xsd:string .
+
+pcl:PB4_6 a backlog:PlanBaseline ;
+    rdfs:label "Base plan of box 6"@en ;
+    backlog:baselineFor pcl:It4_6 ;
+    backlog:baselinedAt "2026-11-10T08:30:00+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineEnd "2026-11-11T13:50:42+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineStart "2026-11-11T09:46:22+00:00"^^xsd:dateTime ;
+    backlog:isCurrentBaseline true ;
+    rdfs:comment "Forecast only, due on nothing (G197, ruling IP-R6): 6 points at the median delivered pace of 2.21 points per elapsed hour (the framework's own register, as the Objective stage's forecast), buffer x1.5; boxes follow one another."^^xsd:string .
+
+pcl:PB4_7 a backlog:PlanBaseline ;
+    rdfs:label "Base plan of box 7"@en ;
+    backlog:baselineFor pcl:It4_7 ;
+    backlog:baselinedAt "2026-11-10T08:30:00+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineEnd "2026-11-11T17:55:02+00:00"^^xsd:dateTime ;
+    backlog:hasBaselineStart "2026-11-11T13:50:42+00:00"^^xsd:dateTime ;
+    backlog:isCurrentBaseline true ;
+    rdfs:comment "Forecast only, due on nothing (G197, ruling IP-R6): 6 points at the median delivered pace of 2.21 points per elapsed hour (the framework's own register, as the Objective stage's forecast), buffer x1.5; boxes follow one another."^^xsd:string .
+
 pcl:Profile a backlog:AdoptionProfile ;
     rdfs:label "RDODI page conditions - adoption profile"@en ;
     backlog:adoptsFacet backlog:AuditFacet,
@@ -540,9 +603,9 @@ pcl:SRev4_3 a backlog:StageRevision ;
 <http://example.org/rdodi/page-conditions-lineage/register> a owl:Ontology ;
     rdfs:comment "BRSF register of Lineage 3 (one ontology of interactive pages), kept in the IPage repository from 2026-11-05. Its first version here is every statement of Lineage 3 in the RDODI register rdodi_overview_page_lineage_abox_v0_39_0.ttl, published by the Ontologies monorepo commit d3c1c30028cc48830c2b391c9be8e89dd15765cb, copied unchanged; that register keeps the whole history, and the evidence recorded there is re-run against the monorepo. From here the lineage writes only to this file."@en ;
     owl:imports <http://example.org/backlog> ;
-    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.68.0> ;
-    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.69.0> ;
-    owl:versionInfo "0.69.0" ;
+    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.69.0> ;
+    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.70.0> ;
+    owl:versionInfo "0.70.0" ;
     prov:wasAttributedTo <http://example.org/rdodi/agent/YusufAltunel> .
 
 pcl:AC4_D1 a backlog:AcceptanceCriterion ;
@@ -1524,6 +1587,22 @@ pcl:Lineage03 backlog:archivalTrigger "Found achieved and un-archived by backlog
     backlog:lineageArchived true ;
     rdfs:comment "Correction appended 2026-11-08: the archival trigger above is the archive tool's standard text and says the mission was Achieved. It was not: the mission of Lineage 3 is Abandoned, its closure report marked Cancelled, on the Owner's ruling IP-R1 and his confirmation IP-R2. The tool's checks accept an abandoned mission with a closure report; only its text is wrong."@en .
 
+pcl:Milestone4_M1 a backlog:Milestone ;
+    rdfs:label "Inboxes clean"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:hasIdentifier "IPG4-M1"^^xsd:string ;
+    backlog:hasTargetDate "2026-11-10T12:03:15+00:00"^^xsd:dateTime ;
+    rdfs:comment "Its date is the forecast end of the last box of the packages it marks, due on nothing (G226, ruling IP-R6); it is achieved only when the work that contributes to it is Done."^^xsd:string ;
+    skos:definition "The inboxes hold no unsettled hand-over of this lineage and the live register holds only lineages at work. Chosen for urgency: other sessions wait on it."^^xsd:string .
+
+pcl:Milestone4_M4 a backlog:Milestone ;
+    rdfs:label "Governance complete"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:hasIdentifier "IPG4-M4"^^xsd:string ;
+    backlog:hasTargetDate "2026-11-11T17:55:02+00:00"^^xsd:dateTime ;
+    rdfs:comment "Its date is the forecast end of the last box of the packages it marks, due on nothing (G226, ruling IP-R6); it is achieved only when the work that contributes to it is Done."^^xsd:string ;
+    skos:definition "Traceability, monitoring with correction and deployment are checked; every deliverable of the Governance lineage is met. Chosen for business value: the Owner sees and steers every live lineage."^^xsd:string .
+
 pcl:Obj4_Branches a backlog:Objective ;
     rdfs:label "Objective: Work items of Lineage 4 that serve no deliverable of its scope"@en ;
     backlog:belongsToLineage pcl:Lineage04 ;
@@ -2201,6 +2280,22 @@ pcl:Metric4_X_Trace a <http://example.org/core#Metric> ;
     rdfs:label "Missing: a release-gate check that refuses a planted fault for every changed file traced to its item and task (D11)"@en ;
     skos:definition "Counted in units of: check."@en .
 
+pcl:Milestone4_M2 a backlog:Milestone ;
+    rdfs:label "A Delivery lineage can open under governance"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:hasIdentifier "IPG4-M2"^^xsd:string ;
+    backlog:hasTargetDate "2026-11-10T21:33:22+00:00"^^xsd:dateTime ;
+    rdfs:comment "Its date is the forecast end of the last box of the packages it marks, due on nothing (G226, ruling IP-R6); it is achieved only when the work that contributes to it is Done."^^xsd:string ;
+    skos:definition "The gate refuses a lineage that breaks its adopted rules, its stage order, the queue order or a ready start, and the first Delivery lineage is queued. Chosen for coverage and cohesion: the start of a Delivery lineage is governed whole, so it can open."^^xsd:string .
+
+pcl:Milestone4_M3 a backlog:Milestone ;
+    rdfs:label "A Delivery lineage's sprints are governed"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:hasIdentifier "IPG4-M3"^^xsd:string ;
+    backlog:hasTargetDate "2026-11-11T09:46:22+00:00"^^xsd:dateTime ;
+    rdfs:comment "Its date is the forecast end of the last box of the packages it marks, due on nothing (G226, ruling IP-R6); it is achieved only when the work that contributes to it is Done."^^xsd:string ;
+    skos:definition "The gate keeps a Delivery lineage's planning and its closing to the execution method. Chosen for cohesion: planning and closing are the two halves of a sprint."^^xsd:string .
+
 pcl:Score4_Handovers_Est a backlog:PriorityScore ;
     rdfs:label "Estimated score of the epic before grooming"@en ;
     backlog:hasConfidence 0.8 ;
@@ -2387,140 +2482,6 @@ pcl:Area4_X_Order a backlog:ScopeArea ;
     backlog:areaMeasure "Counted 2026-11-08: 0 Delivery lineages queued; 0 links between their items."^^xsd:string ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:hasParentItem pcl:Area4_Execution ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D1 a backlog:ScopeDeliverable ;
-    rdfs:label "The hand-over on closing an epic is rewritten for its recipient alone and placed in the framework's own inbox, and IPage's fallback copy is retired from its pending folder"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_H_Epic ;
-    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D10 a backlog:ScopeDeliverable ;
-    rdfs:label "The release gate runs, for every live lineage, the checks of the rule sets it adopted (the validator, the order check, the release-item check), so a release that moves no item and cites no dated Owner ruling fails"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Enforcement ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D11 a backlog:ScopeDeliverable ;
-    rdfs:label "Every file a release changes is traced, in the register, to the item and task whose work it is, and every task names its task type"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Artifacts ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D12 a backlog:ScopeDeliverable ;
-    rdfs:label "At every release a monitoring report of each live lineage (open obstacles, objectives off target, late boxes) is produced by the framework's monitor, and each deviation it names is raised as an obstacle or a finding with its route"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Monitoring ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D13 a backlog:ScopeDeliverable ;
-    rdfs:label "Every backlog item of a Delivery lineage sits in one package, chosen by its recorded priority, impact and the deliverable it serves, and every deliverable is delivered by a package"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Planning ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D14 a backlog:ScopeDeliverable ;
-    rdfs:label "Every sprint of a Delivery lineage plans the groomed stories of one package, and its plan names the objectives they move"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Planning ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D15 a backlog:ScopeDeliverable ;
-    rdfs:label "Every story taken into a sprint is refined, and its tasks are defined, typed and planned before they start; every move of a status is recorded when it happens"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Artifacts ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D16 a backlog:ScopeDeliverable ;
-    rdfs:label "Every task, story and sprint closes only with its Definition of Done proven by evidence the release gate re-verifies"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Phases ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D17 a backlog:ScopeDeliverable ;
-    rdfs:label "Every sprint ends with a review that names its unfinished tasks and stories and carries them, re-ranked, into the next sprint"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Phases ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D18 a backlog:ScopeDeliverable ;
-    rdfs:label "Every package and sprint has a time box whose end is a forecast, recorded with its base plan and read against the pace delivered"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Planning ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D19 a backlog:ScopeDeliverable ;
-    rdfs:label "Every release deploys one or more completed packages and records why they were chosen: urgency, coverage, cohesion or business value"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Deployment ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D2 a backlog:ScopeDeliverable ;
-    rdfs:label "A hand-over naming the archive tool's three flaws, with the evidence of 2026-11-08, is placed in the framework's own inbox"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_H_Archive ;
-    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D3 a backlog:ScopeDeliverable ;
-    rdfs:label "The hand-over on a profile naming its own page format is settled: taken as scope of the Delivery lineage on profiles, logged, and moved out of pending"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_H_ProfileFormat ;
-    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D4 a backlog:ScopeDeliverable ;
-    rdfs:label "The hand-over on page versions is settled: taken as scope of the Delivery lineage it belongs to, logged, and moved out of pending"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_H_PageVersion ;
-    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D5 a backlog:ScopeDeliverable ;
-    rdfs:label "Lineage 2 is set down in the archive, on the Owner's ruling on how a lineage concluded before its items had to be closed is set down"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_Lifecycle ;
-    backlog:derivesFromMissionClause "Lineage 2 is set down"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work ;
-    rdfs:comment "Correction appended 2026-11-08: this deliverable's wording assumed a ruling was needed on how to set down a lineage concluded before its items had to be closed. The premise was wrong (the framework has required every item closed since September); the Owner ruled (IP-R5, 21:03 Istanbul) that the items are closed first, and Lineage 2 was set down in IPage 1.13.0, before this lineage's backlog existed, on that ruling."@en .
-
-pcl:Del4_D6 a backlog:ScopeDeliverable ;
-    rdfs:label "Each Delivery lineage to come is recorded in the queue (a lineage at Opened) with its mission and the carried-forward deliverables it takes, in order, the repair of the rule checks first"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_Roadmap ;
-    backlog:derivesFromMissionClause "the work carried forward from Lineage 3 is laid out as a roadmap of narrow Delivery lineages, each with its package, the repair of the rule checks first"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D7 a backlog:ScopeDeliverable ;
-    rdfs:label "The release gate runs the framework's order check on IPage's register, so a Delivery lineage whose stage or ceremony is missing or out of order fails the release"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Phases ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D8 a backlog:ScopeDeliverable ;
-    rdfs:label "The queue of Delivery lineages records their order and the links between their items, and only one runs at a time unless the two are connected"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Order ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Del4_D9 a backlog:ScopeDeliverable ;
-    rdfs:label "Each Delivery lineage has its packages chosen before its first box, a forecast from the framework's date planner discussed with the Owner before its dates are final, and a base plan for every box it opens, read against it at the box's end"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:deliverableForArea pcl:Area4_X_Planning ;
-    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
     backlog:hasScopeLayer backlog:Layer_Work .
 
 pcl:Epic4_X_Artifacts a backlog:Epic ;
@@ -2735,6 +2696,232 @@ pcl:Goal4_A_Phases a backlog:Goal ;
     backlog:hasParentItem pcl:Goal4_Execution ;
     backlog:producedByStage pcl:Out4_Goal2 ;
     rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
+
+pcl:It4_7 a backlog:Iteration ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:containerDependsOn pcl:It4_2,
+        pcl:It4_3,
+        pcl:It4_4,
+        pcl:It4_5 ;
+    backlog:hasCapacity 9.0 ;
+    backlog:hasIdentifier "IPG4-BOX-7"^^xsd:string ;
+    backlog:hasSprintGoal "Its stories meet their criteria; with the other boxes of package 6 the package is complete and can be deployed"@en ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Box 7, package 6: D12"@en .
+
+pcl:Out4_Scope3 a backlog:StageOutput ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:closedAtCommit "IPage v1.11.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:consumesOutput pcl:Out4_Mission ;
+    backlog:hasRationale "Scope stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
+    backlog:hasStateDigest "faad49a4b2a6d4eeadf63d2c79a8854169efc18f395d6e5cb5b82f849ee5e8d1"^^xsd:string ;
+    backlog:outputOfStage backlog:Stage_Scope .
+
+pcl:Story4_D5 a backlog:Story ;
+    rdfs:label "Verify that Lineage 2 stays set down in the archive with every item closed"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_Termination ;
+    backlog:hasAcceptanceCriterion pcl:AC4_D5 ;
+    backlog:hasConfidence 1.0 ;
+    backlog:hasEffort 0.5 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-S-D5"^^xsd:string ;
+    backlog:hasImpact 2.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore pcl:Score4_D5 ;
+    backlog:hasReach 1.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Verify that Lineage 2 stays set down in the archive with every item closed"@en ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_1,
+        pcl:Pkg4_P1 ;
+    backlog:pursuesObjective pcl:Obj4_Lifecycle,
+        pcl:Obj4_Mission ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D5 .
+
+pcl:Story4_D6 a backlog:Story ;
+    rdfs:label "Queue the Delivery lineages to come, each at Opened with its mission, the rule-check repair first"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_Creation ;
+    backlog:hasAcceptanceCriterion pcl:AC4_D6 ;
+    backlog:hasConfidence 0.9 ;
+    backlog:hasEffort 2.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-S-D6"^^xsd:string ;
+    backlog:hasImpact 5.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore pcl:Score4_D6 ;
+    backlog:hasReach 5.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Queue the Delivery lineages to come, each at Opened with its mission, the rule-check repair first"@en ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_3,
+        pcl:Pkg4_P3 ;
+    backlog:pursuesObjective pcl:Obj4_Mission,
+        pcl:Obj4_Roadmap ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D6 .
+
+pcl:Del4_D1 a backlog:ScopeDeliverable ;
+    rdfs:label "The hand-over on closing an epic is rewritten for its recipient alone and placed in the framework's own inbox, and IPage's fallback copy is retired from its pending folder"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_H_Epic ;
+    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D10 a backlog:ScopeDeliverable ;
+    rdfs:label "The release gate runs, for every live lineage, the checks of the rule sets it adopted (the validator, the order check, the release-item check), so a release that moves no item and cites no dated Owner ruling fails"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Enforcement ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D11 a backlog:ScopeDeliverable ;
+    rdfs:label "Every file a release changes is traced, in the register, to the item and task whose work it is, and every task names its task type"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Artifacts ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D12 a backlog:ScopeDeliverable ;
+    rdfs:label "At every release a monitoring report of each live lineage (open obstacles, objectives off target, late boxes) is produced by the framework's monitor, and each deviation it names is raised as an obstacle or a finding with its route"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Monitoring ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D13 a backlog:ScopeDeliverable ;
+    rdfs:label "Every backlog item of a Delivery lineage sits in one package, chosen by its recorded priority, impact and the deliverable it serves, and every deliverable is delivered by a package"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Planning ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D14 a backlog:ScopeDeliverable ;
+    rdfs:label "Every sprint of a Delivery lineage plans the groomed stories of one package, and its plan names the objectives they move"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Planning ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D15 a backlog:ScopeDeliverable ;
+    rdfs:label "Every story taken into a sprint is refined, and its tasks are defined, typed and planned before they start; every move of a status is recorded when it happens"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Artifacts ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D16 a backlog:ScopeDeliverable ;
+    rdfs:label "Every task, story and sprint closes only with its Definition of Done proven by evidence the release gate re-verifies"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Phases ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D17 a backlog:ScopeDeliverable ;
+    rdfs:label "Every sprint ends with a review that names its unfinished tasks and stories and carries them, re-ranked, into the next sprint"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Phases ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D18 a backlog:ScopeDeliverable ;
+    rdfs:label "Every package and sprint has a time box whose end is a forecast, recorded with its base plan and read against the pace delivered"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Planning ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D19 a backlog:ScopeDeliverable ;
+    rdfs:label "Every release deploys one or more completed packages and records why they were chosen: urgency, coverage, cohesion or business value"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Deployment ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D2 a backlog:ScopeDeliverable ;
+    rdfs:label "A hand-over naming the archive tool's three flaws, with the evidence of 2026-11-08, is placed in the framework's own inbox"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_H_Archive ;
+    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D3 a backlog:ScopeDeliverable ;
+    rdfs:label "The hand-over on a profile naming its own page format is settled: taken as scope of the Delivery lineage on profiles, logged, and moved out of pending"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_H_ProfileFormat ;
+    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D4 a backlog:ScopeDeliverable ;
+    rdfs:label "The hand-over on page versions is settled: taken as scope of the Delivery lineage it belongs to, logged, and moved out of pending"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_H_PageVersion ;
+    backlog:derivesFromMissionClause "every open hand-over is settled and delivered to its owner's inbox"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D5 a backlog:ScopeDeliverable ;
+    rdfs:label "Lineage 2 is set down in the archive, on the Owner's ruling on how a lineage concluded before its items had to be closed is set down"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_Lifecycle ;
+    backlog:derivesFromMissionClause "Lineage 2 is set down"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work ;
+    rdfs:comment "Correction appended 2026-11-08: this deliverable's wording assumed a ruling was needed on how to set down a lineage concluded before its items had to be closed. The premise was wrong (the framework has required every item closed since September); the Owner ruled (IP-R5, 21:03 Istanbul) that the items are closed first, and Lineage 2 was set down in IPage 1.13.0, before this lineage's backlog existed, on that ruling."@en .
+
+pcl:Del4_D6 a backlog:ScopeDeliverable ;
+    rdfs:label "Each Delivery lineage to come is recorded in the queue (a lineage at Opened) with its mission and the carried-forward deliverables it takes, in order, the repair of the rule checks first"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_Roadmap ;
+    backlog:derivesFromMissionClause "the work carried forward from Lineage 3 is laid out as a roadmap of narrow Delivery lineages, each with its package, the repair of the rule checks first"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D7 a backlog:ScopeDeliverable ;
+    rdfs:label "The release gate runs the framework's order check on IPage's register, so a Delivery lineage whose stage or ceremony is missing or out of order fails the release"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Phases ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D8 a backlog:ScopeDeliverable ;
+    rdfs:label "The queue of Delivery lineages records their order and the links between their items, and only one runs at a time unless the two are connected"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Order ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Del4_D9 a backlog:ScopeDeliverable ;
+    rdfs:label "Each Delivery lineage has its packages chosen before its first box, a forecast from the framework's date planner discussed with the Owner before its dates are final, and a base plan for every box it opens, read against it at the box's end"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:deliverableForArea pcl:Area4_X_Planning ;
+    backlog:derivesFromMissionClause "the Governance lineage governs, directs, monitors, controls, corrects and keeps on track the execution of IPage's Delivery lineages"^^xsd:string ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Goal4_A_Planning a backlog:Goal ;
+    rdfs:label "Each Delivery lineage is planned from its packages: chosen before its first box, sprints planned to them, time boxes read against the pace delivered"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToMission pcl:Mission_G4 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope4 ;
+    backlog:goalCoversArea pcl:Area4_X_Planning ;
+    backlog:hasGoalFacing backlog:Facing_Scope ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasParentItem pcl:Goal4_Execution ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
+
+pcl:It4_6 a backlog:Iteration ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:containerDependsOn pcl:It4_2 ;
+    backlog:hasCapacity 9.0 ;
+    backlog:hasIdentifier "IPG4-BOX-6"^^xsd:string ;
+    backlog:hasSprintGoal "Its stories meet their criteria; with the other boxes of package 6 the package is complete and can be deployed"@en ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Box 6, package 6: D11, D19"@en .
 
 pcl:Obj4_H_Archive a backlog:Objective ;
     rdfs:label "Objective: The hand-over on the archive tool's flaws not yet in the framework's inbox"@en ;
@@ -2956,72 +3143,230 @@ pcl:Obj4_X_Trace a backlog:Objective ;
     backlog:producedByStage pcl:Out4_Objective ;
     rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
-pcl:Out4_Scope3 a backlog:StageOutput ;
+pcl:Out4_Mission a backlog:StageOutput ;
     backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:closedAtCommit "IPage v1.11.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
-    backlog:consumesOutput pcl:Out4_Mission ;
-    backlog:hasRationale "Scope stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
-    backlog:hasStateDigest "faad49a4b2a6d4eeadf63d2c79a8854169efc18f395d6e5cb5b82f849ee5e8d1"^^xsd:string ;
-    backlog:outputOfStage backlog:Stage_Scope .
+    backlog:closedAtCommit "IPage v1.8.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
+    backlog:hasRationale "Mission stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
+    backlog:hasStateDigest "caf1e639c625dd255d896504cc50def47019c2ac0884e8cd24e542203c476c5b"^^xsd:string ;
+    backlog:outputOfStage backlog:Stage_Mission .
 
-pcl:Story4_D5 a backlog:Story ;
-    rdfs:label "Verify that Lineage 2 stays set down in the archive with every item closed"@en ;
+pcl:Pkg4_P6 a backlog:Package ;
+    rdfs:label "Package 6: Changes are traced, deviations corrected, completed packages deployed"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:containerDependsOn pcl:Pkg4_P2,
+        pcl:Pkg4_P3,
+        pcl:Pkg4_P4,
+        pcl:Pkg4_P5 ;
+    backlog:contributesToMilestone pcl:Milestone4_M4 ;
+    backlog:deliversDeliverable pcl:Del4_D11,
+        pcl:Del4_D12,
+        pcl:Del4_D19 ;
+    backlog:hasIdentifier "IPG4-PKG-6"^^xsd:string ;
+    backlog:hasPackageVersion "1.26.0"^^xsd:string ;
+    backlog:hasRationale "Packed from groomed stories (ruling IP-R8). Priority: 5.33, 5.33, 3.33; last because it reads the results of the others. Cohesion: what is seen after work is done: every changed file traced, each deviation reported with its route to correction, deployments under a milestone. Technical need: built on package 2's check; the monitoring report reads every other check. Deployed when complete, under milestone 4; it releases as IPage 1.26.0, the release that closes its last box, as decided at identification."^^xsd:string ;
+    backlog:hasRoadmapRank 6 ;
+    backlog:rankedOnRoadmap pcl:Roadmap4 ;
+    backlog:targetsIteration pcl:It4_6,
+        pcl:It4_7 .
+
+pcl:Story4_D1 a backlog:Story ;
+    rdfs:label "Hand over the question on closing an epic to the framework's own inbox, and retire IPage's copy"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:hasAcceptanceCriterion pcl:AC4_D1 ;
+    backlog:hasConfidence 1.0 ;
+    backlog:hasEffort 1.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-S-D1"^^xsd:string ;
+    backlog:hasImpact 3.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore pcl:Score4_D1 ;
+    backlog:hasReach 2.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Hand over the question on closing an epic to the framework's own inbox, and retire IPage's copy"@en ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_1,
+        pcl:Pkg4_P1 ;
+    backlog:pursuesObjective pcl:Obj4_H_Epic,
+        pcl:Obj4_Handovers,
+        pcl:Obj4_Mission ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D1 .
+
+pcl:Story4_D12 a backlog:Story ;
+    rdfs:label "The release gate produces a monitoring report of each live lineage, and refuses a deviation with no route to correction"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_SuspensionException ;
+    backlog:dependsOn pcl:Story4_D10,
+        pcl:Story4_D13,
+        pcl:Story4_D14,
+        pcl:Story4_D15,
+        pcl:Story4_D16,
+        pcl:Story4_D17,
+        pcl:Story4_D18,
+        pcl:Story4_D7,
+        pcl:Story4_D8,
+        pcl:Story4_D9 ;
+    backlog:hasAcceptanceCriterion pcl:AC4_D12 ;
+    backlog:hasConfidence 0.8 ;
+    backlog:hasEffort 6.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-S-D12"^^xsd:string ;
+    backlog:hasImpact 5.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore pcl:Score4_D12 ;
+    backlog:hasReach 5.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "The release gate produces a monitoring report of each live lineage, and refuses a deviation with no route to correction"@en ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_7,
+        pcl:Pkg4_P6 ;
+    backlog:pursuesObjective pcl:Obj4_Execution,
+        pcl:Obj4_Mission,
+        pcl:Obj4_X_Monitor ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D12 .
+
+pcl:Story4_D19 a backlog:Story ;
+    rdfs:label "The release gate refuses a deployment with no milestone, no completed package, or no reason for the packages it carries"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD4 ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
     backlog:coversStage backlog:Stage_Termination ;
-    backlog:hasAcceptanceCriterion pcl:AC4_D5 ;
-    backlog:hasConfidence 1.0 ;
-    backlog:hasEffort 0.5 ;
+    backlog:dependsOn pcl:Story4_D10 ;
+    backlog:hasAcceptanceCriterion pcl:AC4_D19 ;
+    backlog:hasConfidence 0.8 ;
+    backlog:hasEffort 3.0 ;
     backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "IPG4-S-D5"^^xsd:string ;
-    backlog:hasImpact 2.0 ;
+    backlog:hasIdentifier "IPG4-S-D19"^^xsd:string ;
+    backlog:hasImpact 4.0 ;
     backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
-    backlog:hasPriorityScore pcl:Score4_D5 ;
-    backlog:hasReach 1.0 ;
+    backlog:hasPriorityScore pcl:Score4_D19 ;
+    backlog:hasReach 5.0 ;
     backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Verify that Lineage 2 stays set down in the archive with every item closed"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:pursuesObjective pcl:Obj4_Lifecycle,
-        pcl:Obj4_Mission ;
+    backlog:hasTitle "The release gate refuses a deployment with no milestone, no completed package, or no reason for the packages it carries"@en ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_6,
+        pcl:Pkg4_P6 ;
+    backlog:pursuesObjective pcl:Obj4_Execution,
+        pcl:Obj4_Mission,
+        pcl:Obj4_X_Deploy ;
     backlog:responsible pcl:Run4_Builder0 ;
-    backlog:satisfiesDeliverable pcl:Del4_D5 .
+    backlog:satisfiesDeliverable pcl:Del4_D19 .
 
-pcl:Story4_D6 a backlog:Story ;
-    rdfs:label "Queue the Delivery lineages to come, each at Opened with its mission, the rule-check repair first"@en ;
+pcl:Story4_D2 a backlog:Story ;
+    rdfs:label "Hand over the archive tool's three flaws, with their evidence, to the framework's own inbox"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD4 ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
-    backlog:coversStage backlog:Stage_Creation ;
-    backlog:hasAcceptanceCriterion pcl:AC4_D6 ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:hasAcceptanceCriterion pcl:AC4_D2 ;
     backlog:hasConfidence 0.9 ;
     backlog:hasEffort 2.0 ;
     backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "IPG4-S-D6"^^xsd:string ;
-    backlog:hasImpact 5.0 ;
+    backlog:hasIdentifier "IPG4-S-D2"^^xsd:string ;
+    backlog:hasImpact 3.0 ;
     backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
-    backlog:hasPriorityScore pcl:Score4_D6 ;
-    backlog:hasReach 5.0 ;
+    backlog:hasPriorityScore pcl:Score4_D2 ;
+    backlog:hasReach 3.0 ;
     backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Queue the Delivery lineages to come, each at Opened with its mission, the rule-check repair first"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:pursuesObjective pcl:Obj4_Mission,
-        pcl:Obj4_Roadmap ;
+    backlog:hasTitle "Hand over the archive tool's three flaws, with their evidence, to the framework's own inbox"@en ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_1,
+        pcl:Pkg4_P1 ;
+    backlog:pursuesObjective pcl:Obj4_H_Archive,
+        pcl:Obj4_Handovers,
+        pcl:Obj4_Mission ;
     backlog:responsible pcl:Run4_Builder0 ;
-    backlog:satisfiesDeliverable pcl:Del4_D6 .
+    backlog:satisfiesDeliverable pcl:Del4_D2 .
 
-pcl:Goal4_A_Planning a backlog:Goal ;
-    rdfs:label "Each Delivery lineage is planned from its packages: chosen before its first box, sprints planned to them, time boxes read against the pace delivered"@en ;
+pcl:Story4_D3 a backlog:Story ;
+    rdfs:label "Settle the hand-over on a profile's own page format as scope of its Delivery lineage"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:hasAcceptanceCriterion pcl:AC4_D3 ;
+    backlog:hasConfidence 1.0 ;
+    backlog:hasEffort 0.5 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-S-D3"^^xsd:string ;
+    backlog:hasImpact 2.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore pcl:Score4_D3 ;
+    backlog:hasReach 2.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Settle the hand-over on a profile's own page format as scope of its Delivery lineage"@en ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_1,
+        pcl:Pkg4_P1 ;
+    backlog:pursuesObjective pcl:Obj4_H_ProfileFormat,
+        pcl:Obj4_Handovers,
+        pcl:Obj4_Mission ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D3 .
+
+pcl:Story4_D4 a backlog:Story ;
+    rdfs:label "Settle the hand-over on a page's version as scope of its Delivery lineage"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:hasAcceptanceCriterion pcl:AC4_D4 ;
+    backlog:hasConfidence 1.0 ;
+    backlog:hasEffort 0.5 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-S-D4"^^xsd:string ;
+    backlog:hasImpact 2.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore pcl:Score4_D4 ;
+    backlog:hasReach 2.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Settle the hand-over on a page's version as scope of its Delivery lineage"@en ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_1,
+        pcl:Pkg4_P1 ;
+    backlog:pursuesObjective pcl:Obj4_H_PageVersion,
+        pcl:Obj4_Handovers,
+        pcl:Obj4_Mission ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D4 .
+
+pcl:DomainEntity_PageConditions a backlog:DomainEntity ;
+    rdfs:label "RDODI page conditions"@en ;
+    skos:definition "The first-class thing this lineage is about: the Owner's conditions for interactive pages, made gates that every Stage 4 page must pass."^^xsd:string .
+
+pcl:DomainEntity_PageOntology a backlog:DomainEntity ;
+    rdfs:label "The ontology of interactive pages"@en ;
+    skos:definition "The first-class thing this lineage is about: one stand-alone ontology of interactive pages, organised by kind, that carries the Owner's page rules and from which RDODI builds and checks its default page format."^^xsd:string .
+
+pcl:Goal4_Handovers a backlog:Goal ;
+    rdfs:label "Every session that wrote to IPage, and the framework IPage writes to, finds its question settled in its own inbox, so none waits on IPage"@en ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:contributesToMission pcl:Mission_G4 ;
     backlog:decidedBy backlog:Owner ;
     backlog:derivesFromScope pcl:Scope4 ;
-    backlog:goalCoversArea pcl:Area4_X_Planning ;
+    backlog:goalCoversArea pcl:Area4_Handovers ;
     backlog:hasGoalFacing backlog:Facing_Scope ;
     backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Execution ;
+    backlog:hasParentItem pcl:Goal4_Mission ;
     backlog:producedByStage pcl:Out4_Goal2 ;
-    rdfs:comment "Added by stage revision 3 on the Owner's ruling IP-R6 (2026-11-09, 13:15 Istanbul): the goal of its scope area."@en .
+    rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
+
+pcl:Goal4_Mission a backlog:Goal ;
+    rdfs:label "Every Delivery lineage of IPage runs on track to its mission: what it must obey is checked as it works, deviations are corrected when they appear, and the next one opens on a clear plan"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToMission pcl:Mission_G4 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope4 ;
+    backlog:hasGoalFacing backlog:Facing_Mission ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Obj4_Lifecycle a backlog:Objective ;
     rdfs:label "Objective: Concluded lineages still held in the live register, plus Lineage 2 if not set down"@en ;
@@ -3149,180 +3494,78 @@ pcl:Obj4_X_Rules a backlog:Objective ;
     backlog:producedByStage pcl:Out4_Objective ;
     rdfs:comment "Correction, 2026-11-09: the measurement query now names measure_governance_v1_1_0.py, which replaced v1.0.0 when the Branches figure learnt to read through an epic's decomposition (a parent epic serves the deliverables its child epics serve). The other figures count the same way; the baseline was read with v1.0.0, as its observation says."@en .
 
-pcl:Out4_Mission a backlog:StageOutput ;
+pcl:Pkg4_P3 a backlog:Package ;
+    rdfs:label "Package 3: A Delivery lineage is queued and starts ready"@en ;
     backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:closedAtCommit "IPage v1.8.0 (release commit; witnessed by git, not asserted)"^^xsd:string ;
-    backlog:hasRationale "Mission stage of Lineage 4, closed in its own release; the digest is the framework's own state_digest over this stage's element types."^^xsd:string ;
-    backlog:hasStateDigest "caf1e639c625dd255d896504cc50def47019c2ac0884e8cd24e542203c476c5b"^^xsd:string ;
-    backlog:outputOfStage backlog:Stage_Mission .
+    backlog:containerDependsOn pcl:Pkg4_P2 ;
+    backlog:contributesToMilestone pcl:Milestone4_M2 ;
+    backlog:deliversDeliverable pcl:Del4_D6,
+        pcl:Del4_D8,
+        pcl:Del4_D9 ;
+    backlog:hasIdentifier "IPG4-PKG-3"^^xsd:string ;
+    backlog:hasPackageVersion "1.22.0"^^xsd:string ;
+    backlog:hasRationale "Packed from groomed stories (ruling IP-R8). Priority: the highest-scored story of the backlog (D6, 11.25) with the two that guard a start. Cohesion: what must hold before a Delivery lineage's first box: its place in the queue with its mission, the order, and its packages with a discussed forecast. Technical need: D8 and D9 are gate checks built on package 2. Deployed when complete, under milestone 2; it releases as IPage 1.22.0, the release that closes its last box, as decided at identification."^^xsd:string ;
+    backlog:hasRoadmapRank 3 ;
+    backlog:rankedOnRoadmap pcl:Roadmap4 ;
+    backlog:targetsIteration pcl:It4_3 .
 
-pcl:Story4_D1 a backlog:Story ;
-    rdfs:label "Hand over the question on closing an epic to the framework's own inbox, and retire IPage's copy"@en ;
+pcl:Pkg4_P4 a backlog:Package ;
+    rdfs:label "Package 4: Work closes only on proven Done and a sprint review"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:containerDependsOn pcl:Pkg4_P2 ;
+    backlog:contributesToMilestone pcl:Milestone4_M3 ;
+    backlog:deliversDeliverable pcl:Del4_D15,
+        pcl:Del4_D16,
+        pcl:Del4_D17 ;
+    backlog:hasIdentifier "IPG4-PKG-4"^^xsd:string ;
+    backlog:hasPackageVersion "1.23.0"^^xsd:string ;
+    backlog:hasRationale "Packed from groomed stories (ruling IP-R8). Priority: the next highest-scored gate stories (6.67, 5.33, 5.33). Cohesion: how a sprint's work is refined, executed with current statuses, closed by its Definition of Done and reviewed with carry-over. Technical need: built on package 2's check. Deployed when complete, under milestone 3; it releases as IPage 1.23.0, the release that closes its last box, as decided at identification."^^xsd:string ;
+    backlog:hasRoadmapRank 4 ;
+    backlog:rankedOnRoadmap pcl:Roadmap4 ;
+    backlog:targetsIteration pcl:It4_4 .
+
+pcl:Pkg4_P5 a backlog:Package ;
+    rdfs:label "Package 5: A sprint is planned from its package and time-boxed"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:containerDependsOn pcl:Pkg4_P2 ;
+    backlog:contributesToMilestone pcl:Milestone4_M3 ;
+    backlog:deliversDeliverable pcl:Del4_D13,
+        pcl:Del4_D14,
+        pcl:Del4_D18 ;
+    backlog:hasIdentifier "IPG4-PKG-5"^^xsd:string ;
+    backlog:hasPackageVersion "1.24.0"^^xsd:string ;
+    backlog:hasRationale "Packed from groomed stories (ruling IP-R8). Priority: 5.33, 5.33, 4.0. Cohesion: the planning checks (one package per groomed item, sprints planned to a package, time boxes with base plan and forecast end). Technical need: built on package 2's check. Deployed when complete, under milestone 3; it releases as IPage 1.24.0, the release that closes its last box, as decided at identification."^^xsd:string ;
+    backlog:hasRoadmapRank 5 ;
+    backlog:rankedOnRoadmap pcl:Roadmap4 ;
+    backlog:targetsIteration pcl:It4_5 .
+
+pcl:Story4_D11 a backlog:Story ;
+    rdfs:label "The release gate refuses a release whose changed file traces to no item and typed task"@en ;
     backlog:appliesDefinitionOfDone pcl:DoD4 ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
     backlog:coversStage backlog:Stage_ActiveUse ;
-    backlog:hasAcceptanceCriterion pcl:AC4_D1 ;
-    backlog:hasConfidence 1.0 ;
-    backlog:hasEffort 1.0 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "IPG4-S-D1"^^xsd:string ;
-    backlog:hasImpact 3.0 ;
-    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
-    backlog:hasPriorityScore pcl:Score4_D1 ;
-    backlog:hasReach 2.0 ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Hand over the question on closing an epic to the framework's own inbox, and retire IPage's copy"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:pursuesObjective pcl:Obj4_H_Epic,
-        pcl:Obj4_Handovers,
-        pcl:Obj4_Mission ;
-    backlog:responsible pcl:Run4_Builder0 ;
-    backlog:satisfiesDeliverable pcl:Del4_D1 .
-
-pcl:Story4_D10 a backlog:Story ;
-    rdfs:label "The release gate runs, for every live lineage, the checks of the rule sets it adopted"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD4 ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
-    backlog:coversStage backlog:Stage_ActiveUse ;
-    backlog:hasAcceptanceCriterion pcl:AC4_D10 ;
+    backlog:dependsOn pcl:Story4_D10 ;
+    backlog:hasAcceptanceCriterion pcl:AC4_D11 ;
     backlog:hasConfidence 0.8 ;
     backlog:hasEffort 3.0 ;
     backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "IPG4-S-D10"^^xsd:string ;
-    backlog:hasImpact 5.0 ;
-    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
-    backlog:hasPriorityScore pcl:Score4_D10 ;
-    backlog:hasReach 5.0 ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "The release gate runs, for every live lineage, the checks of the rule sets it adopted"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:pursuesObjective pcl:Obj4_Execution,
-        pcl:Obj4_Mission,
-        pcl:Obj4_X_Rules ;
-    backlog:responsible pcl:Run4_Builder0 ;
-    backlog:satisfiesDeliverable pcl:Del4_D10 .
-
-pcl:Story4_D12 a backlog:Story ;
-    rdfs:label "The release gate produces a monitoring report of each live lineage, and refuses a deviation with no route to correction"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD4 ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
-    backlog:coversStage backlog:Stage_SuspensionException ;
-    backlog:hasAcceptanceCriterion pcl:AC4_D12 ;
-    backlog:hasConfidence 0.8 ;
-    backlog:hasEffort 6.0 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "IPG4-S-D12"^^xsd:string ;
-    backlog:hasImpact 5.0 ;
-    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
-    backlog:hasPriorityScore pcl:Score4_D12 ;
-    backlog:hasReach 5.0 ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "The release gate produces a monitoring report of each live lineage, and refuses a deviation with no route to correction"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:pursuesObjective pcl:Obj4_Execution,
-        pcl:Obj4_Mission,
-        pcl:Obj4_X_Monitor ;
-    backlog:responsible pcl:Run4_Builder0 ;
-    backlog:satisfiesDeliverable pcl:Del4_D12 .
-
-pcl:Story4_D19 a backlog:Story ;
-    rdfs:label "The release gate refuses a deployment with no milestone, no completed package, or no reason for the packages it carries"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD4 ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
-    backlog:coversStage backlog:Stage_Termination ;
-    backlog:hasAcceptanceCriterion pcl:AC4_D19 ;
-    backlog:hasConfidence 0.8 ;
-    backlog:hasEffort 3.0 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "IPG4-S-D19"^^xsd:string ;
+    backlog:hasIdentifier "IPG4-S-D11"^^xsd:string ;
     backlog:hasImpact 4.0 ;
     backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
-    backlog:hasPriorityScore pcl:Score4_D19 ;
+    backlog:hasPriorityScore pcl:Score4_D11 ;
     backlog:hasReach 5.0 ;
     backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "The release gate refuses a deployment with no milestone, no completed package, or no reason for the packages it carries"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:pursuesObjective pcl:Obj4_Execution,
+    backlog:hasTitle "The release gate refuses a release whose changed file traces to no item and typed task"@en ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_6,
+        pcl:Pkg4_P6 ;
+    backlog:pursuesObjective pcl:Obj4_A_Artifacts,
+        pcl:Obj4_Execution,
         pcl:Obj4_Mission,
-        pcl:Obj4_X_Deploy ;
+        pcl:Obj4_X_Trace ;
     backlog:responsible pcl:Run4_Builder0 ;
-    backlog:satisfiesDeliverable pcl:Del4_D19 .
-
-pcl:Story4_D2 a backlog:Story ;
-    rdfs:label "Hand over the archive tool's three flaws, with their evidence, to the framework's own inbox"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD4 ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
-    backlog:coversStage backlog:Stage_ActiveUse ;
-    backlog:hasAcceptanceCriterion pcl:AC4_D2 ;
-    backlog:hasConfidence 0.9 ;
-    backlog:hasEffort 2.0 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "IPG4-S-D2"^^xsd:string ;
-    backlog:hasImpact 3.0 ;
-    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
-    backlog:hasPriorityScore pcl:Score4_D2 ;
-    backlog:hasReach 3.0 ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Hand over the archive tool's three flaws, with their evidence, to the framework's own inbox"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:pursuesObjective pcl:Obj4_H_Archive,
-        pcl:Obj4_Handovers,
-        pcl:Obj4_Mission ;
-    backlog:responsible pcl:Run4_Builder0 ;
-    backlog:satisfiesDeliverable pcl:Del4_D2 .
-
-pcl:Story4_D3 a backlog:Story ;
-    rdfs:label "Settle the hand-over on a profile's own page format as scope of its Delivery lineage"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD4 ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
-    backlog:coversStage backlog:Stage_ActiveUse ;
-    backlog:hasAcceptanceCriterion pcl:AC4_D3 ;
-    backlog:hasConfidence 1.0 ;
-    backlog:hasEffort 0.5 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "IPG4-S-D3"^^xsd:string ;
-    backlog:hasImpact 2.0 ;
-    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
-    backlog:hasPriorityScore pcl:Score4_D3 ;
-    backlog:hasReach 2.0 ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Settle the hand-over on a profile's own page format as scope of its Delivery lineage"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:pursuesObjective pcl:Obj4_H_ProfileFormat,
-        pcl:Obj4_Handovers,
-        pcl:Obj4_Mission ;
-    backlog:responsible pcl:Run4_Builder0 ;
-    backlog:satisfiesDeliverable pcl:Del4_D3 .
-
-pcl:Story4_D4 a backlog:Story ;
-    rdfs:label "Settle the hand-over on a page's version as scope of its Delivery lineage"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD4 ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
-    backlog:coversStage backlog:Stage_ActiveUse ;
-    backlog:hasAcceptanceCriterion pcl:AC4_D4 ;
-    backlog:hasConfidence 1.0 ;
-    backlog:hasEffort 0.5 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "IPG4-S-D4"^^xsd:string ;
-    backlog:hasImpact 2.0 ;
-    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
-    backlog:hasPriorityScore pcl:Score4_D4 ;
-    backlog:hasReach 2.0 ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "Settle the hand-over on a page's version as scope of its Delivery lineage"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:pursuesObjective pcl:Obj4_H_PageVersion,
-        pcl:Obj4_Handovers,
-        pcl:Obj4_Mission ;
-    backlog:responsible pcl:Run4_Builder0 ;
-    backlog:satisfiesDeliverable pcl:Del4_D4 .
+    backlog:satisfiesDeliverable pcl:Del4_D11 .
 
 pcl:Story4_D7 a backlog:Story ;
     rdfs:label "The release gate refuses a Delivery lineage whose stage or ceremony is missing or out of order"@en ;
@@ -3341,7 +3584,9 @@ pcl:Story4_D7 a backlog:Story ;
     backlog:hasReach 5.0 ;
     backlog:hasState backlog:Proposed ;
     backlog:hasTitle "The release gate refuses a Delivery lineage whose stage or ceremony is missing or out of order"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_2,
+        pcl:Pkg4_P2 ;
     backlog:pursuesObjective pcl:Obj4_A_Phases,
         pcl:Obj4_Execution,
         pcl:Obj4_Mission ;
@@ -3354,6 +3599,7 @@ pcl:Story4_D8 a backlog:Story ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
     backlog:coversStage backlog:Stage_Creation ;
+    backlog:dependsOn pcl:Story4_D10 ;
     backlog:hasAcceptanceCriterion pcl:AC4_D8 ;
     backlog:hasConfidence 0.8 ;
     backlog:hasEffort 3.0 ;
@@ -3365,7 +3611,9 @@ pcl:Story4_D8 a backlog:Story ;
     backlog:hasReach 4.0 ;
     backlog:hasState backlog:Proposed ;
     backlog:hasTitle "The release gate refuses a queue whose order is broken or that runs two unconnected Delivery lineages at once"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_3,
+        pcl:Pkg4_P3 ;
     backlog:pursuesObjective pcl:Obj4_Execution,
         pcl:Obj4_Mission,
         pcl:Obj4_X_Order ;
@@ -3378,6 +3626,7 @@ pcl:Story4_D9 a backlog:Story ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
     backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:dependsOn pcl:Story4_D10 ;
     backlog:hasAcceptanceCriterion pcl:AC4_D9 ;
     backlog:hasConfidence 0.8 ;
     backlog:hasEffort 3.0 ;
@@ -3389,44 +3638,59 @@ pcl:Story4_D9 a backlog:Story ;
     backlog:hasReach 5.0 ;
     backlog:hasState backlog:Proposed ;
     backlog:hasTitle "The release gate refuses a Delivery lineage that opens a box before its packages are chosen and its forecast discussed"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_3,
+        pcl:Pkg4_P3 ;
     backlog:pursuesObjective pcl:Obj4_A_Planning,
         pcl:Obj4_Execution,
         pcl:Obj4_Mission ;
     backlog:responsible pcl:Run4_Builder0 ;
     backlog:satisfiesDeliverable pcl:Del4_D9 .
 
-pcl:DomainEntity_PageConditions a backlog:DomainEntity ;
-    rdfs:label "RDODI page conditions"@en ;
-    skos:definition "The first-class thing this lineage is about: the Owner's conditions for interactive pages, made gates that every Stage 4 page must pass."^^xsd:string .
-
-pcl:DomainEntity_PageOntology a backlog:DomainEntity ;
-    rdfs:label "The ontology of interactive pages"@en ;
-    skos:definition "The first-class thing this lineage is about: one stand-alone ontology of interactive pages, organised by kind, that carries the Owner's page rules and from which RDODI builds and checks its default page format."^^xsd:string .
-
-pcl:Goal4_Handovers a backlog:Goal ;
-    rdfs:label "Every session that wrote to IPage, and the framework IPage writes to, finds its question settled in its own inbox, so none waits on IPage"@en ;
+pcl:Area4_Handovers a backlog:ScopeArea ;
+    rdfs:label "Area: Hand-overs: what reaches IPage's inbox, or what IPage owes another inbox, is settled and delivered"@en ;
+    backlog:areaLocation "07-handover-inbox/"^^xsd:string ;
+    backlog:areaMeasure "Counted 2026-11-08: 3 hand-overs pending in IPage's inbox (closing an epic, filed here as a fallback for the framework; whether a profile may name its own page format; a page's version follows the page); 1 written for none yet (the archive tool's flaws found on 2026-11-08)."^^xsd:string ;
     backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToMission pcl:Mission_G4 ;
-    backlog:decidedBy backlog:Owner ;
-    backlog:derivesFromScope pcl:Scope4 ;
-    backlog:goalCoversArea pcl:Area4_Handovers ;
-    backlog:hasGoalFacing backlog:Facing_Scope ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Mission ;
-    backlog:producedByStage pcl:Out4_Goal2 ;
-    rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
+    backlog:hasScopeLayer backlog:Layer_Work .
 
-pcl:Goal4_Mission a backlog:Goal ;
-    rdfs:label "Every Delivery lineage of IPage runs on track to its mission: what it must obey is checked as it works, deviations are corrected when they appear, and the next one opens on a clear plan"@en ;
+pcl:Area4_X_Artifacts a backlog:ScopeArea ;
+    rdfs:label "Area: Artifacts and task types: every file a release changes is traced to the item and task that moved it, and every task is of a known type"@en ;
+    backlog:areaLocation "03-tooling/, 05-lineage/"^^xsd:string ;
+    backlog:areaMeasure "Counted 2026-11-08: the framework's release-item check is not run by IPage's gate."^^xsd:string ;
     backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToMission pcl:Mission_G4 ;
-    backlog:decidedBy backlog:Owner ;
-    backlog:derivesFromScope pcl:Scope4 ;
-    backlog:hasGoalFacing backlog:Facing_Mission ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:producedByStage pcl:Out4_Goal2 ;
-    rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
+    backlog:hasParentItem pcl:Area4_Execution ;
+    backlog:hasScopeLayer backlog:Layer_Work .
+
+pcl:Exec_Verifier_L3 a backlog:Executor_SingleAgent ;
+    rdfs:label "The verifying agent: an agent that did not do the work and judges it against the evidence"@en .
+
+pcl:It4_3 a backlog:Iteration ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:containerDependsOn pcl:It4_2 ;
+    backlog:hasCapacity 9.0 ;
+    backlog:hasIdentifier "IPG4-BOX-3"^^xsd:string ;
+    backlog:hasSprintGoal "Its stories meet their criteria; with the other boxes of package 3 the package is complete and can be deployed"@en ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Box 3, package 3: D6, D8, D9"@en .
+
+pcl:It4_4 a backlog:Iteration ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:containerDependsOn pcl:It4_2 ;
+    backlog:hasCapacity 9.0 ;
+    backlog:hasIdentifier "IPG4-BOX-4"^^xsd:string ;
+    backlog:hasSprintGoal "Its stories meet their criteria; with the other boxes of package 4 the package is complete and can be deployed"@en ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Box 4, package 4: D16, D17, D15"@en .
+
+pcl:It4_5 a backlog:Iteration ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:containerDependsOn pcl:It4_2 ;
+    backlog:hasCapacity 9.0 ;
+    backlog:hasIdentifier "IPG4-BOX-5"^^xsd:string ;
+    backlog:hasSprintGoal "Its stories meet their criteria; with the other boxes of package 5 the package is complete and can be deployed"@en ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Box 5, package 5: D13, D14, D18"@en .
 
 pcl:Obj4_A_Artifacts a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for typed, planned tasks with current statuses (D15) and traced files (D11)"@en ;
@@ -3452,30 +3716,56 @@ pcl:Obj4_A_Artifacts a backlog:Objective ;
     prov:wasDerivedFrom pcl:Obj4_X_Tasks,
         pcl:Obj4_X_Trace .
 
-pcl:Story4_D11 a backlog:Story ;
-    rdfs:label "The release gate refuses a release whose changed file traces to no item and typed task"@en ;
-    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+pcl:Pkg4_P1 a backlog:Package ;
+    rdfs:label "Package 1: Inboxes settled and the live register verified"@en ;
     backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
-    backlog:coversStage backlog:Stage_ActiveUse ;
-    backlog:hasAcceptanceCriterion pcl:AC4_D11 ;
-    backlog:hasConfidence 0.8 ;
-    backlog:hasEffort 3.0 ;
-    backlog:hasExecutionModality backlog:Mode_Automated ;
-    backlog:hasIdentifier "IPG4-S-D11"^^xsd:string ;
-    backlog:hasImpact 4.0 ;
-    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
-    backlog:hasPriorityScore pcl:Score4_D11 ;
-    backlog:hasReach 5.0 ;
-    backlog:hasState backlog:Proposed ;
-    backlog:hasTitle "The release gate refuses a release whose changed file traces to no item and typed task"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
-    backlog:pursuesObjective pcl:Obj4_A_Artifacts,
+    backlog:contributesToMilestone pcl:Milestone4_M1 ;
+    backlog:deliversDeliverable pcl:Del4_D1,
+        pcl:Del4_D2,
+        pcl:Del4_D3,
+        pcl:Del4_D4,
+        pcl:Del4_D5 ;
+    backlog:hasIdentifier "IPG4-PKG-1"^^xsd:string ;
+    backlog:hasPackageVersion "1.20.0"^^xsd:string ;
+    backlog:hasRationale "Packed from groomed stories (ruling IP-R8). Priority: four of the five highest-scored housekeeping stories (8.0, 8.0, 6.0, 4.05, 4.0), and other sessions wait on IPage's hand-overs. Cohesion: the inboxes and the live register, with no code. Technical need: none; it depends on nothing. Deployed when complete, under milestone 1; it releases as IPage 1.20.0, the release that closes its last box, as decided at identification."^^xsd:string ;
+    backlog:hasRoadmapRank 1 ;
+    backlog:rankedOnRoadmap pcl:Roadmap4 ;
+    backlog:targetsIteration pcl:It4_1 .
+
+pcl:Roadmap4 a backlog:Roadmap ;
+    rdfs:label "Roadmap of Lineage 4: six packages in order, four milestones"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:hasRationale "Roadmap work after grooming (ruling IP-R8): the groomed stories are packed by priority, cohesion and technical need into six deployable packages, ranked here; their sprints are planned to them and each deployment is marked by a milestone."^^xsd:string ;
+    backlog:roadmapNamesPackage pcl:Pkg4_P1,
+        pcl:Pkg4_P2,
+        pcl:Pkg4_P3,
+        pcl:Pkg4_P4,
+        pcl:Pkg4_P5,
+        pcl:Pkg4_P6 ;
+    backlog:roadmapOf pcl:Backlog ;
+    backlog:roadmapRealises pcl:Obj4_A_Artifacts,
+        pcl:Obj4_A_Phases,
+        pcl:Obj4_A_Planning,
         pcl:Obj4_Execution,
+        pcl:Obj4_H_Archive,
+        pcl:Obj4_H_Epic,
+        pcl:Obj4_H_PageVersion,
+        pcl:Obj4_H_ProfileFormat,
+        pcl:Obj4_Handovers,
+        pcl:Obj4_Lifecycle,
         pcl:Obj4_Mission,
-        pcl:Obj4_X_Trace ;
-    backlog:responsible pcl:Run4_Builder0 ;
-    backlog:satisfiesDeliverable pcl:Del4_D11 .
+        pcl:Obj4_Roadmap,
+        pcl:Obj4_X_Deploy,
+        pcl:Obj4_X_Done,
+        pcl:Obj4_X_Monitor,
+        pcl:Obj4_X_Order,
+        pcl:Obj4_X_Packages,
+        pcl:Obj4_X_Review,
+        pcl:Obj4_X_Rules,
+        pcl:Obj4_X_Sprints,
+        pcl:Obj4_X_Tasks,
+        pcl:Obj4_X_TimeBox,
+        pcl:Obj4_X_Trace .
 
 pcl:Story4_D13 a backlog:Story ;
     rdfs:label "The release gate refuses a groomed backlog item outside one package, or a package not chosen on its recorded grounds"@en ;
@@ -3483,6 +3773,7 @@ pcl:Story4_D13 a backlog:Story ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
     backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:dependsOn pcl:Story4_D10 ;
     backlog:hasAcceptanceCriterion pcl:AC4_D13 ;
     backlog:hasConfidence 0.8 ;
     backlog:hasEffort 3.0 ;
@@ -3494,7 +3785,9 @@ pcl:Story4_D13 a backlog:Story ;
     backlog:hasReach 5.0 ;
     backlog:hasState backlog:Proposed ;
     backlog:hasTitle "The release gate refuses a groomed backlog item outside one package, or a package not chosen on its recorded grounds"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_5,
+        pcl:Pkg4_P5 ;
     backlog:pursuesObjective pcl:Obj4_A_Planning,
         pcl:Obj4_Execution,
         pcl:Obj4_Mission,
@@ -3508,6 +3801,7 @@ pcl:Story4_D14 a backlog:Story ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
     backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:dependsOn pcl:Story4_D10 ;
     backlog:hasAcceptanceCriterion pcl:AC4_D14 ;
     backlog:hasConfidence 0.8 ;
     backlog:hasEffort 3.0 ;
@@ -3519,7 +3813,9 @@ pcl:Story4_D14 a backlog:Story ;
     backlog:hasReach 5.0 ;
     backlog:hasState backlog:Proposed ;
     backlog:hasTitle "The release gate refuses a sprint that does not plan the groomed stories of one package and name their objectives"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_5,
+        pcl:Pkg4_P5 ;
     backlog:pursuesObjective pcl:Obj4_A_Planning,
         pcl:Obj4_Execution,
         pcl:Obj4_Mission,
@@ -3533,6 +3829,7 @@ pcl:Story4_D15 a backlog:Story ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
     backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:dependsOn pcl:Story4_D10 ;
     backlog:hasAcceptanceCriterion pcl:AC4_D15 ;
     backlog:hasConfidence 0.8 ;
     backlog:hasEffort 3.0 ;
@@ -3544,7 +3841,9 @@ pcl:Story4_D15 a backlog:Story ;
     backlog:hasReach 5.0 ;
     backlog:hasState backlog:Proposed ;
     backlog:hasTitle "The release gate refuses a story taken into a sprint unrefined, or a task untyped, unplanned or with an unrecorded status move"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_4,
+        pcl:Pkg4_P4 ;
     backlog:pursuesObjective pcl:Obj4_A_Artifacts,
         pcl:Obj4_Execution,
         pcl:Obj4_Mission,
@@ -3558,6 +3857,7 @@ pcl:Story4_D16 a backlog:Story ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
     backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:dependsOn pcl:Story4_D10 ;
     backlog:hasAcceptanceCriterion pcl:AC4_D16 ;
     backlog:hasConfidence 0.8 ;
     backlog:hasEffort 3.0 ;
@@ -3569,7 +3869,9 @@ pcl:Story4_D16 a backlog:Story ;
     backlog:hasReach 5.0 ;
     backlog:hasState backlog:Proposed ;
     backlog:hasTitle "The release gate refuses a task, story or sprint closed without Definition of Done evidence it can re-verify"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_4,
+        pcl:Pkg4_P4 ;
     backlog:pursuesObjective pcl:Obj4_A_Phases,
         pcl:Obj4_Execution,
         pcl:Obj4_Mission,
@@ -3583,6 +3885,7 @@ pcl:Story4_D17 a backlog:Story ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
     backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:dependsOn pcl:Story4_D10 ;
     backlog:hasAcceptanceCriterion pcl:AC4_D17 ;
     backlog:hasConfidence 0.8 ;
     backlog:hasEffort 3.0 ;
@@ -3594,7 +3897,9 @@ pcl:Story4_D17 a backlog:Story ;
     backlog:hasReach 5.0 ;
     backlog:hasState backlog:Proposed ;
     backlog:hasTitle "The release gate refuses a sprint with no review, or unfinished work not carried, re-ranked, into the next sprint"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_4,
+        pcl:Pkg4_P4 ;
     backlog:pursuesObjective pcl:Obj4_A_Phases,
         pcl:Obj4_Execution,
         pcl:Obj4_Mission,
@@ -3608,6 +3913,7 @@ pcl:Story4_D18 a backlog:Story ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
     backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:dependsOn pcl:Story4_D10 ;
     backlog:hasAcceptanceCriterion pcl:AC4_D18 ;
     backlog:hasConfidence 0.8 ;
     backlog:hasEffort 3.0 ;
@@ -3619,7 +3925,9 @@ pcl:Story4_D18 a backlog:Story ;
     backlog:hasReach 5.0 ;
     backlog:hasState backlog:Proposed ;
     backlog:hasTitle "The release gate refuses a package or sprint with no time box, base plan or forecast end"@en ;
-    backlog:memberOfContainer pcl:Backlog ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_5,
+        pcl:Pkg4_P5 ;
     backlog:pursuesObjective pcl:Obj4_A_Planning,
         pcl:Obj4_Execution,
         pcl:Obj4_Mission,
@@ -3627,23 +3935,21 @@ pcl:Story4_D18 a backlog:Story ;
     backlog:responsible pcl:Run4_Builder0 ;
     backlog:satisfiesDeliverable pcl:Del4_D18 .
 
-pcl:Area4_Handovers a backlog:ScopeArea ;
-    rdfs:label "Area: Hand-overs: what reaches IPage's inbox, or what IPage owes another inbox, is settled and delivered"@en ;
-    backlog:areaLocation "07-handover-inbox/"^^xsd:string ;
-    backlog:areaMeasure "Counted 2026-11-08: 3 hand-overs pending in IPage's inbox (closing an epic, filed here as a fallback for the framework; whether a profile may name its own page format; a page's version follows the page); 1 written for none yet (the archive tool's flaws found on 2026-11-08)."^^xsd:string ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:hasScopeLayer backlog:Layer_Work .
-
-pcl:Area4_X_Artifacts a backlog:ScopeArea ;
-    rdfs:label "Area: Artifacts and task types: every file a release changes is traced to the item and task that moved it, and every task is of a known type"@en ;
+pcl:Area4_X_Phases a backlog:ScopeArea ;
+    rdfs:label "Area: Phases and ceremonies: each Delivery lineage passes its stages in order and holds each ceremony at its step"@en ;
     backlog:areaLocation "03-tooling/, 05-lineage/"^^xsd:string ;
-    backlog:areaMeasure "Counted 2026-11-08: the framework's release-item check is not run by IPage's gate."^^xsd:string ;
+    backlog:areaMeasure "Counted 2026-11-08: the framework's order check is not run by IPage's release gate."^^xsd:string ;
     backlog:belongsToLineage pcl:Lineage04 ;
     backlog:hasParentItem pcl:Area4_Execution ;
     backlog:hasScopeLayer backlog:Layer_Work .
 
-pcl:Exec_Verifier_L3 a backlog:Executor_SingleAgent ;
-    rdfs:label "The verifying agent: an agent that did not do the work and judges it against the evidence"@en .
+pcl:It4_1 a backlog:Iteration ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:hasCapacity 9.0 ;
+    backlog:hasIdentifier "IPG4-BOX-1"^^xsd:string ;
+    backlog:hasSprintGoal "Its stories meet their criteria; with the other boxes of package 1 the package is complete and can be deployed"@en ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Box 1, package 1: D3, D4, D1, D2, D5"@en .
 
 pcl:Obj4_A_Phases a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for stage and ceremony order (D7), closing by the Definition of Done (D16) and sprint review with carry-over (D17)"@en ;
@@ -3670,13 +3976,31 @@ pcl:Obj4_A_Phases a backlog:Objective ;
     prov:wasDerivedFrom pcl:Obj4_X_Done,
         pcl:Obj4_X_Review .
 
-pcl:Area4_X_Phases a backlog:ScopeArea ;
-    rdfs:label "Area: Phases and ceremonies: each Delivery lineage passes its stages in order and holds each ceremony at its step"@en ;
-    backlog:areaLocation "03-tooling/, 05-lineage/"^^xsd:string ;
-    backlog:areaMeasure "Counted 2026-11-08: the framework's order check is not run by IPage's release gate."^^xsd:string ;
+pcl:Pkg4_P2 a backlog:Package ;
+    rdfs:label "Package 2: The gate enforces adopted rules and stage order"@en ;
     backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:hasParentItem pcl:Area4_Execution ;
-    backlog:hasScopeLayer backlog:Layer_Work .
+    backlog:contributesToMilestone pcl:Milestone4_M2 ;
+    backlog:deliversDeliverable pcl:Del4_D10,
+        pcl:Del4_D7 ;
+    backlog:hasIdentifier "IPG4-PKG-2"^^xsd:string ;
+    backlog:hasPackageVersion "1.21.0"^^xsd:string ;
+    backlog:hasRationale "Packed from groomed stories (ruling IP-R8). Priority: the two highest-scored gate stories (6.67 each). Technical need: they build the release gate's governance check, its planted-fault probes and its refusal code (exit 2), which every later gate story uses. Cohesion: both read a lineage's register whole at release. Deployed when complete, under milestone 2; it releases as IPage 1.21.0, the release that closes its last box, as decided at identification."^^xsd:string ;
+    backlog:hasRoadmapRank 2 ;
+    backlog:rankedOnRoadmap pcl:Roadmap4 ;
+    backlog:targetsIteration pcl:It4_2 .
+
+pcl:Goal4_Execution a backlog:Goal ;
+    rdfs:label "A Delivery lineage is kept on track as it works, by the execution method the Owner set"@en ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:contributesToMission pcl:Mission_G4 ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:derivesFromScope pcl:Scope4 ;
+    backlog:goalCoversArea pcl:Area4_Execution ;
+    backlog:hasGoalFacing backlog:Facing_Scope ;
+    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
+    backlog:hasParentItem pcl:Goal4_Mission ;
+    backlog:producedByStage pcl:Out4_Goal2 ;
+    rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
 
 pcl:Obj4_A_Planning a backlog:Objective ;
     rdfs:label "Objective: Missing: a release-gate check that refuses a planted fault for packages and a discussed forecast before the first box (D9), packages (D13), sprint plans (D14) and time boxes (D18)"@en ;
@@ -3733,19 +4057,6 @@ pcl:Obj4_Handovers a backlog:Objective ;
         pcl:Obj4_H_PageVersion,
         pcl:Obj4_H_ProfileFormat .
 
-pcl:Goal4_Execution a backlog:Goal ;
-    rdfs:label "A Delivery lineage is kept on track as it works, by the execution method the Owner set"@en ;
-    backlog:belongsToLineage pcl:Lineage04 ;
-    backlog:contributesToMission pcl:Mission_G4 ;
-    backlog:decidedBy backlog:Owner ;
-    backlog:derivesFromScope pcl:Scope4 ;
-    backlog:goalCoversArea pcl:Area4_Execution ;
-    backlog:hasGoalFacing backlog:Facing_Scope ;
-    backlog:hasIntentOrigin backlog:IOrigin_Derived ;
-    backlog:hasParentItem pcl:Goal4_Mission ;
-    backlog:producedByStage pcl:Out4_Goal2 ;
-    rdfs:comment "Accepted by the Owner on 2026-11-08 about 20:50 Istanbul (ruling IP-R4)."@en .
-
 pcl:Area4_Execution a backlog:ScopeArea ;
     rdfs:label "Area: Execution of the Delivery lineages: directed, monitored, controlled, corrected and kept on track, so each can satisfy its mission"@en ;
     backlog:areaLocation "03-tooling/, 05-lineage/"^^xsd:string ;
@@ -3761,10 +4072,44 @@ pcl:Area4_X_Planning a backlog:ScopeArea ;
     backlog:hasParentItem pcl:Area4_Execution ;
     backlog:hasScopeLayer backlog:Layer_Work .
 
+pcl:It4_2 a backlog:Iteration ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:hasCapacity 9.0 ;
+    backlog:hasIdentifier "IPG4-BOX-2"^^xsd:string ;
+    backlog:hasSprintGoal "Its stories meet their criteria; with the other boxes of package 2 the package is complete and can be deployed"@en ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "Box 2, package 2: D10, D7"@en .
+
 pcl:Tool_ReleaseCheck a backlog:ToolScript ;
     rdfs:label "release_check: IPage's release gate (03-tooling/release_check_v*.py), which will carry the governance checks"@en ;
     backlog:acceptsGraphPath false ;
     backlog:scriptFileName "03-tooling/release_check_v1_3_0.py"^^xsd:string .
+
+pcl:Story4_D10 a backlog:Story ;
+    rdfs:label "The release gate runs, for every live lineage, the checks of the rule sets it adopted"@en ;
+    backlog:appliesDefinitionOfDone pcl:DoD4 ;
+    backlog:belongsToLineage pcl:Lineage04 ;
+    backlog:coversEntity pcl:DomainEntity_DeliveryLineage ;
+    backlog:coversStage backlog:Stage_ActiveUse ;
+    backlog:hasAcceptanceCriterion pcl:AC4_D10 ;
+    backlog:hasConfidence 0.8 ;
+    backlog:hasEffort 3.0 ;
+    backlog:hasExecutionModality backlog:Mode_Automated ;
+    backlog:hasIdentifier "IPG4-S-D10"^^xsd:string ;
+    backlog:hasImpact 5.0 ;
+    backlog:hasInvestmentCategory backlog:Cat_Maintenance ;
+    backlog:hasPriorityScore pcl:Score4_D10 ;
+    backlog:hasReach 5.0 ;
+    backlog:hasState backlog:Proposed ;
+    backlog:hasTitle "The release gate runs, for every live lineage, the checks of the rule sets it adopted"@en ;
+    backlog:memberOfContainer pcl:Backlog,
+        pcl:It4_2,
+        pcl:Pkg4_P2 ;
+    backlog:pursuesObjective pcl:Obj4_Execution,
+        pcl:Obj4_Mission,
+        pcl:Obj4_X_Rules ;
+    backlog:responsible pcl:Run4_Builder0 ;
+    backlog:satisfiesDeliverable pcl:Del4_D10 .
 
 pcl:Obj4_Execution a backlog:Objective ;
     rdfs:label "Objective: Release-gate checks of the execution method that do not yet refuse a planted fault"@en ;
