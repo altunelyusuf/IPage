@@ -603,9 +603,9 @@ pcl:SRev4_3 a backlog:StageRevision ;
 <http://example.org/rdodi/page-conditions-lineage/register> a owl:Ontology ;
     rdfs:comment "BRSF register of Lineage 3 (one ontology of interactive pages), kept in the IPage repository from 2026-11-05. Its first version here is every statement of Lineage 3 in the RDODI register rdodi_overview_page_lineage_abox_v0_39_0.ttl, published by the Ontologies monorepo commit d3c1c30028cc48830c2b391c9be8e89dd15765cb, copied unchanged; that register keeps the whole history, and the evidence recorded there is re-run against the monorepo. From here the lineage writes only to this file."@en ;
     owl:imports <http://example.org/backlog> ;
-    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.69.0> ;
-    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.70.0> ;
-    owl:versionInfo "0.70.0" ;
+    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.70.0> ;
+    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.71.0> ;
+    owl:versionInfo "0.71.0" ;
     prov:wasAttributedTo <http://example.org/rdodi/agent/YusufAltunel> .
 
 pcl:AC4_D1 a backlog:AcceptanceCriterion ;
@@ -4338,3 +4338,113 @@ pcl:Lineage04 a backlog:Lineage ;
     backlog:openedWithProfile backlog:Profile_AgenticAdaptive ;
     rdfs:comment "The Governance lineage of IPage (the framework's ruling G217: the lineage that governs the lives of lineages). Opened on the Owner's ruling IP-R1 of 2026-11-08 under the framework's default profile (agentic adaptive, revision 16, which adopts the package rules), after Lineage 3 was concluded and set down."@en .
 
+
+# ---- 2026-11-16: ruling IP-R9 and the rebaseline it decides (register 0.71.0) ----
+
+pcl:Ruling_IP9 a backlog:GovernanceRuling ;
+    rdfs:label "Box 1 is rebaselined from the moment it can open; the boxes and milestones chained to it move with it"@en ;
+    backlog:enforcedByShape backlog:OwnerRulingDatedShape ;
+    backlog:hasRulingIdentifier "IP-R9"^^xsd:string ;
+    backlog:hasRulingStatement "Box 1's base plan was forecast on 2026-11-10 and the box could not open for six days while the framework's box tool was blocked on this register. Its plan is rebaselined: a new forecast from when the box can open, the same effort, the plan of 2026-11-10 kept as history. Dates remain forecasts only."^^xsd:string ;
+    backlog:rulingSource "Owner, 2026-11-16, between 18:04 and 19:08 Istanbul, choosing 'Rebaseline (Recommended)' to the session's question: new forecast from the moment the sprint opens, same effort; the 10 Nov plan kept as history."^^xsd:string .
+
+pcl:Rb4_It1 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of box 1 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:It4_1 ;
+    backlog:hasPreviousTarget "2026-11-10T09:00:00+00:00 to 2026-11-10T12:03:15+00:00 (base plan PB4_1)"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-16T17:00:00+00:00 to 2026-11-16T22:11:32+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Rb4_It2 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of box 2 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:It4_2 ;
+    backlog:hasPreviousTarget "2026-11-10T12:03:15+00:00 to 2026-11-10T16:07:35+00:00 (base plan PB4_2)"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-16T22:11:32+00:00 to 2026-11-17T05:06:55+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Rb4_It3 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of box 3 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:It4_3 ;
+    backlog:hasPreviousTarget "2026-11-10T16:07:35+00:00 to 2026-11-10T21:33:22+00:00 (base plan PB4_3)"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-17T05:06:55+00:00 to 2026-11-17T14:20:46+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Rb4_It4 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of box 4 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:It4_4 ;
+    backlog:hasPreviousTarget "2026-11-10T21:33:22+00:00 to 2026-11-11T03:39:52+00:00 (base plan PB4_4)"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-17T14:20:46+00:00 to 2026-11-18T00:43:51+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Rb4_It5 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of box 5 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:It4_5 ;
+    backlog:hasPreviousTarget "2026-11-11T03:39:52+00:00 to 2026-11-11T09:46:22+00:00 (base plan PB4_5)"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-18T00:43:51+00:00 to 2026-11-18T11:06:56+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Rb4_It6 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of box 6 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:It4_6 ;
+    backlog:hasPreviousTarget "2026-11-11T09:46:22+00:00 to 2026-11-11T13:50:42+00:00 (base plan PB4_6)"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-18T11:06:56+00:00 to 2026-11-18T18:02:19+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Rb4_It7 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of box 7 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:It4_7 ;
+    backlog:hasPreviousTarget "2026-11-11T13:50:42+00:00 to 2026-11-11T17:55:02+00:00 (base plan PB4_7)"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-18T18:02:19+00:00 to 2026-11-19T00:57:42+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Rb4_M1 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of milestone 1 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:Milestone4_M1 ;
+    backlog:hasPreviousTarget "2026-11-10T12:03:15+00:00"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-16T22:11:32+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Rb4_M2 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of milestone 2 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:Milestone4_M2 ;
+    backlog:hasPreviousTarget "2026-11-10T21:33:22+00:00"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-17T14:20:46+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Rb4_M3 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of milestone 3 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:Milestone4_M3 ;
+    backlog:hasPreviousTarget "2026-11-11T09:46:22+00:00"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-18T11:06:56+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Rb4_M4 a backlog:Rebaseline ;
+    rdfs:label "Rebaseline of milestone 4 (IP-R9)"@en ;
+    backlog:decidedBy backlog:Owner ;
+    backlog:rebaselines pcl:Milestone4_M4 ;
+    backlog:hasPreviousTarget "2026-11-11T17:55:02+00:00"^^xsd:string ;
+    backlog:hasNewTarget "2026-11-19T00:57:42+00:00"^^xsd:string ;
+    backlog:hasRebaselineRationale "The Owner ruled on 2026-11-16 (IP-R9) to rebaseline box 1: its base plan was forecast on 2026-11-10 to run that morning, and the box could not open for six days while the framework's box tool could not run on this register (hand-over box-tool-for-an-adopting-register, built in the framework's releases 5.5.14 to 5.5.19). The base plans of the boxes chain one after another and each milestone's date is the end of the last box of its packages, so moving box 1 moves them all. New forecast: the same effort of each box at the pace borrowed from the framework's register (1.30 delivered points per elapsed hour, median of 10 pairs of boxes, backlog_date_plan 1.4.0 --pace-from, run 2026-11-16T16:30Z), buffer x1.5, from 2026-11-16T17:00Z. A forecast only, due on nothing (G197). The base plans are kept unchanged."^^xsd:string ;
+    backlog:rebaselinedAt "2026-11-16T16:45:00+00:00"^^xsd:dateTime .
+
+pcl:Pkg4_P6 backlog:hasDecisionRationale "Two boxes, where the other packages have one: its three stories carry 12 points (D11 3, D19 3, D12 6) and a box holds 9; D12 (the monitoring report) depends on stories of packages 2 to 5, and D11 and D19 only on package 2, so D11 and D19 take box 6 and D12 takes box 7."^^xsd:string .
