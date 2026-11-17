@@ -21,7 +21,7 @@ Date: 2026-11-16. Lineage 4 (Governance): records only. The framework's replies 
 ## Handed over to the framework
 `HANDOVER_ipage_to_backlog-roadmap-framework_seven-points-found-preparing-box-1_v1_1_0.md` and `..._box-tool-misses-a-planned-base-plan_v1_0_0.md`, in its own inbox. Points 4 (a runner for an objective's measurement query, since this lineage must not be measured by a Python script) and 5 (recording work finished before its box in a running lineage) decide how box 1 is measured and what it holds, so box 1 waits for them.
 
-## Not yet released
-The release check fails on archived Lineage 3 alone. The framework's shapes 1.224.0 and later judge it by rules adopted after it was archived (14 Done items with no running Definition of Done criterion). They also count the archive convention's two statuses (live `LS_Archived`, archived `LS_Abandoned`) as a violation; the framework's own archived lineages fail the same way. The register, Lineage 2 and Lineage 4 pass. Handed over (points 6 and 7). Until the gate passes, this work waits on the work branch `lineage4-work` (G203) and is released from there.
+## Released after the framework's fixes
+This release was held for a day: the framework's shapes 1.224.0 to 1.227.0 judged archived Lineage 3 by a rule adopted after it was archived, and counted the archive convention's two statuses as a violation. The framework built both fixes (points 7 and 6) in its releases 5.5.21 and 5.5.22; with 5.5.22 the release check passes. The work waited on the branch `lineage4-work` (G203) meanwhile. The framework's reply of 2026-11-17 is accepted.
 
-**Unplanned work:** none. These are records of Lineage 4 under the Owner's ruling IP-R9, dated 2026-11-16 and recorded in this release.
+**Unplanned work:** the records of Lineage 4 in this release are made under the Owner's ruling IP-R9 of 2026-11-16, recorded here as `Ruling_IP9`.
