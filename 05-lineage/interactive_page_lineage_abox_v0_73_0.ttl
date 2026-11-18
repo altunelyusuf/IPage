@@ -603,14 +603,14 @@ pcl:SRev4_3 a backlog:StageRevision ;
 <http://example.org/rdodi/page-conditions-lineage/register> a owl:Ontology ;
     rdfs:comment "BRSF register of Lineage 3 (one ontology of interactive pages), kept in the IPage repository from 2026-11-05. Its first version here is every statement of Lineage 3 in the RDODI register rdodi_overview_page_lineage_abox_v0_39_0.ttl, published by the Ontologies monorepo commit d3c1c30028cc48830c2b391c9be8e89dd15765cb, copied unchanged; that register keeps the whole history, and the evidence recorded there is re-run against the monorepo. From here the lineage writes only to this file."@en ;
     owl:imports <http://example.org/backlog> ;
-    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.71.0> ;
-    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.72.0> ;
-    owl:versionInfo "0.72.0" ;
+    owl:priorVersion <http://example.org/rdodi/page-conditions-lineage/register/0.72.0> ;
+    owl:versionIRI <http://example.org/rdodi/page-conditions-lineage/register/0.73.0> ;
+    owl:versionInfo "0.73.0" ;
     prov:wasAttributedTo <http://example.org/rdodi/agent/YusufAltunel> .
 
 pcl:AC4_D1 a backlog:AcceptanceCriterion ;
-    backlog:hasGherkinText "Given the framework's standard inbox and IPage's own inbox, When a reader looks for IPage's hand-over on closing an epic, Then the framework's hand-over log shows it settled by the ruling that answers it (G228), IPage's pending folder holds no copy of it, and IPage's hand-over log has a row saying the copy was retired and why."^^xsd:string ;
-    backlog:satisfiedByArtifact "07-handover-inbox/HANDOVER_LOG.md#HANDOVER_to_BRSF_epic-closure-cascade_v1_0_0.md"^^xsd:string .
+    backlog:hasGherkinText "Given the framework's standard inbox and IPage's own inbox, When a reader looks for IPage's hand-over on closing an epic, Then the framework's hand-over log shows it settled by the ruling that answers it (G228), IPage's pending folder no longer holds a copy, IPage's hand-over log says the copy was retired and why, and a verification report made in box 1 records all three, citing the delivered hand-over by its content hash."^^xsd:string ;
+    backlog:satisfiedByArtifact "05-lineage/box4_1_D1_verification_v1_0_0.md"^^xsd:string .
 
 pcl:AC4_D10 a backlog:AcceptanceCriterion ;
     backlog:hasGherkinText "Given a planted-fault register probe_D10 for this deliverable and the clean register, When the release gate is run on each, Then it exits 2 on the probe (a governance check refused it) and passes on the clean register, and measure_governance reads X_Rules as 0."^^xsd:string ;
@@ -673,20 +673,20 @@ pcl:AC4_D19 a backlog:AcceptanceCriterion ;
     backlog:measuredWithVersion "measure_governance 1.1.0; release_check: the version that first carries this deliverable's governance check (from 1.4.0)"^^xsd:string .
 
 pcl:AC4_D2 a backlog:AcceptanceCriterion ;
-    backlog:hasGherkinText "Given the framework's standard inbox and IPage's own inbox, When a reader looks for IPage's hand-over on the archive tool, Then it names the tool's two flaws with their evidence of 2026-11-08 and says the third was withdrawn, and the framework's reply that built the fixes is in IPage's accepted folder with a log row saying how it was checked."^^xsd:string ;
-    backlog:satisfiedByArtifact "07-handover-inbox/HANDOVER_LOG.md#RESPONSE_BRSF_to_IPage_archive-tool-flaws-fixed_v1_0_0.md"^^xsd:string .
+    backlog:hasGherkinText "Given the framework's standard inbox and IPage's own inbox, When a reader looks for IPage's hand-over on the archive tool, Then it names the tool's two flaws with their evidence of 2026-11-08 and says the third was withdrawn, the framework's reply that built the fixes is accepted in IPage's inbox with a log row saying how it was checked, and a verification report made in box 1 records this, citing the hand-over and the reply by their content hashes."^^xsd:string ;
+    backlog:satisfiedByArtifact "05-lineage/box4_1_D2_verification_v1_0_0.md"^^xsd:string .
 
 pcl:AC4_D3 a backlog:AcceptanceCriterion ;
-    backlog:hasGherkinText "Given IPage's inbox and its register, When a reader opens the hand-over on a profile naming its own page format, Then it is in the accepted folder, its log row names the gap it became, and the register holds that gap, citing the hand-over, as work for the Delivery lineage on profiles; IPage's pages and ontology behave as before, since nothing is built here for it."^^xsd:string ;
-    backlog:satisfiedByArtifact "07-handover-inbox/HANDOVER_LOG.md#HANDOVER_to_IPage_programming-subject-default-page-format_v1_0_0.md"^^xsd:string .
+    backlog:hasGherkinText "Given IPage's inbox and its register, When a reader opens the hand-over on a profile naming its own page format, Then it sits in the accepted folder, its log row names the gap it became, the register holds that gap, citing the hand-over, as work for the Delivery lineage on profiles, IPage's pages and ontology behave as before since nothing is built here for it, and a verification report made in box 1 records this, citing the hand-over by its content hash."^^xsd:string ;
+    backlog:satisfiedByArtifact "05-lineage/box4_1_D3_verification_v1_0_0.md"^^xsd:string .
 
 pcl:AC4_D4 a backlog:AcceptanceCriterion ;
-    backlog:hasGherkinText "Given IPage's inbox and its register, When a reader opens the hand-over on a page's version, Then it is in the accepted folder, its log row names the gap it became, and the register holds that gap, citing the hand-over, as work for the Delivery lineage it belongs to; IPage's pages and ontology behave as before, since nothing is built here for it."^^xsd:string ;
-    backlog:satisfiedByArtifact "07-handover-inbox/HANDOVER_LOG.md#HANDOVER_course-management-session_to_IPage_page-version-follows-the-page-not-the-template_v1_0_0.md"^^xsd:string .
+    backlog:hasGherkinText "Given IPage's inbox and its register, When a reader opens the hand-over on a page's version, Then it sits in the accepted folder, its log row names the gap it became, the register holds that gap, citing the hand-over, as work for the Delivery lineage it belongs to, IPage's pages and ontology behave as before since nothing is built here for it, and a verification report made in box 1 records this, citing the hand-over by its content hash."^^xsd:string ;
+    backlog:satisfiedByArtifact "05-lineage/box4_1_D4_verification_v1_0_0.md"^^xsd:string .
 
 pcl:AC4_D5 a backlog:AcceptanceCriterion ;
-    backlog:hasGherkinText "Given the live register and the newest archive, When a reader looks for Lineage 2, Then the archive holds it with its outcome and every one of its items closed, the live register holds only its archived pointer, and the digest audit of Lineage 2 passes on the two read together."^^xsd:string ;
-    backlog:satisfiedByArtifact "05-lineage/archive/interactive_page_lineage_abox_archive_v1_2_0.ttl#Lineage02"^^xsd:string .
+    backlog:hasGherkinText "Given the live register and the newest archive, When a reader looks for Lineage 2, Then the archive holds it with its outcome and every one of its items closed, the live register holds only its archived pointer, the digest audit of Lineage 2 passes on the two read together, and a verification report made in box 1 records this, citing the archive by its content hash."^^xsd:string ;
+    backlog:satisfiedByArtifact "05-lineage/box4_1_D5_verification_v1_0_0.md"^^xsd:string .
 
 pcl:AC4_D6 a backlog:AcceptanceCriterion ;
     backlog:hasGherkinText "Given the live register, When measure_governance is run, Then Roadmap reads 0: at least one Delivery lineage after Lineage 4 is at Opened with its mission, in the recorded order, linked to Lineage 4 as its governing lineage."^^xsd:string ;
@@ -4557,3 +4557,51 @@ pcl:DoD4_9 a backlog:DoDCriterion ;
     backlog:hasCheckQuery "python3 03-tooling/release_check_v*.py -> RELEASE CHECK: PASS"^^xsd:string ;
     backlog:hasCriterionStatus backlog:Holds ;
     backlog:hasExpectedResult "RELEASE CHECK: PASS" .
+
+
+# ---- 2026-11-18: box 1's criteria name artifacts made inside the box (framework's answer to point 5; register 0.73.0) ----
+
+pcl:Refine4_D1_2 a backlog:RefinementEvent ;
+    backlog:refines pcl:Story4_D1 ;
+    backlog:groomsForIteration pcl:It4_1 ;
+    backlog:addressesConcern backlog:Concern_Interface ;
+    backlog:hasWorkKind backlog:WorkKind_Preparation ;
+    backlog:hasRefinementOutcome "The framework answered point 5 on 2026-11-17: work done before its box is evidence (an artifact evidence with its content hash, checked by the framework's evidence bridge), and a story closes on an artifact made inside its box, since the box tool's close refuses an older one. So the artifact this story's criterion names is now a verification report made in box 1 that cites the earlier files by their hashes, in place of the hand-over log row or archive named on 2026-11-17. Tasks unchanged: design, build, verification, validation."^^xsd:string ;
+    backlog:refinedAt "2026-11-18T05:40:00+00:00"^^xsd:dateTime ;
+    backlog:refinedBy backlog:Builder .
+
+pcl:Refine4_D2_2 a backlog:RefinementEvent ;
+    backlog:refines pcl:Story4_D2 ;
+    backlog:groomsForIteration pcl:It4_1 ;
+    backlog:addressesConcern backlog:Concern_Interface ;
+    backlog:hasWorkKind backlog:WorkKind_Preparation ;
+    backlog:hasRefinementOutcome "The framework answered point 5 on 2026-11-17: work done before its box is evidence (an artifact evidence with its content hash, checked by the framework's evidence bridge), and a story closes on an artifact made inside its box, since the box tool's close refuses an older one. So the artifact this story's criterion names is now a verification report made in box 1 that cites the earlier files by their hashes, in place of the hand-over log row or archive named on 2026-11-17. Tasks unchanged: verification and validation; the hand-over of 2026-11-10 and the framework's reply of 2026-11-16 are its evidence."^^xsd:string ;
+    backlog:refinedAt "2026-11-18T05:40:00+00:00"^^xsd:dateTime ;
+    backlog:refinedBy backlog:Builder .
+
+pcl:Refine4_D3_2 a backlog:RefinementEvent ;
+    backlog:refines pcl:Story4_D3 ;
+    backlog:groomsForIteration pcl:It4_1 ;
+    backlog:addressesConcern backlog:Concern_Interface ;
+    backlog:hasWorkKind backlog:WorkKind_Preparation ;
+    backlog:hasRefinementOutcome "The framework answered point 5 on 2026-11-17: work done before its box is evidence (an artifact evidence with its content hash, checked by the framework's evidence bridge), and a story closes on an artifact made inside its box, since the box tool's close refuses an older one. So the artifact this story's criterion names is now a verification report made in box 1 that cites the earlier files by their hashes, in place of the hand-over log row or archive named on 2026-11-17. Tasks unchanged: analysis, build, verification, validation."^^xsd:string ;
+    backlog:refinedAt "2026-11-18T05:40:00+00:00"^^xsd:dateTime ;
+    backlog:refinedBy backlog:Builder .
+
+pcl:Refine4_D4_2 a backlog:RefinementEvent ;
+    backlog:refines pcl:Story4_D4 ;
+    backlog:groomsForIteration pcl:It4_1 ;
+    backlog:addressesConcern backlog:Concern_Interface ;
+    backlog:hasWorkKind backlog:WorkKind_Preparation ;
+    backlog:hasRefinementOutcome "The framework answered point 5 on 2026-11-17: work done before its box is evidence (an artifact evidence with its content hash, checked by the framework's evidence bridge), and a story closes on an artifact made inside its box, since the box tool's close refuses an older one. So the artifact this story's criterion names is now a verification report made in box 1 that cites the earlier files by their hashes, in place of the hand-over log row or archive named on 2026-11-17. Tasks unchanged: analysis, build, verification, validation."^^xsd:string ;
+    backlog:refinedAt "2026-11-18T05:40:00+00:00"^^xsd:dateTime ;
+    backlog:refinedBy backlog:Builder .
+
+pcl:Refine4_D5_2 a backlog:RefinementEvent ;
+    backlog:refines pcl:Story4_D5 ;
+    backlog:groomsForIteration pcl:It4_1 ;
+    backlog:addressesConcern backlog:Concern_Data ;
+    backlog:hasWorkKind backlog:WorkKind_Preparation ;
+    backlog:hasRefinementOutcome "The framework answered point 5 on 2026-11-17: work done before its box is evidence (an artifact evidence with its content hash, checked by the framework's evidence bridge), and a story closes on an artifact made inside its box, since the box tool's close refuses an older one. So the artifact this story's criterion names is now a verification report made in box 1 that cites the earlier files by their hashes, in place of the hand-over log row or archive named on 2026-11-17. Tasks unchanged: verification and validation; Lineage 2's archive, set down in IPage 1.13.0, is its evidence."^^xsd:string ;
+    backlog:refinedAt "2026-11-18T05:40:00+00:00"^^xsd:dateTime ;
+    backlog:refinedBy backlog:Builder .
